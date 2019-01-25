@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		21819EBFF7E0E2A7AB8C262B /* Pods_FightHunger_DonaturTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */; };
+		9025445BFF7F59EE01D5AC3E /* Pods_FightHunger_Donatur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */; };
 		FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00911D21FB78F800BC89AE /* Donating.storyboard */; };
 		FB00912121FB792400BC89AE /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912021FB792400BC89AE /* Location.storyboard */; };
 		FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912321FB79A900BC89AE /* Organization.storyboard */; };
@@ -35,6 +37,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		15D69F824E46B705A423BE2C /* Pods-FightHunger DonaturTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.debug.xcconfig"; sourceTree = "<group>"; };
+		69507A8C03C1CFEB66BCE0F6 /* Pods-FightHunger Donatur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.release.xcconfig"; sourceTree = "<group>"; };
+		71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FightHunger_DonaturTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9B398ADFF867F856F16B00AD /* Pods-FightHunger DonaturTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.release.xcconfig"; sourceTree = "<group>"; };
+		9E36157E1D42CAA931567401 /* Pods-FightHunger Donatur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.debug.xcconfig"; sourceTree = "<group>"; };
+		E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FightHunger_Donatur.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB00911D21FB78F800BC89AE /* Donating.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donating.storyboard; sourceTree = "<group>"; };
 		FB00912021FB792400BC89AE /* Location.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Location.storyboard; sourceTree = "<group>"; };
 		FB00912321FB79A900BC89AE /* Organization.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Organization.storyboard; sourceTree = "<group>"; };
@@ -61,6 +69,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				9025445BFF7F59EE01D5AC3E /* Pods_FightHunger_Donatur.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,12 +77,33 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				21819EBFF7E0E2A7AB8C262B /* Pods_FightHunger_DonaturTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		08CA640993E2373394A7F207 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */,
+				71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		7AB795E3E7F7B6B6D76531EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				9E36157E1D42CAA931567401 /* Pods-FightHunger Donatur.debug.xcconfig */,
+				69507A8C03C1CFEB66BCE0F6 /* Pods-FightHunger Donatur.release.xcconfig */,
+				15D69F824E46B705A423BE2C /* Pods-FightHunger DonaturTests.debug.xcconfig */,
+				9B398ADFF867F856F16B00AD /* Pods-FightHunger DonaturTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
 		FB00911B21FB781A00BC89AE /* View */ = {
 			isa = PBXGroup;
 			children = (
@@ -167,6 +197,8 @@
 				FB34B3F221FB32330070AA5E /* FightHunger Donatur */,
 				FB34B40A21FB32350070AA5E /* FightHunger DonaturTests */,
 				FB34B3F121FB32330070AA5E /* Products */,
+				7AB795E3E7F7B6B6D76531EF /* Pods */,
+				08CA640993E2373394A7F207 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -210,9 +242,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB34B41021FB32350070AA5E /* Build configuration list for PBXNativeTarget "FightHunger Donatur" */;
 			buildPhases = (
+				A754BF286324953F7DA22017 /* [CP] Check Pods Manifest.lock */,
 				FB34B3EC21FB32330070AA5E /* Sources */,
 				FB34B3ED21FB32330070AA5E /* Frameworks */,
 				FB34B3EE21FB32330070AA5E /* Resources */,
+				9A4E47C3505E5DFE5F43548F /* [CP] Embed Pods Frameworks */,
+				78AC45B17BE7E725A55A851F /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -227,6 +262,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FB34B41321FB32350070AA5E /* Build configuration list for PBXNativeTarget "FightHunger DonaturTests" */;
 			buildPhases = (
+				389BF183A8393CA3740F4023 /* [CP] Check Pods Manifest.lock */,
 				FB34B40321FB32350070AA5E /* Sources */,
 				FB34B40421FB32350070AA5E /* Frameworks */,
 				FB34B40521FB32350070AA5E /* Resources */,
@@ -306,6 +342,117 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		389BF183A8393CA3740F4023 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FightHunger DonaturTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		78AC45B17BE7E725A55A851F /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur-resources.sh",
+				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
+				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		9A4E47C3505E5DFE5F43548F /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFInternationalization/MDFInternationalization.framework",
+				"${BUILT_PRODUCTS_DIR}/MDFTextAccessibility/MDFTextAccessibility.framework",
+				"${BUILT_PRODUCTS_DIR}/MaterialComponents/MaterialComponents.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
+				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFInternationalization.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MDFTextAccessibility.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MaterialComponents.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A754BF286324953F7DA22017 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-FightHunger Donatur-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FB34B3EC21FB32330070AA5E /* Sources */ = {
@@ -474,6 +621,7 @@
 		};
 		FB34B41121FB32350070AA5E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9E36157E1D42CAA931567401 /* Pods-FightHunger Donatur.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -492,6 +640,7 @@
 		};
 		FB34B41221FB32350070AA5E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 69507A8C03C1CFEB66BCE0F6 /* Pods-FightHunger Donatur.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -510,6 +659,7 @@
 		};
 		FB34B41421FB32350070AA5E /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 15D69F824E46B705A423BE2C /* Pods-FightHunger DonaturTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
@@ -531,6 +681,7 @@
 		};
 		FB34B41521FB32350070AA5E /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9B398ADFF867F856F16B00AD /* Pods-FightHunger DonaturTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
