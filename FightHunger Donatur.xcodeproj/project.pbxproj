@@ -1,0 +1,599 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00911D21FB78F800BC89AE /* Donating.storyboard */; };
+		FB00912121FB792400BC89AE /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912021FB792400BC89AE /* Location.storyboard */; };
+		FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912321FB79A900BC89AE /* Organization.storyboard */; };
+		FB00912721FB79D100BC89AE /* OrgProgram.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912621FB79D100BC89AE /* OrgProgram.storyboard */; };
+		FB00912C21FB7B6D00BC89AE /* Kegiatan.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912B21FB7B6D00BC89AE /* Kegiatan.storyboard */; };
+		FB00912E21FB7B8F00BC89AE /* Profile.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912D21FB7B8F00BC89AE /* Profile.storyboard */; };
+		FB00913021FB7BAB00BC89AE /* Riwayat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912F21FB7BAB00BC89AE /* Riwayat.storyboard */; };
+		FB00913321FB7E0E00BC89AE /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00913221FB7E0E00BC89AE /* LoginRegister.storyboard */; };
+		FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB00913621FB7E8A00BC89AE /* Connector.swift */; };
+		FB34B3F421FB32330070AA5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34B3F321FB32330070AA5E /* AppDelegate.swift */; };
+		FB34B3F921FB32330070AA5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB34B3F721FB32330070AA5E /* Main.storyboard */; };
+		FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB34B3FA21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld */; };
+		FB34B3FE21FB32340070AA5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB34B3FD21FB32340070AA5E /* Assets.xcassets */; };
+		FB34B40121FB32340070AA5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB34B3FF21FB32340070AA5E /* LaunchScreen.storyboard */; };
+		FB34B40C21FB32350070AA5E /* FightHunger_DonaturTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34B40B21FB32350070AA5E /* FightHunger_DonaturTests.swift */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		FB34B40821FB32350070AA5E /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = FB34B3E821FB32330070AA5E /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = FB34B3EF21FB32330070AA5E;
+			remoteInfo = "FightHunger Donatur";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		FB00911D21FB78F800BC89AE /* Donating.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donating.storyboard; sourceTree = "<group>"; };
+		FB00912021FB792400BC89AE /* Location.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Location.storyboard; sourceTree = "<group>"; };
+		FB00912321FB79A900BC89AE /* Organization.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Organization.storyboard; sourceTree = "<group>"; };
+		FB00912621FB79D100BC89AE /* OrgProgram.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = OrgProgram.storyboard; sourceTree = "<group>"; };
+		FB00912B21FB7B6D00BC89AE /* Kegiatan.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Kegiatan.storyboard; sourceTree = "<group>"; };
+		FB00912D21FB7B8F00BC89AE /* Profile.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Profile.storyboard; sourceTree = "<group>"; };
+		FB00912F21FB7BAB00BC89AE /* Riwayat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Riwayat.storyboard; sourceTree = "<group>"; };
+		FB00913221FB7E0E00BC89AE /* LoginRegister.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
+		FB00913621FB7E8A00BC89AE /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		FB34B3F021FB32330070AA5E /* FightHunger Donatur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FightHunger Donatur.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB34B3F321FB32330070AA5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FB34B3F821FB32330070AA5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FB34B3FB21FB32330070AA5E /* FightHunger_Donatur.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = FightHunger_Donatur.xcdatamodel; sourceTree = "<group>"; };
+		FB34B3FD21FB32340070AA5E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		FB34B40021FB32340070AA5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FB34B40221FB32340070AA5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FB34B40721FB32350070AA5E /* FightHunger DonaturTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FightHunger DonaturTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		FB34B40B21FB32350070AA5E /* FightHunger_DonaturTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightHunger_DonaturTests.swift; sourceTree = "<group>"; };
+		FB34B40D21FB32350070AA5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		FB34B3ED21FB32330070AA5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB34B40421FB32350070AA5E /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		FB00911B21FB781A00BC89AE /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FB00913121FB7DE600BC89AE /* LoginRegister */,
+				FB00912921FB7A8600BC89AE /* Profil */,
+				FB00912821FB7A5800BC89AE /* Kegiatan */,
+				FB00912221FB793800BC89AE /* Organization */,
+				FB00911C21FB78D500BC89AE /* Donating */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FB00911C21FB78D500BC89AE /* Donating */ = {
+			isa = PBXGroup;
+			children = (
+				FB00911F21FB790E00BC89AE /* Location */,
+				FB00911D21FB78F800BC89AE /* Donating.storyboard */,
+			);
+			path = Donating;
+			sourceTree = "<group>";
+		};
+		FB00911F21FB790E00BC89AE /* Location */ = {
+			isa = PBXGroup;
+			children = (
+				FB00912021FB792400BC89AE /* Location.storyboard */,
+			);
+			path = Location;
+			sourceTree = "<group>";
+		};
+		FB00912221FB793800BC89AE /* Organization */ = {
+			isa = PBXGroup;
+			children = (
+				FB00912521FB79AF00BC89AE /* Program */,
+				FB00912321FB79A900BC89AE /* Organization.storyboard */,
+			);
+			path = Organization;
+			sourceTree = "<group>";
+		};
+		FB00912521FB79AF00BC89AE /* Program */ = {
+			isa = PBXGroup;
+			children = (
+				FB00912621FB79D100BC89AE /* OrgProgram.storyboard */,
+			);
+			path = Program;
+			sourceTree = "<group>";
+		};
+		FB00912821FB7A5800BC89AE /* Kegiatan */ = {
+			isa = PBXGroup;
+			children = (
+				FB00912B21FB7B6D00BC89AE /* Kegiatan.storyboard */,
+			);
+			path = Kegiatan;
+			sourceTree = "<group>";
+		};
+		FB00912921FB7A8600BC89AE /* Profil */ = {
+			isa = PBXGroup;
+			children = (
+				FB00912D21FB7B8F00BC89AE /* Profile.storyboard */,
+				FB00912A21FB7A8F00BC89AE /* Riwayat */,
+			);
+			path = Profil;
+			sourceTree = "<group>";
+		};
+		FB00912A21FB7A8F00BC89AE /* Riwayat */ = {
+			isa = PBXGroup;
+			children = (
+				FB00912F21FB7BAB00BC89AE /* Riwayat.storyboard */,
+			);
+			path = Riwayat;
+			sourceTree = "<group>";
+		};
+		FB00913121FB7DE600BC89AE /* LoginRegister */ = {
+			isa = PBXGroup;
+			children = (
+				FB00913221FB7E0E00BC89AE /* LoginRegister.storyboard */,
+			);
+			path = LoginRegister;
+			sourceTree = "<group>";
+		};
+		FB00913521FB7E7D00BC89AE /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				FB00913621FB7E8A00BC89AE /* Connector.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		FB34B3E721FB32330070AA5E = {
+			isa = PBXGroup;
+			children = (
+				FB34B3F221FB32330070AA5E /* FightHunger Donatur */,
+				FB34B40A21FB32350070AA5E /* FightHunger DonaturTests */,
+				FB34B3F121FB32330070AA5E /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		FB34B3F121FB32330070AA5E /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				FB34B3F021FB32330070AA5E /* FightHunger Donatur.app */,
+				FB34B40721FB32350070AA5E /* FightHunger DonaturTests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		FB34B3F221FB32330070AA5E /* FightHunger Donatur */ = {
+			isa = PBXGroup;
+			children = (
+				FB00913521FB7E7D00BC89AE /* Service */,
+				FB00911B21FB781A00BC89AE /* View */,
+				FB34B3F321FB32330070AA5E /* AppDelegate.swift */,
+				FB34B3F721FB32330070AA5E /* Main.storyboard */,
+				FB34B3FD21FB32340070AA5E /* Assets.xcassets */,
+				FB34B3FF21FB32340070AA5E /* LaunchScreen.storyboard */,
+				FB34B40221FB32340070AA5E /* Info.plist */,
+				FB34B3FA21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld */,
+			);
+			path = "FightHunger Donatur";
+			sourceTree = "<group>";
+		};
+		FB34B40A21FB32350070AA5E /* FightHunger DonaturTests */ = {
+			isa = PBXGroup;
+			children = (
+				FB34B40B21FB32350070AA5E /* FightHunger_DonaturTests.swift */,
+				FB34B40D21FB32350070AA5E /* Info.plist */,
+			);
+			path = "FightHunger DonaturTests";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		FB34B3EF21FB32330070AA5E /* FightHunger Donatur */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB34B41021FB32350070AA5E /* Build configuration list for PBXNativeTarget "FightHunger Donatur" */;
+			buildPhases = (
+				FB34B3EC21FB32330070AA5E /* Sources */,
+				FB34B3ED21FB32330070AA5E /* Frameworks */,
+				FB34B3EE21FB32330070AA5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "FightHunger Donatur";
+			productName = "FightHunger Donatur";
+			productReference = FB34B3F021FB32330070AA5E /* FightHunger Donatur.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FB34B40621FB32350070AA5E /* FightHunger DonaturTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FB34B41321FB32350070AA5E /* Build configuration list for PBXNativeTarget "FightHunger DonaturTests" */;
+			buildPhases = (
+				FB34B40321FB32350070AA5E /* Sources */,
+				FB34B40421FB32350070AA5E /* Frameworks */,
+				FB34B40521FB32350070AA5E /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				FB34B40921FB32350070AA5E /* PBXTargetDependency */,
+			);
+			name = "FightHunger DonaturTests";
+			productName = "FightHunger DonaturTests";
+			productReference = FB34B40721FB32350070AA5E /* FightHunger DonaturTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		FB34B3E821FB32330070AA5E /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1010;
+				LastUpgradeCheck = 1010;
+				ORGANIZATIONNAME = Fantastic7;
+				TargetAttributes = {
+					FB34B3EF21FB32330070AA5E = {
+						CreatedOnToolsVersion = 10.1;
+					};
+					FB34B40621FB32350070AA5E = {
+						CreatedOnToolsVersion = 10.1;
+						TestTargetID = FB34B3EF21FB32330070AA5E;
+					};
+				};
+			};
+			buildConfigurationList = FB34B3EB21FB32330070AA5E /* Build configuration list for PBXProject "FightHunger Donatur" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = FB34B3E721FB32330070AA5E;
+			productRefGroup = FB34B3F121FB32330070AA5E /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				FB34B3EF21FB32330070AA5E /* FightHunger Donatur */,
+				FB34B40621FB32350070AA5E /* FightHunger DonaturTests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		FB34B3EE21FB32330070AA5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB00912121FB792400BC89AE /* Location.storyboard in Resources */,
+				FB34B40121FB32340070AA5E /* LaunchScreen.storyboard in Resources */,
+				FB00912721FB79D100BC89AE /* OrgProgram.storyboard in Resources */,
+				FB34B3FE21FB32340070AA5E /* Assets.xcassets in Resources */,
+				FB00913321FB7E0E00BC89AE /* LoginRegister.storyboard in Resources */,
+				FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */,
+				FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */,
+				FB00913021FB7BAB00BC89AE /* Riwayat.storyboard in Resources */,
+				FB00912E21FB7B8F00BC89AE /* Profile.storyboard in Resources */,
+				FB00912C21FB7B6D00BC89AE /* Kegiatan.storyboard in Resources */,
+				FB34B3F921FB32330070AA5E /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB34B40521FB32350070AA5E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		FB34B3EC21FB32330070AA5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
+				FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */,
+				FB34B3F421FB32330070AA5E /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FB34B40321FB32350070AA5E /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FB34B40C21FB32350070AA5E /* FightHunger_DonaturTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		FB34B40921FB32350070AA5E /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = FB34B3EF21FB32330070AA5E /* FightHunger Donatur */;
+			targetProxy = FB34B40821FB32350070AA5E /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		FB34B3F721FB32330070AA5E /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB34B3F821FB32330070AA5E /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FB34B3FF21FB32340070AA5E /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FB34B40021FB32340070AA5E /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		FB34B40E21FB32350070AA5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		FB34B40F21FB32350070AA5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		FB34B41121FB32350070AA5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Fantastic7.FightHunger-Donatur";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FB34B41221FB32350070AA5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = "";
+				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Fantastic7.FightHunger-Donatur";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FB34B41421FB32350070AA5E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W7VX669QKF;
+				INFOPLIST_FILE = "FightHunger DonaturTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Fantastic7.FightHunger-DonaturTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FightHunger Donatur.app/FightHunger Donatur";
+			};
+			name = Debug;
+		};
+		FB34B41521FB32350070AA5E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = W7VX669QKF;
+				INFOPLIST_FILE = "FightHunger DonaturTests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "Fantastic7.FightHunger-DonaturTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 4.2;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/FightHunger Donatur.app/FightHunger Donatur";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		FB34B3EB21FB32330070AA5E /* Build configuration list for PBXProject "FightHunger Donatur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB34B40E21FB32350070AA5E /* Debug */,
+				FB34B40F21FB32350070AA5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB34B41021FB32350070AA5E /* Build configuration list for PBXNativeTarget "FightHunger Donatur" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB34B41121FB32350070AA5E /* Debug */,
+				FB34B41221FB32350070AA5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FB34B41321FB32350070AA5E /* Build configuration list for PBXNativeTarget "FightHunger DonaturTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FB34B41421FB32350070AA5E /* Debug */,
+				FB34B41521FB32350070AA5E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		FB34B3FA21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				FB34B3FB21FB32330070AA5E /* FightHunger_Donatur.xcdatamodel */,
+			);
+			currentVersion = FB34B3FB21FB32330070AA5E /* FightHunger_Donatur.xcdatamodel */;
+			path = FightHunger_Donatur.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
+	};
+	rootObject = FB34B3E821FB32330070AA5E /* Project object */;
+}

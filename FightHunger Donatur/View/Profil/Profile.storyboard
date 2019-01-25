@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Kne-pn-t78">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Profil-->
+        <scene sceneID="04O-2T-s3j">
+            <objects>
+                <viewController title="Profil" id="Kne-pn-t78" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="KIW-qr-6Dj">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="yPJ-Jm-7Sa"/>
+                    </view>
+                    <connections>
+                        <segue destination="f2P-U7-aeQ" kind="show" id="YIo-1Q-7pa"/>
+                        <segue destination="Ldj-ei-nIg" kind="presentation" id="CYh-QG-xHS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vu3-Sl-d8D" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="1195"/>
+        </scene>
+        <!--Edit-->
+        <scene sceneID="OEw-JN-jY9">
+            <objects>
+                <viewController title="Edit" id="Ldj-ei-nIg" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z5B-tp-4hO">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="sgh-BM-jPF"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Xxh-WJ-XaJ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2617" y="1879"/>
+        </scene>
+        <!--Riwayat-->
+        <scene sceneID="wV1-DS-R88">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Riwayat" id="f2P-U7-aeQ" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sMV-jM-4WN" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3550" y="1185"/>
+        </scene>
+    </scenes>
+</document>
