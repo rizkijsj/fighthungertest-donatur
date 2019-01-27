@@ -100,14 +100,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhE-xp-uqR">
-                                <rect key="frame" x="16" y="727" width="343" height="51"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="btnLanjut"/>
-                                <connections>
-                                    <action selector="LanjutButton:" destination="XiE-iL-Epf" eventType="touchUpInside" id="8WA-mg-WT0"/>
-                                </connections>
-                            </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cth: 0812127357xx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HuZ-Oo-B88" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
                                 <rect key="frame" x="16" y="252" width="325" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -132,6 +124,14 @@
                                 <color key="textColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhE-xp-uqR">
+                                <rect key="frame" x="16" y="679" width="343" height="51"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="btnLanjut"/>
+                                <connections>
+                                    <action selector="LanjutButton:" destination="XiE-iL-Epf" eventType="touchUpInside" id="8WA-mg-WT0"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9WB-Fw-tXW"/>
@@ -176,13 +176,13 @@
                                 </items>
                             </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan kode verifikasi yang telah dikirimkan via SMS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thg-rl-vyI">
-                                <rect key="frame" x="20" y="166" width="335" height="40.666666666666657"/>
+                                <rect key="frame" x="20" y="166" width="335" height="41"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOB-D2-doX">
-                                <rect key="frame" x="15" y="256.66666666666669" width="345" height="70"/>
+                                <rect key="frame" x="15" y="257" width="345" height="70"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-uc-d3x">
                                         <rect key="frame" x="0.0" y="0.0" width="79.333333333333329" height="70"/>
@@ -233,15 +233,35 @@
                                     <constraint firstAttribute="trailing" secondItem="uh3-dS-Vi1" secondAttribute="trailing" id="xDt-iR-gfN"/>
                                 </constraints>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqK-Pd-l6e">
+                                <rect key="frame" x="20" y="674" width="335" height="51"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="8si-lR-SMy"/>
+                                </constraints>
+                                <state key="normal" backgroundImage="btnLanjut"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-B3-BSJ">
+                                <rect key="frame" x="162" y="349" width="193" height="30"/>
+                                <state key="normal" title=" Kirim ulang">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="D68-kU-PwP" firstAttribute="leading" secondItem="wBN-hI-QYf" secondAttribute="leading" id="25u-gD-VOo"/>
+                            <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="GqK-Pd-l6e" secondAttribute="trailing" constant="20" id="COi-Nh-4Rv"/>
+                            <constraint firstItem="dOG-B3-BSJ" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="162" id="Okl-Rg-Keo"/>
+                            <constraint firstItem="dOG-B3-BSJ" firstAttribute="top" secondItem="wBN-hI-QYf" secondAttribute="top" constant="349" id="PSQ-hP-1hN"/>
                             <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="Thg-rl-vyI" secondAttribute="trailing" constant="20" id="Yni-pC-Oqz"/>
+                            <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="dOG-B3-BSJ" secondAttribute="trailing" constant="20" id="bxI-EH-LtY"/>
+                            <constraint firstItem="CEl-cI-FBl" firstAttribute="bottom" secondItem="GqK-Pd-l6e" secondAttribute="bottom" constant="53" id="cUP-gH-5Rs"/>
                             <constraint firstItem="D68-kU-PwP" firstAttribute="top" secondItem="wBN-hI-QYf" secondAttribute="topMargin" constant="-2" id="e6S-gZ-rnl"/>
                             <constraint firstItem="Thg-rl-vyI" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="20" id="gOe-mX-6Hl"/>
+                            <constraint firstItem="GqK-Pd-l6e" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="20" id="gTe-Pz-eUV"/>
                             <constraint firstItem="iOB-D2-doX" firstAttribute="top" secondItem="Thg-rl-vyI" secondAttribute="bottom" constant="50" id="gtp-De-Ggv"/>
                             <constraint firstItem="Thg-rl-vyI" firstAttribute="top" secondItem="D68-kU-PwP" secondAttribute="bottom" constant="80" id="jyx-8u-YeR"/>
+                            <constraint firstItem="dOG-B3-BSJ" firstAttribute="top" secondItem="iOB-D2-doX" secondAttribute="bottom" constant="22" id="kaB-EO-xZk"/>
                             <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="iOB-D2-doX" secondAttribute="trailing" constant="15" id="kfU-jd-gsq"/>
                             <constraint firstItem="iOB-D2-doX" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="15" id="pTK-Zf-DbJ"/>
                             <constraint firstItem="D68-kU-PwP" firstAttribute="centerX" secondItem="Thg-rl-vyI" secondAttribute="centerX" id="zbO-St-jLS"/>
@@ -263,10 +283,33 @@
         <!--Register-->
         <scene sceneID="iO6-ve-G6C">
             <objects>
-                <viewController title="Register" id="da5-Bk-tOG" sceneMemberID="viewController">
+                <viewController title="Register" id="da5-Bk-tOG" customClass="DaftarViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7Zb-Qy-eeG">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Masukkan data diri Anda dibawah ini:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJm-7X-3w7">
+                                <rect key="frame" x="40" y="139" width="295" height="59"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWn-Jl-5bC">
+                                <rect key="frame" x="40" y="238" width="243" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Masukkan nama Anda" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ymp-Op-FWN" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                <rect key="frame" x="40" y="273" width="311" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="NXT-HM-hGg"/>
                     </view>
@@ -279,6 +322,9 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="namaTxtField" destination="Ymp-Op-FWN" id="9bZ-Of-cGJ"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrw-P4-80m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -328,6 +374,6 @@
         <image name="btnMasuk" width="163" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="vaD-AM-bfE"/>
+        <segue reference="T1I-GB-saN"/>
     </inferredMetricsTieBreakers>
 </document>

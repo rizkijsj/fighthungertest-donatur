@@ -24,7 +24,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
          otpTxt3.backgroundColor = UIColor.clear
          otpTxt4.backgroundColor = UIColor.clear
         
-        otpTxt1.becomeFirstResponder()
+        //otpTxt1.becomeFirstResponder()
         
         //add border
         addBottomBorder(textField: otpTxt1)
@@ -37,20 +37,32 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt2.delegate = self
         otpTxt3.delegate = self
         otpTxt4.delegate = self
+        
+        //add done button above keyboard
+        var toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+        
+        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([flexibleSpace,doneBtn], animated: false)
+        
+        otpTxt1.inputAccessoryView = toolbar
+        otpTxt2.inputAccessoryView = toolbar
+        otpTxt3.inputAccessoryView = toolbar
+        otpTxt4.inputAccessoryView = toolbar
     }
     
-    func addBottomBorder(textField: UITextField)
+    @objc func doneClicked()
     {
-        let layer = CALayer()
-        layer.backgroundColor = UIColor.gray.cgColor
-        layer.frame = CGRect(x: 0.0, y: textField.frame.size.height - 2.0, width: textField.frame.size.width, height: 2.0)
-        
-        textField.layer.addSublayer(layer)
+        view.endEditing(true)
     }
+
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if((textField.text?.count)! < 1) && string.count > 0
+        if (((textField.text?.count)!) < 1) && (string.count > 0)
         {
             if textField == otpTxt1
             {
@@ -69,7 +81,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             
             if textField == otpTxt4
             {
-                otpTxt4.resignFirstResponder()
+                otpTxt4.becomeFirstResponder()
             }
             
             //showing text
@@ -77,9 +89,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             return false
         }
         
-       else if((textField.text?.count)! >= 1) && string.count == 0
+        else if (((textField.text?.count)!) >= 1) && (string.count == 0)
         {
-            
             if textField == otpTxt2
             {
                 otpTxt1.becomeFirstResponder()
@@ -97,14 +108,14 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             
             if textField == otpTxt1
             {
-                otpTxt1.resignFirstResponder()
+                otpTxt2.becomeFirstResponder()
             }
             
             textField.text = ""
             return false
         }
-        
-        else if((textField.text?.count)! >= 1)
+            
+        else if (textField.text?.count)! >= 1
         {
             textField.text = string
             return false
@@ -112,5 +123,14 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         
         return true
     }
-
+    
+    func addBottomBorder(textField: UITextField)
+    {
+        let layer = CALayer()
+        layer.backgroundColor = UIColor.gray.cgColor
+        layer.frame = CGRect(x: 0.0, y: textField.frame.size.height - 2.0, width: textField.frame.size.width, height: 2.0)
+        
+        textField.layer.addSublayer(layer)
+    }
+    
 }
