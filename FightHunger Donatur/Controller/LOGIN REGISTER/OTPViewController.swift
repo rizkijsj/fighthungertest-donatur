@@ -10,6 +10,12 @@ import UIKit
 
 class OTPViewController: UIViewController , UITextFieldDelegate{
 
+    @IBAction func kirimUlang(_ sender: Any) {
+        
+        //Validation kirim ulang
+    
+    }
+    
     @IBOutlet weak var otpTxt4: UITextField!
     @IBOutlet weak var otpTxt3: UITextField!
     @IBOutlet weak var otpTxt2: UITextField!
