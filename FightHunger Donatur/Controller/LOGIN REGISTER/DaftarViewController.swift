@@ -48,7 +48,7 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func btnLanjut(_ sender: Any) {
         
-        
+        //validation
        
     }
     

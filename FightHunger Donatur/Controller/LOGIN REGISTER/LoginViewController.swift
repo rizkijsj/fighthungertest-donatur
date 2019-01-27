@@ -31,6 +31,12 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
        
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        self.navigationController?.navigationBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width , height: 80.0)
+    }
+    
     @objc func doneClicked()
     {
         view.endEditing(true)
