@@ -18,91 +18,68 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Fighthunger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSI-E4-UVb">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Fighthunger" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VSI-E4-UVb">
                                 <rect key="frame" x="77" y="87" width="221" height="47"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="47" id="IhD-vN-z1k"/>
-                                    <constraint firstAttribute="width" constant="221" id="nau-Cd-ckS"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Heavy" family="Avenir Next" pointSize="34"/>
                                 <color key="textColor" red="0.75686274509803919" green="0.10588235294117647" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Vgr-ko-vpd">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Vgr-ko-vpd">
                                 <rect key="frame" x="-34" y="302" width="413" height="134"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="kjI-I5-A82">
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="kjI-I5-A82">
                                         <rect key="frame" x="16" y="0.0" width="452" height="134"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Dft-NJ-tGf">
-                                                <rect key="frame" x="8" y="0.0" width="436" height="134"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <subviews>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mari kita mulai!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-TD-6OO">
-                                                        <rect key="frame" x="109" y="20" width="202" height="32"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apakah anda siap berpartisipasi mengurangi kelaparan?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-5J-nJk">
-                                                        <rect key="frame" x="30" y="56" width="339" height="54"/>
-                                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                                                        <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
-                                                        <nil key="textColor"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </view>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mari kita mulai!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-TD-6OO">
+                                                <rect key="frame" x="117" y="20" width="202" height="32"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apakah anda siap berpartisipasi mengurangi kelaparan?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-5J-nJk">
+                                                <rect key="frame" x="38" y="56" width="339" height="78"/>
+                                                <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                                <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
+                                                <nil key="textColor"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </view>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="kjI-I5-A82" secondAttribute="bottom" id="1Qb-WR-aBJ"/>
-                                    <constraint firstAttribute="trailing" secondItem="kjI-I5-A82" secondAttribute="trailing" constant="-55" id="5Qc-qm-Hgj"/>
-                                    <constraint firstItem="kjI-I5-A82" firstAttribute="top" secondItem="Vgr-ko-vpd" secondAttribute="top" id="Vaj-Sf-25A"/>
-                                    <constraint firstItem="kjI-I5-A82" firstAttribute="leading" secondItem="Vgr-ko-vpd" secondAttribute="leading" constant="16" id="trg-Ie-Aiu"/>
-                                </constraints>
                             </view>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fd1-9m-iu3">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fd1-9m-iu3">
                                 <rect key="frame" x="-4" y="699" width="383" height="91"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuU-4z-R7W">
                                         <rect key="frame" x="20" y="20" width="163" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="btnMasuk"/>
+                                        <connections>
+                                            <segue destination="xFG-KJ-top" kind="show" id="P31-V0-GS9"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSO-RP-Ovj">
                                         <rect key="frame" x="201" y="20" width="162" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" backgroundImage="btnDaftar"/>
+                                        <connections>
+                                            <segue destination="1dJ-KX-WXX" kind="show" id="qGv-yh-OKa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="fd1-9m-iu3" firstAttribute="trailing" secondItem="Vgr-ko-vpd" secondAttribute="trailing" id="0Lp-SR-tS9"/>
-                            <constraint firstAttribute="bottomMargin" secondItem="fd1-9m-iu3" secondAttribute="bottom" constant="-12" id="13l-Bl-lq1"/>
-                            <constraint firstItem="VSI-E4-UVb" firstAttribute="top" secondItem="R3X-k8-CgA" secondAttribute="top" constant="43" id="EDX-lG-toW"/>
-                            <constraint firstItem="Vgr-ko-vpd" firstAttribute="top" secondItem="CEI-Jb-T3m" secondAttribute="top" constant="302" id="Njm-qu-Azg"/>
-                            <constraint firstItem="fd1-9m-iu3" firstAttribute="top" secondItem="CEI-Jb-T3m" secondAttribute="top" constant="699" id="PXq-e5-64F"/>
-                            <constraint firstItem="Vgr-ko-vpd" firstAttribute="leading" secondItem="CEI-Jb-T3m" secondAttribute="leadingMargin" constant="-50" id="Ptd-Gg-QxN"/>
-                            <constraint firstItem="fd1-9m-iu3" firstAttribute="centerX" secondItem="CEI-Jb-T3m" secondAttribute="centerX" id="RSb-JS-2pa"/>
-                            <constraint firstAttribute="trailingMargin" secondItem="Vgr-ko-vpd" secondAttribute="trailing" constant="-20" id="gox-P5-fl7"/>
-                            <constraint firstItem="VSI-E4-UVb" firstAttribute="centerX" secondItem="CEI-Jb-T3m" secondAttribute="centerX" id="mdo-tB-DDQ"/>
-                            <constraint firstAttribute="bottom" secondItem="Vgr-ko-vpd" secondAttribute="bottom" constant="376" id="ql5-BZ-cZs"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="R3X-k8-CgA"/>
                     </view>
-                    <connections>
-                        <segue destination="xFG-KJ-top" kind="show" id="VuA-7b-ecz"/>
-                        <segue destination="1dJ-KX-WXX" kind="show" id="GAc-V8-18E"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPG-dd-s0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -116,8 +93,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Masukkan nomor telepon Anda yang terdaftar untuk login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-VO-TRi">
-                                <rect key="frame" x="16" y="125" width="343" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Masukkan nomor handphone Anda yang terdaftar untuk login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-VO-TRi">
+                                <rect key="frame" x="16" y="125" width="325" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -128,6 +105,20 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="btnLanjut"/>
                             </button>
+                            <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cth: 0812127357xx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HuZ-Oo-B88" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                <rect key="frame" x="16" y="252" width="325" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="textColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nomor handphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ej-Fa-tWW">
+                                <rect key="frame" x="19" y="223" width="121" height="17"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="9WB-Fw-tXW"/>

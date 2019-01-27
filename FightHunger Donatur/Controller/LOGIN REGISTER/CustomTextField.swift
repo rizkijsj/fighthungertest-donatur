@@ -10,12 +10,22 @@ import UIKit
 
 class CustomTextField: UITextField {
 
-    /*
-    // Only override draw() if you perform custom drawing.
-    // An empty implementation adversely affects performance during animation.
-    override func draw(_ rect: CGRect) {
-        // Drawing code
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+        loginTextField()
     }
-    */
+    
+    private func loginTextField()
+    {
+        let Color = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
+        let border = CALayer()
+        let width = CGFloat(2.0)
+        border.borderColor = Color.cgColor
+        border.borderWidth = width
+        border.frame = CGRect(x: 0, y: bounds.size.height - width, width: bounds.size.width, height: bounds.size.height)
+        self.layer.addSublayer(border)
+        self.layer.masksToBounds = true
+        
+    }
 
 }
