@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dfe-hM-wgt">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="GwO-dB-Ht9">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -18,60 +18,77 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="TsA-WB-nmJ">
-                                <rect key="frame" x="0.0" y="88" width="375" height="690"/>
+                            <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XQE-GQ-TmY">
+                                <rect key="frame" x="0.0" y="101" width="375" height="602"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </mapView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkT-1z-FYg">
+                                <rect key="frame" x="309" y="653" width="50" height="50"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="lokasiAnda:" destination="dfe-hM-wgt" eventType="touchUpInside" id="gvc-fv-abE"/>
+                                </connections>
+                            </button>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RX6-hZ-Uju">
+                                <rect key="frame" x="0.0" y="711" width="375" height="80"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <mapView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" mapType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="XQE-GQ-TmY">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="610"/>
-                                    </mapView>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="RX6-hZ-Uju">
-                                        <rect key="frame" x="0.0" y="610" width="375" height="80"/>
-                                        <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUc-FC-Czl">
-                                                <rect key="frame" x="16" y="8" width="343" height="56"/>
-                                                <string key="text">Jlana sinar pagi malam sore indah cemara sampai malam lagi indah lagi sore pagi malam lagi sampai hari esok ketemu nimas dan berkata "Hai Nimas" sang mas be berbicara.</string>
-                                                <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
-                                                <nil key="textColor"/>
-                                                <nil key="highlightedColor"/>
-                                            </label>
-                                        </subviews>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <constraints>
-                                            <constraint firstItem="HUc-FC-Czl" firstAttribute="leading" secondItem="RX6-hZ-Uju" secondAttribute="leading" constant="16" id="CXs-7o-PIy"/>
-                                            <constraint firstAttribute="bottom" secondItem="HUc-FC-Czl" secondAttribute="bottom" constant="16" id="N5Y-25-ejQ"/>
-                                            <constraint firstAttribute="height" constant="80" id="ZbH-bx-DzW"/>
-                                            <constraint firstAttribute="trailing" secondItem="HUc-FC-Czl" secondAttribute="trailing" constant="16" id="cbX-iH-zfM"/>
-                                            <constraint firstItem="HUc-FC-Czl" firstAttribute="top" secondItem="RX6-hZ-Uju" secondAttribute="top" constant="8" id="mRY-Ai-tu7"/>
-                                        </constraints>
-                                    </view>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="HUc-FC-Czl">
+                                        <rect key="frame" x="8" y="8" width="359" height="72"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <string key="text">Jlana sinar pagi malam sore indah cemara sampai malam lagi indah lagi sore pagi malam lagi sampai hari esok ketemu nimas dan berkata "Hai Nimas" sang mas be berbicara.</string>
+                                        <fontDescription key="fontDescription" style="UICTFontTextStyleCaption1"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
-                                <constraints>
-                                    <constraint firstAttribute="trailing" secondItem="RX6-hZ-Uju" secondAttribute="trailing" id="GKX-Dz-D87"/>
-                                    <constraint firstItem="RX6-hZ-Uju" firstAttribute="top" secondItem="XQE-GQ-TmY" secondAttribute="bottom" id="aef-uV-2Y5"/>
-                                    <constraint firstItem="RX6-hZ-Uju" firstAttribute="leading" secondItem="TsA-WB-nmJ" secondAttribute="leading" id="ed0-KH-RTH"/>
-                                    <constraint firstAttribute="bottom" secondItem="RX6-hZ-Uju" secondAttribute="bottom" id="mSo-7x-ckk"/>
-                                </constraints>
-                            </stackView>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="TQO-QW-uly">
+                                <rect key="frame" x="172" y="391" width="30" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="o1n-hv-onG" firstAttribute="bottom" secondItem="TsA-WB-nmJ" secondAttribute="bottom" id="PU8-HJ-0NC"/>
-                            <constraint firstItem="TsA-WB-nmJ" firstAttribute="leading" secondItem="o1n-hv-onG" secondAttribute="leading" id="b4c-NC-8oX"/>
-                            <constraint firstItem="o1n-hv-onG" firstAttribute="trailing" secondItem="TsA-WB-nmJ" secondAttribute="trailing" id="jwn-I8-XYW"/>
-                            <constraint firstItem="TsA-WB-nmJ" firstAttribute="top" secondItem="o1n-hv-onG" secondAttribute="top" id="uS8-au-zn5"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="o1n-hv-onG"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Lokasi" id="u5U-4E-ico"/>
+                    <navigationItem key="navigationItem" title="Lokasi" id="u5U-4E-ico">
+                        <barButtonItem key="rightBarButtonItem" systemItem="search" id="jfE-GE-Dn7">
+                            <connections>
+                                <action selector="searchBtn:" destination="dfe-hM-wgt" id="Xl4-m7-Um7"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="alamat" destination="RX6-hZ-Uju" id="YVF-2Y-qbZ"/>
                         <outlet property="peta" destination="XQE-GQ-TmY" id="hHR-g5-59K"/>
+                        <outlet property="pinPoint" destination="TQO-QW-uly" id="xeC-d9-spA"/>
+                        <outlet property="titikAwal" destination="jkT-1z-FYg" id="HnD-uz-ZFk"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpd-vv-9Js" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1234" y="2217"/>
+            <point key="canvasLocation" x="2175.1999999999998" y="2216.7487684729067"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="C0X-aO-f1e">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="GwO-dB-Ht9" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="DDB-6u-ew5">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="dfe-hM-wgt" kind="relationship" relationship="rootViewController" id="wYg-2I-fVU"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fmY-EU-TNH" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1232.8" y="2216.7487684729067"/>
         </scene>
     </scenes>
 </document>

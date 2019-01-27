@@ -9,11 +9,14 @@
 import UIKit
 import MapKit
 import CoreLocation
+import GoogleMaps
 
-class LokasiPengambilan: UIViewController {
+class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 
     @IBOutlet weak var peta: MKMapView!
     @IBOutlet weak var alamat: UILabel!
+    @IBOutlet weak var titikAwal: UIButton!
+    @IBOutlet weak var pinPoint: UIImageView!
     
  
     var lokasiSebelumnya: CLLocation?
@@ -24,11 +27,18 @@ class LokasiPengambilan: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         checkLocationServices()
-        peta.delegate = self as! MKMapViewDelegate
+        peta.delegate = self
+        peta.addSubview(pinPoint)
+        peta.addSubview(titikAwal)
+        
+    }
+    
+    @IBAction func lokasiAnda(_ sender: UIButton) {
+        centerViewOnUserLocation()
     }
     
     func setupLocationManager() {
-        locationManager.delegate = self as! CLLocationManagerDelegate
+        locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
     }
     
@@ -82,6 +92,77 @@ class LokasiPengambilan: UIViewController {
         
         return CLLocation(latitude: latitude, longitude: longitude)
     }
+    
+    @IBAction func searchBtn(_ sender: Any) {
+        let searchController = UISearchController(searchResultsController: nil)
+        searchController.searchBar.delegate = self
+        present(searchController, animated: true, completion: nil)
+        
+    }
+    
+    
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        
+        //       ignoring user
+        UIApplication.shared.beginIgnoringInteractionEvents()
+        
+        //            activity indicator
+        let activityIndicator = UIActivityIndicatorView()
+        activityIndicator.style = UIActivityIndicatorView.Style.gray
+        activityIndicator.center = self.view.center
+        activityIndicator.hidesWhenStopped = true
+        activityIndicator.startAnimating()
+        
+        self.view.addSubview(peta)
+        
+        //        hide search bar
+        searchBar.resignFirstResponder()
+        dismiss(animated: true, completion: nil)
+        
+        
+        //        create the seacrh request
+        let searchRequest = MKLocalSearch.Request()
+        searchRequest.naturalLanguageQuery = searchBar.text
+        
+        let activeSearch = MKLocalSearch(request: searchRequest)
+        
+        activeSearch.start { (response, error) in
+            
+            activityIndicator.stopAnimating()
+            UIApplication.shared.endIgnoringInteractionEvents()
+            
+            if response == nil{
+                print("ERROR")
+            }
+            else{
+                //                remove annotation
+                let annotations = self.peta.annotations
+                self.peta.removeAnnotations(annotations)
+                
+                //                getting data
+                let latitude = response?.boundingRegion.center.latitude
+                let longitude = response?.boundingRegion.center.longitude
+                
+                //                create annotaion
+                let annotation = MKPointAnnotation()
+                annotation.title = searchBar.text
+                annotation.coordinate = CLLocationCoordinate2DMake(latitude!, longitude!)
+                self.peta.addAnnotation(annotation)
+                
+                //                zooming in on annotation
+                let coordinate: CLLocationCoordinate2D = CLLocationCoordinate2DMake(latitude!, longitude!)
+                let span = MKCoordinateSpan.init(latitudeDelta: 0.1, longitudeDelta: 0.1)
+                let region = MKCoordinateRegion.init(center: coordinate, span: span)
+                self.peta.setRegion(region, animated: true)
+                
+            }
+        }
+    }
+    
+    
+    
+    
+    
 }
 
 extension LokasiPengambilan: CLLocationManagerDelegate {
