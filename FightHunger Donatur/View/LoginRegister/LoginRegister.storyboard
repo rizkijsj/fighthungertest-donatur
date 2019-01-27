@@ -88,7 +88,7 @@
         <!--Login-->
         <scene sceneID="bJU-ga-NjO">
             <objects>
-                <viewController title="Login" id="XiE-iL-Epf" sceneMemberID="viewController">
+                <viewController title="Login" id="XiE-iL-Epf" customClass="LoginViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="RGK-ND-Isy">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -104,6 +104,9 @@
                                 <rect key="frame" x="16" y="727" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="btnLanjut"/>
+                                <connections>
+                                    <action selector="LanjutButton:" destination="XiE-iL-Epf" eventType="touchUpInside" id="8WA-mg-WT0"/>
+                                </connections>
                             </button>
                             <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cth: 0812127357xx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HuZ-Oo-B88" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
                                 <rect key="frame" x="16" y="252" width="325" height="30"/>
@@ -111,6 +114,9 @@
                                 <color key="textColor" red="0.84705882352941175" green="0.84705882352941175" blue="0.84705882352941175" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
+                                <connections>
+                                    <outlet property="delegate" destination="XiE-iL-Epf" id="MZk-JT-mau"/>
+                                </connections>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Nomor handphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ej-Fa-tWW">
                                 <rect key="frame" x="19" y="223" width="121" height="17"/>
@@ -125,7 +131,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="xIm-BI-XvK"/>
                     <connections>
-                        <segue destination="huX-s0-mxw" kind="show" id="EvQ-WV-5KG"/>
+                        <outlet property="telpTxtField" destination="HuZ-Oo-B88" id="dSZ-gm-idv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjY-A2-s8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -158,9 +164,6 @@
                         <viewLayoutGuide key="safeArea" id="NXT-HM-hGg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Daftar" id="9ZY-Ay-iOd"/>
-                    <connections>
-                        <segue destination="huX-s0-mxw" kind="show" id="wqO-zb-Joa"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrw-P4-80m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -208,7 +211,4 @@
         <image name="btnLanjut" width="343" height="51"/>
         <image name="btnMasuk" width="163" height="51"/>
     </resources>
-    <inferredMetricsTieBreakers>
-        <segue reference="EvQ-WV-5KG"/>
-    </inferredMetricsTieBreakers>
 </document>
