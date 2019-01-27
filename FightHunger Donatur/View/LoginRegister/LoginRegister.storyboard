@@ -73,6 +73,11 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjO-lu-YyK">
+                                <rect key="frame" x="20" y="45" width="38" height="35"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" backgroundImage="backBtnGray"/>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R3X-k8-CgA"/>
@@ -126,7 +131,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Masuk" id="PNb-dO-pgM">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backbtn" id="Vhf-Cc-0Yq">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backButton" id="Vhf-Cc-0Yq">
                                             <inset key="imageInsets" minX="-7" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
@@ -180,7 +185,7 @@
                                 <rect key="frame" x="0.0" y="42" width="375" height="44"/>
                                 <items>
                                     <navigationItem title="Masuk" id="OLP-Ry-Ruh">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backbtn" id="09u-Il-nlN">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backButton" id="09u-Il-nlN">
                                             <inset key="imageInsets" minX="-7" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
@@ -334,7 +339,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Daftar" id="sV7-0p-t5A">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backbtn" id="fF8-B4-d9R">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backButton" id="fF8-B4-d9R">
                                             <inset key="imageInsets" minX="-7" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                             <connections>
@@ -410,6 +415,8 @@
         </scene>
     </scenes>
     <resources>
+        <image name="backBtnGray" width="38" height="35"/>
+        <image name="backButton" width="38" height="35"/>
         <image name="backbtn" width="53" height="41"/>
         <image name="btnDaftar" width="162" height="51"/>
         <image name="btnLanjut" width="343" height="51"/>
