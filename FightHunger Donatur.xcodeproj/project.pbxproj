@@ -10,6 +10,7 @@
 		21819EBFF7E0E2A7AB8C262B /* Pods_FightHunger_DonaturTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */; };
 		2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4121FD59D1008C85CE /* CustomTextField.swift */; };
 		2BF68C4421FD8A0E008C85CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */; };
+		2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */; };
 		9025445BFF7F59EE01D5AC3E /* Pods_FightHunger_Donatur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */; };
 		FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00911D21FB78F800BC89AE /* Donating.storyboard */; };
 		FB00912121FB792400BC89AE /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912021FB792400BC89AE /* Location.storyboard */; };
@@ -42,6 +43,7 @@
 		15D69F824E46B705A423BE2C /* Pods-FightHunger DonaturTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2BF68C4121FD59D1008C85CE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
 		69507A8C03C1CFEB66BCE0F6 /* Pods-FightHunger Donatur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.release.xcconfig"; sourceTree = "<group>"; };
 		71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FightHunger_DonaturTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B398ADFF867F856F16B00AD /* Pods-FightHunger DonaturTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -110,6 +112,7 @@
 			children = (
 				2BF68C4121FD59D1008C85CE /* CustomTextField.swift */,
 				2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */,
+				2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */,
 			);
 			path = "LOGIN REGISTER";
 			sourceTree = "<group>";
@@ -481,6 +484,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */,
 				2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */,
