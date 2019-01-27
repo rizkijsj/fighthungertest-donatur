@@ -26,6 +26,8 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         toolbar.setItems([flexibleSpace,doneBtn], animated: false)
         
         telpTxtField.inputAccessoryView = toolbar
+        
+        errorMssg.isHidden = true
        
     }
     
@@ -34,9 +36,20 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         view.endEditing(true)
     }
 
+    @IBOutlet weak var errorMssg: UILabel!
     @IBAction func LanjutButton(_ sender: Any) {
         
         //validation
+        
+        if telpTxtField.text != ""
+        {
+           performSegue(withIdentifier: "toVerif", sender: self)
+        }
+        else if telpTxtField.text == ""
+        {
+            errorMssg.isHidden = false
+            errorMssg.text = "This field cannot be empty!"
+        }
         
     }
     
