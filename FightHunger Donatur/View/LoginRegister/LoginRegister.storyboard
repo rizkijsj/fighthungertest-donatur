@@ -171,9 +171,6 @@
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="backbtn" id="09u-Il-nlN">
                                             <inset key="imageInsets" minX="-7" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
-                                            <connections>
-                                                <segue destination="XiE-iL-Epf" kind="modal" id="VvD-Sx-4x1"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -187,33 +184,33 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOB-D2-doX">
                                 <rect key="frame" x="15" y="256.66666666666669" width="345" height="70"/>
                                 <subviews>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-uc-d3x">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-uc-d3x">
                                         <rect key="frame" x="0.0" y="0.0" width="79.333333333333329" height="70"/>
                                         <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uh3-dS-Vi1">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uh3-dS-Vi1">
                                         <rect key="frame" x="265.66666666666669" y="0.0" width="79.333333333333314" height="70"/>
                                         <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-ar-0fJ">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ag9-ar-0fJ">
                                         <rect key="frame" x="177.33333333333334" y="0.0" width="79.333333333333343" height="70"/>
                                         <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
-                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-lt-ZM3">
+                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="hiw-lt-ZM3">
                                         <rect key="frame" x="89" y="0.0" width="79.333333333333314" height="70"/>
                                         <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                 </subviews>
                                 <constraints>
@@ -331,7 +328,6 @@
         <image name="btnMasuk" width="163" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="VvD-Sx-4x1"/>
         <segue reference="vaD-AM-bfE"/>
     </inferredMetricsTieBreakers>
 </document>
