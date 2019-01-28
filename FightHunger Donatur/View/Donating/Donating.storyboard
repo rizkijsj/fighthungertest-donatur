@@ -42,20 +42,20 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" fixedFrame="YES" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="qn7-wy-lsr">
-                                                    <rect key="frame" x="40" y="16" width="206" height="30"/>
+                                                    <rect key="frame" x="40" y="16" width="310" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEr-6o-0dy">
-                                                            <rect key="frame" x="0.0" y="0.0" width="83" height="30"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="135" height="46"/>
                                                             <color key="backgroundColor" red="1" green="0.000832612335216254" blue="0.18144577741622925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <state key="normal" title="Camera">
+                                                            <state key="normal" backgroundImage="btnKamera">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DNK-lu-Lvb">
-                                                            <rect key="frame" x="123" y="0.0" width="83" height="30"/>
+                                                            <rect key="frame" x="175" y="0.0" width="135" height="46"/>
                                                             <color key="backgroundColor" red="1" green="0.000832612335216254" blue="0.18144577741622925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <state key="normal" title="Library Foto">
+                                                            <state key="normal" backgroundImage="btnLibraryFoto">
                                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             </state>
                                                         </button>
@@ -212,4 +212,8 @@
             <point key="canvasLocation" x="1062" y="2277"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="btnKamera" width="135" height="46"/>
+        <image name="btnLibraryFoto" width="135" height="46"/>
+    </resources>
 </document>

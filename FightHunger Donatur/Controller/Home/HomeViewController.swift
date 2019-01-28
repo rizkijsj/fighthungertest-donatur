@@ -13,8 +13,8 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         combined = NSMutableArray(array: [])
-         combined = NSMutableArray(array: [fotoKegiatan,labelJudulKegiatan,isiKegiatan,fotoOrganisasi,namaOrganisasi,wktOrganisasi])
+        
+         combined = NSMutableArray(array: [fotoKegiatan,labelJudulKegiatan,isiKegiatan,fotoOrganisasi,namaOrganisasi,wktOrganisasi,fotoMitra,labelOrganisasi,alamatorganisasi,ketKota,jarak,fotoOrg,fotoDonasi,statusLabel,namaOrg,namaDonasi,kadaluarsa,ketWaktu])
     }
     
     @IBOutlet weak var homeCollectionView: UICollectionView!
@@ -36,7 +36,24 @@ class HomeViewController: UIViewController {
     
     let wktOrganisasi = ["5 Jam yang lalu", "3 Jam yang lalu"]
     
-   
+    //section mitra kami
+    let fotoMitra: [UIImage] = [UIImage(named: "foi")! ,UIImage(named: "foi")!]
+    let labelOrganisasi = ["Foodbank of Indonesia","Foodbank of Indonesia"]
+    let alamatorganisasi = ["Jalan Makmur Jaya Raya nomor 14 , Jakarta","Jalan Makmur Jaya Raya nomor 14 , Jakarta"]
+    let ketKota = ["Tangerang", "Jakarta Timur"]
+    let jarak = ["Jarak 700 m" , "Jarak 1500 m"]
+    
+   //section aktivitas
+    let fotoOrg: [UIImage] = [UIImage(named: "foi")!, UIImage(named: "foi")!]
+    let statusLabel = ["Mencarikan status","Sedang dijemput"]
+    let kadaluarsa = ["Kadaluarsa masih 2 bulan lagi","Kadaluarsa masih 4 bulan lagi"]
+    let fotoDonasi: [UIImage] = [UIImage(named: "foto")! , UIImage(named: "foto")!]
+    let namaOrg = ["Foodbank of Indonesia","The Hunger Bank Indonesia"]
+    let ketWaktu = ["5 menit yang lalu","1 hari yang lalu"]
+    let namaDonasi = ["Susu UHT Steril","Pizza"]
+    
+    
+    
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
         
         if(velocity.y>0) {
@@ -79,24 +96,49 @@ extension HomeViewController: UICollectionViewDelegate , UICollectionViewDataSou
          return (combined.object(at: section)as! NSArray).count
     }
     
+  
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         
-        let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "kegiatancell", for: indexPath) as! HomeCollectionViewCell
-        
-        //section kegiatan terbaru
-        
-        if indexPath.section == 1
-        {
-        cell.fotoKegiatan.image = fotoKegiatan[indexPath.row]
-        cell.judulKegiatan.text = labelJudulKegiatan[indexPath.row]
-        cell.isiKegiatan.text = isiKegiatan[indexPath.row]
-        cell.fotoOrganisasi.image = fotoOrganisasi[indexPath.row]
-        cell.namaOrganisasi.text = namaOrganisasi[indexPath.row]
-        cell.waktuKegiatan.text = wktOrganisasi[indexPath.row]
+        if indexPath.section == 0 {
+            
+            let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "aktivitascell", for: indexPath) as! aktivitasCollectionViewCell
+            
+            cell.fotoDonasi.image = fotoDonasi[indexPath.row]
+            cell.statusDonasi.text = statusLabel[indexPath.row]
+            cell.namaDonasi.text = namaDonasi[indexPath.row]
+            cell.kadaluarsaLabel.text = kadaluarsa[indexPath.row]
+            cell.fotoOrganisasi.image = fotoOrg[indexPath.row]
+            cell.namaOrganisasi.text = namaOrg[indexPath.row]
+            cell.keteranganWaktu.text = ketWaktu[indexPath.row]
+            
+            return cell
         }
-        
-        return cell
-        
+        else if indexPath.section ==  1
+        {
+            let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "kegiatancell", for: indexPath) as! HomeCollectionViewCell
+            
+            cell.fotoKegiatan.image = fotoKegiatan[indexPath.row]
+            cell.judulKegiatan.text = labelJudulKegiatan[indexPath.row]
+            cell.isiKegiatan.text = isiKegiatan[indexPath.row]
+            cell.fotoOrganisasi.image = fotoOrganisasi[indexPath.row]
+            cell.namaOrganisasi.text = namaOrganisasi[indexPath.row]
+            cell.waktuKegiatan.text = wktOrganisasi[indexPath.row]
+            
+            return cell
+        }
+        else
+        {
+            let cell = homeCollectionView.dequeueReusableCell(withReuseIdentifier: "mitracell", for: indexPath) as! MitraCollectionViewCell
+            
+            cell.fotoMitra.image = fotoMitra[indexPath.row]
+            cell.labelOrganisasi.text = labelOrganisasi[indexPath.row]
+            cell.alamatOrganisasi.text = alamatorganisasi[indexPath.row]
+            cell.keteranganKota.text = ketKota[indexPath.row]
+            cell.keteranganJarak.text = jarak[indexPath.row]
+            
+            return cell
+        }
+       
     }
     
     func collectionView(_ collectionView: UICollectionView,
@@ -115,8 +157,7 @@ extension HomeViewController: UICollectionViewDelegate , UICollectionViewDataSou
         }
         else
         {
-            return CGSize(width: 343, height: 160
-            )
+            return CGSize(width: 343, height: 160)
         }
         
     }
