@@ -12,7 +12,7 @@
         <!--Donasi-->
         <scene sceneID="Kvf-HZ-ag7">
             <objects>
-                <tableViewController title="Donasi" id="eSa-HH-IuA" sceneMemberID="viewController">
+                <tableViewController title="Donasi" id="eSa-HH-IuA" customClass="DonasiPush" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" estimatedSectionHeaderHeight="-1" sectionFooterHeight="16" estimatedSectionFooterHeight="-1" id="o6y-Mh-Mix">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -49,7 +49,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="40" translatesAutoresizingMaskIntoConstraints="NO" id="qn7-wy-lsr">
-                                                    <rect key="frame" x="40" y="15.999999999999996" width="295" height="47.666666666666657"/>
+                                                    <rect key="frame" x="40" y="16" width="295" height="47.666666666666657"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rEr-6o-0dy">
                                                             <rect key="frame" x="0.0" y="0.0" width="127.66666666666667" height="47.666666666666664"/>
@@ -206,6 +206,7 @@
                     <navigationItem key="navigationItem" title="Donasi" id="02e-L4-Q81"/>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
+                        <outlet property="fotoDonasi" destination="tKO-pW-4ee" id="72h-wr-ZPq"/>
                         <segue destination="pus-Wl-JU4" kind="presentation" id="sJR-W7-4Xk"/>
                     </connections>
                 </tableViewController>

@@ -49,6 +49,15 @@
                                 <rect key="frame" x="172" y="391" width="30" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxe-KN-JBk">
+                                <rect key="frame" x="152" y="353" width="71" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="Set Lokasi"/>
+                                <connections>
+                                    <action selector="setLokasi:" destination="dfe-hM-wgt" eventType="touchUpInside" id="5Ni-Nr-D8s"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="o1n-hv-onG"/>
@@ -65,6 +74,7 @@
                         <outlet property="alamat" destination="RX6-hZ-Uju" id="YVF-2Y-qbZ"/>
                         <outlet property="peta" destination="XQE-GQ-TmY" id="hHR-g5-59K"/>
                         <outlet property="pinPoint" destination="TQO-QW-uly" id="xeC-d9-spA"/>
+                        <outlet property="setLokasi" destination="Hxe-KN-JBk" id="SVT-LL-xed"/>
                         <outlet property="titikAwal" destination="jkT-1z-FYg" id="HnD-uz-ZFk"/>
                     </connections>
                 </viewController>

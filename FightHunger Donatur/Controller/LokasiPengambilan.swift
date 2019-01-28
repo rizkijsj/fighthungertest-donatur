@@ -18,7 +18,12 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     @IBOutlet weak var titikAwal: UIButton!
     @IBOutlet weak var pinPoint: UIImageView!
     
- 
+    @IBOutlet weak var setLokasi: UIButton!
+    @IBAction func setLokasi(_ sender: UIButton) {
+        self.dismiss(animated: true, completion: nil)
+        
+    }
+    
     var lokasiSebelumnya: CLLocation?
     
     let locationManager = CLLocationManager()
@@ -30,6 +35,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
         peta.delegate = self
         peta.addSubview(pinPoint)
         peta.addSubview(titikAwal)
+        peta.addSubview(setLokasi)
         
     }
     
