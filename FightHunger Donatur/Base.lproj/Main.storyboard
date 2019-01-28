@@ -193,10 +193,10 @@
                                         </connections>
                                     </collectionViewCell>
                                     <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="mitracell" id="UP3-iH-vwv" customClass="HomeCollectionViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="16" y="392" width="343" height="332"/>
+                                        <rect key="frame" x="16" y="392" width="343" height="160"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="343" height="332"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="343" height="160"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="JBa-Mm-tym">
@@ -233,7 +233,7 @@
                                                 </label>
                                             </subviews>
                                         </view>
-                                        <size key="customSize" width="343" height="332"/>
+                                        <size key="customSize" width="343" height="160"/>
                                         <connections>
                                             <outlet property="fotoKegiatan" destination="JBa-Mm-tym" id="nOm-FK-BY6"/>
                                             <outlet property="isiKegiatan" destination="82b-O2-BJB" id="eFq-gv-NDf"/>

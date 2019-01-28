@@ -114,7 +114,8 @@ extension HomeViewController: UICollectionViewDelegate , UICollectionViewDataSou
         }
         else
         {
-            return CGSize(width: 343, height: 116)
+            return CGSize(width: 343, height: 160
+            )
         }
         
     }
