@@ -24,11 +24,11 @@ class HomeViewController: UIViewController {
     let titleSection = ["Aktivitas","Kegiatan Terbaru","Mitra Kami"]
     
     //section kegiatan
-    let fotoKegiatan: [UIImage] = [UIImage(named: "foto")! ,UIImage(named: "foto")!]
+    let fotoKegiatan: [UIImage] = [UIImage(named: "foto")!,UIImage(named: "foto")!]
     
-    let labelJudulKegiatan = ["Dana Bantuan Pangan untuk Anak-anak Korban Tsunami Pandeglang"]
+    let labelJudulKegiatan = ["Dana Bantuan Pangan untuk Anak-anak Korban Tsunami Pandeglang","test"]
     
-    let isiKegiatan = ["The Hunger Bank membuka bantuan sumbangan dari para donatur"]
+    let isiKegiatan = ["The Hunger Bank membuka bantuan sumbangan dari para donatur","test sajalah"]
     
     let fotoOrganisasi: [UIImage] = [UIImage(named: "foto")! ,UIImage(named: "foto")!]
     
@@ -37,11 +37,11 @@ class HomeViewController: UIViewController {
     let wktOrganisasi = ["5 Jam yang lalu", "3 Jam yang lalu"]
     
     //section mitra kami
-    let fotoMitra: [UIImage] = [UIImage(named: "foi")! ,UIImage(named: "foi")!]
-    let labelOrganisasi = ["Foodbank of Indonesia","Foodbank of Indonesia"]
-    let alamatorganisasi = ["Jalan Makmur Jaya Raya nomor 14 , Jakarta","Jalan Makmur Jaya Raya nomor 14 , Jakarta"]
-    let ketKota = ["Tangerang", "Jakarta Timur"]
-    let jarak = ["Jarak 700 m" , "Jarak 1500 m"]
+    let fotoMitra: [UIImage] = [UIImage(named: "foi")! ,UIImage(named: "foi")!,UIImage(named: "foto")!]
+    let labelOrganisasi = ["Foodbank of Indonesia","Foodbank of Indonesia","haha"]
+    let alamatorganisasi = ["Jalan Makmur Jaya Raya nomor 14 , Jakarta","Jalan Makmur Jaya Raya nomor 14 , Jakarta","yyaa"]
+    let ketKota = ["Tangerang", "Jakarta Timur","hihi"]
+    let jarak = ["Jarak 700 m" , "Jarak 1500 m","hihu"]
     
    //section aktivitas
     let fotoOrg: [UIImage] = [UIImage(named: "foi")!, UIImage(named: "foi")!]
@@ -137,6 +137,10 @@ extension HomeViewController: UICollectionViewDelegate , UICollectionViewDataSou
             cell.keteranganJarak.text = jarak[indexPath.row]
             
             return cell
+            
+            //add border
+            cell.layer.borderWidth = 10.0
+            cell.layer.borderColor = UIColor.gray.cgColor
         }
        
     }
