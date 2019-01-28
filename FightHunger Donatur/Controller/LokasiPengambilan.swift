@@ -19,8 +19,17 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     @IBOutlet weak var pinPoint: UIImageView!
     
     @IBOutlet weak var setLokasi: UIButton!
-    @IBAction func setLokasi(_ sender: UIButton) {
-        self.dismiss(animated: true, completion: nil)
+    
+    
+//    unwindsegue dan pasing data
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let destVC = segue.destination as! DonasiPush
+        destVC.dataAlamat = "Lokasi anda: ???"
+        
+//        masih perlu data buat pasing data yaitu alamat yg di label di push ke dataalamat
+        
+//        dan juga menyimpan data latitude dan longitude ke sebuah penampung di view donasi push
+        
         
     }
     

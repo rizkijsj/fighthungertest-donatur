@@ -11,6 +11,18 @@ import UIKit
 class DonasiPush: UITableViewController {
     
     @IBOutlet weak var fotoDonasi: UIImageView!
+    
+//    buat passing data ke map
+    @IBOutlet weak var alamat: UITextField!
+    var dataAlamat = "Lokasi"
+    
+    @IBAction func keMap(_ sender: UIButton) {
+        performSegue(withIdentifier: "keMap", sender: self)
+    }
+    
+    @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){}
+
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -19,6 +31,8 @@ class DonasiPush: UITableViewController {
 
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        
+        alamat.text = dataAlamat
     }
 
     // MARK: - Table view data source
