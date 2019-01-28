@@ -60,6 +60,11 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt4.inputAccessoryView = toolbar
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        otpTxt1.becomeFirstResponder()
+    }
+    
     @objc func doneClicked()
     {
         view.endEditing(true)
@@ -68,7 +73,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
-        if (((textField.text?.count)!) < 1) && (string.count > 0)
+        if ((textField.text?.count)! < 1) && (string.count > 0)
         {
             if textField == otpTxt1
             {
@@ -95,7 +100,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             return false
         }
         
-        else if (((textField.text?.count)!) >= 1) && (string.count == 0)
+        else if ((textField.text?.count)! >= 1) && (string.count == 0)
+            
         {
             if textField == otpTxt2
             {
@@ -114,7 +120,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             
             if textField == otpTxt1
             {
-                otpTxt2.becomeFirstResponder()
+                otpTxt1.becomeFirstResponder()
             }
             
             textField.text = ""
