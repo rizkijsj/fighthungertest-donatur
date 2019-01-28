@@ -13,7 +13,7 @@ class HomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-         //combined = NSMutableArray(array: [])
+         combined = NSMutableArray(array: [])
     }
     
     @IBOutlet weak var homeCollectionView: UICollectionView!

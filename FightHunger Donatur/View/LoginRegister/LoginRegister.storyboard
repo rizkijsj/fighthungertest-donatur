@@ -438,6 +438,7 @@
         <image name="btnMasuk" width="163" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="gF3-Qe-I5l"/>
         <segue reference="mWr-Zh-R03"/>
         <segue reference="vaD-AM-bfE"/>
     </inferredMetricsTieBreakers>

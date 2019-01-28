@@ -10,9 +10,11 @@ pod 'Firebase/Auth'
 pod 'Firebase/Core'
 pod 'Firebase/Database'
 pod 'Firebase/Storage'
+pod 'Firebase/Messaging'
 pod 'MaterialComponents'
 pod 'GoogleMaps'
 pod 'GooglePlaces'
+
 
   target 'FightHunger DonaturTests' do
     inherit! :search_paths

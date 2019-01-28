@@ -15,6 +15,11 @@
 		2BF68C4B21FEB11F008C85CE /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4A21FEB11F008C85CE /* HomeViewController.swift */; };
 		2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4C21FEB17C008C85CE /* HomeCollectionViewCell.swift */; };
 		2BF68C4F21FEB2FA008C85CE /* SectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4E21FEB2FA008C85CE /* SectionCollectionReusableView.swift */; };
+		2F5D05FC21FED50900CDD125 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FA21FED50900CDD125 /* Post.swift */; };
+		2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FB21FED50900CDD125 /* UserProfile.swift */; };
+		2F5D060021FED51E00CDD125 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FE21FED51E00CDD125 /* UserService.swift */; };
+		2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FF21FED51E00CDD125 /* ImageService.swift */; };
+		2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5D060221FED5DD00CDD125 /* GoogleService-Info.plist */; };
 		9025445BFF7F59EE01D5AC3E /* Pods_FightHunger_Donatur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */; };
 		FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00911D21FB78F800BC89AE /* Donating.storyboard */; };
 		FB00912121FB792400BC89AE /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912021FB792400BC89AE /* Location.storyboard */; };
@@ -52,6 +57,12 @@
 		2BF68C4A21FEB11F008C85CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2BF68C4C21FEB17C008C85CE /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BF68C4E21FEB2FA008C85CE /* SectionCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCollectionReusableView.swift; sourceTree = "<group>"; };
+		2F5D05FA21FED50900CDD125 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
+		2F5D05FB21FED50900CDD125 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
+		2F5D05FE21FED51E00CDD125 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		2F5D05FF21FED51E00CDD125 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
+		2F5D060221FED5DD00CDD125 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		2F5D060421FED60200CDD125 /* FightHunger Donatur.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FightHunger Donatur.entitlements"; sourceTree = "<group>"; };
 		69507A8C03C1CFEB66BCE0F6 /* Pods-FightHunger Donatur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.release.xcconfig"; sourceTree = "<group>"; };
 		71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FightHunger_DonaturTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9B398ADFF867F856F16B00AD /* Pods-FightHunger DonaturTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.release.xcconfig"; sourceTree = "<group>"; };
@@ -135,6 +146,15 @@
 				2BF68C4E21FEB2FA008C85CE /* SectionCollectionReusableView.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		2F5D05F921FED44700CDD125 /* Structure Data */ = {
+			isa = PBXGroup;
+			children = (
+				2F5D05FA21FED50900CDD125 /* Post.swift */,
+				2F5D05FB21FED50900CDD125 /* UserProfile.swift */,
+			);
+			path = "Structure Data";
 			sourceTree = "<group>";
 		};
 		7AB795E3E7F7B6B6D76531EF /* Pods */ = {
@@ -230,6 +250,8 @@
 		FB00913521FB7E7D00BC89AE /* Service */ = {
 			isa = PBXGroup;
 			children = (
+				2F5D05FF21FED51E00CDD125 /* ImageService.swift */,
+				2F5D05FE21FED51E00CDD125 /* UserService.swift */,
 				FB00913621FB7E8A00BC89AE /* Connector.swift */,
 			);
 			path = Service;
@@ -258,6 +280,8 @@
 		FB34B3F221FB32330070AA5E /* FightHunger Donatur */ = {
 			isa = PBXGroup;
 			children = (
+				2F5D060421FED60200CDD125 /* FightHunger Donatur.entitlements */,
+				2F5D05F921FED44700CDD125 /* Structure Data */,
 				FB00913521FB7E7D00BC89AE /* Service */,
 				2BF68C3F21FD5993008C85CE /* Controller */,
 				FB00911B21FB781A00BC89AE /* View */,
@@ -265,6 +289,7 @@
 				FB34B3F721FB32330070AA5E /* Main.storyboard */,
 				FB34B3FD21FB32340070AA5E /* Assets.xcassets */,
 				FB34B3FF21FB32340070AA5E /* LaunchScreen.storyboard */,
+				2F5D060221FED5DD00CDD125 /* GoogleService-Info.plist */,
 				FB34B40221FB32340070AA5E /* Info.plist */,
 				FB34B3FA21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld */,
 			);
@@ -334,6 +359,14 @@
 				TargetAttributes = {
 					FB34B3EF21FB32330070AA5E = {
 						CreatedOnToolsVersion = 10.1;
+						SystemCapabilities = {
+							com.apple.BackgroundModes = {
+								enabled = 1;
+							};
+							com.apple.Push = {
+								enabled = 1;
+							};
+						};
 					};
 					FB34B40621FB32350070AA5E = {
 						CreatedOnToolsVersion = 10.1;
@@ -370,6 +403,7 @@
 				FB00912721FB79D100BC89AE /* OrgProgram.storyboard in Resources */,
 				FB34B3FE21FB32340070AA5E /* Assets.xcassets in Resources */,
 				FB00913321FB7E0E00BC89AE /* LoginRegister.storyboard in Resources */,
+				2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */,
 				FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */,
 				FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */,
 				FB00913021FB7BAB00BC89AE /* Riwayat.storyboard in Resources */,
@@ -394,15 +428,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FightHunger DonaturTests-checkManifestLockResult.txt",
 			);
@@ -416,16 +446,12 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur-resources.sh",
 				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
 				"${PODS_ROOT}/GooglePlaces/Frameworks/GooglePlaces.framework/Resources/GooglePlaces.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GooglePlaces.bundle",
@@ -440,8 +466,6 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
@@ -452,12 +476,11 @@
 				"${BUILT_PRODUCTS_DIR}/MotionAnimator/MotionAnimator.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionInterchange/MotionInterchange.framework",
 				"${BUILT_PRODUCTS_DIR}/MotionTransitioning/MotionTransitioning.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
 				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
 				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
@@ -467,6 +490,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionAnimator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionInterchange.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MotionTransitioning.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
 			);
@@ -480,15 +504,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
 				"${PODS_ROOT}/Manifest.lock",
 			);
 			name = "[CP] Check Pods Manifest.lock";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"$(DERIVED_FILE_DIR)/Pods-FightHunger Donatur-checkManifestLockResult.txt",
 			);
@@ -505,15 +525,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */,
+				2F5D05FC21FED50900CDD125 /* Post.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
 				2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */,
 				2BF68C4F21FEB2FA008C85CE /* SectionCollectionReusableView.swift in Sources */,
 				2BF68C4B21FEB11F008C85CE /* HomeViewController.swift in Sources */,
+				2F5D060021FED51E00CDD125 /* UserService.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
+				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
 				FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */,
 				2BF68C4421FD8A0E008C85CE /* LoginViewController.swift in Sources */,
 				FB34B3F421FB32330070AA5E /* AppDelegate.swift in Sources */,
+				2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -676,8 +700,9 @@
 			baseConfigurationReference = 9E36157E1D42CAA931567401 /* Pods-FightHunger Donatur.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9SRL9PGJUW;
+				DEVELOPMENT_TEAM = 29LM4FT5NH;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -695,8 +720,9 @@
 			baseConfigurationReference = 69507A8C03C1CFEB66BCE0F6 /* Pods-FightHunger Donatur.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9SRL9PGJUW;
+				DEVELOPMENT_TEAM = 29LM4FT5NH;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
