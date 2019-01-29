@@ -55,7 +55,9 @@ class HomeDonasiViewController: UIViewController , UITableViewDataSource,UITable
             cell.wktPost.text = wktPost[indexPath.row]
             
             return cell
-        }
+		}else{
+			return UITableViewCell.init()
+		}
         
     }
     
@@ -72,15 +74,24 @@ class HomeDonasiViewController: UIViewController , UITableViewDataSource,UITable
         
          combined = NSMutableArray(array: [fotoDonasi,fotoOrgn,namaOrgn,namaDonasi,statusDonasi,judulKegiatan,isiKegitan,kadaluarsa])
     }
-    
+	
+	
     func tableView(_ tableView: UITableView, willDisplay cell: UITableViewCell, forRowAt indexPath: IndexPath) {
+		/*
         if indexPath.row == 0 {
+			
+			if let cell = cell as? {
+				cell
+			}
+			
             if let cell = cell as? {
+				
                 cell.collectionView.dataSource = self
                 cell.collectionView.delegate = self
                 cell.collectionView.isScrollEnabled = false
             }
         }
+*/
     }
     
     var combined : NSMutableArray!

@@ -9,6 +9,10 @@
 import UIKit
 
 class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPickerViewDataSource{
+	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+		return 0
+	}
+	
     
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
