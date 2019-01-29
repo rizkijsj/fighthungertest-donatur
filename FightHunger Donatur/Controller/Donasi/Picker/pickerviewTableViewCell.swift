@@ -51,6 +51,8 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
     override func awakeFromNib() {
         
         createPicker()
+        
+        //add done button
         var toolbar = UIToolbar()
         toolbar.sizeToFit()
         

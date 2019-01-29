@@ -9,22 +9,68 @@
 import UIKit
 
 class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPickerViewDataSource{
-	func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
-		return 0
-	}
 	
     
+    func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
+        switch component {
+        case 0:
+            return 23
+        case 1:
+            return 59
+            
+        default:
+            return 0
+        }
+        
+    }
+	
+    func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
+        
+        switch component {
+        case 0:
+            return "\(row) hour"
+        case 1:
+            return "\(row) min"
+        default:
+            return ""
+        }
+   
+    }
     
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 2
         
     }
     
+    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
+        switch component {
+        case 0:
+         
+            selectedTeks = String(hours[row])
+            textWaktu.text = selectedTeks
+
+        case 1:
+            selectedTeks = String(minutes[row])
+            textWaktu.text = selectedTeks
+
+        default:
+            break;
+        }
+        
+      
+    }
     
+   
+    func createPicker()
+    {
+        let picker = UIPickerView()
+        picker.delegate = self
+        textWaktu.inputView = picker
+    }
     
     
    var hours = Array(0...23)
-   var minutes = Array(0...59)
+   var minutes = Array(00...59)
    var selectedTeks: String?
     
     @IBOutlet weak var textWaktu: CustomTextField!
@@ -32,13 +78,24 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+      
+        createPicker()
+        var toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        //add done button
+        var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+        
+        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+        
+        toolbar.setItems([flexibleSpace,doneBtn], animated: false)
+        
+        textWaktu.inputAccessoryView = toolbar
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    @objc func doneClicked()
+    {
+        contentView.endEditing(true)
     }
 
 }
