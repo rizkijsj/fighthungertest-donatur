@@ -13,7 +13,7 @@
         <!--LoginRegister-->
         <scene sceneID="Nnl-pv-MzP">
             <objects>
-                <viewController title="LoginRegister" id="VaB-LE-eif" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginRegister" title="LoginRegister" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VaB-LE-eif" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CEI-Jb-T3m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -110,7 +110,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="continue" enablesReturnKeyAutomatically="YES" textContentType="tel"/>
                                 <connections>
                                     <outlet property="delegate" destination="XiE-iL-Epf" id="MZk-JT-mau"/>
                                 </connections>
@@ -167,9 +167,10 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="continueButton" destination="rhE-xp-uqR" id="i5A-dk-C2S"/>
                         <outlet property="errorMssg" destination="bKl-tH-icU" id="7yc-FT-9CO"/>
                         <outlet property="telpTxtField" destination="HuZ-Oo-B88" id="dSZ-gm-idv"/>
-                        <segue destination="vMY-4Z-iyk" kind="show" identifier="toVerif" animates="NO" id="gF3-Qe-I5l"/>
+                        <segue destination="vMY-4Z-iyk" kind="show" identifier="LoginToVerify" animates="NO" id="gF3-Qe-I5l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjY-A2-s8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -274,6 +275,9 @@
                                     <constraint firstAttribute="height" constant="51" id="8si-lR-SMy"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="btnLanjut"/>
+                                <connections>
+                                    <action selector="lanjutBtn:" destination="vMY-4Z-iyk" eventType="touchUpInside" id="TNL-Oz-Wf4"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-B3-BSJ">
                                 <rect key="frame" x="288" y="278" width="71" height="28"/>
@@ -310,6 +314,7 @@
                     </view>
                     <navigationItem key="navigationItem" id="vJz-iT-g9r"/>
                     <connections>
+                        <outlet property="continueButton" destination="GqK-Pd-l6e" id="Fyh-36-G8P"/>
                         <outlet property="otpTxt1" destination="ucS-uc-d3x" id="9oc-Ri-g9w"/>
                         <outlet property="otpTxt2" destination="hiw-lt-ZM3" id="J1g-Z2-EbV"/>
                         <outlet property="otpTxt3" destination="ag9-ar-0fJ" id="iD3-fZ-LTk"/>
@@ -418,10 +423,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="continueButton" destination="JjT-Fc-sfJ" id="JTg-6r-Ivc"/>
                         <outlet property="emailTxtField" destination="Qi3-UV-feW" id="f0t-EO-gO4"/>
                         <outlet property="errorMssg" destination="8z8-Mk-4Vp" id="GCp-WT-nIR"/>
                         <outlet property="namaTxtField" destination="Ymp-Op-FWN" id="N6c-KB-OuF"/>
                         <outlet property="telpTxtField" destination="WfT-Zd-2ph" id="k28-Bb-i12"/>
+                        <segue destination="vMY-4Z-iyk" kind="show" identifier="RegisToVerify" id="gyy-oT-mva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrw-P4-80m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -438,7 +445,7 @@
         <image name="btnMasuk" width="163" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="gF3-Qe-I5l"/>
+        <segue reference="gyy-oT-mva"/>
         <segue reference="mWr-Zh-R03"/>
         <segue reference="oSc-ER-jll"/>
     </inferredMetricsTieBreakers>

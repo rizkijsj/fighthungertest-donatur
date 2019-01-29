@@ -125,6 +125,9 @@
                                 <rect key="frame" x="16" y="115" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="btnDonasi"/>
+                                <connections>
+                                    <segue destination="Nxu-iT-TgY" kind="show" id="GZf-NR-Vgh"/>
+                                </connections>
                             </button>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="7n7-JZ-Rk8">
                                 <rect key="frame" x="0.0" y="174" width="375" height="638"/>
@@ -327,7 +330,7 @@
         <!--LoginRegister-->
         <scene sceneID="Kib-29-vPx">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginRegister" id="Nxu-iT-TgY" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegister" id="Nxu-iT-TgY" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ywn-Za-pEN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3079" y="759"/>
@@ -335,7 +338,7 @@
         <!--Navigation Controller-->
         <scene sceneID="bFV-Dy-qo4">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="ymb-0Y-TGR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeDonatur" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="ymb-0Y-TGR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="NSW-Bl-bG7">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -360,4 +363,7 @@
         <image name="profilBtn" width="28" height="31"/>
         <image name="searchBtn" width="31" height="28"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="GZf-NR-Vgh"/>
+    </inferredMetricsTieBreakers>
 </document>
