@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class DaftarViewController: UIViewController , UITextFieldDelegate{
 
@@ -15,14 +16,32 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var telpTxtField: CustomTextField!
     @IBOutlet weak var namaTxtField: CustomTextField!
     
+    @IBOutlet weak var continueButton: UIButton!
+    var activityView:UIActivityIndicatorView!
+    
+    var tempTampungKirim = [String]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        //uitextfield delegate
-        namaTxtField.delegate = self
-        telpTxtField.delegate = self
-        emailTxtField.delegate = self
+  
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
+        //disable login button dan bikin activity progress yg muter-muter
+        setContinueButton(enabled: false)
+        activityView = UIActivityIndicatorView(style: .gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
+        activityView.center = continueButton.center
+        view.addSubview(activityView)
+        
+        //delegate textfield
+        emailTxtField.delegate = self as? UITextFieldDelegate
+        telpTxtField.delegate = self as? UITextFieldDelegate
+        namaTxtField.delegate = self as? UITextFieldDelegate
+        
+        //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
+        telpTxtField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        emailTxtField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        namaTxtField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         //hidden label
         errorMssg.isHidden = true
         
@@ -41,17 +60,111 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         emailTxtField.inputAccessoryView = toolbar
     }
     
+    
+    @objc func textFieldChanged(_ target:UITextField) {
+        let phonenumber = telpTxtField.text
+        let email = emailTxtField.text
+        let nama = namaTxtField.text
+        //syaratnya
+        let formFilled = phonenumber != nil && phonenumber != "" && phonenumber?.count == 14 && email != nil && email != "" && nama != nil && nama != ""
+        
+        //testing
+        print(phonenumber?.count)
+        print(formFilled)
+        if formFilled
+        {
+            setContinueButton(enabled: true)
+            errorMssg.isHidden = true
+        }
+        else if phonenumber == nil || phonenumber == ""
+        {
+            errorMssg.isHidden = false
+            errorMssg.text = "Phone number cannot be empty!"
+            setContinueButton(enabled: false)
+        }else if phonenumber?.count != 14{
+            errorMssg.isHidden = false
+            errorMssg.text = "Enter the correct length phone number!"
+            setContinueButton(enabled: false)
+        }
+        else if email == nil || email == ""
+        {
+            errorMssg.isHidden = false
+            errorMssg.text = "Phone number cannot be empty!"
+            setContinueButton(enabled: false)
+        }else if nama == nil || nama == ""
+        {
+            errorMssg.isHidden = false
+            errorMssg.text = "Phone number cannot be empty!"
+            setContinueButton(enabled: false)
+        }
+        
+    }
+    
+    
+    
+    @IBAction func btnLanjut(_ sender: Any) {
+        
+        setContinueButton(enabled: false)
+        
+        activityView.startAnimating()
+        
+        guard let phonenumber = telpTxtField.text else {return}
+        let code = connector().verifyRegister(phoneNo: phonenumber)
+        print("w5qb",code)
+        //kalau berhasil
+        if code.status == true{
+            self.performSegue(withIdentifier: "RegisToVerify", sender: nil)
+            print("segue")
+        }else if code.status == false {
+            let result = connector().errorCode(code: code.errorCode)
+            errorMssg.isHidden = false
+            errorMssg.text = result
+            print("asu")
+            resetForm()
+        }
+       
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let info = segue.destination as! OTPViewController
+        info.tempTampungTerima = tempTampungKirim
+        tempTampungKirim = []
+    }
+    
+    func sendDataToNextVC(){
+        tempTampungKirim.append(emailTxtField.text!)
+        tempTampungKirim.append(namaTxtField.text!)
+        tempTampungKirim.append(telpTxtField.text!)
+    }
+    
+    func setContinueButton(enabled:Bool) {
+        if enabled {
+            continueButton.alpha = 1.0
+            continueButton.isEnabled = true
+        } else {
+            continueButton.alpha = 0.5
+            continueButton.isEnabled = false
+        }
+    }
+    
+    func resetForm() {
+        
+        //setContinueButton(enabled: true)
+        activityView.stopAnimating()
+    }
+    
     @objc func doneClicked()
     {
         view.endEditing(true)
     }
     
-    @IBAction func btnLanjut(_ sender: Any) {
+    override var canBecomeFirstResponder: Bool{
+        return true
         
-        //validation
-       
     }
     
- 
-
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.becomeFirstResponder()
+        
+    }
 }

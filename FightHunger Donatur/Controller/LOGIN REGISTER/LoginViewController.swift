@@ -7,14 +7,18 @@
 //
 
 import UIKit
+import Firebase
 
-class LoginViewController: UIViewController , UITextFieldDelegate{
+class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDelegate{
 
     @IBOutlet weak var telpTxtField: CustomTextField!
+    @IBOutlet weak var continueButton: UIButton!
+    
+    var activityView:UIActivityIndicatorView!
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        telpTxtField.delegate = self
+        
         
         var toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -28,6 +32,21 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         telpTxtField.inputAccessoryView = toolbar
         
         errorMssg.isHidden = true
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
+        //disable login button dan bikin activity progress yg muter-muter
+        setContinueButton(enabled: false)
+        activityView = UIActivityIndicatorView(style: .gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
+        activityView.center = continueButton.center
+        view.addSubview(activityView)
+        
+        //delegate textfield
+        telpTxtField.delegate = self as? UITextFieldDelegate
+        
+        //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
+        telpTxtField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
        
     }
     
@@ -37,27 +56,82 @@ class LoginViewController: UIViewController , UITextFieldDelegate{
         self.navigationController?.navigationBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width , height: 80.0)
     }
     
-    @objc func doneClicked()
-    {
-        view.endEditing(true)
-    }
+    
 
     @IBOutlet weak var errorMssg: UILabel!
     @IBAction func LanjutButton(_ sender: Any) {
+        setContinueButton(enabled: false)
         
-        //validation
+        activityView.startAnimating()
         
-        if telpTxtField.text != ""
-        {
-           performSegue(withIdentifier: "toVerif", sender: self)
+        guard let phonenumber = telpTxtField.text else {return}
+        let code = connector().verifyLogin(phoneNo: phonenumber)
+        //kalau berhasil
+        if code.status{
+            self.performSegue(withIdentifier: "LoginToVerify", sender: nil)
+        }else {
+            let result = connector().errorCode(code: code.errorCode)
+            errorMssg.isHidden = false
+            errorMssg.text = result
+            resetForm()
         }
-        else if telpTxtField.text == ""
+        
+        
+    }
+    
+    func setContinueButton(enabled:Bool) {
+        if enabled {
+            continueButton.alpha = 1.0
+            continueButton.isEnabled = true
+        } else {
+            continueButton.alpha = 0.5
+            continueButton.isEnabled = false
+        }
+    }
+    
+   
+    
+    @objc func textFieldChanged(_ target:UITextField) {
+        let phonenumber = telpTxtField.text
+        //syaratnya
+        let formFilled = phonenumber != nil && phonenumber != "" && phonenumber?.count == 12
+        if formFilled
+        {
+            setContinueButton(enabled: true)
+        }
+        else if phonenumber == nil
         {
             errorMssg.isHidden = false
-            errorMssg.text = "This field cannot be empty!"
+            errorMssg.text = "Phone number cannot be empty!"
+            setContinueButton(enabled: false)
+        }else if phonenumber?.count != 12{
+            errorMssg.isHidden = false
+            errorMssg.text = "Enter the correct length phone number!"
+            setContinueButton(enabled: false)
         }
         
     }
     
+    
+    
+    @objc func doneClicked()
+    {
+        view.endEditing(true)
+    }
+    func resetForm() {
+        
+        setContinueButton(enabled: true)
+        activityView.stopAnimating()
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.becomeFirstResponder()
+        
+    }
     
 }

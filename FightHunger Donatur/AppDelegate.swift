@@ -9,19 +9,82 @@
 import UIKit
 import CoreData
 import Firebase
+import FirebaseMessaging
+import FirebaseAuth
+import UserNotifications
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	var window: UIWindow?
-
+    let gcmMessageIDKey = "gcm.message_id"
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+        print("test")
         FirebaseApp.configure()
         
-		return true
+        if #available(iOS 10.0, *) {
+            // For iOS 10 display notification (sent via APNS)
+            UNUserNotificationCenter.current().delegate = self
+            
+            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            UNUserNotificationCenter.current().requestAuthorization(
+                options: authOptions,
+                completionHandler: {_, _ in })
+        } else {
+            let settings: UIUserNotificationSettings =
+                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            application.registerUserNotificationSettings(settings)
+        }
+        Messaging.messaging().delegate = self
+        application.registerForRemoteNotifications()
+        
+        
+        
+        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
+            if user != nil{
+                UserService.observeUserProfile(user!.uid) { userProfile in
+                    UserService.currentUserProfile = userProfile
+                }
+//                let postRef = Database.database().reference().child("Post/\(user!.uid)")
+//                postRef.observe(.childChanged, with: { (snapshot) -> Void in
+//                    self.postLocalNotification(identifier: "data changed", title: "data changed", subtitle: "your order is changed", body: "hai", duration: 1)
+//                    print("database is changed")
+//                })
+                //auto login
+                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
+                self.window?.rootViewController = controller
+                self.window?.makeKeyAndVisible()
+                
+            } else {
+                
+                UserService.currentUserProfile = nil
+                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
+                self.window?.rootViewController = controller
+                self.window?.makeKeyAndVisible()
+            }
+            
+            
+        }
+        Thread.sleep(forTimeInterval: 3.0)
+        return true
 	}
+    
+    
+    func postLocalNotification(identifier: String, title: String, subtitle: String, body: String, duration: Double){
+        let content = UNMutableNotificationContent()
+        content.title = title
+        content.subtitle = subtitle
+        content.body = body
+        content.badge = 1
+        let trigger = UNTimeIntervalNotificationTrigger(timeInterval: duration, repeats: false)
+        let request = UNNotificationRequest(identifier: identifier, content: content, trigger: trigger)
+        
+        UNUserNotificationCenter.current().add(request, withCompletionHandler: nil)
+        
+    }
 
 	func applicationWillResignActive(_ application: UIApplication) {
 		// Sent when the application is about to move from active to inactive state. This can occur for certain types of temporary interruptions (such as an incoming phone call or SMS message) or when the user quits the application and it begins the transition to the background state.
@@ -46,6 +109,44 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 		// Saves changes in the application's managed object context before the application terminates.
 		self.saveContext()
 	}
+    
+    //tambahan push notif
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any]) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+    }
+    
+    func application(_ application: UIApplication, didReceiveRemoteNotification userInfo: [AnyHashable: Any],
+                     fetchCompletionHandler completionHandler: @escaping (UIBackgroundFetchResult) -> Void) {
+        // If you are receiving a notification message while your app is in the background,
+        // this callback will not be fired till the user taps on the notification launching the application.
+        // TODO: Handle data of notification
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+        
+        completionHandler(UIBackgroundFetchResult.newData)
+    }
 
 	// MARK: - Core Data stack
 
@@ -94,3 +195,58 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+@available(iOS 10, *)
+extension AppDelegate : UNUserNotificationCenterDelegate {
+    
+    // Receive displayed notifications for iOS 10 devices.
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                willPresent notification: UNNotification,
+                                withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void) {
+        let userInfo = notification.request.content.userInfo
+        
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        
+        // Print message ID.
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+        
+        // Change this to your preferred presentation option
+        completionHandler([.alert])
+        
+    }
+    
+    func userNotificationCenter(_ center: UNUserNotificationCenter,
+                                didReceive response: UNNotificationResponse,
+                                withCompletionHandler completionHandler: @escaping () -> Void) {
+        let userInfo = response.notification.request.content.userInfo
+        // Print message ID.
+        if let messageID = userInfo[gcmMessageIDKey] {
+            print("Message ID: \(messageID)")
+        }
+        
+        // Print full message.
+        print(userInfo)
+        
+        completionHandler()
+    }
+}
+
+extension AppDelegate: MessagingDelegate {
+    func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
+        print("Firebase registration token: \(fcmToken)")
+        
+        let dataDict:[String: String] = ["token": fcmToken]
+        NotificationCenter.default.post(name: Notification.Name("FCMToken"), object: nil, userInfo: dataDict)
+        // TODO: If necessary send token to application server.
+        // Note: This callback is fired at each app startup and whenever a new token is generated.
+    }
+    
+    func messaging(_ messaging: Messaging, didReceive remoteMessage: MessagingRemoteMessage) {
+        print("Message Data", remoteMessage.appData)
+    }
+}

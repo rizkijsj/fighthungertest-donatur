@@ -8,7 +8,7 @@
 
 import UIKit
 import CoreLocation
-
+import Firebase
 
 /*
 Reminder untuk status di Transaction:
@@ -21,25 +21,170 @@ Reminder untuk status di Transaction:
 6 - Batal Organisasi
 */
 
+// error code
+//case 0:
+//return "Success"
+//case 1:
+//return "Phone Number is incorrect"
+//case 2:
+//return "Phone number is already registered"
+//case 3:
+//return "Input is incorrect"
+//case 4:
+//return "Please input the image"
+//case 5 :
+//return "Connection error"
+//default:
+//return "Unknown error"
+
 class connector {
 	// MARK: - Login Signup
-	func loginSucess(phoneNo:String) -> Bool{
-		// TODO:
-		return true
+    func verifyLogin(phoneNo:String) -> (status: Bool,errorCode: Int){
+        // TODO:
+        var tempStatus = false
+        var codeError = 0
+        //let resultCheck = verifyUserExistance(phonenumber: phoneNo)
+        if verifyUserExistance(phonenumber: phoneNo){
+            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in if error != nil{
+                print("error: \(String(describing: error?.localizedDescription))")
+            }else{
+                let defaults = UserDefaults.standard
+                defaults.set(verificationID, forKey: "authVID")
+                tempStatus = true
+                codeError = 0
+                }
+            }
+        }else{
+            tempStatus = false
+            codeError = 2
+        }
+		return(tempStatus,codeError)
 	}
-	func loginFail(phoneNo:String) -> Bool{
-		// TODO:
-		return false
-	}
+    
+    func verifyRegister(phoneNo:String) -> (status: Bool,errorCode: Int){
+        // TODO:
+        var tempStatus = false
+        var codeError = 0
+        
+        if verifyUserExistance(phonenumber: phoneNo) == true{
+            tempStatus = false
+            codeError = 1
+            print("error")
+        }else{
+            print("ini no nya ",phoneNo)
+            tempStatus = true
+            codeError = 0
+            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in if error != nil{
+                print("error: \(String(describing: error?.localizedDescription))")
+            }else{
+                let defaults = UserDefaults.standard
+                defaults.set(verificationID, forKey: "authVID")
+                
+                print("sukses dong")
+                print(tempStatus)
+                }
+            }
+        }
+        return(tempStatus,codeError)
+    }
+    
+    func verifyUserExistance(phonenumber:String)-> Bool{
+        var tempStatus = false
+        let ref = Database.database().reference()
+        ref.child("users/phonenumber/\(phonenumber)").observeSingleEvent(of: .value, with: { (snapshot) in
+            if snapshot.exists(){
+                print("phone number exist")
+                tempStatus = true
+            }else{
+                print("phone number not exist")
+                tempStatus = false
+            }
+        })
+        return tempStatus
+    }
 	
-	func signUpSucess(nama:String, phoneNo:String) -> Bool{
+    func signUpIn(email:String, nama:String, phonenumber:String,kodeotp:PhoneAuthCredential) -> Bool{
 		// TODO:
-		return true
+        let url = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/profiledefault.jpg?alt=media&token=8234e660-a04d-4e54-abe3-e615c74ff91f")
+        var result = false
+        
+        Auth.auth().signIn(with: kodeotp) { (user, error) in
+            if error != nil && user != nil{
+                print("error: \(String(describing: error?.localizedDescription))")
+                result = false
+            }else{
+                //testing
+                
+                print("Phone number: \(user?.phoneNumber)")
+                let userInfo = user?.providerData[0]
+                print("Provider ID: \(userInfo?.providerID)")
+                //codingan
+                
+                if self.verifyUserExistance(phonenumber: phonenumber) == false{
+                    
+                    guard let uid = Auth.auth().currentUser?.uid else { return }
+                    
+                    let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
+                    let phoneNumberDatabaseRef = Database.database().reference().child("users/phonenumber/\(phonenumber)")
+                    let userObject = [
+                        "username":nama,"email": email,"photoURL":url,"phonenumber": phonenumber
+                        ] as [String:Any]
+                    let phoneNumberObject = [
+                        phonenumber:uid
+                        ] as [String:Any]
+                    
+                    databaseRef.setValue(userObject) { error, ref in
+                        //completion(error == nil)
+                    }
+                    phoneNumberDatabaseRef.setValue(phoneNumberObject) { error, ref in
+                        //completion(error == nil)
+                    }
+                }
+                
+               result = true
+            }
+        }
+        
+		return result
 	}
-	func signUpFail(nama:String, honeNo:String) -> Bool{
-		// TODO:
-		return false
-	}
+//    func login() -> Bool{
+//        // TODO:
+//        let result = false
+//
+//        Auth.auth().signIn(with: credential) { (user, error) in
+//            if error != nil && user != nil{
+//                print("error: \(String(describing: error?.localizedDescription))")
+//                result = false
+//            }else{
+//                print("Phone number: \(user?.phoneNumber)")
+//                let userInfo = user?.providerData[0]
+//                print("Provider ID: \(userInfo?.providerID)")
+//                result = true
+//            }
+//        }
+//
+//
+//        return result
+//    }
+    
+    
+    
+    func saveProfile(username:String,email:String ,profileImageURL:URL, completion: @escaping ((_ success:Bool)->())) {
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        
+        let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
+        
+        let userObject = [
+            "username": username,"email": email,
+            "photoURL": profileImageURL.absoluteString] as [String:Any]
+        
+        databaseRef.updateChildValues(userObject) { error, ref in
+            completion(error == nil)
+        }
+    }
+    
+    
 	func SMSSucess(verificationCode:String) -> Bool{
 		// TODO:
 		return true
@@ -48,6 +193,21 @@ class connector {
 		// TODO:
 		return false
 	}
+    
+    // interpreter error
+    public func errorCode(code:Int) -> String{
+       
+        switch code {
+        case 0:
+            return "Success"
+        case 1:
+            return "Phone number is already registered"
+        case 2:
+            return "Phone number is not registered"
+        default:
+           return "Unknown error"
+        }
+    }
 	
 	// MARK: - Post Donation
 	func postDonationSucess(donationName:String,image:UIImage,locationName:String, locationCoor:CLLocationCoordinate2D,pickupTime:Date,desccription:String) -> Bool {

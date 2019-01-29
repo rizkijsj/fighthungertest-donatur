@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class OTPViewController: UIViewController , UITextFieldDelegate{
 
@@ -21,8 +22,26 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var otpTxt2: UITextField!
     @IBOutlet weak var otpTxt1: UITextField!
     
+    @IBOutlet weak var continueButton: UIButton!
+    
+    
+    var tempTampungTerima = [String]()
+    
+    var activityView:UIActivityIndicatorView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
+        //disable login button dan bikin activity progress yg muter-muter
+        setContinueButton(enabled: false)
+        activityView = UIActivityIndicatorView(style: .gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
+        activityView.center = continueButton.center
+        view.addSubview(activityView)
+        
+        
         
         //Change bg color
          otpTxt1.backgroundColor = UIColor.clear
@@ -39,10 +58,16 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         addBottomBorder(textField: otpTxt4)
         
         //uitextfield delegate
-        otpTxt1.delegate = self
-        otpTxt2.delegate = self
-        otpTxt3.delegate = self
-        otpTxt4.delegate = self
+        otpTxt1.delegate = self as? UITextFieldDelegate
+        otpTxt2.delegate = self as? UITextFieldDelegate
+        otpTxt3.delegate = self as? UITextFieldDelegate
+        otpTxt4.delegate = self as? UITextFieldDelegate
+        
+        //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
+        otpTxt1.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt2.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt3.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt4.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         //add done button above keyboard
         var toolbar = UIToolbar()
@@ -65,10 +90,27 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt1.becomeFirstResponder()
     }
     
-    @objc func doneClicked()
-    {
-        view.endEditing(true)
+    
+    @IBAction func lanjutBtn(_ sender: Any) {
+        
+        let defaults = UserDefaults.standard
+        guard let email = tempTampungTerima[0] as? String else { return }
+        guard let username = tempTampungTerima[1] as? String else { return }
+        guard let phonenumber = tempTampungTerima[2] as? String else { return }
+        let combinedOTP = otpTxt1.text! + otpTxt2.text! + otpTxt3.text! + otpTxt4!.text!
+        print(combinedOTP)
+        
+        let credential: PhoneAuthCredential = PhoneAuthProvider.provider().credential(withVerificationID: defaults.string(forKey: "authVID")!, verificationCode: combinedOTP)
+        
+        if connector().signUpIn(email: email, nama: username, phonenumber: phonenumber, kodeotp: credential){
+            print("masuk pak eko")
+        }
+        
+        
+        
     }
+    
+    
 
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
@@ -145,4 +187,50 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         textField.layer.addSublayer(layer)
     }
     
+    @objc func textFieldChanged(_ target:UITextField) {
+        let otp1 = otpTxt1.text
+        let otp2 = otpTxt2.text
+        let otp3 = otpTxt3.text
+        let otp4 = otpTxt4.text
+        //syaratnya
+        let formFilled = otp1 != nil && otp1! == "" && otp2 != nil && otp2 != "" && otp3 != nil && otp3 != "" && otp4 != nil && otp4 != ""
+
+        
+        if formFilled
+        {
+            setContinueButton(enabled: true)
+        }
+        
+    }
+    
+    func setContinueButton(enabled:Bool) {
+        if enabled {
+            continueButton.alpha = 1.0
+            continueButton.isEnabled = true
+        } else {
+            continueButton.alpha = 0.5
+            continueButton.isEnabled = false
+        }
+    }
+    
+    func resetForm() {
+        
+        setContinueButton(enabled: true)
+        activityView.stopAnimating()
+    }
+    
+    @objc func doneClicked()
+    {
+        view.endEditing(true)
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.becomeFirstResponder()
+        
+    }
 }
