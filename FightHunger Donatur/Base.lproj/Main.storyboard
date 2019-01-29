@@ -164,7 +164,7 @@
         <!--FightHunger-->
         <scene sceneID="HNi-Cd-Erm">
             <objects>
-                <viewController id="SEp-dX-SOd" customClass="HomeViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="SEp-dX-SOd" customClass="HomeViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9h-cY-13M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -396,10 +396,10 @@
             </objects>
             <point key="canvasLocation" x="1328.8" y="1639.6551724137933"/>
         </scene>
-        <!--Donating-->
+        <!--LoginRegister-->
         <scene sceneID="Fa1-IA-1nH">
             <objects>
-                <viewControllerPlaceholder storyboardName="Donating" id="4b1-Hk-OCC" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="LoginRegister" id="4b1-Hk-OCC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2C-v3-env" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1962" y="1420"/>
@@ -407,7 +407,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uwI-UQ-Fnf">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EcE-dn-laR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeDonatur" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EcE-dn-laR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VWU-hx-WHJ">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>

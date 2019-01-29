@@ -188,9 +188,9 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             {
                 otpTxt5.becomeFirstResponder()
             }
-            if textField == otpTxt6
+            if textField == otpTxt1
             {
-                otpTxt6.becomeFirstResponder()
+                otpTxt1.becomeFirstResponder()
             }
             
             textField.text = ""
