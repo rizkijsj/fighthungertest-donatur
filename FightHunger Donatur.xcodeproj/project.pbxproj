@@ -10,6 +10,8 @@
 		21819EBFF7E0E2A7AB8C262B /* Pods_FightHunger_DonaturTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */; };
 		2BAC5D1C21FF02260071930B /* MitraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC5D1B21FF02260071930B /* MitraCollectionViewCell.swift */; };
 		2BAC5D1E21FF091E0071930B /* aktivitasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BAC5D1D21FF091E0071930B /* aktivitasCollectionViewCell.swift */; };
+		2BB1012522004699003967CE /* pickerviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012422004699003967CE /* pickerviewTableViewCell.swift */; };
+		2BB10129220061CC003967CE /* waktuPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB10128220061CC003967CE /* waktuPickerTableViewCell.swift */; };
 		2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4121FD59D1008C85CE /* CustomTextField.swift */; };
 		2BF68C4421FD8A0E008C85CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */; };
 		2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */; };
@@ -56,6 +58,8 @@
 		15D69F824E46B705A423BE2C /* Pods-FightHunger DonaturTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2BAC5D1B21FF02260071930B /* MitraCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MitraCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BAC5D1D21FF091E0071930B /* aktivitasCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = aktivitasCollectionViewCell.swift; sourceTree = "<group>"; };
+		2BB1012422004699003967CE /* pickerviewTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = pickerviewTableViewCell.swift; sourceTree = "<group>"; };
+		2BB10128220061CC003967CE /* waktuPickerTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = waktuPickerTableViewCell.swift; path = "FightHunger Donatur/Controller/Donasi/Picker/waktuPickerTableViewCell.swift"; sourceTree = SOURCE_ROOT; };
 		2BF68C4121FD59D1008C85CE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
@@ -126,6 +130,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2BB1012A22006217003967CE /* Picker */ = {
+			isa = PBXGroup;
+			children = (
+				2BB10128220061CC003967CE /* waktuPickerTableViewCell.swift */,
+				2BB1012422004699003967CE /* pickerviewTableViewCell.swift */,
+			);
+			path = Picker;
+			sourceTree = "<group>";
+		};
 		2BF68C3F21FD5993008C85CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -190,6 +203,7 @@
 		91C512B521FEC67C00F3F97C /* Donasi */ = {
 			isa = PBXGroup;
 			children = (
+				2BB1012A22006217003967CE /* Picker */,
 				91C512A821FD5F5800F3F97C /* Lokasi test */,
 				91C512B821FEC73A00F3F97C /* DonasiPush.swift */,
 			);
@@ -552,6 +566,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BB1012522004699003967CE /* pickerviewTableViewCell.swift in Sources */,
 				2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */,
 				2F5D05FC21FED50900CDD125 /* Post.swift in Sources */,
 				2BAC5D1C21FF02260071930B /* MitraCollectionViewCell.swift in Sources */,
@@ -565,6 +580,7 @@
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
 				91C512B921FEC73A00F3F97C /* DonasiPush.swift in Sources */,
+				2BB10129220061CC003967CE /* waktuPickerTableViewCell.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				91C512AA21FD5F9A00F3F97C /* LokasiPengambilan.swift in Sources */,
 				FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */,
