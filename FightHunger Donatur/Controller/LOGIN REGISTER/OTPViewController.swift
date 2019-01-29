@@ -17,6 +17,10 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
     }
     
+  
+    @IBOutlet weak var otpTxt6: UITextField!
+    
+    @IBOutlet weak var otpTxt5: UITextField!
     @IBOutlet weak var otpTxt4: UITextField!
     @IBOutlet weak var otpTxt3: UITextField!
     @IBOutlet weak var otpTxt2: UITextField!
@@ -48,6 +52,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
          otpTxt2.backgroundColor = UIColor.clear
          otpTxt3.backgroundColor = UIColor.clear
          otpTxt4.backgroundColor = UIColor.clear
+         otpTxt5.backgroundColor = UIColor.clear
+         otpTxt6.backgroundColor = UIColor.clear
         
         //otpTxt1.becomeFirstResponder()
         
@@ -56,6 +62,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         addBottomBorder(textField: otpTxt2)
         addBottomBorder(textField: otpTxt3)
         addBottomBorder(textField: otpTxt4)
+        addBottomBorder(textField: otpTxt5)
+        addBottomBorder(textField: otpTxt6)
         
         //uitextfield delegate
         otpTxt1.delegate = self as? UITextFieldDelegate
@@ -68,6 +76,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt2.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         otpTxt3.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         otpTxt4.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt5.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt6.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         //add done button above keyboard
         var toolbar = UIToolbar()
@@ -83,6 +93,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt2.inputAccessoryView = toolbar
         otpTxt3.inputAccessoryView = toolbar
         otpTxt4.inputAccessoryView = toolbar
+        otpTxt5.inputAccessoryView = toolbar
+        otpTxt6.inputAccessoryView = toolbar
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -134,7 +146,15 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             
             if textField == otpTxt4
             {
-                otpTxt4.becomeFirstResponder()
+                otpTxt5.becomeFirstResponder()
+            }
+            if textField == otpTxt5
+            {
+                otpTxt6.becomeFirstResponder()
+            }
+            if textField == otpTxt6
+            {
+                otpTxt6.becomeFirstResponder()
             }
             
             //showing text
@@ -160,6 +180,14 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
                 otpTxt3.becomeFirstResponder()
             }
             
+            if textField == otpTxt5
+            {
+                otpTxt4.becomeFirstResponder()
+            }
+            if textField == otpTxt6
+            {
+                otpTxt5.becomeFirstResponder()
+            }
             if textField == otpTxt1
             {
                 otpTxt1.becomeFirstResponder()
@@ -192,6 +220,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         let otp2 = otpTxt2.text
         let otp3 = otpTxt3.text
         let otp4 = otpTxt4.text
+        let otp5 = otpTxt5.text
+        let otp6 = otpTxt6.text
         //syaratnya
         let formFilled = otp1 != nil && otp1! == "" && otp2 != nil && otp2 != "" && otp3 != nil && otp3 != "" && otp4 != nil && otp4 != ""
 

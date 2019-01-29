@@ -164,7 +164,7 @@
         <!--FightHunger-->
         <scene sceneID="HNi-Cd-Erm">
             <objects>
-                <viewController id="SEp-dX-SOd" customClass="HomeViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="SEp-dX-SOd" customClass="HomeViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9h-cY-13M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -176,7 +176,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YsV-01-Czv">
                                     <size key="itemSize" width="375" height="201"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
-                                    <size key="footerReferenceSize" width="10" height="10"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -364,10 +364,6 @@
                                         <outlet property="sectionLabel" destination="vpK-MM-flf" id="5oe-kd-mdK"/>
                                     </connections>
                                 </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HGO-s4-RSy">
-                                    <rect key="frame" x="0.0" y="722" width="375" height="10"/>
-                                    <autoresizingMask key="autoresizingMask"/>
-                                </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="SEp-dX-SOd" id="swT-3m-yYI"/>
                                     <outlet property="delegate" destination="SEp-dX-SOd" id="fNq-yg-ZjT"/>
@@ -411,7 +407,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uwI-UQ-Fnf">
             <objects>
-                <navigationController storyboardIdentifier="homedonatur" automaticallyAdjustsScrollViewInsets="NO" id="EcE-dn-laR" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeDonatur" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EcE-dn-laR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VWU-hx-WHJ">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>

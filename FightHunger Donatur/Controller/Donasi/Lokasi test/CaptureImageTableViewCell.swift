@@ -1,5 +1,5 @@
 //
-//  collectionViewCell.swift
+//  CaptureImageTableViewCell.swift
 //  FightHunger Donatur
 //
 //  Created by Julianti Cahyadi on 29/01/19.
@@ -8,8 +8,9 @@
 
 import UIKit
 
-class collectionViewCell: UITableViewCell {
-
+class CaptureImageTableViewCell: UITableViewCell , UINavigationControllerDelegate {
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
