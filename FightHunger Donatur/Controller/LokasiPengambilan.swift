@@ -22,19 +22,17 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     
     
 //    unwindsegue dan pasing data
+    
+    var alamatLengkap = ""
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! DonasiPush
-        destVC.dataAlamat = "Lokasi anda: ???"
-        
-//        masih perlu data buat pasing data yaitu alamat yg di label di push ke dataalamat
-        
-//        dan juga menyimpan data latitude dan longitude ke sebuah penampung di view donasi push
-        
+        destVC.dataAlamat = "\(alamatLengkap)"
+//        destVC.kordinatPeta = kordinatAsli
         
     }
     
     var lokasiSebelumnya: CLLocation?
-    
     let locationManager = CLLocationManager()
     let regionInMeters: Double = 0.0005
     
@@ -99,11 +97,15 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
         lokasiSebelumnya = getCenterLocation(for: peta)
     }
     
+    
+    var kordinatAsli = [Double]()
     func getCenterLocation(for peta: MKMapView) -> CLLocation {
         let latitude = peta.centerCoordinate.latitude
         let longitude = peta.centerCoordinate.longitude
         
-        print(latitude,longitude)
+        print("ini kordinat: \(latitude,longitude)")
+        kordinatAsli = [latitude,longitude]
+        
         
         return CLLocation(latitude: latitude, longitude: longitude)
     }
@@ -175,9 +177,6 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     }
     
     
-    
-    
-    
 }
 
 extension LokasiPengambilan: CLLocationManagerDelegate {
@@ -220,10 +219,12 @@ extension LokasiPengambilan: MKMapViewDelegate{
             let provinsi = placemark.administrativeArea ?? ""
             let negara = placemark.country ?? ""
 
-            print(placemarks)
+            print("ini alamat lengkap : \(placemarks)")
 
             DispatchQueue.main.async {
                 self.alamat.text = "Lokasi anda: \n\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+                
+                self.alamatLengkap = self.alamat.text!
             }
 
         }
