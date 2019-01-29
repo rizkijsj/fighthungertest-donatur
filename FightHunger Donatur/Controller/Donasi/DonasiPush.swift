@@ -10,6 +10,18 @@ import UIKit
 
 class DonasiPush: UITableViewController {
     
+
+   
+    @IBOutlet weak var waktuAmbilTxt: UITextField!
+    @IBOutlet weak var keteranganLokasiTxt: UITextField!
+    @IBOutlet weak var lokasiTxt: UITextField!
+    @IBOutlet weak var kuantitasTxt: UITextField!
+    @IBOutlet weak var deskripsiTxt: UITextField!
+    @IBOutlet weak var namaDonasiTxt: UITextField!
+    @IBAction func libraryFotoButton(_ sender: Any) {
+    }
+    @IBAction func kameraButton(_ sender: Any) {
+    }
     @IBOutlet weak var fotoDonasi: UIImageView!
     
 //    buat passing data ke map
@@ -32,6 +44,9 @@ class DonasiPush: UITableViewController {
         // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
+        tableView.delegate = self
+        tableView.dataSource = self
+        
         alamat.text = dataAlamat
     }
 
@@ -39,7 +54,7 @@ class DonasiPush: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 2
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

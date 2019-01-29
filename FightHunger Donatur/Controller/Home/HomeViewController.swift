@@ -10,9 +10,12 @@ import UIKit
 
 class HomeViewController: UIViewController {
 
+    @IBOutlet weak var donasiBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        //MAKE ROUNDED BUTTON
+        donasiBtn.layer.cornerRadius = 6.0
         
          combined = NSMutableArray(array: [fotoKegiatan,labelJudulKegiatan,isiKegiatan,fotoOrganisasi,namaOrganisasi,wktOrganisasi,fotoMitra,labelOrganisasi,alamatorganisasi,ketKota,jarak,fotoOrg,fotoDonasi,statusLabel,namaOrg,namaDonasi,kadaluarsa,ketWaktu])
     }
@@ -111,6 +114,8 @@ extension HomeViewController: UICollectionViewDelegate , UICollectionViewDataSou
             cell.namaOrganisasi.text = namaOrg[indexPath.row]
             cell.keteranganWaktu.text = ketWaktu[indexPath.row]
             
+            cell.layer.borderWidth = 1.0
+            cell.layer.borderColor = UIColor.gray.cgColor
             return cell
         }
         else if indexPath.section ==  1
