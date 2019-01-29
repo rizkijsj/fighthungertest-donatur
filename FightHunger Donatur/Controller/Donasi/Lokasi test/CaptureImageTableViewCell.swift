@@ -11,26 +11,37 @@ import UIKit
 class CaptureImageTableViewCell: UITableViewCell,UIImagePickerControllerDelegate , UINavigationControllerDelegate {
 
     @IBOutlet weak var fotoDonasi: UIImageView!
-    @IBAction func btnLibraryFoto(_ sender: Any) {
+    
+    @IBAction func btnGallery(_ sender: Any) {
+        
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         
-        imagePickerController.sourceType = .photoLibrary
-        print("ohana")
        
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera)
+            {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController,animated: true,completion: nil)
+                
+            } else
+                
+                //using camera in MAC IS NOT AVAILABLE
+            {
+                print("Camera not available")
+            }
+      
         
-        self.present(imagePickerController,animated: true,completion: nil)
     }
     @IBAction func btnKamera(_ sender: Any) {
-        
         let imagePickerController = UIImagePickerController()
         imagePickerController.delegate = self
         if UIImagePickerController.isSourceTypeAvailable(.camera)
         {
             imagePickerController.sourceType = .camera
-           
+            
             print("ohayou")
-//                self.present(imagePickerController,animated: true,completion: nil)
+                            self.present(imagePickerController,animated: true,completion: nil)
             
         } else
             
@@ -38,8 +49,10 @@ class CaptureImageTableViewCell: UITableViewCell,UIImagePickerControllerDelegate
         {
             print("Camera not available")
         }
-        
     }
+   
+        
+    
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         

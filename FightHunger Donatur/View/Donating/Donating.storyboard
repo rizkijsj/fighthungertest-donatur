@@ -251,33 +251,33 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="277.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-wN-XT0">
-                                                    <rect key="frame" x="35" y="223" width="135" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="btnKamera"/>
-                                                    <connections>
-                                                        <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="SK3-Qo-LNO"/>
-                                                        <action selector="btnKamera:" destination="FZL-KC-7Kf" eventType="touchUpInside" id="zPJ-TY-1IX"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uCU-Xv-jF1">
-                                                    <rect key="frame" x="202" y="223" width="135" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="btnLibraryFoto"/>
-                                                    <connections>
-                                                        <action selector="btnLibraryFoto:" destination="FZL-KC-7Kf" eventType="touchUpInside" id="mi6-ee-TIP"/>
-                                                        <action selector="btnLibraryFoto:" destination="0pU-vt-mi9" eventType="touchUpInside" id="sl5-ID-FvH"/>
-                                                    </connections>
-                                                </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
                                                     <rect key="frame" x="0.0" y="11" width="375" height="177"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShW-zC-hEI">
+                                                    <rect key="frame" x="210" y="221" width="135" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="library"/>
+                                                    <connections>
+                                                        <action selector="btnGallery:" destination="0pU-vt-mi9" eventType="touchUpInside" id="0Ym-0I-hXw"/>
+                                                        <action selector="btnGallery:" destination="FZL-KC-7Kf" eventType="touchUpInside" id="8eU-3c-gzU"/>
+                                                        <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="FxU-No-aZn"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-wN-XT0">
+                                                    <rect key="frame" x="29" y="221" width="135" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="kamera"/>
+                                                    <connections>
+                                                        <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="Vp2-e6-7Z1"/>
+                                                        <action selector="btnKamera:" destination="FZL-KC-7Kf" eventType="touchUpInside" id="wJO-hb-Dvw"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="fotoDonasi" destination="wwU-na-Baq" id="1Hn-dx-FD4"/>
-                                            <outlet property="imageView" destination="wwU-na-Baq" id="g8f-6R-bHx"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -346,12 +346,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L65-r4-T5A">
-                                                    <rect key="frame" x="16" y="0.0" width="343" height="60"/>
+                                                    <rect key="frame" x="16" y="0.0" width="300" height="60"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.78789419240000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Xy-Bj6">
+                                                    <rect key="frame" x="324" y="11" width="37" height="38"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="my_location"/>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -465,5 +470,8 @@
     <resources>
         <image name="btnKamera" width="135" height="46"/>
         <image name="btnLibraryFoto" width="135" height="46"/>
+        <image name="kamera" width="587" height="200"/>
+        <image name="library" width="587" height="200"/>
+        <image name="my_location" width="200" height="200"/>
     </resources>
 </document>

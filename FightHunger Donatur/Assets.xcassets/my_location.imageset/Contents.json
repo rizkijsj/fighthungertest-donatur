@@ -2,7 +2,7 @@
   "images" : [
     {
       "idiom" : "universal",
-      "filename" : "kamera.png",
+      "filename" : "my_location.png",
       "scale" : "1x"
     },
     {
@@ -11,14 +11,7 @@
     },
     {
       "idiom" : "universal",
-      "filename" : "addPhoti@3x.png",
       "scale" : "3x"
-    },
-    {
-      "idiom" : "universal",
-      "filename" : "library.png",
-      "unassigned" : true,
-      "scale" : "1x"
     }
   ],
   "info" : {
