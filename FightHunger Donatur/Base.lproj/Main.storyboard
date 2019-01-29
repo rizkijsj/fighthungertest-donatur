@@ -176,7 +176,7 @@
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="YsV-01-Czv">
                                     <size key="itemSize" width="375" height="201"/>
                                     <size key="headerReferenceSize" width="50" height="50"/>
-                                    <size key="footerReferenceSize" width="10" height="10"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
@@ -363,10 +363,6 @@
                                     <connections>
                                         <outlet property="sectionLabel" destination="vpK-MM-flf" id="5oe-kd-mdK"/>
                                     </connections>
-                                </collectionReusableView>
-                                <collectionReusableView key="sectionFooterView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="HGO-s4-RSy">
-                                    <rect key="frame" x="0.0" y="722" width="375" height="10"/>
-                                    <autoresizingMask key="autoresizingMask"/>
                                 </collectionReusableView>
                                 <connections>
                                     <outlet property="dataSource" destination="SEp-dX-SOd" id="swT-3m-yYI"/>

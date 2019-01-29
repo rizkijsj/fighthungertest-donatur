@@ -51,21 +51,12 @@
 		FB34B3FE21FB32340070AA5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB34B3FD21FB32340070AA5E /* Assets.xcassets */; };
 		FB34B40121FB32340070AA5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB34B3FF21FB32340070AA5E /* LaunchScreen.storyboard */; };
 		FB34B40C21FB32350070AA5E /* FightHunger_DonaturTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34B40B21FB32350070AA5E /* FightHunger_DonaturTests.swift */; };
-		FB7E759D220084EB0072235D /* pickerViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E7595220084EB0072235D /* pickerViewController.swift */; };
-		FB7E759E220084EB0072235D /* KuantitasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E7596220084EB0072235D /* KuantitasTableViewCell.swift */; };
 		FB7E759F220084EB0072235D /* DonasiPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E7597220084EB0072235D /* DonasiPush.swift */; };
 		FB7E75A0220084EB0072235D /* pickerviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E7599220084EB0072235D /* pickerviewTableViewCell.swift */; };
 		FB7E75A1220084EB0072235D /* waktuPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E759A220084EB0072235D /* waktuPickerTableViewCell.swift */; };
-		FB7E75A2220084EB0072235D /* DonatingTVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E759B220084EB0072235D /* DonatingTVC.swift */; };
-		FB7E75A3220084EB0072235D /* KuantitasInTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E759C220084EB0072235D /* KuantitasInTableViewCell.swift */; };
 		FB7E75A62200851D0072235D /* LokasiPengambilan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E75A52200851D0072235D /* LokasiPengambilan.swift */; };
-		FB7E75AE2200864E0072235D /* HomeDonasiViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E75A72200864E0072235D /* HomeDonasiViewController.swift */; };
-		FB7E75AF2200864E0072235D /* collectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E75A82200864E0072235D /* collectionViewCell.swift */; };
 		FB7E75B02200864E0072235D /* MitraCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E75A92200864E0072235D /* MitraCollectionViewCell.swift */; };
-		FB7E75B12200864E0072235D /* aktivitasTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E75AA2200864E0072235D /* aktivitasTableViewCell.swift */; };
 		FB7E75B22200864E0072235D /* aktivitasCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E75AB2200864E0072235D /* aktivitasCollectionViewCell.swift */; };
-		FB7E75B32200864E0072235D /* CollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E75AC2200864E0072235D /* CollectionReusableView.swift */; };
-		FB7E75B42200864E0072235D /* kegiatanCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E75AD2200864E0072235D /* kegiatanCollectionViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,21 +123,12 @@
 		FB34B40721FB32350070AA5E /* FightHunger DonaturTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FightHunger DonaturTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB34B40B21FB32350070AA5E /* FightHunger_DonaturTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightHunger_DonaturTests.swift; sourceTree = "<group>"; };
 		FB34B40D21FB32350070AA5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB7E7595220084EB0072235D /* pickerViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickerViewController.swift; sourceTree = "<group>"; };
-		FB7E7596220084EB0072235D /* KuantitasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuantitasTableViewCell.swift; sourceTree = "<group>"; };
 		FB7E7597220084EB0072235D /* DonasiPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonasiPush.swift; sourceTree = "<group>"; };
 		FB7E7599220084EB0072235D /* pickerviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickerviewTableViewCell.swift; sourceTree = "<group>"; };
 		FB7E759A220084EB0072235D /* waktuPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = waktuPickerTableViewCell.swift; sourceTree = "<group>"; };
-		FB7E759B220084EB0072235D /* DonatingTVC.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonatingTVC.swift; sourceTree = "<group>"; };
-		FB7E759C220084EB0072235D /* KuantitasInTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KuantitasInTableViewCell.swift; sourceTree = "<group>"; };
 		FB7E75A52200851D0072235D /* LokasiPengambilan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LokasiPengambilan.swift; sourceTree = "<group>"; };
-		FB7E75A72200864E0072235D /* HomeDonasiViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeDonasiViewController.swift; sourceTree = "<group>"; };
-		FB7E75A82200864E0072235D /* collectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = collectionViewCell.swift; sourceTree = "<group>"; };
 		FB7E75A92200864E0072235D /* MitraCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MitraCollectionViewCell.swift; sourceTree = "<group>"; };
-		FB7E75AA2200864E0072235D /* aktivitasTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aktivitasTableViewCell.swift; sourceTree = "<group>"; };
 		FB7E75AB2200864E0072235D /* aktivitasCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = aktivitasCollectionViewCell.swift; sourceTree = "<group>"; };
-		FB7E75AC2200864E0072235D /* CollectionReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CollectionReusableView.swift; sourceTree = "<group>"; };
-		FB7E75AD2200864E0072235D /* kegiatanCollectionViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = kegiatanCollectionViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -204,11 +186,6 @@
 			isa = PBXGroup;
 			children = (
 				FB7E75AB2200864E0072235D /* aktivitasCollectionViewCell.swift */,
-				FB7E75AA2200864E0072235D /* aktivitasTableViewCell.swift */,
-				FB7E75AC2200864E0072235D /* CollectionReusableView.swift */,
-				FB7E75A82200864E0072235D /* collectionViewCell.swift */,
-				FB7E75A72200864E0072235D /* HomeDonasiViewController.swift */,
-				FB7E75AD2200864E0072235D /* kegiatanCollectionViewCell.swift */,
 				FB7E75A92200864E0072235D /* MitraCollectionViewCell.swift */,
 				2BF68C4A21FEB11F008C85CE /* HomeViewController.swift */,
 				2BF68C4C21FEB17C008C85CE /* HomeCollectionViewCell.swift */,
@@ -271,11 +248,7 @@
 			children = (
 				FB7E75A42200851D0072235D /* Lokasi test */,
 				FB7E7597220084EB0072235D /* DonasiPush.swift */,
-				FB7E759B220084EB0072235D /* DonatingTVC.swift */,
-				FB7E759C220084EB0072235D /* KuantitasInTableViewCell.swift */,
-				FB7E7596220084EB0072235D /* KuantitasTableViewCell.swift */,
 				FB7E7598220084EB0072235D /* Picker */,
-				FB7E7595220084EB0072235D /* pickerViewController.swift */,
 				91C512B821FEC73A00F3F97C /* DonasiPush.swift */,
 			);
 			path = Donasi;
@@ -655,17 +628,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */,
-				FB7E75B32200864E0072235D /* CollectionReusableView.swift in Sources */,
 				917F79C02200625E00A85296 /* DeskripsiDonasi.swift in Sources */,
 				2F5D05FC21FED50900CDD125 /* Post.swift in Sources */,
 				FB7E759F220084EB0072235D /* DonasiPush.swift in Sources */,
 				917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */,
-				FB7E75AE2200864E0072235D /* HomeDonasiViewController.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
 				917F79B0220060DB00A85296 /* PotoDonasi.swift in Sources */,
 				2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */,
 				2BF68C4F21FEB2FA008C85CE /* SectionCollectionReusableView.swift in Sources */,
-				FB7E759E220084EB0072235D /* KuantitasTableViewCell.swift in Sources */,
 				917F79C42200628500A85296 /* LokasiDonasi.swift in Sources */,
 				917F79B42200614400A85296 /* Konfirmasi.swift in Sources */,
 				2BF68C4B21FEB11F008C85CE /* HomeViewController.swift in Sources */,
@@ -673,19 +643,14 @@
 				FB7E75A1220084EB0072235D /* waktuPickerTableViewCell.swift in Sources */,
 				2F5D060021FED51E00CDD125 /* UserService.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
-				FB7E75AF2200864E0072235D /* collectionViewCell.swift in Sources */,
 				917F79C8220062A900A85296 /* Batalkan.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
-				FB7E75A3220084EB0072235D /* KuantitasInTableViewCell.swift in Sources */,
 				917F79BA220061CF00A85296 /* NamaKurir.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
-				FB7E759D220084EB0072235D /* pickerViewController.swift in Sources */,
 				91C512B921FEC73A00F3F97C /* DonasiPush.swift in Sources */,
-				FB7E75B12200864E0072235D /* aktivitasTableViewCell.swift in Sources */,
 				917F79B62200616000A85296 /* NamaOrganisasi.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				FB7E75A0220084EB0072235D /* pickerviewTableViewCell.swift in Sources */,
-				FB7E75A2220084EB0072235D /* DonatingTVC.swift in Sources */,
 				917F79B22200612300A85296 /* StatusDonasi.swift in Sources */,
 				FB7E75B02200864E0072235D /* MitraCollectionViewCell.swift in Sources */,
 				FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */,
@@ -698,7 +663,6 @@
 				917F79BC2200623200A85296 /* DeskripsiKurir.swift in Sources */,
 				2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */,
 				FB7E75A62200851D0072235D /* LokasiPengambilan.swift in Sources */,
-				FB7E75B42200864E0072235D /* kegiatanCollectionViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -863,7 +827,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29LM4FT5NH;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -883,7 +847,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 29LM4FT5NH;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
