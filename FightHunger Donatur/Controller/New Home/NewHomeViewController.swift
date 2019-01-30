@@ -33,7 +33,7 @@ class NewHomeViewController: UIViewController {
         tableView.register(UINib(nibName: "SectionThreeHomeCell", bundle: nil), forCellReuseIdentifier: "partnerCellID")
         
         // Set the donate button corner radius to comply design requirement
-        donateButton.layer.cornerRadius = 5.0
+        donateButton.layer.cornerRadius = 6.0
         donateButton.layer.masksToBounds = true
     }
 
@@ -107,6 +107,27 @@ extension NewHomeViewController: UITableViewDataSource, UITableViewDelegate {
             let cell = (tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as? SectionOneHomeCell)!
             
             return cell
+        }
+    }
+    
+    
+    //hide navbar when scrolling
+    func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if(velocity.y>0) {
+            //Code will work without the animation block.I am using animation block incase if you want to set any delay to it.
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                
+                //print("Hide")
+            }, completion: nil)
+            
+        } else {
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+                //print("Unhide")
+            }, completion: nil)
         }
     }
 }

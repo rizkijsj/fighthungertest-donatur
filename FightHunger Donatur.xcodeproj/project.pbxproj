@@ -9,6 +9,14 @@
 /* Begin PBXBuildFile section */
 		21819EBFF7E0E2A7AB8C262B /* Pods_FightHunger_DonaturTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */; };
 		2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48365F2201967000B18E72 /* LoginRegisterViewController.swift */; };
+		2B4836622201B46B00B18E72 /* NewHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E68FA21F2201454B006709B3 /* NewHome.storyboard */; };
+		2B4836632201B51F00B18E72 /* NewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA21D22014538006709B3 /* NewHomeViewController.swift */; };
+		2B4836642201B52B00B18E72 /* SectionOneHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA2232201592D006709B3 /* SectionOneHomeCell.swift */; };
+		2B4836652201B52B00B18E72 /* SectionOneHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA2242201592D006709B3 /* SectionOneHomeCell.xib */; };
+		2B4836662201B52B00B18E72 /* SectionTwoHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA22722015CBF006709B3 /* SectionTwoHomeCell.swift */; };
+		2B4836672201B52B00B18E72 /* SectionTwoHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA22822015CBF006709B3 /* SectionTwoHomeCell.xib */; };
+		2B4836682201B52B00B18E72 /* SectionThreeHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA22B2201607F006709B3 /* SectionThreeHomeCell.swift */; };
+		2B4836692201B52B00B18E72 /* SectionThreeHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA22C2201607F006709B3 /* SectionThreeHomeCell.xib */; };
 		2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */; };
 		2BB1013022013903003967CE /* DonatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012F22013903003967CE /* DonatingController.swift */; };
 		2BB1013222018BF8003967CE /* UbahProfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1013122018BF8003967CE /* UbahProfil.storyboard */; };
@@ -228,13 +236,13 @@
 			path = "New Home";
 			sourceTree = "<group>";
 		};
-		E68FA221220156D3006709B3 /* New Home */ = {
+		E68FA221220156D3006709B3 /* Home */ = {
 			isa = PBXGroup;
 			children = (
 				E68FA222220156E1006709B3 /* Content Cell */,
 				E68FA21F2201454B006709B3 /* NewHome.storyboard */,
 			);
-			path = "New Home";
+			path = Home;
 			sourceTree = "<group>";
 		};
 		E68FA222220156E1006709B3 /* Content Cell */ = {
@@ -253,7 +261,7 @@
 		FB00911B21FB781A00BC89AE /* View */ = {
 			isa = PBXGroup;
 			children = (
-				E68FA221220156D3006709B3 /* New Home */,
+				E68FA221220156D3006709B3 /* Home */,
 				FB00913121FB7DE600BC89AE /* LoginRegister */,
 				FB00912921FB7A8600BC89AE /* Profil */,
 				FB00912821FB7A5800BC89AE /* Kegiatan */,
@@ -510,13 +518,17 @@
 				FB34B3FE21FB32340070AA5E /* Assets.xcassets in Resources */,
 				FB00913321FB7E0E00BC89AE /* LoginRegister.storyboard in Resources */,
 				2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */,
+				2B4836622201B46B00B18E72 /* NewHome.storyboard in Resources */,
 				FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */,
 				FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */,
 				FB00913021FB7BAB00BC89AE /* Riwayat.storyboard in Resources */,
 				FB00912E21FB7B8F00BC89AE /* Profile.storyboard in Resources */,
 				FB00912C21FB7B6D00BC89AE /* Kegiatan.storyboard in Resources */,
+				2B4836692201B52B00B18E72 /* SectionThreeHomeCell.xib in Resources */,
 				FB34B3F921FB32330070AA5E /* Main.storyboard in Resources */,
+				2B4836652201B52B00B18E72 /* SectionOneHomeCell.xib in Resources */,
 				2BB1013222018BF8003967CE /* UbahProfil.storyboard in Resources */,
+				2B4836672201B52B00B18E72 /* SectionTwoHomeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -636,6 +648,7 @@
 				917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */,
 				2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
+				2B4836662201B52B00B18E72 /* SectionTwoHomeCell.swift in Sources */,
 				2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */,
 				2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */,
 				2BF68C4F21FEB2FA008C85CE /* SectionCollectionReusableView.swift in Sources */,
@@ -646,8 +659,11 @@
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
+				2B4836642201B52B00B18E72 /* SectionOneHomeCell.swift in Sources */,
 				FB7E75A0220084EB0072235D /* pickerviewTableViewCell.swift in Sources */,
 				FB7E75B02200864E0072235D /* MitraCollectionViewCell.swift in Sources */,
+				2B4836682201B52B00B18E72 /* SectionThreeHomeCell.swift in Sources */,
+				2B4836632201B51F00B18E72 /* NewHomeViewController.swift in Sources */,
 				FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */,
 				2BF68C4421FD8A0E008C85CE /* LoginViewController.swift in Sources */,
 				FB34B3F421FB32330070AA5E /* AppDelegate.swift in Sources */,
