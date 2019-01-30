@@ -405,12 +405,19 @@
                     <navigationItem key="navigationItem" title="Donasi" id="drG-lB-9mc">
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kAr-9R-MdI">
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="fUH-Fu-qXM" kind="modal" id="tPA-s9-ozq"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="xgW-Ih-GwM">
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="Qye-FF-Kdx" kind="modal" id="Pec-D4-2nE"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="alamat" destination="L65-r4-T5A" id="Qjf-RE-n7V"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
                     </connections>
                 </tableViewController>
@@ -418,6 +425,14 @@
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3764" y="1577.5862068965519"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="6Xe-2Q-kM4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="Qye-FF-Kdx" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="1et-5f-pWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4345" y="1218"/>
         </scene>
         <!--Location-->
         <scene sceneID="J6J-mD-lNf">
@@ -465,6 +480,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0h-kX-KDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2821.5999999999999" y="1577.5862068965519"/>
+        </scene>
+        <!--Main-->
+        <scene sceneID="pC2-7d-00K">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="fUH-Fu-qXM" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yRb-hB-JdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3163" y="1183"/>
         </scene>
     </scenes>
     <resources>

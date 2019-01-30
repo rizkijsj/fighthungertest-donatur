@@ -22,14 +22,11 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     
     
 //    unwindsegue dan pasing data
-    
     var alamatLengkap = ""
-    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! DonasiPush
         destVC.dataAlamat = "\(alamatLengkap)"
         destVC.kordinatPeta = kordinatAsli
-        
     }
     
     var lokasiSebelumnya: CLLocation?
@@ -98,6 +95,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     }
     
     
+//    passing data kordinat ke unwind segue
     var kordinatAsli = [Double]()
     func getCenterLocation(for peta: MKMapView) -> CLLocation {
         let latitude = peta.centerCoordinate.latitude

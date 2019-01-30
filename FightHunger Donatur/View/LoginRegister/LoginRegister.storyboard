@@ -77,9 +77,9 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjO-lu-YyK">
-                                <rect key="frame" x="20" y="45" width="24" height="26"/>
+                                <rect key="frame" x="20" y="45" width="16" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="backBtnGray"/>
+                                <state key="normal" backgroundImage="arrowback"/>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -465,7 +465,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="backBtnGray" width="38" height="35"/>
+        <image name="arrowback" width="120" height="200"/>
         <image name="backButton" width="38" height="35"/>
         <image name="backbtn" width="53" height="41"/>
         <image name="btnDaftar" width="162" height="51"/>
@@ -473,8 +473,9 @@
         <image name="btnMasuk" width="163" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="MYG-Us-44Q"/>
         <segue reference="gyy-oT-mva"/>
-        <segue reference="mWr-Zh-R03"/>
+        <segue reference="aOD-GS-7ga"/>
         <segue reference="oSc-ER-jll"/>
     </inferredMetricsTieBreakers>
 </document>

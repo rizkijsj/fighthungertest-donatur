@@ -55,6 +55,7 @@
                                 <state key="normal" backgroundImage="Set Lokasi"/>
                                 <connections>
                                     <action selector="setLokasi:" destination="dfe-hM-wgt" eventType="touchUpInside" id="5Ni-Nr-D8s"/>
+                                    <segue destination="asP-cf-mKD" kind="unwind" unwindAction="unwindToPushDonasi:" id="Tn4-KT-vsA"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -78,6 +79,7 @@
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpd-vv-9Js" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="asP-cf-mKD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="2175.1999999999998" y="2216.7487684729067"/>
         </scene>
