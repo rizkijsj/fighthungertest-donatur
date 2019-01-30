@@ -226,7 +226,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDI-dl-j4K">
                                                     <rect key="frame" x="329" y="29" width="30" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Call" image="Logo call"/>
+                                                    <state key="normal" title="Call" image="Telephone Inactive"/>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -496,7 +496,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Logo call" width="200" height="200"/>
+        <image name="Telephone Inactive" width="200" height="200"/>
         <image name="konfirmasi" width="587" height="200"/>
         <image name="pin1b" width="76" height="76"/>
         <image name="pin2b" width="80" height="80"/>

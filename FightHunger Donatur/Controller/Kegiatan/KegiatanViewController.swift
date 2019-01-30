@@ -25,11 +25,6 @@ class KegiatanViewController: UITableViewController {
     @IBOutlet weak var btnKonfirmasi: UIButton!
     @IBOutlet weak var keteranganBtnKonfirmasi: UILabel!
     
-    //    @IBAction func konfirmasi(_ sender: UIButton) {
-    ////        status3.image = ""
-    //
-    //    }
-    
     @IBOutlet weak var namaOrganisasi: UILabel!
     @IBOutlet weak var nomorTelponOrganisasi: UILabel!
     @IBOutlet weak var btnCallOrganisasi: UIButton!
@@ -73,7 +68,7 @@ class KegiatanViewController: UITableViewController {
     /*
      Tolong dibbantu ya .....
      
-     ini penmapung buat ke push notif apa?
+     ini penampung buat ke push notif apa?
     var notifDariOrganisasi = ????
      */
     
@@ -88,7 +83,6 @@ class KegiatanViewController: UITableViewController {
             namaKurir.text = "-"
             deskripsiKurir.text = "-"
             btnCallOrganisasi.isEnabled = false
-            
             btnBatal.isEnabled = true
             if btnBatal.isTouchInside == true {
 //                push ke organisasi
@@ -126,6 +120,7 @@ class KegiatanViewController: UITableViewController {
                     
                 }
             }
+            btnCallOrganisasi.setBackgroundImage(UIImage(named: "Logo call"), for: .normal)
             print("sedang dijemput")
          }
          else if notifDariOrganisasi == 3 {
@@ -135,6 +130,7 @@ class KegiatanViewController: UITableViewController {
             namaKurir.text = tempNamaKurir
             deskripsiKurir.text = tempDeskripsiKurir
             btnCallOrganisasi.isEnabled = true
+            btnCallOrganisasi.setBackgroundImage(UIImage(named: "Logo call"), for: .normal)
          
             btnKonfirmasi.isEnabled = true
             btnKonfirmasi.setImage(UIImage(named: "konfirmasi aktif"), for: .normal)
@@ -154,7 +150,7 @@ class KegiatanViewController: UITableViewController {
             namaKurir.text = tempNamaKurir
             deskripsiKurir.text = tempDeskripsiKurir
             btnCallOrganisasi.isEnabled = true
-         
+            btnCallOrganisasi.setBackgroundImage(UIImage(named: "Logo call"), for: .normal)
             btnKonfirmasi.isEnabled = false
             btnKonfirmasi.setImage(UIImage(named: "selesai"), for: .normal)
             status4.image = UIImage(named: "pin4a")
@@ -171,6 +167,4 @@ class KegiatanViewController: UITableViewController {
         
     }
     
-
-  
 }
