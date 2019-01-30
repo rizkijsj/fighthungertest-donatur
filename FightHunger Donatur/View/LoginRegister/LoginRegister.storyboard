@@ -10,6 +10,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main-->
+        <scene sceneID="XZ5-ZQ-gwc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="toL-Vw-aKi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAZ-1m-YeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2734" y="359"/>
+        </scene>
         <!--LoginRegister-->
         <scene sceneID="Nnl-pv-MzP">
             <objects>
@@ -86,6 +94,9 @@
                                 <rect key="frame" x="20" y="45" width="16" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="arrowback"/>
+                                <connections>
+                                    <segue destination="toL-Vw-aKi" kind="modal" id="e5T-wa-J9E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -148,7 +159,7 @@
                                             <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="VaB-LE-eif" kind="show" animates="NO" id="73A-DQ-RQM"/>
+                                                <segue destination="VaB-LE-eif" kind="show" id="SYg-Bz-R6F"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -207,7 +218,7 @@
                                             <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="XiE-iL-Epf" kind="show" animates="NO" id="mWr-Zh-R03"/>
+                                                <segue destination="XiE-iL-Epf" kind="show" id="yPt-Ed-GdG"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -481,7 +492,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrw-P4-80m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4895.1999999999998" y="1520.6896551724139"/>
+            <point key="canvasLocation" x="4244" y="1535"/>
         </scene>
     </scenes>
     <resources>
@@ -490,7 +501,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gyy-oT-mva"/>
-        <segue reference="aOD-GS-7ga"/>
+        <segue reference="yPt-Ed-GdG"/>
         <segue reference="oSc-ER-jll"/>
     </inferredMetricsTieBreakers>
 </document>
