@@ -65,17 +65,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama donasi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tC5-9f-7PZ" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="8" width="343" height="52"/>
+                                                    <rect key="frame" x="16" y="8" width="343" height="55"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottomMargin" secondItem="tC5-9f-7PZ" secondAttribute="bottom" constant="-11" id="3KD-aW-7wX"/>
-                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="leading" secondItem="I3i-MT-oBn" secondAttribute="leading" constant="16" id="511-Wj-Qp4"/>
-                                                <constraint firstAttribute="trailing" secondItem="tC5-9f-7PZ" secondAttribute="trailing" constant="16" id="NEW-gf-ceH"/>
-                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="top" secondItem="I3i-MT-oBn" secondAttribute="topMargin" constant="-3" id="PvX-N0-yn6"/>
+                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="leading" secondItem="I3i-MT-oBn" secondAttribute="leadingMargin" id="1aG-tv-vcH"/>
+                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="trailing" secondItem="I3i-MT-oBn" secondAttribute="trailingMargin" id="Jiy-tj-ekA"/>
+                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="top" secondItem="I3i-MT-oBn" secondAttribute="topMargin" constant="-3" id="naP-81-7Hd"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tC5-9f-7PZ" secondAttribute="bottom" constant="-14" id="qgG-eR-L8L"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -87,19 +87,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Deskripsi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piT-uo-BYB" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="17" width="343" height="42"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="42" id="rd1-eH-Gqt"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="16" y="8" width="343" height="55"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="piT-uo-BYB" secondAttribute="trailing" constant="16" id="CCb-v1-TaH"/>
-                                                <constraint firstItem="piT-uo-BYB" firstAttribute="leading" secondItem="bMr-sA-gaJ" secondAttribute="leading" constant="16" id="SXM-UW-qD5"/>
-                                                <constraint firstItem="piT-uo-BYB" firstAttribute="top" secondItem="bMr-sA-gaJ" secondAttribute="topMargin" constant="6" id="roA-hk-W4A"/>
+                                                <constraint firstItem="piT-uo-BYB" firstAttribute="top" secondItem="bMr-sA-gaJ" secondAttribute="topMargin" constant="-3" id="3wi-z2-2sh"/>
+                                                <constraint firstItem="piT-uo-BYB" firstAttribute="trailing" secondItem="bMr-sA-gaJ" secondAttribute="trailingMargin" id="C5g-py-hzq"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="piT-uo-BYB" secondAttribute="bottom" constant="-14" id="ZfQ-rz-Swj"/>
+                                                <constraint firstItem="piT-uo-BYB" firstAttribute="leading" secondItem="bMr-sA-gaJ" secondAttribute="leadingMargin" id="t2R-ur-LuQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -111,19 +109,17 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kuantitas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfL-x6-g0J" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="17" width="343" height="42"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="height" constant="42" id="d39-1f-eYa"/>
-                                                    </constraints>
+                                                    <rect key="frame" x="16" y="8" width="343" height="55"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="top" secondItem="IZG-gJ-gRy" secondAttribute="topMargin" constant="6" id="8z3-Zx-T9b"/>
-                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="leading" secondItem="IZG-gJ-gRy" secondAttribute="leading" constant="16" id="QhJ-e6-JXw"/>
-                                                <constraint firstAttribute="trailing" secondItem="sfL-x6-g0J" secondAttribute="trailing" constant="16" id="UbZ-bC-LhB"/>
+                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="trailing" secondItem="IZG-gJ-gRy" secondAttribute="trailingMargin" id="8hP-A4-My0"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="sfL-x6-g0J" secondAttribute="bottom" constant="-14" id="GRE-vP-ylc"/>
+                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="leading" secondItem="IZG-gJ-gRy" secondAttribute="leadingMargin" id="c9t-eR-3QS"/>
+                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="top" secondItem="IZG-gJ-gRy" secondAttribute="topMargin" constant="-3" id="fzF-Ym-7hd"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>

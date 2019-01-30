@@ -60,8 +60,8 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
     }
     
     
-   var hours = Array(0...23)
-   var minutes = Array(00...59)
+   var hours = Array(1...23)
+   var minutes = Array(01...59)
   
     
     @IBOutlet weak var textWaktu: CustomTextField!
