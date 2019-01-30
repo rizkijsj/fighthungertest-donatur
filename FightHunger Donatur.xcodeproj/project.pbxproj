@@ -25,6 +25,14 @@
 		9025445BFF7F59EE01D5AC3E /* Pods_FightHunger_Donatur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */; };
 		917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F79CD22006EA100A85296 /* KegiatanViewController.swift */; };
 		91C512B921FEC73A00F3F97C /* DonasiPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C512B821FEC73A00F3F97C /* DonasiPush.swift */; };
+		E68FA21E22014538006709B3 /* NewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA21D22014538006709B3 /* NewHomeViewController.swift */; };
+		E68FA2202201454B006709B3 /* NewHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E68FA21F2201454B006709B3 /* NewHome.storyboard */; };
+		E68FA2252201592D006709B3 /* SectionOneHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA2232201592D006709B3 /* SectionOneHomeCell.swift */; };
+		E68FA2262201592D006709B3 /* SectionOneHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA2242201592D006709B3 /* SectionOneHomeCell.xib */; };
+		E68FA22922015CBF006709B3 /* SectionTwoHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA22722015CBF006709B3 /* SectionTwoHomeCell.swift */; };
+		E68FA22A22015CBF006709B3 /* SectionTwoHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA22822015CBF006709B3 /* SectionTwoHomeCell.xib */; };
+		E68FA22D2201607F006709B3 /* SectionThreeHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA22B2201607F006709B3 /* SectionThreeHomeCell.swift */; };
+		E68FA22E2201607F006709B3 /* SectionThreeHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA22C2201607F006709B3 /* SectionThreeHomeCell.xib */; };
 		FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00911D21FB78F800BC89AE /* Donating.storyboard */; };
 		FB00912121FB792400BC89AE /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912021FB792400BC89AE /* Location.storyboard */; };
 		FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912321FB79A900BC89AE /* Organization.storyboard */; };
@@ -82,6 +90,14 @@
 		9B398ADFF867F856F16B00AD /* Pods-FightHunger DonaturTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E36157E1D42CAA931567401 /* Pods-FightHunger Donatur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.debug.xcconfig"; sourceTree = "<group>"; };
 		E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FightHunger_Donatur.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E68FA21D22014538006709B3 /* NewHomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewHomeViewController.swift; sourceTree = "<group>"; };
+		E68FA21F2201454B006709B3 /* NewHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = NewHome.storyboard; sourceTree = "<group>"; };
+		E68FA2232201592D006709B3 /* SectionOneHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionOneHomeCell.swift; sourceTree = "<group>"; };
+		E68FA2242201592D006709B3 /* SectionOneHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionOneHomeCell.xib; sourceTree = "<group>"; };
+		E68FA22722015CBF006709B3 /* SectionTwoHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionTwoHomeCell.swift; sourceTree = "<group>"; };
+		E68FA22822015CBF006709B3 /* SectionTwoHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionTwoHomeCell.xib; sourceTree = "<group>"; };
+		E68FA22B2201607F006709B3 /* SectionThreeHomeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionThreeHomeCell.swift; sourceTree = "<group>"; };
+		E68FA22C2201607F006709B3 /* SectionThreeHomeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SectionThreeHomeCell.xib; sourceTree = "<group>"; };
 		FB00911D21FB78F800BC89AE /* Donating.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Donating.storyboard; sourceTree = "<group>"; };
 		FB00912021FB792400BC89AE /* Location.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Location.storyboard; sourceTree = "<group>"; };
 		FB00912321FB79A900BC89AE /* Organization.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Organization.storyboard; sourceTree = "<group>"; };
@@ -141,6 +157,7 @@
 		2BF68C3F21FD5993008C85CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E68FA21C22014516006709B3 /* New Home */,
 				917F79A722005C4400A85296 /* Kegiatan */,
 				2BF68C4921FEB0F1008C85CE /* Home */,
 				91C512B521FEC67C00F3F97C /* Donasi */,
@@ -212,9 +229,40 @@
 			path = Donasi;
 			sourceTree = "<group>";
 		};
+		E68FA21C22014516006709B3 /* New Home */ = {
+			isa = PBXGroup;
+			children = (
+				E68FA21D22014538006709B3 /* NewHomeViewController.swift */,
+			);
+			path = "New Home";
+			sourceTree = "<group>";
+		};
+		E68FA221220156D3006709B3 /* New Home */ = {
+			isa = PBXGroup;
+			children = (
+				E68FA222220156E1006709B3 /* Content Cell */,
+				E68FA21F2201454B006709B3 /* NewHome.storyboard */,
+			);
+			path = "New Home";
+			sourceTree = "<group>";
+		};
+		E68FA222220156E1006709B3 /* Content Cell */ = {
+			isa = PBXGroup;
+			children = (
+				E68FA2232201592D006709B3 /* SectionOneHomeCell.swift */,
+				E68FA2242201592D006709B3 /* SectionOneHomeCell.xib */,
+				E68FA22722015CBF006709B3 /* SectionTwoHomeCell.swift */,
+				E68FA22822015CBF006709B3 /* SectionTwoHomeCell.xib */,
+				E68FA22B2201607F006709B3 /* SectionThreeHomeCell.swift */,
+				E68FA22C2201607F006709B3 /* SectionThreeHomeCell.xib */,
+			);
+			path = "Content Cell";
+			sourceTree = "<group>";
+		};
 		FB00911B21FB781A00BC89AE /* View */ = {
 			isa = PBXGroup;
 			children = (
+				E68FA221220156D3006709B3 /* New Home */,
 				FB00913121FB7DE600BC89AE /* LoginRegister */,
 				FB00912921FB7A8600BC89AE /* Profil */,
 				FB00912821FB7A5800BC89AE /* Kegiatan */,
@@ -467,15 +515,19 @@
 				FB00912121FB792400BC89AE /* Location.storyboard in Resources */,
 				FB34B40121FB32340070AA5E /* LaunchScreen.storyboard in Resources */,
 				FB00912721FB79D100BC89AE /* OrgProgram.storyboard in Resources */,
+				E68FA2202201454B006709B3 /* NewHome.storyboard in Resources */,
 				FB34B3FE21FB32340070AA5E /* Assets.xcassets in Resources */,
 				FB00913321FB7E0E00BC89AE /* LoginRegister.storyboard in Resources */,
 				2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */,
 				FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */,
+				E68FA22A22015CBF006709B3 /* SectionTwoHomeCell.xib in Resources */,
 				FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */,
 				FB00913021FB7BAB00BC89AE /* Riwayat.storyboard in Resources */,
 				FB00912E21FB7B8F00BC89AE /* Profile.storyboard in Resources */,
 				FB00912C21FB7B6D00BC89AE /* Kegiatan.storyboard in Resources */,
 				FB34B3F921FB32330070AA5E /* Main.storyboard in Resources */,
+				E68FA2262201592D006709B3 /* SectionOneHomeCell.xib in Resources */,
+				E68FA22E2201607F006709B3 /* SectionThreeHomeCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -593,6 +645,7 @@
 				2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */,
 				2F5D05FC21FED50900CDD125 /* Post.swift in Sources */,
 				FB7E759F220084EB0072235D /* DonasiPush.swift in Sources */,
+				E68FA22922015CBF006709B3 /* SectionTwoHomeCell.swift in Sources */,
 				917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
 				2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */,
@@ -602,6 +655,8 @@
 				FB7E75A1220084EB0072235D /* waktuPickerTableViewCell.swift in Sources */,
 				2F5D060021FED51E00CDD125 /* UserService.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
+				E68FA22D2201607F006709B3 /* SectionThreeHomeCell.swift in Sources */,
+				E68FA2252201592D006709B3 /* SectionOneHomeCell.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
 				91C512B921FEC73A00F3F97C /* DonasiPush.swift in Sources */,
@@ -614,6 +669,7 @@
 				FB7E75B22200864E0072235D /* aktivitasCollectionViewCell.swift in Sources */,
 				2BB1013022013903003967CE /* DonatingController.swift in Sources */,
 				2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */,
+				E68FA21E22014538006709B3 /* NewHomeViewController.swift in Sources */,
 				FB7E75A62200851D0072235D /* LokasiPengambilan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -778,7 +834,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7VX669QKF;
+				DEVELOPMENT_TEAM = FMBNG35Z38;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -797,7 +853,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7VX669QKF;
+				DEVELOPMENT_TEAM = FMBNG35Z38;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

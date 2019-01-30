@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Lr-h5-DQ5">
+    <device id="retina5_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--New Home View Controller-->
+        <scene sceneID="1G4-p0-AUR">
+            <objects>
+                <viewController storyboardIdentifier="newHomeID" id="9Lr-h5-DQ5" customClass="NewHomeViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="7TD-9a-GbC">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdN-J8-v6G">
+                                <rect key="frame" x="10" y="54" width="355" height="44"/>
+                                <color key="backgroundColor" red="0.81568627449999997" green="0.0078431372550000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="Nj7-QK-L2C"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                                <state key="normal" title="Donasi Sekarang">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                            </button>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
+                                <rect key="frame" x="0.0" y="108" width="375" height="670"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Lr-h5-DQ5" id="NNb-aj-bC3"/>
+                                    <outlet property="delegate" destination="9Lr-h5-DQ5" id="niG-2u-yxt"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="0xs-z0-Hux" firstAttribute="top" secondItem="JdN-J8-v6G" secondAttribute="bottom" constant="10" id="0i1-Nc-sa1"/>
+                            <constraint firstItem="1Dj-tO-iWW" firstAttribute="trailing" secondItem="0xs-z0-Hux" secondAttribute="trailing" id="1L0-x6-XVe"/>
+                            <constraint firstItem="0xs-z0-Hux" firstAttribute="leading" secondItem="1Dj-tO-iWW" secondAttribute="leading" id="Vli-gf-v8n"/>
+                            <constraint firstItem="JdN-J8-v6G" firstAttribute="trailing" secondItem="1Dj-tO-iWW" secondAttribute="trailing" constant="-10" id="cMk-D2-hMK"/>
+                            <constraint firstItem="1Dj-tO-iWW" firstAttribute="bottom" secondItem="0xs-z0-Hux" secondAttribute="bottom" id="fLY-Dn-sfS"/>
+                            <constraint firstItem="JdN-J8-v6G" firstAttribute="leading" secondItem="1Dj-tO-iWW" secondAttribute="leading" constant="10" id="gR1-kV-ZwC"/>
+                            <constraint firstItem="JdN-J8-v6G" firstAttribute="top" secondItem="1Dj-tO-iWW" secondAttribute="top" constant="10" id="m7v-YA-oeN"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="1Dj-tO-iWW"/>
+                    </view>
+                    <connections>
+                        <outlet property="donateButton" destination="JdN-J8-v6G" id="HMH-pz-Tlv"/>
+                        <outlet property="tableView" destination="0xs-z0-Hux" id="ZBF-Lf-lcS"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="b0Y-5z-x1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="85.599999999999994" y="100.49261083743843"/>
+        </scene>
+    </scenes>
+</document>
