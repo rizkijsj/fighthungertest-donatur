@@ -1,75 +1,36 @@
 //
-//  DonasiPush.swift
+//  DonatingController.swift
 //  FightHunger Donatur
 //
-//  Created by muhammad sutrisno on 28/01/19.
+//  Created by Julianti Cahyadi on 30/01/19.
 //  Copyright © 2019 Fantastic7. All rights reserved.
 //
 
 import UIKit
 
-class DonasiPush: UITableViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
+class DonatingController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
-   
-    @IBOutlet weak var waktuAmbilTxt: UITextField!
-    @IBOutlet weak var keteranganLokasiTxt: UITextField!
-    @IBOutlet weak var lokasiTxt: UITextField!
-    @IBOutlet weak var kuantitasTxt: UITextField!
-    @IBOutlet weak var deskripsiTxt: UITextField!
-    @IBOutlet weak var namaDonasiTxt: UITextField!
-  
-    @IBOutlet weak var fotoDonasi: UIImageView!
-    
-//    buat passing data ke map
-    @IBOutlet weak var alamat: UITextField!
-    var dataAlamat = "Lokasi"
-    
-    @IBAction func keMap(_ sender: UIButton) {
-        performSegue(withIdentifier: "keMap", sender: self)
+    override func viewDidLoad() {
+        super.viewDidLoad()
+
+       tableView.delegate = self
+       tableView.delegate = self
     }
-    
-    @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){}
 
-	
-	
-	@IBAction func btnGallery(_ sender: Any) {
-		
-		let imagePickerController = UIImagePickerController()
-		imagePickerController.delegate = self
-		
-		
-		
+    @IBAction func btnLibraryFoto(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
         imagePickerController.sourceType = .photoLibrary
         self.present(imagePickerController,animated: true,completion: nil)
-		
-		
-	}
-			
-	
-	
-	
-	
-	func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-		
-		
-		
-		let passingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-		
-		fotoDonasi.image = passingImage
-		
-		picker.dismiss(animated: true, completion: nil)
-		
-		
-	}
-    
+        
+    }
     @IBAction func btnKamera(_ sender: Any) {
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
         
         if UIImagePickerController.isSourceTypeAvailable(.camera)
         {
-            let imagePickerController = UIImagePickerController()
-            imagePickerController.delegate = self
-            
             imagePickerController.sourceType = .camera
             self.present(imagePickerController,animated: true,completion: nil)
             
@@ -80,26 +41,30 @@ class DonasiPush: UITableViewController, UIImagePickerControllerDelegate, UINavi
             print("Camera not available")
         }
     }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+    @IBOutlet weak var imgDonasi: UIImageView!
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        tableView.delegate = self
-        tableView.dataSource = self
         
-        alamat.text = dataAlamat
+        
+        let passingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
+        
+        imgDonasi.image = passingImage
+        
+        picker.dismiss(animated: true, completion: nil)
+        
+       
     }
+    
 
+    
+    
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 0
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

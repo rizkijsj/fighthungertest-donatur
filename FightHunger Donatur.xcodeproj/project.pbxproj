@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		21819EBFF7E0E2A7AB8C262B /* Pods_FightHunger_DonaturTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */; };
 		2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */; };
+		2BB1013022013903003967CE /* DonatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012F22013903003967CE /* DonatingController.swift */; };
 		2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4121FD59D1008C85CE /* CustomTextField.swift */; };
 		2BF68C4421FD8A0E008C85CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */; };
 		2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */; };
@@ -60,6 +61,7 @@
 /* Begin PBXFileReference section */
 		15D69F824E46B705A423BE2C /* Pods-FightHunger DonaturTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageTableViewCell.swift; sourceTree = "<group>"; };
+		2BB1012F22013903003967CE /* DonatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonatingController.swift; sourceTree = "<group>"; };
 		2BF68C4121FD59D1008C85CE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
@@ -205,6 +207,7 @@
 				FB7E7597220084EB0072235D /* DonasiPush.swift */,
 				FB7E7598220084EB0072235D /* Picker */,
 				91C512B821FEC73A00F3F97C /* DonasiPush.swift */,
+				2BB1012F22013903003967CE /* DonatingController.swift */,
 			);
 			path = Donasi;
 			sourceTree = "<group>";
@@ -609,6 +612,7 @@
 				2BF68C4421FD8A0E008C85CE /* LoginViewController.swift in Sources */,
 				FB34B3F421FB32330070AA5E /* AppDelegate.swift in Sources */,
 				FB7E75B22200864E0072235D /* aktivitasCollectionViewCell.swift in Sources */,
+				2BB1013022013903003967CE /* DonatingController.swift in Sources */,
 				2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */,
 				FB7E75A62200851D0072235D /* LokasiPengambilan.swift in Sources */,
 			);
