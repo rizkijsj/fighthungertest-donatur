@@ -27,7 +27,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="277.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foto" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
                                                     <rect key="frame" x="0.0" y="11" width="375" height="177"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -205,10 +205,10 @@
             </objects>
             <point key="canvasLocation" x="3764" y="1577.5862068965519"/>
         </scene>
-        <!--Main-->
+        <!--NewHome-->
         <scene sceneID="6Xe-2Q-kM4">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="Qye-FF-Kdx" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="NewHome" id="Qye-FF-Kdx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1et-5f-pWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4345" y="1218"/>
@@ -247,16 +247,17 @@
             </objects>
             <point key="canvasLocation" x="2821.5999999999999" y="1577.5862068965519"/>
         </scene>
-        <!--Main-->
+        <!--NewHome-->
         <scene sceneID="pC2-7d-00K">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="fUH-Fu-qXM" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="NewHome" id="fUH-Fu-qXM" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yRb-hB-JdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3163" y="1183"/>
         </scene>
     </scenes>
     <resources>
+        <image name="foto" width="1280" height="640"/>
         <image name="kamera" width="587" height="200"/>
         <image name="library" width="587" height="200"/>
         <image name="my_location" width="200" height="200"/>

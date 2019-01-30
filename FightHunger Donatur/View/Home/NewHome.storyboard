@@ -4,12 +4,13 @@
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
+        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--New Home View Controller-->
+        <!--FightHunger-->
         <scene sceneID="1G4-p0-AUR">
             <objects>
                 <viewController storyboardIdentifier="newHomeID" id="9Lr-h5-DQ5" customClass="NewHomeViewController" customModule="FightHunger_Donatur" sceneMemberID="viewController">
@@ -27,6 +28,9 @@
                                 <state key="normal" title="Donasi Sekarang">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <segue destination="30J-aI-EYq" kind="modal" id="80b-02-faz"/>
+                                </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
                                 <rect key="frame" x="0.0" y="152" width="375" height="626"/>
@@ -50,7 +54,14 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Dj-tO-iWW"/>
                     </view>
-                    <navigationItem key="navigationItem" id="3wi-pR-LVa"/>
+                    <navigationItem key="navigationItem" title="FightHunger" id="3wi-pR-LVa">
+                        <barButtonItem key="rightBarButtonItem" title="Item" image="profilBtn" id="7Z1-u0-Rua">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="jp7-0b-DRF" kind="modal" id="Zst-zb-KVc"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="donateButton" destination="JdN-J8-v6G" id="HMH-pz-Tlv"/>
                         <outlet property="tableView" destination="0xs-z0-Hux" id="ZBF-Lf-lcS"/>
@@ -60,6 +71,22 @@
             </objects>
             <point key="canvasLocation" x="1028" y="100.49261083743843"/>
         </scene>
+        <!--Donating-->
+        <scene sceneID="wg1-S5-cM7">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Donating" id="30J-aI-EYq" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aVZ-nJ-RUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1433" y="-255"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="niM-IS-dI8">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="jp7-0b-DRF" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mB7-TU-Vxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1606" y="-158"/>
+        </scene>
         <!--Navigation Controller-->
         <scene sceneID="R0c-Jo-l3A">
             <objects>
@@ -68,6 +95,9 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qhL-94-ucb">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
@@ -79,4 +109,7 @@
             <point key="canvasLocation" x="85.599999999999994" y="100.49261083743843"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="profilBtn" width="28" height="31"/>
+    </resources>
 </document>

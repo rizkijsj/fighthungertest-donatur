@@ -40,6 +40,10 @@
 	<string>LaunchScreen</string>
 	<key>UIMainStoryboardFile</key>
 	<string>NewHome</string>
+	<key>NSCameraUsageDescription</key>
+	<string>Camera</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Photo</string>
 	<key>UIRequiredDeviceCapabilities</key>
 	<array>
 		<string>armv7</string>

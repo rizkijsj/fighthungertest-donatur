@@ -9,10 +9,10 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main-->
+        <!--NewHome-->
         <scene sceneID="A6Q-MW-00e">
             <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="Mwp-fr-Fif" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="NewHome" id="Mwp-fr-Fif" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="e2f-Ex-EDE" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6098" y="760"/>

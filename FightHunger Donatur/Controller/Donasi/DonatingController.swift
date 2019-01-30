@@ -85,12 +85,9 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
 		
 		if section == 0{
 			return 1
-		}else if section == 1{
+		}else {
 			return 6
-		}else
-        {
-            return 0
-        }
+		}
 
     }
 
