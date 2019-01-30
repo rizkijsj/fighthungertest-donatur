@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9Lr-h5-DQ5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7A4-CK-AUn">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
-        <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
@@ -13,13 +12,13 @@
         <!--New Home View Controller-->
         <scene sceneID="1G4-p0-AUR">
             <objects>
-                <viewController storyboardIdentifier="newHomeID" id="9Lr-h5-DQ5" customClass="NewHomeViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newHomeID" id="9Lr-h5-DQ5" customClass="NewHomeViewController" customModule="FightHunger_Donatur" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7TD-9a-GbC">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdN-J8-v6G">
-                                <rect key="frame" x="10" y="54" width="355" height="44"/>
+                                <rect key="frame" x="10" y="98" width="355" height="44"/>
                                 <color key="backgroundColor" red="0.81568627449999997" green="0.0078431372550000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="44" id="Nj7-QK-L2C"/>
@@ -30,7 +29,7 @@
                                 </state>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
-                                <rect key="frame" x="0.0" y="108" width="375" height="670"/>
+                                <rect key="frame" x="0.0" y="152" width="375" height="626"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
@@ -51,12 +50,31 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="1Dj-tO-iWW"/>
                     </view>
+                    <navigationItem key="navigationItem" id="3wi-pR-LVa"/>
                     <connections>
                         <outlet property="donateButton" destination="JdN-J8-v6G" id="HMH-pz-Tlv"/>
                         <outlet property="tableView" destination="0xs-z0-Hux" id="ZBF-Lf-lcS"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0Y-5z-x1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="100.49261083743843"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="R0c-Jo-l3A">
+            <objects>
+                <navigationController storyboardIdentifier="HomeDonatur" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7A4-CK-AUn" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qhL-94-ucb">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9Lr-h5-DQ5" kind="relationship" relationship="rootViewController" id="8y3-8E-HKA"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="K9K-rr-3H2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="85.599999999999994" y="100.49261083743843"/>
         </scene>
