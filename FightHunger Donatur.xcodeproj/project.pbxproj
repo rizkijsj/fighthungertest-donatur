@@ -24,7 +24,6 @@
 		2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5D060221FED5DD00CDD125 /* GoogleService-Info.plist */; };
 		9025445BFF7F59EE01D5AC3E /* Pods_FightHunger_Donatur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */; };
 		917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F79CD22006EA100A85296 /* KegiatanViewController.swift */; };
-		91C512B921FEC73A00F3F97C /* DonasiPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = 91C512B821FEC73A00F3F97C /* DonasiPush.swift */; };
 		FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00911D21FB78F800BC89AE /* Donating.storyboard */; };
 		FB00912121FB792400BC89AE /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912021FB792400BC89AE /* Location.storyboard */; };
 		FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912321FB79A900BC89AE /* Organization.storyboard */; };
@@ -77,7 +76,6 @@
 		69507A8C03C1CFEB66BCE0F6 /* Pods-FightHunger Donatur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.release.xcconfig"; sourceTree = "<group>"; };
 		71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FightHunger_DonaturTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		917F79CD22006EA100A85296 /* KegiatanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KegiatanViewController.swift; sourceTree = "<group>"; };
-		91C512B821FEC73A00F3F97C /* DonasiPush.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonasiPush.swift; sourceTree = "<group>"; };
 		9B398ADFF867F856F16B00AD /* Pods-FightHunger DonaturTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E36157E1D42CAA931567401 /* Pods-FightHunger Donatur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.debug.xcconfig"; sourceTree = "<group>"; };
 		E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FightHunger_Donatur.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -203,7 +201,6 @@
 			children = (
 				FB7E75A42200851D0072235D /* Lokasi test */,
 				FB7E7598220084EB0072235D /* Picker */,
-				91C512B821FEC73A00F3F97C /* DonasiPush.swift */,
 				2BB1012F22013903003967CE /* DonatingController.swift */,
 			);
 			path = Donasi;
@@ -600,7 +597,6 @@
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
-				91C512B921FEC73A00F3F97C /* DonasiPush.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				FB7E75A0220084EB0072235D /* pickerviewTableViewCell.swift in Sources */,
 				FB7E75B02200864E0072235D /* MitraCollectionViewCell.swift in Sources */,
