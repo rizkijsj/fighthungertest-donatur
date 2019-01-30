@@ -46,8 +46,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="Current Location"/>
                                 <connections>
-                                    <action selector="btnTitikAwal:" destination="dfe-hM-wgt" eventType="touchUpInside" id="B0g-Mt-dtx"/>
-                                    <action selector="lokasiAnda:" destination="dfe-hM-wgt" eventType="touchUpInside" id="gvc-fv-abE"/>
+                                    <action selector="btnTitikAwal:" destination="dfe-hM-wgt" eventType="touchUpInside" id="afJ-cT-m52"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Hxe-KN-JBk">
