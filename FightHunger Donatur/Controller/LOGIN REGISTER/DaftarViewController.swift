@@ -24,6 +24,7 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
   
+       continueButton.layer.cornerRadius = 6.0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
         //disable login button dan bikin activity progress yg muter-muter

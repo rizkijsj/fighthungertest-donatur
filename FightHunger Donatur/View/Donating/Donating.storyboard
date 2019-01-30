@@ -129,6 +129,9 @@
                                                     <rect key="frame" x="324" y="11" width="35" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="my_location"/>
+                                                    <connections>
+                                                        <segue destination="zu9-Xr-40N" kind="modal" id="76O-4p-wrX"/>
+                                                    </connections>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -209,6 +212,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1et-5f-pWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4345" y="1218"/>
+        </scene>
+        <!--Location-->
+        <scene sceneID="RT6-cy-kbA">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Location" id="zu9-Xr-40N" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aUn-YT-HNP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4550" y="1397"/>
         </scene>
         <!--Location-->
         <scene sceneID="J6J-mD-lNf">
