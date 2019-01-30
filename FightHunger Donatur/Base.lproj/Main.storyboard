@@ -407,10 +407,10 @@
             </objects>
             <point key="canvasLocation" x="1891" y="1357"/>
         </scene>
-        <!--Donating-->
+        <!--LoginRegister-->
         <scene sceneID="Fa1-IA-1nH">
             <objects>
-                <viewControllerPlaceholder storyboardName="Donating" id="4b1-Hk-OCC" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="LoginRegister" id="4b1-Hk-OCC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2C-v3-env" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1962" y="1420"/>
