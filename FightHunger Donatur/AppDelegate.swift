@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let authListener = Auth.auth().addStateDidChangeListener { auth, user in
-            let storyboard = UIStoryboard(name: "NewHome", bundle: nil)
+            let storyboard = UIStoryboard(name: "Main", bundle: nil)
             if user != nil{
                 UserService.observeUserProfile(user!.uid) { userProfile in
                     UserService.currentUserProfile = userProfile
@@ -54,14 +54,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    print("database is changed")
 //                })
                 //auto login
-                let controller = storyboard.instantiateViewController(withIdentifier: "newHomeID") as! NewHomeViewController
+                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
                 self.window?.rootViewController = controller
                 self.window?.makeKeyAndVisible()
                 
             } else {
                 
                 UserService.currentUserProfile = nil
-                let controller = storyboard.instantiateViewController(withIdentifier: "newHomeID") as! NewHomeViewController
+                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
                 self.window?.rootViewController = controller
                 self.window?.makeKeyAndVisible()
             }

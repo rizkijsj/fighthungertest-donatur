@@ -72,6 +72,8 @@ class KegiatanViewController: UITableViewController {
     var notifDariOrganisasi = ????
      */
     
+    // FIXME: Replace with something
+    /*
     func statusDonasi(){
         if notifDariOrganisasi == 0 {
             btnBatal.isEnabled = true
@@ -159,11 +161,12 @@ class KegiatanViewController: UITableViewController {
          }
  
     }
+    */
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        statusDonasi()
+//        statusDonasi()
         
     }
     
