@@ -146,13 +146,6 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
-		2B48365E2201950900B18E72 /* New Group */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = "New Group";
-			sourceTree = "<group>";
-		};
 		2BF68C3F21FD5993008C85CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -514,12 +507,10 @@
 				FB00912121FB792400BC89AE /* Location.storyboard in Resources */,
 				FB34B40121FB32340070AA5E /* LaunchScreen.storyboard in Resources */,
 				FB00912721FB79D100BC89AE /* OrgProgram.storyboard in Resources */,
-				E68FA2202201454B006709B3 /* NewHome.storyboard in Resources */,
 				FB34B3FE21FB32340070AA5E /* Assets.xcassets in Resources */,
 				FB00913321FB7E0E00BC89AE /* LoginRegister.storyboard in Resources */,
 				2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */,
 				FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */,
-				E68FA22A22015CBF006709B3 /* SectionTwoHomeCell.xib in Resources */,
 				FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */,
 				FB00913021FB7BAB00BC89AE /* Riwayat.storyboard in Resources */,
 				FB00912E21FB7B8F00BC89AE /* Profile.storyboard in Resources */,
@@ -642,7 +633,6 @@
 			files = (
 				2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */,
 				2F5D05FC21FED50900CDD125 /* Post.swift in Sources */,
-				E68FA22922015CBF006709B3 /* SectionTwoHomeCell.swift in Sources */,
 				917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */,
 				2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
@@ -653,8 +643,6 @@
 				FB7E75A1220084EB0072235D /* waktuPickerTableViewCell.swift in Sources */,
 				2F5D060021FED51E00CDD125 /* UserService.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
-				E68FA22D2201607F006709B3 /* SectionThreeHomeCell.swift in Sources */,
-				E68FA2252201592D006709B3 /* SectionOneHomeCell.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
@@ -666,7 +654,6 @@
 				FB7E75B22200864E0072235D /* aktivitasCollectionViewCell.swift in Sources */,
 				2BB1013022013903003967CE /* DonatingController.swift in Sources */,
 				2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */,
-				E68FA21E22014538006709B3 /* NewHomeViewController.swift in Sources */,
 				FB7E75A62200851D0072235D /* LokasiPengambilan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -831,7 +818,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9SRL9PGJUW;
+				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -850,7 +837,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9SRL9PGJUW;
+				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -870,7 +857,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7VX669QKF;
+				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
 				INFOPLIST_FILE = "FightHunger DonaturTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -892,7 +879,7 @@
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7VX669QKF;
+				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
 				INFOPLIST_FILE = "FightHunger DonaturTests/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

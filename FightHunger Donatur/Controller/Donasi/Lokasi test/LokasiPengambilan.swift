@@ -43,10 +43,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
         
     }
     
-    @IBAction func lokasiAnda(_ sender: UIButton) {
-        centerViewOnUserLocation()
-    }
-    
+
     func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
