@@ -46,6 +46,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="Current Location"/>
                                 <connections>
+                                    <action selector="btnTitikAwal:" destination="dfe-hM-wgt" eventType="touchUpInside" id="B0g-Mt-dtx"/>
                                     <action selector="lokasiAnda:" destination="dfe-hM-wgt" eventType="touchUpInside" id="gvc-fv-abE"/>
                                 </connections>
                             </button>
@@ -54,7 +55,6 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="Set Lokasi"/>
                                 <connections>
-                                    <action selector="setLokasi:" destination="dfe-hM-wgt" eventType="touchUpInside" id="5Ni-Nr-D8s"/>
                                     <segue destination="asP-cf-mKD" kind="unwind" unwindAction="unwindToPushDonasi:" id="Tn4-KT-vsA"/>
                                 </connections>
                             </button>

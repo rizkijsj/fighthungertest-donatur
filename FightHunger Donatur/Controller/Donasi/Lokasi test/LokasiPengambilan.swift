@@ -108,6 +108,12 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
         return CLLocation(latitude: latitude, longitude: longitude)
     }
     
+    @IBAction func btnTitikAwal(_ sender: UIButton) {
+        centerViewOnUserLocation()
+    }
+    
+    
+    
     @IBAction func searchBtn(_ sender: Any) {
         let searchController = UISearchController(searchResultsController: nil)
         searchController.searchBar.delegate = self
