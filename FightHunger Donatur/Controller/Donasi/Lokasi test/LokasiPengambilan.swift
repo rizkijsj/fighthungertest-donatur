@@ -28,7 +28,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! DonasiPush
         destVC.dataAlamat = "\(alamatLengkap)"
-//        destVC.kordinatPeta = kordinatAsli
+        destVC.kordinatPeta = kordinatAsli
         
     }
     

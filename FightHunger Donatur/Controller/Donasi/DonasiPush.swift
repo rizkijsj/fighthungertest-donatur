@@ -24,12 +24,24 @@ class DonasiPush: UITableViewController, UIImagePickerControllerDelegate, UINavi
 //    buat passing data ke map
     @IBOutlet weak var alamat: UITextField!
     var dataAlamat = "Lokasi"
+    var kordinatPeta = [Double]()
+    @IBAction func unwindToOne(_ sender: UIStoryboardSegue){
+        let vc = sender.source as! LokasiPengambilan
+        alamat.text = vc.alamatLengkap
+        print(vc.alamatLengkap)
+        print(vc.kordinatAsli)
+    }
+    
     
     @IBAction func keMap(_ sender: UIButton) {
         performSegue(withIdentifier: "keMap", sender: self)
     }
     
-    @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){}
+    @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){
+        
+        
+        
+    }
 
 	
 	
@@ -63,6 +75,7 @@ class DonasiPush: UITableViewController, UIImagePickerControllerDelegate, UINavi
 		
 	}
     
+
     @IBAction func btnKamera(_ sender: Any) {
         
         if UIImagePickerController.isSourceTypeAvailable(.camera)
@@ -92,7 +105,7 @@ class DonasiPush: UITableViewController, UIImagePickerControllerDelegate, UINavi
         tableView.delegate = self
         tableView.dataSource = self
         
-        alamat.text = dataAlamat
+//        alamat.text = dataAlamat
     }
 
     // MARK: - Table view data source

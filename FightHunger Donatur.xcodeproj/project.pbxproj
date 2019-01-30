@@ -48,7 +48,6 @@
 		FB34B3FE21FB32340070AA5E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FB34B3FD21FB32340070AA5E /* Assets.xcassets */; };
 		FB34B40121FB32340070AA5E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB34B3FF21FB32340070AA5E /* LaunchScreen.storyboard */; };
 		FB34B40C21FB32350070AA5E /* FightHunger_DonaturTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34B40B21FB32350070AA5E /* FightHunger_DonaturTests.swift */; };
-		FB7E759F220084EB0072235D /* DonasiPush.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E7597220084EB0072235D /* DonasiPush.swift */; };
 		FB7E75A0220084EB0072235D /* pickerviewTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E7599220084EB0072235D /* pickerviewTableViewCell.swift */; };
 		FB7E75A1220084EB0072235D /* waktuPickerTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E759A220084EB0072235D /* waktuPickerTableViewCell.swift */; };
 		FB7E75A62200851D0072235D /* LokasiPengambilan.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB7E75A52200851D0072235D /* LokasiPengambilan.swift */; };
@@ -117,7 +116,6 @@
 		FB34B40721FB32350070AA5E /* FightHunger DonaturTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "FightHunger DonaturTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB34B40B21FB32350070AA5E /* FightHunger_DonaturTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FightHunger_DonaturTests.swift; sourceTree = "<group>"; };
 		FB34B40D21FB32350070AA5E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		FB7E7597220084EB0072235D /* DonasiPush.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DonasiPush.swift; sourceTree = "<group>"; };
 		FB7E7599220084EB0072235D /* pickerviewTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = pickerviewTableViewCell.swift; sourceTree = "<group>"; };
 		FB7E759A220084EB0072235D /* waktuPickerTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = waktuPickerTableViewCell.swift; sourceTree = "<group>"; };
 		FB7E75A52200851D0072235D /* LokasiPengambilan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LokasiPengambilan.swift; sourceTree = "<group>"; };
@@ -221,7 +219,6 @@
 			isa = PBXGroup;
 			children = (
 				FB7E75A42200851D0072235D /* Lokasi test */,
-				FB7E7597220084EB0072235D /* DonasiPush.swift */,
 				FB7E7598220084EB0072235D /* Picker */,
 				91C512B821FEC73A00F3F97C /* DonasiPush.swift */,
 				2BB1012F22013903003967CE /* DonatingController.swift */,
@@ -659,7 +656,6 @@
 				E68FA2252201592D006709B3 /* SectionOneHomeCell.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
-				91C512B921FEC73A00F3F97C /* DonasiPush.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				FB7E75A0220084EB0072235D /* pickerviewTableViewCell.swift in Sources */,
 				FB7E75B02200864E0072235D /* MitraCollectionViewCell.swift in Sources */,

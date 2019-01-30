@@ -236,7 +236,7 @@
         <!--Donasi-->
         <scene sceneID="do5-7E-mdE">
             <objects>
-                <tableViewController id="f4w-s9-JZp" sceneMemberID="viewController">
+                <tableViewController id="f4w-s9-JZp" customClass="DonatingController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="8" sectionFooterHeight="8" id="OPl-Mr-Ewm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -244,7 +244,7 @@
                         <sections>
                             <tableViewSection id="Myj-Iy-Aba">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="278" id="FZL-KC-7Kf" customClass="CaptureImageTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="278" id="FZL-KC-7Kf" customClass="CaptureImageTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FZL-KC-7Kf" id="pfW-FG-ctY">
@@ -262,6 +262,7 @@
                                                     <connections>
                                                         <action selector="btnGallery:" destination="0pU-vt-mi9" eventType="touchUpInside" id="0Ym-0I-hXw"/>
                                                         <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="FxU-No-aZn"/>
+                                                        <action selector="btnLibraryFoto:" destination="f4w-s9-JZp" eventType="touchUpInside" id="50r-iN-0yP"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-wN-XT0">
@@ -269,6 +270,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="kamera"/>
                                                     <connections>
+                                                        <action selector="btnKamera:" destination="f4w-s9-JZp" eventType="touchUpInside" id="5Xq-2K-nAc"/>
                                                         <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="Vp2-e6-7Z1"/>
                                                     </connections>
                                                 </button>
@@ -279,7 +281,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="tFf-RF-yAL">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="qF5-yL-e1t">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="qF5-yL-e1t">
                                         <rect key="frame" x="0.0" y="286" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qF5-yL-e1t" id="I3i-MT-oBn">
@@ -296,7 +298,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="uRu-ng-lB6">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="uRu-ng-lB6">
                                         <rect key="frame" x="0.0" y="346" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRu-ng-lB6" id="bMr-sA-gaJ">
@@ -313,7 +315,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="KbC-IA-oqZ" customClass="pickerviewTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="KbC-IA-oqZ" customClass="pickerviewTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="406" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KbC-IA-oqZ" id="IZG-gJ-gRy">
@@ -333,7 +335,7 @@
                                             <outlet property="textKuantitas" destination="sfL-x6-g0J" id="Obg-eo-yBG"/>
                                         </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="Uee-y4-eHV">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Uee-y4-eHV">
                                         <rect key="frame" x="0.0" y="466" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uee-y4-eHV" id="UtD-0G-fbr">
@@ -355,7 +357,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="ouU-jS-7zY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ouU-jS-7zY">
                                         <rect key="frame" x="0.0" y="526" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ouU-jS-7zY" id="IjZ-tB-GBh">
@@ -372,7 +374,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="60" id="ZYu-CG-fkZ" customClass="waktuPickerTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ZYu-CG-fkZ" customClass="waktuPickerTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="586" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZYu-CG-fkZ" id="K4n-I3-8xC">
@@ -408,6 +410,9 @@
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
