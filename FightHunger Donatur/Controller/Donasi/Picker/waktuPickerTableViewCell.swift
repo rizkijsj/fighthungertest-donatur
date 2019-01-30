@@ -43,19 +43,10 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        switch component {
-        case 0:
-         
-            selectedTeks = String(hours[row])
-            textWaktu.text = selectedTeks
-
-        case 1:
-            selectedTeks = String(minutes[row])
-            textWaktu.text = selectedTeks
-
-        default:
-            break;
-        }
+      
+        let hourSelected = hours[pickerView.selectedRow(inComponent: 0)]
+        let minuteSelected = minutes[pickerView.selectedRow(inComponent: 1)]
+        textWaktu.text = "\(hourSelected):\(minuteSelected)"
         
       
     }
@@ -71,7 +62,7 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
     
    var hours = Array(0...23)
    var minutes = Array(00...59)
-   var selectedTeks: String?
+  
     
     @IBOutlet weak var textWaktu: CustomTextField!
     

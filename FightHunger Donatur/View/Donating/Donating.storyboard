@@ -27,7 +27,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="277.66666666666669"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="foto" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
                                                     <rect key="frame" x="0.0" y="11" width="375" height="177"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
@@ -64,14 +64,19 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama donasi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tC5-9f-7PZ" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama donasi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tC5-9f-7PZ" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="8" width="343" height="52"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="bottomMargin" secondItem="tC5-9f-7PZ" secondAttribute="bottom" constant="-11" id="3KD-aW-7wX"/>
+                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="leading" secondItem="I3i-MT-oBn" secondAttribute="leading" constant="16" id="511-Wj-Qp4"/>
+                                                <constraint firstAttribute="trailing" secondItem="tC5-9f-7PZ" secondAttribute="trailing" constant="16" id="NEW-gf-ceH"/>
+                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="top" secondItem="I3i-MT-oBn" secondAttribute="topMargin" constant="-3" id="PvX-N0-yn6"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="uRu-ng-lB6">
@@ -81,14 +86,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Deskripsi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piT-uo-BYB" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Deskripsi" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piT-uo-BYB" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="17" width="343" height="42"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="rd1-eH-Gqt"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="piT-uo-BYB" secondAttribute="trailing" constant="16" id="CCb-v1-TaH"/>
+                                                <constraint firstItem="piT-uo-BYB" firstAttribute="leading" secondItem="bMr-sA-gaJ" secondAttribute="leading" constant="16" id="SXM-UW-qD5"/>
+                                                <constraint firstItem="piT-uo-BYB" firstAttribute="top" secondItem="bMr-sA-gaJ" secondAttribute="topMargin" constant="6" id="roA-hk-W4A"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="KbC-IA-oqZ" customClass="pickerviewTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
@@ -98,14 +110,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kuantitas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfL-x6-g0J" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kuantitas" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfL-x6-g0J" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
                                                     <rect key="frame" x="16" y="17" width="343" height="42"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="42" id="d39-1f-eYa"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="top" secondItem="IZG-gJ-gRy" secondAttribute="topMargin" constant="6" id="8z3-Zx-T9b"/>
+                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="leading" secondItem="IZG-gJ-gRy" secondAttribute="leading" constant="16" id="QhJ-e6-JXw"/>
+                                                <constraint firstAttribute="trailing" secondItem="sfL-x6-g0J" secondAttribute="trailing" constant="16" id="UbZ-bC-LhB"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="textKuantitas" destination="sfL-x6-g0J" id="Obg-eo-yBG"/>
@@ -119,7 +138,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L65-r4-T5A">
-                                                    <rect key="frame" x="16" y="0.0" width="300" height="60"/>
+                                                    <rect key="frame" x="16" y="0.0" width="300" height="59.666666666666664"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                     <color key="textColor" white="0.78789419240000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -257,7 +276,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="foto" width="1280" height="640"/>
         <image name="kamera" width="587" height="200"/>
         <image name="library" width="587" height="200"/>
         <image name="my_location" width="200" height="200"/>

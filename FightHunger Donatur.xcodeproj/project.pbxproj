@@ -18,6 +18,7 @@
 		2B4836682201B52B00B18E72 /* SectionThreeHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA22B2201607F006709B3 /* SectionThreeHomeCell.swift */; };
 		2B4836692201B52B00B18E72 /* SectionThreeHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA22C2201607F006709B3 /* SectionThreeHomeCell.xib */; };
 		2B4836702201EE5D00B18E72 /* UbahprofilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48366F2201EE5D00B18E72 /* UbahprofilViewController.swift */; };
+		2B4836722201F8FF00B18E72 /* DeskripsiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4836712201F8FF00B18E72 /* DeskripsiTableViewCell.swift */; };
 		2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */; };
 		2BB1013022013903003967CE /* DonatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012F22013903003967CE /* DonatingController.swift */; };
 		2BB1013222018BF8003967CE /* UbahProfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1013122018BF8003967CE /* UbahProfil.storyboard */; };
@@ -71,6 +72,7 @@
 		15D69F824E46B705A423BE2C /* Pods-FightHunger DonaturTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.debug.xcconfig"; sourceTree = "<group>"; };
 		2B48365F2201967000B18E72 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
 		2B48366F2201EE5D00B18E72 /* UbahprofilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbahprofilViewController.swift; sourceTree = "<group>"; };
+		2B4836712201F8FF00B18E72 /* DeskripsiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskripsiTableViewCell.swift; sourceTree = "<group>"; };
 		2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageTableViewCell.swift; sourceTree = "<group>"; };
 		2BB1012F22013903003967CE /* DonatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonatingController.swift; sourceTree = "<group>"; };
 		2BB1013122018BF8003967CE /* UbahProfil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UbahProfil.storyboard; sourceTree = "<group>"; };
@@ -413,6 +415,7 @@
 			children = (
 				FB7E7599220084EB0072235D /* pickerviewTableViewCell.swift */,
 				FB7E759A220084EB0072235D /* waktuPickerTableViewCell.swift */,
+				2B4836712201F8FF00B18E72 /* DeskripsiTableViewCell.swift */,
 			);
 			path = Picker;
 			sourceTree = "<group>";
@@ -682,6 +685,7 @@
 				FB7E75B22200864E0072235D /* aktivitasCollectionViewCell.swift in Sources */,
 				2BB1013022013903003967CE /* DonatingController.swift in Sources */,
 				2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */,
+				2B4836722201F8FF00B18E72 /* DeskripsiTableViewCell.swift in Sources */,
 				FB7E75A62200851D0072235D /* LokasiPengambilan.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
