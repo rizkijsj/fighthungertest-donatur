@@ -385,6 +385,9 @@
                     <navigationItem key="navigationItem" title="FightHunger" id="Fhh-CL-2PN">
                         <barButtonItem key="rightBarButtonItem" title="Item" image="profilBtn" id="FLq-Wp-VDZ">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="CYR-bp-8RT" kind="modal" id="10c-5w-rok"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -395,6 +398,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kne-Zb-ndc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1328.8" y="1639.6551724137933"/>
+        </scene>
+        <!--Profile-->
+        <scene sceneID="ygb-qg-heW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Profile" id="CYR-bp-8RT" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="MVK-Wn-Utb" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1891" y="1357"/>
         </scene>
         <!--Donating-->
         <scene sceneID="Fa1-IA-1nH">

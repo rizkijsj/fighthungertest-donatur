@@ -25,23 +25,20 @@ class DonasiPush: UITableViewController, UIImagePickerControllerDelegate, UINavi
     @IBOutlet weak var alamat: UITextField!
     var dataAlamat = "Lokasi"
     var kordinatPeta = [Double]()
-    @IBAction func unwindToOne(_ sender: UIStoryboardSegue){
+    @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){
         let vc = sender.source as! LokasiPengambilan
         alamat.text = vc.alamatLengkap
         print(vc.alamatLengkap)
         print(vc.kordinatAsli)
     }
+   
     
     
     @IBAction func keMap(_ sender: UIButton) {
         performSegue(withIdentifier: "keMap", sender: self)
     }
     
-    @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){
-        
-        
-        
-    }
+   
 
 	
 	

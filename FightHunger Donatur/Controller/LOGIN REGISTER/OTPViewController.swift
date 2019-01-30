@@ -18,6 +18,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     }
     
   
+    @IBOutlet weak var lnjtBtn: UIButton!
+    
     @IBOutlet weak var otpTxt6: UITextField!
     
     @IBOutlet weak var otpTxt5: UITextField!
@@ -36,6 +38,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
+            lnjtBtn.layer.cornerRadius = 6.0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
         //disable login button dan bikin activity progress yg muter-muter

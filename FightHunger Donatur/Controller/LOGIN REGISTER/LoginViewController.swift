@@ -11,6 +11,7 @@ import Firebase
 
 class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDelegate{
 
+    @IBOutlet weak var lnjtBtn: UIButton!
     @IBOutlet weak var telpTxtField: CustomTextField!
     @IBOutlet weak var continueButton: UIButton!
     
@@ -19,6 +20,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        lnjtBtn.layer.cornerRadius = 6.0
         
         var toolbar = UIToolbar()
         toolbar.sizeToFit()

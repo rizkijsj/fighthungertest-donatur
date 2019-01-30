@@ -8,8 +8,10 @@
 
 /* Begin PBXBuildFile section */
 		21819EBFF7E0E2A7AB8C262B /* Pods_FightHunger_DonaturTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */; };
+		2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48365F2201967000B18E72 /* LoginRegisterViewController.swift */; };
 		2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */; };
 		2BB1013022013903003967CE /* DonatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012F22013903003967CE /* DonatingController.swift */; };
+		2BB1013222018BF8003967CE /* UbahProfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1013122018BF8003967CE /* UbahProfil.storyboard */; };
 		2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4121FD59D1008C85CE /* CustomTextField.swift */; };
 		2BF68C4421FD8A0E008C85CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */; };
 		2BF68C4621FDE9BC008C85CE /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */; };
@@ -24,14 +26,6 @@
 		2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5D060221FED5DD00CDD125 /* GoogleService-Info.plist */; };
 		9025445BFF7F59EE01D5AC3E /* Pods_FightHunger_Donatur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */; };
 		917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F79CD22006EA100A85296 /* KegiatanViewController.swift */; };
-		E68FA21E22014538006709B3 /* NewHomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA21D22014538006709B3 /* NewHomeViewController.swift */; };
-		E68FA2202201454B006709B3 /* NewHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E68FA21F2201454B006709B3 /* NewHome.storyboard */; };
-		E68FA2252201592D006709B3 /* SectionOneHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA2232201592D006709B3 /* SectionOneHomeCell.swift */; };
-		E68FA2262201592D006709B3 /* SectionOneHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA2242201592D006709B3 /* SectionOneHomeCell.xib */; };
-		E68FA22922015CBF006709B3 /* SectionTwoHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA22722015CBF006709B3 /* SectionTwoHomeCell.swift */; };
-		E68FA22A22015CBF006709B3 /* SectionTwoHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA22822015CBF006709B3 /* SectionTwoHomeCell.xib */; };
-		E68FA22D2201607F006709B3 /* SectionThreeHomeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E68FA22B2201607F006709B3 /* SectionThreeHomeCell.swift */; };
-		E68FA22E2201607F006709B3 /* SectionThreeHomeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = E68FA22C2201607F006709B3 /* SectionThreeHomeCell.xib */; };
 		FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00911D21FB78F800BC89AE /* Donating.storyboard */; };
 		FB00912121FB792400BC89AE /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912021FB792400BC89AE /* Location.storyboard */; };
 		FB00912421FB79A900BC89AE /* Organization.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912321FB79A900BC89AE /* Organization.storyboard */; };
@@ -66,8 +60,10 @@
 
 /* Begin PBXFileReference section */
 		15D69F824E46B705A423BE2C /* Pods-FightHunger DonaturTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.debug.xcconfig"; sourceTree = "<group>"; };
+		2B48365F2201967000B18E72 /* LoginRegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRegisterViewController.swift; sourceTree = "<group>"; };
 		2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageTableViewCell.swift; sourceTree = "<group>"; };
 		2BB1012F22013903003967CE /* DonatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonatingController.swift; sourceTree = "<group>"; };
+		2BB1013122018BF8003967CE /* UbahProfil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UbahProfil.storyboard; sourceTree = "<group>"; };
 		2BF68C4121FD59D1008C85CE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
@@ -150,6 +146,13 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		2B48365E2201950900B18E72 /* New Group */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "New Group";
+			sourceTree = "<group>";
+		};
 		2BF68C3F21FD5993008C85CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -169,6 +172,7 @@
 				2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */,
 				2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */,
 				2BF68C4721FE00B5008C85CE /* DaftarViewController.swift */,
+				2B48365F2201967000B18E72 /* LoginRegisterViewController.swift */,
 			);
 			path = "LOGIN REGISTER";
 			sourceTree = "<group>";
@@ -312,6 +316,7 @@
 			isa = PBXGroup;
 			children = (
 				FB00912D21FB7B8F00BC89AE /* Profile.storyboard */,
+				2BB1013122018BF8003967CE /* UbahProfil.storyboard */,
 				FB00912A21FB7A8F00BC89AE /* Riwayat */,
 			);
 			path = Profil;
@@ -520,8 +525,7 @@
 				FB00912E21FB7B8F00BC89AE /* Profile.storyboard in Resources */,
 				FB00912C21FB7B6D00BC89AE /* Kegiatan.storyboard in Resources */,
 				FB34B3F921FB32330070AA5E /* Main.storyboard in Resources */,
-				E68FA2262201592D006709B3 /* SectionOneHomeCell.xib in Resources */,
-				E68FA22E2201607F006709B3 /* SectionThreeHomeCell.xib in Resources */,
+				2BB1013222018BF8003967CE /* UbahProfil.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -640,6 +644,7 @@
 				2F5D05FC21FED50900CDD125 /* Post.swift in Sources */,
 				E68FA22922015CBF006709B3 /* SectionTwoHomeCell.swift in Sources */,
 				917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */,
+				2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
 				2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */,
 				2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */,
@@ -826,7 +831,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FMBNG35Z38;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -845,7 +850,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = FMBNG35Z38;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

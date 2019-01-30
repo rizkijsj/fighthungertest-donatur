@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="vMY-4Z-iyk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VaB-LE-eif">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,18 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--Main-->
+        <scene sceneID="XZ5-ZQ-gwc">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Main" id="toL-Vw-aKi" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAZ-1m-YeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2734" y="359"/>
+        </scene>
         <!--LoginRegister-->
         <scene sceneID="Nnl-pv-MzP">
             <objects>
-                <viewController storyboardIdentifier="LoginRegister" title="LoginRegister" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VaB-LE-eif" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="LoginRegister" title="LoginRegister" useStoryboardIdentifierAsRestorationIdentifier="YES" id="VaB-LE-eif" customClass="LoginRegisterViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="CEI-Jb-T3m">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -58,17 +66,23 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YuU-4z-R7W">
-                                        <rect key="frame" x="20" y="20" width="163" height="51"/>
+                                        <rect key="frame" x="16" y="20" width="162" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="btnMasuk"/>
+                                        <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Masuk">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="XiE-iL-Epf" kind="show" animates="NO" id="aOD-GS-7ga"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSO-RP-Ovj">
-                                        <rect key="frame" x="201" y="20" width="162" height="51"/>
+                                        <rect key="frame" x="202" y="20" width="162" height="51"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <state key="normal" backgroundImage="btnDaftar"/>
+                                        <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <state key="normal" title="Daftar">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
                                         <connections>
                                             <segue destination="da5-Bk-tOG" kind="show" animates="NO" id="MYG-Us-44Q"/>
                                         </connections>
@@ -77,14 +91,21 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjO-lu-YyK">
-                                <rect key="frame" x="20" y="45" width="24" height="26"/>
+                                <rect key="frame" x="20" y="45" width="16" height="26"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="backBtnGray"/>
+                                <state key="normal" backgroundImage="arrowback"/>
+                                <connections>
+                                    <segue destination="toL-Vw-aKi" kind="modal" id="e5T-wa-J9E"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R3X-k8-CgA"/>
                     </view>
+                    <connections>
+                        <outlet property="btnDaftar" destination="oSO-RP-Ovj" id="aTt-FO-GPc"/>
+                        <outlet property="btnMasuk" destination="YuU-4z-R7W" id="Szv-re-GGo"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPG-dd-s0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -134,11 +155,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Masuk" prompt="                                              " id="PNb-dO-pgM">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backButton" id="Vhf-Cc-0Yq">
-                                            <inset key="imageInsets" minX="-7" minY="0.0" maxX="0.0" maxY="-12"/>
-                                            <color key="tintColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="Vhf-Cc-0Yq">
+                                            <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="VaB-LE-eif" kind="show" animates="NO" id="73A-DQ-RQM"/>
+                                                <segue destination="VaB-LE-eif" kind="show" id="SYg-Bz-R6F"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -147,7 +168,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhE-xp-uqR">
                                 <rect key="frame" x="16" y="679" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" backgroundImage="btnLanjut"/>
+                                <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <state key="normal" title="Lanjut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="LanjutButton:" destination="XiE-iL-Epf" eventType="touchUpInside" id="8WA-mg-WT0"/>
                                 </connections>
@@ -169,6 +193,7 @@
                     <connections>
                         <outlet property="continueButton" destination="rhE-xp-uqR" id="i5A-dk-C2S"/>
                         <outlet property="errorMssg" destination="bKl-tH-icU" id="7yc-FT-9CO"/>
+                        <outlet property="lnjtBtn" destination="rhE-xp-uqR" id="X2B-Sn-Heh"/>
                         <outlet property="telpTxtField" destination="HuZ-Oo-B88" id="dSZ-gm-idv"/>
                         <segue destination="vMY-4Z-iyk" kind="show" identifier="LoginToVerify" animates="NO" id="gF3-Qe-I5l"/>
                     </connections>
@@ -189,11 +214,11 @@
                                 <rect key="frame" x="0.0" y="8" width="375" height="78"/>
                                 <items>
                                     <navigationItem title="Masuk" prompt="                                                                   " id="OLP-Ry-Ruh">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backButton" id="09u-Il-nlN">
-                                            <inset key="imageInsets" minX="-7" minY="0.0" maxX="0.0" maxY="-12"/>
-                                            <color key="tintColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="09u-Il-nlN">
+                                            <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="XiE-iL-Epf" kind="show" animates="NO" id="mWr-Zh-R03"/>
+                                                <segue destination="XiE-iL-Epf" kind="show" id="yPt-Ed-GdG"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -299,10 +324,13 @@
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GqK-Pd-l6e">
                                 <rect key="frame" x="20" y="674" width="335" height="51"/>
+                                <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="51" id="8si-lR-SMy"/>
                                 </constraints>
-                                <state key="normal" backgroundImage="btnLanjut"/>
+                                <state key="normal" title="Lanjut">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
                                 <connections>
                                     <action selector="lanjutBtn:" destination="vMY-4Z-iyk" eventType="touchUpInside" id="TNL-Oz-Wf4"/>
                                 </connections>
@@ -341,6 +369,7 @@
                     <navigationItem key="navigationItem" id="vJz-iT-g9r"/>
                     <connections>
                         <outlet property="continueButton" destination="GqK-Pd-l6e" id="Fyh-36-G8P"/>
+                        <outlet property="lnjtBtn" destination="GqK-Pd-l6e" id="LBg-LD-Z1Q"/>
                         <outlet property="otpTxt1" destination="ucS-uc-d3x" id="9oc-Ri-g9w"/>
                         <outlet property="otpTxt2" destination="egw-Et-akI" id="CIN-dP-pej"/>
                         <outlet property="otpTxt3" destination="n3t-cs-R8X" id="O2Z-6p-Myg"/>
@@ -387,9 +416,9 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <items>
                                     <navigationItem title="Daftar" id="sV7-0p-t5A">
-                                        <barButtonItem key="leftBarButtonItem" title="Item" image="backButton" id="fF8-B4-d9R">
-                                            <inset key="imageInsets" minX="-7" minY="0.0" maxX="0.0" maxY="-12"/>
-                                            <color key="tintColor" red="0.60784313729999995" green="0.60784313729999995" blue="0.60784313729999995" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="fF8-B4-d9R">
+                                            <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
                                                 <segue destination="VaB-LE-eif" kind="show" animates="NO" id="oSc-ER-jll"/>
                                             </connections>
@@ -409,7 +438,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdN-Jc-fF6">
                                 <rect key="frame" x="40" y="363" width="243" height="21"/>
@@ -423,12 +452,14 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <nil key="textColor"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
+                                <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                             </textField>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjT-Fc-sfJ">
-                                <rect key="frame" x="16" y="679" width="343" height="51"/>
+                                <rect key="frame" x="16" y="690" width="343" height="51"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="btnLanjut"/>
+                                <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                                <state key="normal" title="Lanjut"/>
                                 <connections>
                                     <action selector="btnLanjut:" destination="da5-Bk-tOG" eventType="touchUpInside" id="7pC-pl-Cbk"/>
                                 </connections>
@@ -461,20 +492,16 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrw-P4-80m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4895.1999999999998" y="1520.6896551724139"/>
+            <point key="canvasLocation" x="4244" y="1535"/>
         </scene>
     </scenes>
     <resources>
-        <image name="backBtnGray" width="38" height="35"/>
-        <image name="backButton" width="38" height="35"/>
+        <image name="arrowback" width="120" height="200"/>
         <image name="backbtn" width="53" height="41"/>
-        <image name="btnDaftar" width="162" height="51"/>
-        <image name="btnLanjut" width="343" height="51"/>
-        <image name="btnMasuk" width="163" height="51"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gyy-oT-mva"/>
-        <segue reference="mWr-Zh-R03"/>
+        <segue reference="yPt-Ed-GdG"/>
         <segue reference="oSc-ER-jll"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -10,6 +10,19 @@ import UIKit
 
 class DonatingController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
+    //    buat passing data ke map
+    @IBOutlet weak var alamat: UILabel!
+    var dataAlamat = "Lokasi"
+    var kordinatPeta = [Double]()
+    @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){
+        let vc = sender.source as! LokasiPengambilan
+        alamat.text = vc.alamatLengkap
+        print(vc.alamatLengkap)
+        print(vc.kordinatAsli)
+    }
+    
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
