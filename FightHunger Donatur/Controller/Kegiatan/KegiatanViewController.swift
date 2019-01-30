@@ -17,32 +17,23 @@ class KegiatanViewController: UITableViewController {
     @IBOutlet weak var status3: UIImageView!
     @IBOutlet weak var status4: UIImageView!
     
-    @IBOutlet weak var labaelStatus1: UILabel!
-    @IBOutlet weak var labelStatus2: UILabel!
-    @IBOutlet weak var labelStatus3: UILabel!
-    @IBOutlet weak var labelStatus4: UILabel!
+//    @IBOutlet weak var labaelStatus1: UILabel!
+//    @IBOutlet weak var labelStatus2: UILabel!
+//    @IBOutlet weak var labelStatus3: UILabel!
+//    @IBOutlet weak var labelStatus4: UILabel!
+    
     @IBOutlet weak var btnKonfirmasi: UIButton!
-    
-    
-//    @IBAction func konfirmasi(_ sender: UIButton) {
-////        status3.image = ""
-//
-//    }
-    
     @IBOutlet weak var keteranganBtnKonfirmasi: UILabel!
     
+    //    @IBAction func konfirmasi(_ sender: UIButton) {
+    ////        status3.image = ""
+    //
+    //    }
     
     @IBOutlet weak var namaOrganisasi: UILabel!
     @IBOutlet weak var nomorTelponOrganisasi: UILabel!
-    @IBAction func telponOrganisasi(_ sender: UIButton) {
-        
-        nomorTelponOrganisasi.resignFirstResponder()
-        
-        if let phoneURL = NSURL(string: "tel://\(nomorTelponOrganisasi.text!)"){
-            UIApplication.shared.open(phoneURL as URL)
-            
-        }
-    }
+    @IBOutlet weak var btnCallOrganisasi: UIButton!
+    
     
     @IBOutlet weak var namaKurir: UILabel!
     @IBOutlet weak var deskripsiKurir: UILabel!
@@ -53,11 +44,9 @@ class KegiatanViewController: UITableViewController {
     @IBOutlet weak var alamatPengambilan: UILabel!
     @IBOutlet weak var waktuPengambilan: UILabel!
     
-    @IBAction func batalkan(_ sender: UIButton) {
-        
-    }
+    @IBOutlet weak var btnBatal: UIButton!
     
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
     
@@ -65,6 +54,7 @@ class KegiatanViewController: UITableViewController {
         return UITableViewCell.init()
     }
     
+//    penampung
     var tempNamaOrganisasi = ""
     var tempNotelpOrganisasi = ""
     
@@ -81,67 +71,103 @@ class KegiatanViewController: UITableViewController {
     var tempWaktuPengambilan = ""
     
     /*
+     Tolong dibbantu ya .....
+     
      ini penmapung buat ke push notif apa?
-    var notifDariOrganisasi = true
+    var notifDariOrganisasi = ????
      */
     
     func statusDonasi(){
-        /*
-        if notifDariOrganisasi == 1 {
-            btnKonfirmasi.inenable == false
-            stasus1.image = "status1.jpg"
+        if notifDariOrganisasi == 0 {
+            btnBatal.isEnabled = true
+            btnKonfirmasi.isEnabled = false
+            btnKonfirmasi.setImage(UIImage(named: "konfirmasi"), for: .normal)
+            stasus1.image = UIImage(named: "pin1b")
             namaOrganisasi.text = "-"
             nomorTelponOrganisasi.text = "-"
             namaKurir.text = "-"
             deskripsiKurir.text = "-"
+            btnCallOrganisasi.isEnabled = false
+            
+            btnBatal.isEnabled = true
+            if btnBatal.isTouchInside == true {
+//                push ke organisasi
+            }
+            
+            print("nunggu konfirmasi")
+        }
+        
+        else if notifDariOrganisasi == 1 {
+            btnKonfirmasi.isEnabled = false
+            btnKonfirmasi.setImage(UIImage(named: "konfirmasi"), for: .normal)
+            stasus1.image = UIImage(named: "pin1a")
+            namaOrganisasi.text = " "
+            nomorTelponOrganisasi.text = " "
+            namaKurir.text = " "
+            deskripsiKurir.text = " "
+            btnCallOrganisasi.isEnabled = false
+            btnBatal.isEnabled = false
             print("mencarikan kurir")
         }
          else if notifDariOrganisasi == 2 {
-            btnKonfirmasi.inenable == false
-            stasus2.image = "status2.jpg"
-            namaOrganisasi.text = self.tempNamaOrganisasi.text!
-            nomorTelponOrganisasi.text = self.tempNotelpOrganisasi.text!
-            namaKurir.text = self.tempNamaKurir.text!
-            deskripsiKurir.text = self.tempDeskripsiKurir.text!
+            btnKonfirmasi.isEnabled = false
+            btnKonfirmasi.setImage(UIImage(named: "konfirmasi aktif"), for: .normal)
+            status2.image = UIImage(named: "pin2a")
+            namaOrganisasi.text = tempNamaOrganisasi
+            nomorTelponOrganisasi.text = tempNotelpOrganisasi
+            namaKurir.text = tempNamaKurir
+            deskripsiKurir.text = tempDeskripsiKurir
+            btnCallOrganisasi.isEnabled = true
+            if btnCallOrganisasi.isTouchInside == true{
+                nomorTelponOrganisasi.resignFirstResponder()
+                
+                if let phoneURL = NSURL(string: "tel://\(nomorTelponOrganisasi.text!)"){
+                    UIApplication.shared.open(phoneURL as URL)
+                    
+                }
+            }
             print("sedang dijemput")
          }
          else if notifDariOrganisasi == 3 {
          
-            namaOrganisasi.text = self.tempNamaOrganisasi.text!
-            nomorTelponOrganisasi.text = self.tempNotelpOrganisasi.text!
-            namaKurir.text = self.tempNamaKurir.text!
-            deskripsiKurir.text = self.tempDeskripsiKurir.text!
+            namaOrganisasi.text = tempNamaOrganisasi
+            nomorTelponOrganisasi.text = tempNotelpOrganisasi
+            namaKurir.text = tempNamaKurir
+            deskripsiKurir.text = tempDeskripsiKurir
+            btnCallOrganisasi.isEnabled = true
          
-            btnKonfirmasi.inenable == true
-            if btnKonfirmasi.addAction( .touch) {
-                stasus3.image = "status3.jpg"
-                push data ke organisasi
+            btnKonfirmasi.isEnabled = true
+            btnKonfirmasi.setImage(UIImage(named: "konfirmasi aktif"), for: .normal)
+            if btnKonfirmasi.isTouchInside == true {
+                status3.image = UIImage(named: "pin3a")
+                btnKonfirmasi.setImage(UIImage(named: "dikonfirmasi"), for: .normal)
+//                push data ke organisasi
          }
+            
+            btnBatal.isEnabled = false
             print("sedang diantar")
          }
          else if notifDariOrganisasi == 4 {
          
-            namaOrganisasi.text = self.tempNamaOrganisasi.text!
-            nomorTelponOrganisasi.text = self.tempNotelpOrganisasi.text!
-            namaKurir.text = self.tempNamaKurir.text!
-            deskripsiKurir.text = self.tempDeskripsiKurir.text!
+            namaOrganisasi.text = tempNamaOrganisasi
+            nomorTelponOrganisasi.text = tempNotelpOrganisasi
+            namaKurir.text = tempNamaKurir
+            deskripsiKurir.text = tempDeskripsiKurir
+            btnCallOrganisasi.isEnabled = true
          
-            btnKonfirmasi.inenable == false
-            btnKonfirmasi.backgroundimage = "Selesai"
-            stasus4.image = "status4.jpg"
+            btnKonfirmasi.isEnabled = false
+            btnKonfirmasi.setImage(UIImage(named: "selesai"), for: .normal)
+            status4.image = UIImage(named: "pin4a")
+            btnBatal.isEnabled = false
             print("Sampai Organisasi")
          }
-        */
+ 
     }
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-//        self.tempNamaOrganisasi = namaOrganisasi.text!
-//        self.tempNotelpOrganisasi = nomorTelponOrganisasi.text!
-        
-        
-
+        statusDonasi()
         
     }
     
