@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="S8A-g2-vKC">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lk5-bb-8ao">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -236,7 +236,7 @@
         <!--Donasi-->
         <scene sceneID="do5-7E-mdE">
             <objects>
-                <tableViewController id="f4w-s9-JZp" customClass="DonatingController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="f4w-s9-JZp" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="8" sectionFooterHeight="8" id="OPl-Mr-Ewm">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -262,7 +262,6 @@
                                                     <connections>
                                                         <action selector="btnGallery:" destination="0pU-vt-mi9" eventType="touchUpInside" id="0Ym-0I-hXw"/>
                                                         <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="FxU-No-aZn"/>
-                                                        <action selector="btnLibraryFoto:" destination="f4w-s9-JZp" eventType="touchUpInside" id="pyS-2J-Fyb"/>
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-wN-XT0">
@@ -271,7 +270,6 @@
                                                     <state key="normal" backgroundImage="kamera"/>
                                                     <connections>
                                                         <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="Vp2-e6-7Z1"/>
-                                                        <action selector="btnKamera:" destination="f4w-s9-JZp" eventType="touchUpInside" id="sLu-mr-gT8"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -350,7 +348,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Xy-Bj6">
-                                                    <rect key="frame" x="324" y="11" width="37" height="38"/>
+                                                    <rect key="frame" x="324" y="11" width="35" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="my_location"/>
                                                 </button>
@@ -410,9 +408,6 @@
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </barButtonItem>
                     </navigationItem>
-                    <connections>
-                        <outlet property="imgDonasi" destination="wwU-na-Baq" id="4vZ-8Q-Q3r"/>
-                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
