@@ -21,6 +21,8 @@
 		2B4836722201F8FF00B18E72 /* DeskripsiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4836712201F8FF00B18E72 /* DeskripsiTableViewCell.swift */; };
 		2B4836752202AFCC00B18E72 /* NamaTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4836742202AFCC00B18E72 /* NamaTableViewCell.swift */; };
 		2B4836772202B0E300B18E72 /* KeteranganLokasiTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4836762202B0E300B18E72 /* KeteranganLokasiTableViewCell.swift */; };
+		2B4836792202B89700B18E72 /* RiwayatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4836782202B89700B18E72 /* RiwayatViewController.swift */; };
+		2B48367C2202B93E00B18E72 /* RiwayatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */; };
 		2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */; };
 		2BB1013022013903003967CE /* DonatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012F22013903003967CE /* DonatingController.swift */; };
 		2BB1013222018BF8003967CE /* UbahProfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1013122018BF8003967CE /* UbahProfil.storyboard */; };
@@ -77,6 +79,8 @@
 		2B4836712201F8FF00B18E72 /* DeskripsiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DeskripsiTableViewCell.swift; sourceTree = "<group>"; };
 		2B4836742202AFCC00B18E72 /* NamaTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NamaTableViewCell.swift; sourceTree = "<group>"; };
 		2B4836762202B0E300B18E72 /* KeteranganLokasiTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KeteranganLokasiTableViewCell.swift; sourceTree = "<group>"; };
+		2B4836782202B89700B18E72 /* RiwayatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatViewController.swift; sourceTree = "<group>"; };
+		2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTableViewCell.swift; sourceTree = "<group>"; };
 		2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageTableViewCell.swift; sourceTree = "<group>"; };
 		2BB1012F22013903003967CE /* DonatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonatingController.swift; sourceTree = "<group>"; };
 		2BB1013122018BF8003967CE /* UbahProfil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UbahProfil.storyboard; sourceTree = "<group>"; };
@@ -180,9 +184,19 @@
 			path = "Tableview cell";
 			sourceTree = "<group>";
 		};
+		2B48367A2202B8B200B18E72 /* Riwayat */ = {
+			isa = PBXGroup;
+			children = (
+				2B4836782202B89700B18E72 /* RiwayatViewController.swift */,
+				2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */,
+			);
+			path = Riwayat;
+			sourceTree = "<group>";
+		};
 		2BF68C3F21FD5993008C85CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2B48367A2202B8B200B18E72 /* Riwayat */,
 				2B48366C2201E62800B18E72 /* Profil */,
 				E68FA21C22014516006709B3 /* New Home */,
 				917F79A722005C4400A85296 /* Kegiatan */,
@@ -692,6 +706,7 @@
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				2B4836642201B52B00B18E72 /* SectionOneHomeCell.swift in Sources */,
 				FB7E75A0220084EB0072235D /* pickerviewTableViewCell.swift in Sources */,
+				2B4836792202B89700B18E72 /* RiwayatViewController.swift in Sources */,
 				FB7E75B02200864E0072235D /* MitraCollectionViewCell.swift in Sources */,
 				2B4836682201B52B00B18E72 /* SectionThreeHomeCell.swift in Sources */,
 				2B4836632201B51F00B18E72 /* NewHomeViewController.swift in Sources */,
@@ -701,6 +716,7 @@
 				FB7E75B22200864E0072235D /* aktivitasCollectionViewCell.swift in Sources */,
 				2BB1013022013903003967CE /* DonatingController.swift in Sources */,
 				2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */,
+				2B48367C2202B93E00B18E72 /* RiwayatTableViewCell.swift in Sources */,
 				2B4836722201F8FF00B18E72 /* DeskripsiTableViewCell.swift in Sources */,
 				FB7E75A62200851D0072235D /* LokasiPengambilan.swift in Sources */,
 			);

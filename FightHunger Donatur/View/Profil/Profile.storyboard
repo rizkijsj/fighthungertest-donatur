@@ -125,6 +125,9 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
+                                        <connections>
+                                            <segue destination="G2t-dD-fqk" kind="modal" id="h9g-LW-2c8"/>
+                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -147,6 +150,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4if-sM-RbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6327.1999999999998" y="1193.3497536945813"/>
+        </scene>
+        <!--Riwayat-->
+        <scene sceneID="5OX-WR-quT">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Riwayat" id="G2t-dD-fqk" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="W4n-Ja-G0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6946" y="1283"/>
         </scene>
         <!--Main-->
         <scene sceneID="9IE-6E-jjZ">
