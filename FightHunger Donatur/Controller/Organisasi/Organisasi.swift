@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 
 class Organisasi: UITableViewController {
 
@@ -69,9 +70,6 @@ class Organisasi: UITableViewController {
     @IBOutlet weak var deskripsiProgram3: UILabel!
     
     var namaProgramOrganisasi = ""
-    
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
