@@ -23,7 +23,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </mapView>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="location_on" translatesAutoresizingMaskIntoConstraints="NO" id="TQO-QW-uly">
-                                <rect key="frame" x="177" y="291" width="20" height="20"/>
+                                <rect key="frame" x="177" y="291" width="16" height="20"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
                             <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RX6-hZ-Uju">
@@ -70,7 +70,7 @@
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
-                        <outlet property="alamat" destination="RX6-hZ-Uju" id="YVF-2Y-qbZ"/>
+                        <outlet property="alamat" destination="HUc-FC-Czl" id="otH-Gl-wT8"/>
                         <outlet property="peta" destination="XQE-GQ-TmY" id="hHR-g5-59K"/>
                         <outlet property="pinPoint" destination="TQO-QW-uly" id="xeC-d9-spA"/>
                         <outlet property="setLokasi" destination="Hxe-KN-JBk" id="SVT-LL-xed"/>

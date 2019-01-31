@@ -20,7 +20,6 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     
     @IBOutlet weak var setLokasi: UIButton!
     
-    
 //    unwindsegue dan pasing data
     var alamatLengkap = ""
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
@@ -43,7 +42,6 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
         
     }
     
-
     func setupLocationManager() {
         locationManager.delegate = self
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
@@ -91,8 +89,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
         lokasiSebelumnya = getCenterLocation(for: peta)
     }
     
-    
-//    passing data kordinat ke unwind segue
+    //    passing data kordinat ke unwind segue
     var kordinatAsli = [Double]()
     func getCenterLocation(for peta: MKMapView) -> CLLocation {
         let latitude = peta.centerCoordinate.latitude
@@ -107,8 +104,8 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     
     @IBAction func btnTitikAwal(_ sender: UIButton) {
         centerViewOnUserLocation()
+        print("test")
     }
-    
     
     
     @IBAction func searchBtn(_ sender: Any) {
@@ -194,7 +191,7 @@ extension LokasiPengambilan: MKMapViewDelegate{
         
         guard let lokasiawal = self.lokasiSebelumnya else {return}
         
-        guard center.distance(from: lokasiSebelumnya!) > 50 else {return}
+        guard center.distance(from: lokasiawal) > 50 else {return}
         
         self.lokasiSebelumnya = center
         
@@ -220,7 +217,7 @@ extension LokasiPengambilan: MKMapViewDelegate{
             let provinsi = placemark.administrativeArea ?? ""
             let negara = placemark.country ?? ""
 
-            print("ini alamat lengkap : \(placemarks)")
+            print("ini alamat lengkap : \(String(describing: placemarks))")
 
             DispatchQueue.main.async {
                 self.alamat.text = "Lokasi anda: \n\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
