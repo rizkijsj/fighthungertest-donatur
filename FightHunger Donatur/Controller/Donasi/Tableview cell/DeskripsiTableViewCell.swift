@@ -47,6 +47,7 @@ class DeskripsiTableViewCell: UITableViewCell , UITextFieldDelegate{
         super.awakeFromNib()
        deskripsiTxt.delegate = self
    
+     
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

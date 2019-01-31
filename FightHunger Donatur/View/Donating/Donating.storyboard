@@ -50,6 +50,10 @@
                                                         <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="Vp2-e6-7Z1"/>
                                                     </connections>
                                                 </button>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Add Photo" translatesAutoresizingMaskIntoConstraints="NO" id="GK5-Ti-4Mw">
+                                                    <rect key="frame" x="150" y="69" width="75" height="48"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -221,6 +225,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="addPhoto" destination="GK5-Ti-4Mw" id="RBI-bF-PSA"/>
                         <outlet property="alamat" destination="L65-r4-T5A" id="Qjf-RE-n7V"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
                     </connections>
@@ -274,6 +279,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Add Photo" width="361" height="200"/>
         <image name="kamera" width="587" height="200"/>
         <image name="library" width="587" height="200"/>
         <image name="my_location" width="200" height="200"/>

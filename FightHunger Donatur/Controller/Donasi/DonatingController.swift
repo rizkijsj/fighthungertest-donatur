@@ -10,6 +10,7 @@ import UIKit
 
 class DonatingController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
+    @IBOutlet weak var addPhoto: UIImageView!
     //    buat passing data ke map
     @IBOutlet weak var alamat: UILabel!
     var dataAlamat = "Lokasi"
@@ -36,6 +37,8 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
 
        tableView.delegate = self
        tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        //tableView.estimatedRowHeight = 100
     }
 
     @IBAction func btnLibraryFoto(_ sender: Any) {
@@ -66,7 +69,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        
+        addPhoto.isHidden = true
         
         let passingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         
