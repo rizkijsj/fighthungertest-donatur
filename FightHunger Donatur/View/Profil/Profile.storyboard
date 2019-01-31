@@ -112,12 +112,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="341" height="44"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="icon riwayat" translatesAutoresizingMaskIntoConstraints="NO" id="RP6-MU-iaT">
-                                                    <rect key="frame" x="16" y="6" width="28" height="27"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="history" translatesAutoresizingMaskIntoConstraints="NO" id="RP6-MU-iaT">
+                                                    <rect key="frame" x="16" y="11" width="22" height="19"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Riwayat donasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fin-m1-89c">
-                                                    <rect key="frame" x="51" y="9" width="114" height="21"/>
+                                                    <rect key="frame" x="44" y="9" width="114" height="21"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                     <nil key="textColor"/>
@@ -162,15 +162,14 @@
         <!--Main-->
         <scene sceneID="9IE-6E-jjZ">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Yf-iQ-y7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <viewControllerPlaceholder storyboardName="Main" id="JRC-gy-ARf" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Yf-iQ-y7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3685" y="1495"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u2I-TA-EMt">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dGH-eb-OKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="anx-9z-F9V" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="az9-ce-FiO">
@@ -182,12 +181,13 @@
                         <segue destination="qlw-we-uJF" kind="relationship" relationship="rootViewController" id="bNb-w6-6Ko"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dGH-eb-OKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="5384.8000000000002" y="1193.3497536945813"/>
         </scene>
     </scenes>
     <resources>
         <image name="arrowback" width="120" height="200"/>
-        <image name="icon riwayat" width="500" height="528"/>
+        <image name="history" width="227" height="200"/>
     </resources>
 </document>

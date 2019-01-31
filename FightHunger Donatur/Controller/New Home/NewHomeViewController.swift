@@ -75,6 +75,18 @@ extension NewHomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
         return headerView
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 1
+        {
+            if  indexPath.row == 0
+            {
+                print("test")
+            }
+        }
+    }
+    
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         switch indexPath.section {
         case 0:
@@ -108,6 +120,8 @@ extension NewHomeViewController: UITableViewDataSource, UITableViewDelegate {
             
             return cell
         }
+        
+        
     }
     
     
