@@ -25,6 +25,7 @@
 		2B48367C2202B93E00B18E72 /* RiwayatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */; };
 		2B8CD1EE2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8CD1ED2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard */; };
 		2B8CD1F2220301F300E5FFD2 /* ProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CD1F1220301F300E5FFD2 /* ProfilController.swift */; };
+		2B8CD1FB22035BD500E5FFD2 /* KegiatanTerbaruController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CD1FA22035BD500E5FFD2 /* KegiatanTerbaruController.swift */; };
 		2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */; };
 		2BB1013022013903003967CE /* DonatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012F22013903003967CE /* DonatingController.swift */; };
 		2BB1013222018BF8003967CE /* UbahProfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1013122018BF8003967CE /* UbahProfil.storyboard */; };
@@ -87,6 +88,7 @@
 		2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTableViewCell.swift; sourceTree = "<group>"; };
 		2B8CD1ED2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KegiatanTerbaru.storyboard; sourceTree = "<group>"; };
 		2B8CD1F1220301F300E5FFD2 /* ProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilController.swift; sourceTree = "<group>"; };
+		2B8CD1FA22035BD500E5FFD2 /* KegiatanTerbaruController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KegiatanTerbaruController.swift; sourceTree = "<group>"; };
 		2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageTableViewCell.swift; sourceTree = "<group>"; };
 		2BB1012F22013903003967CE /* DonatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonatingController.swift; sourceTree = "<group>"; };
 		2BB1013122018BF8003967CE /* UbahProfil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UbahProfil.storyboard; sourceTree = "<group>"; };
@@ -202,9 +204,18 @@
 			path = Riwayat;
 			sourceTree = "<group>";
 		};
+		2B8CD1F922035BA800E5FFD2 /* Kegiatan terbaru */ = {
+			isa = PBXGroup;
+			children = (
+				2B8CD1FA22035BD500E5FFD2 /* KegiatanTerbaruController.swift */,
+			);
+			path = "Kegiatan terbaru";
+			sourceTree = "<group>";
+		};
 		2BF68C3F21FD5993008C85CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				2B8CD1F922035BA800E5FFD2 /* Kegiatan terbaru */,
 				FB0C42202203218A006BEC67 /* Organisasi */,
 				2B48367A2202B8B200B18E72 /* Riwayat */,
 				2B48366C2201E62800B18E72 /* Profil */,
@@ -272,7 +283,6 @@
 		91C512B521FEC67C00F3F97C /* Donasi */ = {
 			isa = PBXGroup;
 			children = (
-				2B4836732202AF5700B18E72 /* Tableview cell */,
 				FB7E75A42200851D0072235D /* Lokasi test */,
 				FB7E7598220084EB0072235D /* Picker */,
 				2BB1012F22013903003967CE /* DonatingController.swift */,
@@ -327,6 +337,7 @@
 		FB00911C21FB78D500BC89AE /* Donating */ = {
 			isa = PBXGroup;
 			children = (
+				2B4836732202AF5700B18E72 /* Tableview cell */,
 				FB00911F21FB790E00BC89AE /* Location */,
 				FB00911D21FB78F800BC89AE /* Donating.storyboard */,
 			);
@@ -711,6 +722,7 @@
 				917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */,
 				2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */,
 				2B4836772202B0E300B18E72 /* KeteranganLokasiTableViewCell.swift in Sources */,
+				2B8CD1FB22035BD500E5FFD2 /* KegiatanTerbaruController.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
 				2B4836702201EE5D00B18E72 /* UbahprofilViewController.swift in Sources */,
 				FB0C42242203218A006BEC67 /* Organisasi.swift in Sources */,

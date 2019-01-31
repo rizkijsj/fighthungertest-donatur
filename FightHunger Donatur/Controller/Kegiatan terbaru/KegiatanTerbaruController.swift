@@ -1,106 +1,61 @@
 //
-//  DonatingController.swift
+//  KegiatanTerbaruController.swift
 //  FightHunger Donatur
 //
-//  Created by Julianti Cahyadi on 30/01/19.
+//  Created by Julianti Cahyadi on 31/01/19.
 //  Copyright © 2019 Fantastic7. All rights reserved.
 //
 
 import UIKit
 
-class DonatingController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate{
+class KegiatanTerbaruController: UITableViewController {
 
-    @IBOutlet weak var addPhoto: UIImageView!
-    //    buat passing data ke map
-    @IBOutlet weak var alamat: UILabel!
-    var dataAlamat = "Lokasi"
-    var kordinatPeta = [Double]()
-    @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){
-        let vc = sender.source as! LokasiPengambilan
-        alamat.text = vc.alamatLengkap
-        print(vc.alamatLengkap)
-        print(vc.kordinatAsli)
-    }
-    
-    
-    @IBAction func submitBtn(_ sender: Any) {
-        
-        //validasi untuk ke halaman selanjutnya
-        
-    }
-    
-    @IBAction func cancelBtn(_ sender: Any) {
-      self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
-    }
+    @IBOutlet weak var isiKegiatan: UILabel!
+    @IBOutlet weak var titleKegiatan: UILabel!
+    @IBOutlet weak var imgOrganisasi: UIImageView!
+    @IBOutlet weak var imageKegiatan: UITableViewCell!
+    @IBOutlet weak var btnDonasi: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
 
-       tableView.delegate = self
-       tableView.dataSource = self
+      
+        tableView.delegate = self
+        tableView.dataSource = self
+        btnDonasi.layer.cornerRadius = 6.0
+        
         tableView.rowHeight = UITableView.automaticDimension
-        //tableView.estimatedRowHeight = 100
     }
 
-    @IBAction func btnLibraryFoto(_ sender: Any) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        
-        imagePickerController.sourceType = .photoLibrary
-        self.present(imagePickerController,animated: true,completion: nil)
-        
-    }
-    @IBAction func btnKamera(_ sender: Any) {
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        
-        if UIImagePickerController.isSourceTypeAvailable(.camera)
-        {
-            imagePickerController.sourceType = .camera
-            self.present(imagePickerController,animated: true,completion: nil)
-            
-        } else
-            
-            //using camera in MAC IS NOT AVAILABLE
-        {
-            print("Camera not available")
-        }
-    }
-    @IBOutlet weak var imgDonasi: UIImageView!
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        addPhoto.isHidden = true
-        
-        let passingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        
-        imgDonasi.image = passingImage
-        addPhoto.isHidden = true
-        
-        picker.dismiss(animated: true, completion: nil)
-        
-       
-    }
-    
-
-    
-    
-    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 1
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-		
-		if section == 0{
-			return 1
-		}else {
-			return 6
-		}
-
+        return 6
+    }
+    
+    //hide navbar when scrolling
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if(velocity.y>0) {
+            //Code will work without the animation block.I am using animation block incase if you want to set any delay to it.
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                
+                //print("Hide")
+            }, completion: nil)
+            
+        } else {
+            UIView.animate(withDuration: 2.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                
+                //print("Unhide")
+            }, completion: nil)
+        }
     }
 
     /*

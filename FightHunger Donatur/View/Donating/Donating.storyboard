@@ -51,7 +51,7 @@
                                                     </connections>
                                                 </button>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Add Photo" translatesAutoresizingMaskIntoConstraints="NO" id="GK5-Ti-4Mw">
-                                                    <rect key="frame" x="150" y="69" width="75" height="48"/>
+                                                    <rect key="frame" x="10" y="11" width="349" height="177"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>

@@ -65,6 +65,8 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.estimatedRowHeight = 100
     }
     
 

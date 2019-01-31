@@ -82,7 +82,7 @@ extension NewHomeViewController: UITableViewDataSource, UITableViewDelegate {
         {
             if  indexPath.row == 0
             {
-                print("test")
+                print("salah")
             }
         }
     }
