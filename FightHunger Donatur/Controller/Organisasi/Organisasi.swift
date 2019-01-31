@@ -53,15 +53,24 @@ class Organisasi: UITableViewController {
         }
     }
     
-    
 //    penjelasan singkat tentnag organisasi
     var deskripsiOrganisasi = ""
     @IBOutlet weak var tentangOrganisasi: UILabel!
     
 //    program dan juga request organisasi
-    //    @IBOutlet weak var programOrganisasi: UIView!
-    @IBOutlet weak var namaProgram: UILabel!
-    @IBOutlet weak var deskripsiProgram: UILabel!
+    @IBOutlet weak var namaProgram1: UILabel!
+    @IBOutlet weak var deskripsiProgram1: UILabel!
+    
+    @IBOutlet weak var namaProgram2: UILabel!
+    
+    @IBOutlet weak var deskripsiProgram2: UILabel!
+    
+    @IBOutlet weak var namaProgram3: UILabel!
+    @IBOutlet weak var deskripsiProgram3: UILabel!
+    
+    var namaProgramOrganisasi = ""
+    
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -73,18 +82,24 @@ class Organisasi: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.deskripsiOrganisasi = self.tentangOrganisasi.text!
+        
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 4
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
-        return 0
+        
+        if section != 3{
+            return 1
+        }else{
+          return 3
+        }
     }
 
     /*
@@ -141,5 +156,5 @@ class Organisasi: UITableViewController {
         // Pass the selected object to the new view controller.
     }
     */
-
 }
+

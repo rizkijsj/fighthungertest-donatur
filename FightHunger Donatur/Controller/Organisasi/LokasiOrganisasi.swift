@@ -23,17 +23,16 @@ class LokasiOrganisasi: UIViewController, CLLocationManagerDelegate, MKMapViewDe
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        let lokasiUser = CLLocationCoordinate2DMake(-6.8694, 109.1402)
+        let lokasiUser = CLLocationCoordinate2DMake(kordinatAsli[0], kordinatAsli[1])
         let region = MKCoordinateRegion(center: lokasiUser, span: MKCoordinateSpan(latitudeDelta: 0.005, longitudeDelta: 0.005))
         self.peta.setRegion(region, animated: true)
         
         let annotation = MKPointAnnotation()
 //        annotation.coordinate =
         annotation.title = namaOrganisasi
-        
-        
         self.peta.addAnnotation(annotation)
         self.peta.delegate = self
+        self.alamatLengkap = self.alamat.text!
         peta.mapType = .standard
         
     }
