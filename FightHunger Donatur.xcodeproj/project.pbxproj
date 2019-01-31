@@ -24,6 +24,7 @@
 		2B4836792202B89700B18E72 /* RiwayatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4836782202B89700B18E72 /* RiwayatViewController.swift */; };
 		2B48367C2202B93E00B18E72 /* RiwayatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */; };
 		2B8CD1EE2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8CD1ED2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard */; };
+		2B8CD1F2220301F300E5FFD2 /* ProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CD1F1220301F300E5FFD2 /* ProfilController.swift */; };
 		2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */; };
 		2BB1013022013903003967CE /* DonatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012F22013903003967CE /* DonatingController.swift */; };
 		2BB1013222018BF8003967CE /* UbahProfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1013122018BF8003967CE /* UbahProfil.storyboard */; };
@@ -83,6 +84,7 @@
 		2B4836782202B89700B18E72 /* RiwayatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatViewController.swift; sourceTree = "<group>"; };
 		2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTableViewCell.swift; sourceTree = "<group>"; };
 		2B8CD1ED2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KegiatanTerbaru.storyboard; sourceTree = "<group>"; };
+		2B8CD1F1220301F300E5FFD2 /* ProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilController.swift; sourceTree = "<group>"; };
 		2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageTableViewCell.swift; sourceTree = "<group>"; };
 		2BB1012F22013903003967CE /* DonatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonatingController.swift; sourceTree = "<group>"; };
 		2BB1013122018BF8003967CE /* UbahProfil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UbahProfil.storyboard; sourceTree = "<group>"; };
@@ -172,6 +174,7 @@
 			isa = PBXGroup;
 			children = (
 				2B48366F2201EE5D00B18E72 /* UbahprofilViewController.swift */,
+				2B8CD1F1220301F300E5FFD2 /* ProfilController.swift */,
 			);
 			path = Profil;
 			sourceTree = "<group>";
@@ -709,6 +712,7 @@
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				2B4836642201B52B00B18E72 /* SectionOneHomeCell.swift in Sources */,
+				2B8CD1F2220301F300E5FFD2 /* ProfilController.swift in Sources */,
 				FB7E75A0220084EB0072235D /* pickerviewTableViewCell.swift in Sources */,
 				2B4836792202B89700B18E72 /* RiwayatViewController.swift in Sources */,
 				FB7E75B02200864E0072235D /* MitraCollectionViewCell.swift in Sources */,

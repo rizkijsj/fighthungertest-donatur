@@ -10,14 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main-->
-        <scene sceneID="XZ5-ZQ-gwc">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="toL-Vw-aKi" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ZAZ-1m-YeB" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2734" y="359"/>
-        </scene>
         <!--LoginRegister-->
         <scene sceneID="Nnl-pv-MzP">
             <objects>
@@ -95,7 +87,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="arrowback"/>
                                 <connections>
-                                    <segue destination="toL-Vw-aKi" kind="modal" id="e5T-wa-J9E"/>
+                                    <action selector="backBtn:" destination="VaB-LE-eif" eventType="touchUpInside" id="CGA-OZ-MPy"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -420,7 +412,7 @@
                                             <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="VaB-LE-eif" kind="show" animates="NO" id="oSc-ER-jll"/>
+                                                <action selector="backBtn:" destination="da5-Bk-tOG" id="PaS-Td-EJj"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -502,6 +494,6 @@
     <inferredMetricsTieBreakers>
         <segue reference="gyy-oT-mva"/>
         <segue reference="yPt-Ed-GdG"/>
-        <segue reference="oSc-ER-jll"/>
+        <segue reference="vaD-AM-bfE"/>
     </inferredMetricsTieBreakers>
 </document>

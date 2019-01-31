@@ -16,6 +16,9 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     @IBOutlet weak var telpTxtField: CustomTextField!
     @IBOutlet weak var namaTxtField: CustomTextField!
     
+    @IBAction func backBtn(_ sender: Any) {
+        self.dismiss(animated: true, completion: nil)
+    }
     @IBOutlet weak var continueButton: UIButton!
     var activityView:UIActivityIndicatorView!
     

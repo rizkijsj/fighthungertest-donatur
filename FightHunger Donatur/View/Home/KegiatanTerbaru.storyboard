@@ -10,21 +10,6 @@
     </dependencies>
     <scenes>
         <!--Navigation Controller-->
-        <scene sceneID="lHf-AO-X6w">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="DaH-b0-zrX" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="dtU-zy-VNs">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="hxE-Ep-g6H" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7535.1999999999998" y="1314.5320197044337"/>
-        </scene>
-        <!--Navigation Controller-->
         <scene sceneID="JgS-En-mbO">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dIx-jA-wA7" sceneMemberID="viewController">
