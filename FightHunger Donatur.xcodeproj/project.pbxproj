@@ -51,6 +51,8 @@
 		FB00913021FB7BAB00BC89AE /* Riwayat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912F21FB7BAB00BC89AE /* Riwayat.storyboard */; };
 		FB00913321FB7E0E00BC89AE /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00913221FB7E0E00BC89AE /* LoginRegister.storyboard */; };
 		FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB00913621FB7E8A00BC89AE /* Connector.swift */; };
+		FB0C42232203218A006BEC67 /* LokasiOrganisasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C42212203218A006BEC67 /* LokasiOrganisasi.swift */; };
+		FB0C42242203218A006BEC67 /* Organisasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C42222203218A006BEC67 /* Organisasi.swift */; };
 		FB34B3F421FB32330070AA5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34B3F321FB32330070AA5E /* AppDelegate.swift */; };
 		FB34B3F921FB32330070AA5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB34B3F721FB32330070AA5E /* Main.storyboard */; };
 		FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB34B3FA21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld */; };
@@ -124,6 +126,8 @@
 		FB00912F21FB7BAB00BC89AE /* Riwayat.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Riwayat.storyboard; sourceTree = "<group>"; };
 		FB00913221FB7E0E00BC89AE /* LoginRegister.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
 		FB00913621FB7E8A00BC89AE /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
+		FB0C42212203218A006BEC67 /* LokasiOrganisasi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LokasiOrganisasi.swift; sourceTree = "<group>"; };
+		FB0C42222203218A006BEC67 /* Organisasi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organisasi.swift; sourceTree = "<group>"; };
 		FB34B3F021FB32330070AA5E /* FightHunger Donatur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FightHunger Donatur.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB34B3F321FB32330070AA5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB34B3F821FB32330070AA5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -201,6 +205,7 @@
 		2BF68C3F21FD5993008C85CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				FB0C42202203218A006BEC67 /* Organisasi */,
 				2B48367A2202B8B200B18E72 /* Riwayat */,
 				2B48366C2201E62800B18E72 /* Profil */,
 				E68FA21C22014516006709B3 /* New Home */,
@@ -395,6 +400,15 @@
 				FB00913621FB7E8A00BC89AE /* Connector.swift */,
 			);
 			path = Service;
+			sourceTree = "<group>";
+		};
+		FB0C42202203218A006BEC67 /* Organisasi */ = {
+			isa = PBXGroup;
+			children = (
+				FB0C42212203218A006BEC67 /* LokasiOrganisasi.swift */,
+				FB0C42222203218A006BEC67 /* Organisasi.swift */,
+			);
+			path = Organisasi;
 			sourceTree = "<group>";
 		};
 		FB34B3E721FB32330070AA5E = {
@@ -699,6 +713,7 @@
 				2B4836772202B0E300B18E72 /* KeteranganLokasiTableViewCell.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
 				2B4836702201EE5D00B18E72 /* UbahprofilViewController.swift in Sources */,
+				FB0C42242203218A006BEC67 /* Organisasi.swift in Sources */,
 				2B4836662201B52B00B18E72 /* SectionTwoHomeCell.swift in Sources */,
 				2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */,
 				2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */,
@@ -710,6 +725,7 @@
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
+				FB0C42232203218A006BEC67 /* LokasiOrganisasi.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				2B4836642201B52B00B18E72 /* SectionOneHomeCell.swift in Sources */,
 				2B8CD1F2220301F300E5FFD2 /* ProfilController.swift in Sources */,

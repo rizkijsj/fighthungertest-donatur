@@ -25,83 +25,104 @@ Reminder untuk status di Transaction:
 //case 0:
 //return "Success"
 //case 1:
-//return "Phone Number is incorrect"
-//case 2:
 //return "Phone number is already registered"
-//case 3:
-//return "Input is incorrect"
-//case 4:
-//return "Please input the image"
-//case 5 :
-//return "Connection error"
+//case 2:
+//return "Phone number is not registered"
 //default:
 //return "Unknown error"
 
 class connector {
 	// MARK: - Login Signup
-    func verifyLogin(phoneNo:String) -> (status: Bool,errorCode: Int){
-        // TODO:
-        var tempStatus = false
-        var codeError = 0
-        //let resultCheck = verifyUserExistance(phonenumber: phoneNo)
-        if verifyUserExistance(phonenumber: phoneNo){
-            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in if error != nil{
+    func verifyLogin(phoneNo:String,
+                     completion: @escaping (Bool,String) -> Void){
+        if verifyUserExistance(phoneno: phoneNo) == true{
+            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in
+            if error != nil{
+                let errorText = String(describing: error?.localizedDescription)
+                        
+                completion(false,errorText)
                 print("error: \(String(describing: error?.localizedDescription))")
             }else{
                 let defaults = UserDefaults.standard
                 defaults.set(verificationID, forKey: "authVID")
-                tempStatus = true
-                codeError = 0
+                let errorText = self.errorCode(code: 0)
+                
+                completion(true,errorText)
+                print("sukses verify dong")
                 }
             }
         }else{
-            tempStatus = false
-            codeError = 2
+            print("error")
+            let errorText = errorCode(code: 2)
+            
+            completion(false,errorText)
         }
-		return(tempStatus,codeError)
 	}
     
-    func verifyRegister(phoneNo:String) -> (status: Bool,errorCode: Int){
-        // TODO:
-        var tempStatus = false
-        var codeError = 0
-        
-        if verifyUserExistance(phonenumber: phoneNo) == true{
-            tempStatus = false
-            codeError = 1
+    func verifyRegister(
+        phoneNo:String,
+        completion: @escaping (Bool,String) -> Void){
+       
+        if verifyUserExistance(phoneno: phoneNo) == true{
             print("error")
+            let errorText = errorCode(code: 1)
+            
+            completion(false,errorText)
         }else{
             print("ini no nya ",phoneNo)
-            tempStatus = true
-            codeError = 0
-            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in if error != nil{
-                print("error: \(String(describing: error?.localizedDescription))")
-            }else{
-                let defaults = UserDefaults.standard
-                defaults.set(verificationID, forKey: "authVID")
-                
-                print("sukses dong")
-                print(tempStatus)
+            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in
+                if error != nil {
+                    let errorText = String(describing: error?.localizedDescription)
+                        
+                    completion(false,errorText)
+                    print("error: \(String(describing: error?.localizedDescription))")
+                } else {
+                    let defaults = UserDefaults.standard
+                    defaults.set(verificationID, forKey: "authVID")
+                    let errorText = self.errorCode(code: 0)
+                    
+                    completion(true,errorText)
+                    print("sukses verify dong")
                 }
             }
+//            self.verifyPhone(phonenumber: phoneNo) { (success) in
+//                if success{
+//                    print("kokokoko")
+//                    tempStatus = true
+////                    codeError = 0
+//                }
+//                else{
+//                    //tempStatus = false
+//                    //codeError = 100
+//                    print("gagal")
+//                }
+//                print("kukuku")
+//                completion(tempStatus)
+//            }
         }
-        return(tempStatus,codeError)
+//        return(tempStatus,codeError)
     }
     
-    func verifyUserExistance(phonenumber:String)-> Bool{
-        var tempStatus = false
+    func verifyUserExistance(phoneno:String) -> Bool{
         let ref = Database.database().reference()
-        ref.child("users/phonenumber/\(phonenumber)").observeSingleEvent(of: .value, with: { (snapshot) in
+        var result = false
+        ref.child("users/phonenumber/\(phoneno)").observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists(){
                 print("phone number exist")
-                tempStatus = true
+                result = true
             }else{
                 print("phone number not exist")
-                tempStatus = false
+                result = false
             }
         })
-        return tempStatus
+        return result
     }
+    
+//    func verifyPhone(
+//        phonenumber:String,
+//        completion: @escaping (Bool)->()) {
+//
+//    }
 	
     func signUpIn(email:String, nama:String, phonenumber:String,kodeotp:PhoneAuthCredential) -> Bool{
 		// TODO:
@@ -120,14 +141,14 @@ class connector {
                 print("Provider ID: \(userInfo?.providerID)")
                 //codingan
                 
-                if self.verifyUserExistance(phonenumber: phonenumber) == false{
+                if self.verifyUserExistance(phoneno: phonenumber) == false{
                     
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
                     let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
                     let phoneNumberDatabaseRef = Database.database().reference().child("users/phonenumber/\(phonenumber)")
                     let userObject = [
-                        "username":nama,"email": email,"photoURL":url,"phonenumber": phonenumber
+                        "username":nama,"email": email,"photoURL":url?.absoluteString,"phonenumber": phonenumber
                         ] as [String:Any]
                     let phoneNumberObject = [
                         phonenumber:uid
@@ -169,6 +190,7 @@ class connector {
     
     
     
+    
     func saveProfile(username:String,email:String ,profileImageURL:URL, completion: @escaping ((_ success:Bool)->())) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
@@ -195,7 +217,7 @@ class connector {
 	}
     
     // interpreter error
-    public func errorCode(code:Int) -> String{
+    func errorCode(code:Int) -> String{
        
         switch code {
         case 0:
@@ -444,3 +466,4 @@ class programObject{
 	}
 	
 }
+
