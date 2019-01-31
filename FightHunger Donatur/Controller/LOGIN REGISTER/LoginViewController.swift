@@ -13,6 +13,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
 
     @IBOutlet weak var telpTxtField: CustomTextField!
     @IBOutlet weak var continueButton: UIButton!
+    var phonenumber = ""
     
     var activityView:UIActivityIndicatorView!
 
@@ -64,17 +65,33 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         
         activityView.startAnimating()
         
-        guard let phonenumber = telpTxtField.text else {return}
-        let code = connector().verifyLogin(phoneNo: phonenumber)
-        //kalau berhasil
-        if code.status{
-            self.performSegue(withIdentifier: "LoginToVerify", sender: nil)
-        }else {
-            let result = connector().errorCode(code: code.errorCode)
-            errorMssg.isHidden = false
-            errorMssg.text = result
-            resetForm()
+        let stringHeadChecker = String(phonenumber.prefix(1))
+        if stringHeadChecker == "0"{
+            phonenumber = "+62\(phonenumber.dropFirst(1))"
+        } else if stringHeadChecker == "8"{
+            phonenumber = "+62" + phonenumber
         }
+
+        
+        print("phonenumber:\(phonenumber)")
+        
+        connector().verifyLogin(phoneNo: phonenumber) { (status,errorText) in
+            if status {
+                //kalau berhasil
+                
+                self.performSegue(withIdentifier: "LoginToVerify", sender: nil)
+                print("segue")
+                
+                
+            } else {
+                //ada error
+                self.errorMssg.isHidden = false
+                self.errorMssg.text = errorText
+                self.resetForm()
+            }
+        }
+        
+        
         
         
     }
@@ -92,9 +109,10 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
    
     
     @objc func textFieldChanged(_ target:UITextField) {
-        let phonenumber = telpTxtField.text
+        guard let currentNumber = telpTxtField.text else {return}
+        phonenumber = currentNumber
         //syaratnya
-        let formFilled = phonenumber != nil && phonenumber != "" && phonenumber?.count == 12
+        let formFilled = phonenumber != nil && phonenumber != ""
         if formFilled
         {
             setContinueButton(enabled: true)
@@ -103,10 +121,6 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         {
             errorMssg.isHidden = false
             errorMssg.text = "Phone number cannot be empty!"
-            setContinueButton(enabled: false)
-        }else if phonenumber?.count != 12{
-            errorMssg.isHidden = false
-            errorMssg.text = "Enter the correct length phone number!"
             setContinueButton(enabled: false)
         }
         

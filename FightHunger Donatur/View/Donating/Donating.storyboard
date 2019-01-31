@@ -408,6 +408,9 @@
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="xgW-Ih-GwM">
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <connections>
+                                <segue destination="dKy-j1-dnc" kind="show" id="UDO-9Z-bVC"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -418,6 +421,14 @@
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3764" y="1577.5862068965519"/>
+        </scene>
+        <!--LoginRegister-->
+        <scene sceneID="u9u-7T-2B1">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegister" id="dKy-j1-dnc" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Z2u-3L-SwK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4438" y="1388"/>
         </scene>
         <!--Location-->
         <scene sceneID="J6J-mD-lNf">

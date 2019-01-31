@@ -20,6 +20,7 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     var activityView:UIActivityIndicatorView!
     
     var tempTampungKirim = [String]()
+    var phonenumber = ""
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -62,14 +63,17 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     
     
     @objc func textFieldChanged(_ target:UITextField) {
-        let phonenumber = telpTxtField.text
+        guard let currentNumber = telpTxtField.text else {return}
+        phonenumber = currentNumber
         let email = emailTxtField.text
         let nama = namaTxtField.text
+        
+        
         //syaratnya
-        let formFilled = phonenumber != nil && phonenumber != "" && phonenumber?.count == 14 && email != nil && email != "" && nama != nil && nama != ""
+        let formFilled = phonenumber != nil && phonenumber != "" && email != nil && email != "" && email?.contains("@") == true && email?.contains(".com") == true && nama != nil && nama != ""
         
         //testing
-        print(phonenumber?.count)
+        print(phonenumber.count)
         print(formFilled)
         if formFilled
         {
@@ -81,10 +85,6 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
             errorMssg.isHidden = false
             errorMssg.text = "Phone number cannot be empty!"
             setContinueButton(enabled: false)
-        }else if phonenumber?.count != 14{
-            errorMssg.isHidden = false
-            errorMssg.text = "Enter the correct length phone number!"
-            setContinueButton(enabled: false)
         }
         else if email == nil || email == ""
         {
@@ -95,6 +95,10 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         {
             errorMssg.isHidden = false
             errorMssg.text = "Phone number cannot be empty!"
+            setContinueButton(enabled: false)
+        }else if email?.contains("@") == false || email?.contains(".com") == false{
+            errorMssg.isHidden = false
+            errorMssg.text = "Enter the right email format"
             setContinueButton(enabled: false)
         }
         
@@ -108,19 +112,29 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         
         activityView.startAnimating()
         
-        guard let phonenumber = telpTxtField.text else {return}
-        let code = connector().verifyRegister(phoneNo: phonenumber)
-        print("w5qb",code)
-        //kalau berhasil
-        if code.status == true{
-            self.performSegue(withIdentifier: "RegisToVerify", sender: nil)
-            print("segue")
-        }else if code.status == false {
-            let result = connector().errorCode(code: code.errorCode)
-            errorMssg.isHidden = false
-            errorMssg.text = result
-            print("asu")
-            resetForm()
+        let stringHeadChecker = String(phonenumber.prefix(1))
+        if stringHeadChecker == "0"{
+            phonenumber = "+62\(phonenumber.dropFirst(1))"
+        } else if stringHeadChecker == "8"{
+            phonenumber = "+62" + phonenumber
+        }
+        
+        
+        print("phonenumber:\(phonenumber)")
+        connector().verifyRegister(phoneNo: phonenumber) { (status,errorText) in
+            if status {
+                //kalau berhasil
+                    self.sendDataToNextVC()
+                    self.performSegue(withIdentifier: "RegisToVerify", sender: nil)
+                    print("segue")
+
+
+            } else {
+                //ada error
+                self.errorMssg.isHidden = false
+                self.errorMssg.text = errorText
+                self.resetForm()
+            }
         }
        
     }

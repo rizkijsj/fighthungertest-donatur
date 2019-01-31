@@ -19,7 +19,6 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
   
     @IBOutlet weak var otpTxt6: UITextField!
-    
     @IBOutlet weak var otpTxt5: UITextField!
     @IBOutlet weak var otpTxt4: UITextField!
     @IBOutlet weak var otpTxt3: UITextField!
@@ -30,7 +29,6 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
     
     var tempTampungTerima = [String]()
-    
     var activityView:UIActivityIndicatorView!
     
     override func viewDidLoad() {
@@ -70,14 +68,16 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt2.delegate = self as? UITextFieldDelegate
         otpTxt3.delegate = self as? UITextFieldDelegate
         otpTxt4.delegate = self as? UITextFieldDelegate
+        otpTxt5.delegate = self as? UITextFieldDelegate
+        otpTxt6.delegate = self as? UITextFieldDelegate
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
-        otpTxt1.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt2.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt3.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt4.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt5.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt6.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt1.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
+        otpTxt2.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
+        otpTxt3.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
+        otpTxt4.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
+        otpTxt5.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
+        otpTxt6.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
         
         //add done button above keyboard
         var toolbar = UIToolbar()
@@ -109,8 +109,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         guard let email = tempTampungTerima[0] as? String else { return }
         guard let username = tempTampungTerima[1] as? String else { return }
         guard let phonenumber = tempTampungTerima[2] as? String else { return }
-        let combinedOTP = otpTxt1.text! + otpTxt2.text! + otpTxt3.text! + otpTxt4!.text!
-        print(combinedOTP)
+        let combinedOTP = otpTxt1.text! + otpTxt2.text! + otpTxt3.text! + otpTxt4!.text! + otpTxt5.text! + otpTxt6.text!
+        print("ini kodenya\(combinedOTP)")
         
         let credential: PhoneAuthCredential = PhoneAuthProvider.provider().credential(withVerificationID: defaults.string(forKey: "authVID")!, verificationCode: combinedOTP)
         
@@ -222,10 +222,12 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         let otp4 = otpTxt4.text
         let otp5 = otpTxt5.text
         let otp6 = otpTxt6.text
-        //syaratnya
-        let formFilled = otp1 != nil && otp1! == "" && otp2 != nil && otp2 != "" && otp3 != nil && otp3 != "" && otp4 != nil && otp4 != ""
-
         
+        print("asu")
+        //syaratnya
+        let formFilled = otp1 != nil && otp1 != "" && otp2 != nil && otp2 != "" && otp3 != nil && otp3 != "" && otp4 != nil && otp4 != "" && otp5 != nil && otp5 != "" && otp6 != nil && otp6 != ""
+
+        print(formFilled)
         if formFilled
         {
             setContinueButton(enabled: true)
