@@ -35,6 +35,9 @@
 		2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FF21FED51E00CDD125 /* ImageService.swift */; };
 		2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5D060221FED5DD00CDD125 /* GoogleService-Info.plist */; };
 		9025445BFF7F59EE01D5AC3E /* Pods_FightHunger_Donatur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E4750408CDC015995200BCC5 /* Pods_FightHunger_Donatur.framework */; };
+		9155F6CC2202617E00A29568 /* Organisasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9155F6CB2202617E00A29568 /* Organisasi.swift */; };
+		9155F6CE2202988500A29568 /* LokasiOrganisasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9155F6CD2202988500A29568 /* LokasiOrganisasi.swift */; };
+		9155F6D42202E59B00A29568 /* BeberapaProgramOrganisasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9155F6D32202E59B00A29568 /* BeberapaProgramOrganisasi.swift */; };
 		917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F79CD22006EA100A85296 /* KegiatanViewController.swift */; };
 		FB00911E21FB78F800BC89AE /* Donating.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00911D21FB78F800BC89AE /* Donating.storyboard */; };
 		FB00912121FB792400BC89AE /* Location.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912021FB792400BC89AE /* Location.storyboard */; };
@@ -91,6 +94,9 @@
 		2F5D060421FED60200CDD125 /* FightHunger Donatur.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FightHunger Donatur.entitlements"; sourceTree = "<group>"; };
 		69507A8C03C1CFEB66BCE0F6 /* Pods-FightHunger Donatur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.release.xcconfig"; sourceTree = "<group>"; };
 		71EB4697E2429D117F02D0A4 /* Pods_FightHunger_DonaturTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_FightHunger_DonaturTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		9155F6CB2202617E00A29568 /* Organisasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organisasi.swift; sourceTree = "<group>"; };
+		9155F6CD2202988500A29568 /* LokasiOrganisasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LokasiOrganisasi.swift; sourceTree = "<group>"; };
+		9155F6D32202E59B00A29568 /* BeberapaProgramOrganisasi.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeberapaProgramOrganisasi.swift; sourceTree = "<group>"; };
 		917F79CD22006EA100A85296 /* KegiatanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KegiatanViewController.swift; sourceTree = "<group>"; };
 		9B398ADFF867F856F16B00AD /* Pods-FightHunger DonaturTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.release.xcconfig"; sourceTree = "<group>"; };
 		9E36157E1D42CAA931567401 /* Pods-FightHunger Donatur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.debug.xcconfig"; sourceTree = "<group>"; };
@@ -169,6 +175,7 @@
 		2BF68C3F21FD5993008C85CE /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				9155F6CA2202614500A29568 /* Organisasi */,
 				2B48366C2201E62800B18E72 /* Profil */,
 				E68FA21C22014516006709B3 /* New Home */,
 				917F79A722005C4400A85296 /* Kegiatan */,
@@ -221,6 +228,16 @@
 				9B398ADFF867F856F16B00AD /* Pods-FightHunger DonaturTests.release.xcconfig */,
 			);
 			name = Pods;
+			sourceTree = "<group>";
+		};
+		9155F6CA2202614500A29568 /* Organisasi */ = {
+			isa = PBXGroup;
+			children = (
+				9155F6CB2202617E00A29568 /* Organisasi.swift */,
+				9155F6CD2202988500A29568 /* LokasiOrganisasi.swift */,
+				9155F6D32202E59B00A29568 /* BeberapaProgramOrganisasi.swift */,
+			);
+			path = Organisasi;
 			sourceTree = "<group>";
 		};
 		917F79A722005C4400A85296 /* Kegiatan */ = {
@@ -661,6 +678,7 @@
 				2F5D05FC21FED50900CDD125 /* Post.swift in Sources */,
 				917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */,
 				2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */,
+				9155F6CE2202988500A29568 /* LokasiOrganisasi.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
 				2B4836702201EE5D00B18E72 /* UbahprofilViewController.swift in Sources */,
 				2B4836662201B52B00B18E72 /* SectionTwoHomeCell.swift in Sources */,
@@ -670,6 +688,7 @@
 				2BF68C4B21FEB11F008C85CE /* HomeViewController.swift in Sources */,
 				FB7E75A1220084EB0072235D /* waktuPickerTableViewCell.swift in Sources */,
 				2F5D060021FED51E00CDD125 /* UserService.swift in Sources */,
+				9155F6D42202E59B00A29568 /* BeberapaProgramOrganisasi.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
@@ -680,6 +699,7 @@
 				2B4836682201B52B00B18E72 /* SectionThreeHomeCell.swift in Sources */,
 				2B4836632201B51F00B18E72 /* NewHomeViewController.swift in Sources */,
 				FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */,
+				9155F6CC2202617E00A29568 /* Organisasi.swift in Sources */,
 				2BF68C4421FD8A0E008C85CE /* LoginViewController.swift in Sources */,
 				FB34B3F421FB32330070AA5E /* AppDelegate.swift in Sources */,
 				FB7E75B22200864E0072235D /* aktivitasCollectionViewCell.swift in Sources */,
