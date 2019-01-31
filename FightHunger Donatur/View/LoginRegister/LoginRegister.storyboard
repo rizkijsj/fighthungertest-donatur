@@ -91,7 +91,7 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjO-lu-YyK">
-                                <rect key="frame" x="20" y="45" width="16" height="18"/>
+                                <rect key="frame" x="20" y="51" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="arrowback"/>
                                 <connections>
@@ -396,7 +396,7 @@
                                             <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="VaB-LE-eif" kind="show" animates="NO" id="oSc-ER-jll"/>
+                                                <segue destination="VaB-LE-eif" kind="modal" animates="NO" id="oSc-ER-jll"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
