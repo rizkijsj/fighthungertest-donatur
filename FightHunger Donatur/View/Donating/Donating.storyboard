@@ -215,6 +215,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="xgW-Ih-GwM">
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
+                                <action selector="submitBtn:" destination="f4w-s9-JZp" id="9qQ-bw-iFZ"/>
                                 <segue destination="Qye-FF-Kdx" kind="modal" id="Pec-D4-2nE"/>
                             </connections>
                         </barButtonItem>

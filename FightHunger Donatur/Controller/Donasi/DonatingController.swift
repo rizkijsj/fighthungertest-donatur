@@ -22,6 +22,11 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     }
     
     
+    @IBAction func submitBtn(_ sender: Any) {
+        
+        //validasi untuk ke halaman selanjutnya
+        
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
