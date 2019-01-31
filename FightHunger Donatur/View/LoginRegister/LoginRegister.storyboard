@@ -159,7 +159,7 @@
                                             <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="VaB-LE-eif" kind="show" id="SYg-Bz-R6F"/>
+                                                <segue destination="VaB-LE-eif" kind="show" animates="NO" id="SYg-Bz-R6F"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -218,7 +218,7 @@
                                             <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <connections>
-                                                <segue destination="XiE-iL-Epf" kind="show" id="yPt-Ed-GdG"/>
+                                                <segue destination="XiE-iL-Epf" kind="show" animates="NO" id="yPt-Ed-GdG"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -487,7 +487,7 @@
                         <outlet property="errorMssg" destination="8z8-Mk-4Vp" id="GCp-WT-nIR"/>
                         <outlet property="namaTxtField" destination="Ymp-Op-FWN" id="N6c-KB-OuF"/>
                         <outlet property="telpTxtField" destination="WfT-Zd-2ph" id="k28-Bb-i12"/>
-                        <segue destination="vMY-4Z-iyk" kind="show" identifier="RegisToVerify" id="gyy-oT-mva"/>
+                        <segue destination="vMY-4Z-iyk" kind="show" identifier="RegisToVerify" animates="NO" id="gyy-oT-mva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrw-P4-80m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -501,7 +501,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gyy-oT-mva"/>
-        <segue reference="aOD-GS-7ga"/>
+        <segue reference="yPt-Ed-GdG"/>
         <segue reference="oSc-ER-jll"/>
     </inferredMetricsTieBreakers>
 </document>

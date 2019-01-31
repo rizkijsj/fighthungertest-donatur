@@ -28,11 +28,14 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         
     }
     
+    @IBAction func cancelBtn(_ sender: Any) {
+      self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
        tableView.delegate = self
-       tableView.delegate = self
+       tableView.dataSource = self
     }
 
     @IBAction func btnLibraryFoto(_ sender: Any) {

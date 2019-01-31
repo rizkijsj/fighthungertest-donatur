@@ -151,7 +151,7 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="my_location"/>
                                                     <connections>
-                                                        <segue destination="zu9-Xr-40N" kind="modal" id="76O-4p-wrX"/>
+                                                        <segue destination="zu9-Xr-40N" kind="modal" animates="NO" id="76O-4p-wrX"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -209,7 +209,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kAr-9R-MdI">
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="fUH-Fu-qXM" kind="modal" id="tPA-s9-ozq"/>
+                                <action selector="cancelBtn:" destination="f4w-s9-JZp" id="fyg-wT-uCE"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="xgW-Ih-GwM">
@@ -271,14 +271,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0h-kX-KDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2830" y="1578"/>
-        </scene>
-        <!--NewHome-->
-        <scene sceneID="pC2-7d-00K">
-            <objects>
-                <viewControllerPlaceholder storyboardName="NewHome" id="fUH-Fu-qXM" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="yRb-hB-JdK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3163" y="1183"/>
         </scene>
     </scenes>
     <resources>

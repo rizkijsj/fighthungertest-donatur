@@ -10,14 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Profile-->
-        <scene sceneID="9NH-v3-ejU">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="JDR-sm-X6A" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="v0h-1S-pVy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="459" y="-1738"/>
-        </scene>
         <!--Profil-->
         <scene sceneID="9q5-qE-YwG">
             <objects>
@@ -97,7 +89,7 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GeO-d0-Q0G">
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <segue destination="JDR-sm-X6A" kind="modal" id="3d0-w5-Swv"/>
+                                <action selector="cancelBtn:" destination="jDV-6z-NTv" id="3Pu-mV-xWW"/>
                             </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Submit" id="dmh-Uy-s7d">

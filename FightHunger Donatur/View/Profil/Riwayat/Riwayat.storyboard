@@ -96,13 +96,13 @@
                             <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="qsK-rL-HoW" kind="modal" id="3eR-St-HHP"/>
+                                <segue destination="qsK-rL-HoW" kind="modal" animates="NO" id="3eR-St-HHP"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="EhS-jU-Jzf" id="Gwg-tC-oEy"/>
-                        <segue destination="15Y-ON-kaB" kind="show" id="jbW-Zh-c1c"/>
+                        <segue destination="15Y-ON-kaB" kind="show" animates="NO" id="jbW-Zh-c1c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8g-lX-DkI" userLabel="First Responder" sceneMemberID="firstResponder"/>

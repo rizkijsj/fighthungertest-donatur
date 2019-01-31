@@ -29,7 +29,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="30J-aI-EYq" kind="modal" id="80b-02-faz"/>
+                                    <segue destination="30J-aI-EYq" kind="modal" animates="NO" id="80b-02-faz"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
@@ -58,7 +58,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="profilBtn" id="7Z1-u0-Rua">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="jp7-0b-DRF" kind="modal" id="Zst-zb-KVc"/>
+                                <segue destination="jp7-0b-DRF" kind="modal" animates="NO" id="Zst-zb-KVc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -74,7 +74,9 @@
         <!--Donating-->
         <scene sceneID="wg1-S5-cM7">
             <objects>
-                <viewControllerPlaceholder storyboardName="Donating" id="30J-aI-EYq" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Donating" id="30J-aI-EYq" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="bIC-s6-cM9"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVZ-nJ-RUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1433" y="-255"/>
@@ -86,14 +88,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB7-TU-Vxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1606" y="-158"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="W0s-dk-wd4">
-            <objects>
-                <viewControllerPlaceholder id="gn7-ia-Fk5" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Ajc-Ss-1sx" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1761" y="-5"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R0c-Jo-l3A">

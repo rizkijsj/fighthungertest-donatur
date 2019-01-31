@@ -99,7 +99,7 @@
                                                         <color key="titleColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="Px6-PA-hSR" kind="modal" id="aC1-3p-xNf"/>
+                                                        <segue destination="Px6-PA-hSR" kind="modal" animates="NO" id="aC1-3p-xNf"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -126,7 +126,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="G2t-dD-fqk" kind="modal" id="h9g-LW-2c8"/>
+                                            <segue destination="G2t-dD-fqk" kind="modal" animates="NO" id="h9g-LW-2c8"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>
@@ -142,7 +142,7 @@
                             <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="Mwp-fr-Fif" kind="modal" id="fvh-SC-lFB"/>
+                                <segue destination="Mwp-fr-Fif" kind="modal" animates="NO" id="fvh-SC-lFB"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
