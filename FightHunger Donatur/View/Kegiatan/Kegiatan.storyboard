@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="NP4-ck-NJT">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="yIM-sW-7Er">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Kegiatan View Controller-->
+        <!--Aktivitas-->
         <scene sceneID="dK6-ME-FA8">
             <objects>
                 <tableViewController id="NP4-ck-NJT" customClass="KegiatanViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
@@ -33,9 +33,6 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="potoDonasi" destination="xKX-HB-c1M" id="xv4-52-zdP"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="140" id="cps-W3-fDC">
                                         <rect key="frame" x="0.0" y="200" width="375" height="140"/>
@@ -125,9 +122,6 @@
                                                 </imageView>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="status1" destination="xKX-HB-c1M" id="tgn-pD-36m"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="134" id="geA-Ov-SK5">
                                         <rect key="frame" x="0.0" y="340" width="375" height="134"/>
@@ -468,6 +462,12 @@
                             <outlet property="delegate" destination="NP4-ck-NJT" id="Zne-2Z-jot"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Aktivitas" id="GH3-XL-kY9">
+                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="Qro-iT-xXU">
+                            <inset key="imageInsets" minX="-45" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </barButtonItem>
+                    </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="alamatPengambilan" destination="HbU-KD-fnK" id="VwK-FT-448"/>
@@ -494,7 +494,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mus-Co-Tcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3877.5999999999999" y="489.90147783251234"/>
+            <point key="canvasLocation" x="4820" y="489.90147783251234"/>
         </scene>
         <!--Organization-->
         <scene sceneID="Skp-Nm-CJN">
@@ -502,12 +502,31 @@
                 <viewControllerPlaceholder storyboardName="Organization" id="Xja-D8-UkC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Vy0-oP-P4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4430" y="490"/>
+            <point key="canvasLocation" x="5371.1999999999998" y="489.90147783251234"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="FxC-UY-bdz">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="yIM-sW-7Er" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="iCa-4g-Cub">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="NP4-ck-NJT" kind="relationship" relationship="rootViewController" id="D5i-eC-1dE"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="bhG-NE-mZh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3877.5999999999999" y="489.90147783251234"/>
         </scene>
     </scenes>
     <resources>
         <image name="Telephone Inactive" width="200" height="200"/>
         <image name="Tombol abu" width="1372" height="200"/>
+        <image name="arrowback" width="120" height="200"/>
         <image name="konfirmasi" width="587" height="200"/>
         <image name="pin1b" width="76" height="76"/>
         <image name="pin2b" width="80" height="80"/>
