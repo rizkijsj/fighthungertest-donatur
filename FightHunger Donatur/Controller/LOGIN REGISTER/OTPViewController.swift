@@ -105,6 +105,11 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt1.becomeFirstResponder()
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     
     @IBAction func lanjutBtn(_ sender: Any) {
         

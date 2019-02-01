@@ -17,6 +17,11 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         self.navigationController?.popToRootViewController(animated: true)
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
+    
     @IBOutlet weak var errorMssg: UILabel!
     @IBOutlet weak var emailTxtField: CustomTextField!
     @IBOutlet weak var telpTxtField: CustomTextField!
