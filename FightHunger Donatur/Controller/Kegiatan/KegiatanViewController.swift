@@ -127,7 +127,6 @@ class KegiatanViewController: UITableViewController {
             btnCallOrganisasi.isEnabled = false
             btnBatal.isEnabled = false
         }
-        
     }
     
     func batalkanDonasi(){
@@ -162,23 +161,32 @@ class KegiatanViewController: UITableViewController {
         status3.backgroundColor = .lightGray
         status4.backgroundColor = .lightGray
         
+        btnCallOrganisasi.backgroundColor = .lightGray
+        btnKonfirmasi.backgroundColor = .lightGray
+        btnBatal.backgroundColor = .lightGray
+        
         if donationStage == 0 {
             print("baru push dari donatur")
         }else if donationStage == 1 {
         print("Menunggu untuk di claim")
+            btnBatal.backgroundColor = .red
         }else if donationStage == 2 {
             print("Menunggu Menunggu Data Kurir")
             stasus1.backgroundColor = .red
+            btnCallOrganisasi.backgroundColor = .red
+            btnBatal.backgroundColor = .red
         }else if donationStage == 3 {
             print("Mengirim Kurir")
             stasus1.backgroundColor = .red
             status2.backgroundColor = .red
+            btnCallOrganisasi.backgroundColor = .red
+            btnKonfirmasi.backgroundColor = .red
         } else if donationStage == 4 {
             print("Sedang diantar")
             stasus1.backgroundColor = .red
             status2.backgroundColor = .red
             status3.backgroundColor = .red
-            
+            btnCallOrganisasi.backgroundColor = .red
         } else if donationStage == 5 {
             print("Sudah sampai organisasi")
             stasus1.backgroundColor = .red
