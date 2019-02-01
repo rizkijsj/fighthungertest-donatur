@@ -103,7 +103,7 @@ class connector {
 //        return(tempStatus,codeError)
     }
     
-    func verifyUserExistance(phoneno:String) -> Bool{
+    func verifyUserExistanceInDataBase(phoneno:String) -> Bool{
         let ref = Database.database().reference()
         var result = false
         ref.child("users/phonenumber/\(phoneno)").observeSingleEvent(of: .value, with: { (snapshot) in
@@ -118,11 +118,6 @@ class connector {
         return result
     }
     
-//    func verifyPhone(
-//        phonenumber:String,
-//        completion: @escaping (Bool)->()) {
-//
-//    }
 	
     func signUpIn(email:String, nama:String, phonenumber:String,kodeotp:PhoneAuthCredential) -> Bool{
 		// TODO:
@@ -168,28 +163,45 @@ class connector {
         
 		return result
 	}
-//    func login() -> Bool{
-//        // TODO:
-//        let result = false
-//
-//        Auth.auth().signIn(with: credential) { (user, error) in
-//            if error != nil && user != nil{
-//                print("error: \(String(describing: error?.localizedDescription))")
-//                result = false
-//            }else{
-//                print("Phone number: \(user?.phoneNumber)")
-//                let userInfo = user?.providerData[0]
-//                print("Provider ID: \(userInfo?.providerID)")
-//                result = true
-//            }
-//        }
-//
-//
-//        return result
-//    }
+
+    func verifyUserLoginState(completion: @escaping (Bool) -> Void) {
+        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+            if user != nil{
+                completion(true)
+            } else {
+               completion(false)
+            }
+        }
+    }
+    
+    func uploadPostImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
+            var ref: DatabaseReference!
+    
+            ref = Database.database().reference()
+            let uid = ref.child("Post/FOI").childByAutoId().key
+            let storageRef = Storage.storage().reference().child("Post/FOI/\(uid)")
+    
+            guard let imageData = image.jpegData(compressionQuality: 0.75)else { return }
     
     
+            let metaData = StorageMetadata()
+            metaData.contentType = "image/jpg"
     
+            storageRef.putData(imageData, metadata: metaData) { metaData, error in
+                if error == nil, metaData != nil {
+    
+                    storageRef.downloadURL { url, error in
+                        completion(url)
+                    }
+                } else {
+                    print(error)
+                    print(metaData)
+                    // failed
+                    print("failed")
+                    completion(nil)
+                }
+            }
+        }
     
     func saveProfile(username:String,email:String ,profileImageURL:URL, completion: @escaping ((_ success:Bool)->())) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
