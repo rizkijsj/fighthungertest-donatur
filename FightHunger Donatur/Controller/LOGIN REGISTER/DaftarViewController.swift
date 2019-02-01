@@ -10,8 +10,10 @@ import UIKit
 import Firebase
 
 class DaftarViewController: UIViewController , UITextFieldDelegate{
+    
 
-    @IBAction func backBtn(_ sender: Any) {
+
+    @IBAction func backBtn(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
     @IBOutlet weak var errorMssg: UILabel!
