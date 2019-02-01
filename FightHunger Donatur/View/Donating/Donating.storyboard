@@ -27,8 +27,8 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
-                                                    <rect key="frame" x="0.0" y="11" width="375" height="177"/>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
+                                                    <rect key="frame" x="8" y="11" width="359" height="169"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShW-zC-hEI">
@@ -50,10 +50,14 @@
                                                         <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="Vp2-e6-7Z1"/>
                                                     </connections>
                                                 </button>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" image="Add Photo" translatesAutoresizingMaskIntoConstraints="NO" id="GK5-Ti-4Mw">
-                                                    <rect key="frame" x="10" y="11" width="349" height="177"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-Cc-Slg">
+                                                    <rect key="frame" x="16" y="30" width="343" height="138"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                </imageView>
+                                                    <state key="normal" image="Add Photo"/>
+                                                    <connections>
+                                                        <action selector="addPhotoBtn:" destination="f4w-s9-JZp" eventType="touchUpInside" id="DgF-8o-FqA"/>
+                                                    </connections>
+                                                </button>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -225,7 +229,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addPhoto" destination="GK5-Ti-4Mw" id="RBI-bF-PSA"/>
+                        <outlet property="addPhoto" destination="YlE-Cc-Slg" id="EKK-fe-zMY"/>
                         <outlet property="alamat" destination="L65-r4-T5A" id="Qjf-RE-n7V"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
                     </connections>

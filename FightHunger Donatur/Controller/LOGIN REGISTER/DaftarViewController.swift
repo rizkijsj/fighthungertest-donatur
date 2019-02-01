@@ -11,6 +11,9 @@ import Firebase
 
 class DaftarViewController: UIViewController , UITextFieldDelegate{
 
+    @IBAction func backBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBOutlet weak var errorMssg: UILabel!
     @IBOutlet weak var emailTxtField: CustomTextField!
     @IBOutlet weak var telpTxtField: CustomTextField!

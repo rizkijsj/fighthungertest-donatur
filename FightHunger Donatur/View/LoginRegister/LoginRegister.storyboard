@@ -76,14 +76,14 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="da5-Bk-tOG" kind="show" id="J01-5L-EXb"/>
+                                            <segue destination="5Kc-hX-s7O" kind="show" id="J01-5L-EXb"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjO-lu-YyK">
-                                <rect key="frame" x="20" y="51" width="16" height="16"/>
+                                <rect key="frame" x="34" y="53" width="12" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="arrowback"/>
                                 <connections>
@@ -160,6 +160,7 @@
                             <inset key="largeContentSizeImageInsets" minX="-9" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
+                                <action selector="backBtn:" destination="XiE-iL-Epf" id="R6m-R2-qvX"/>
                                 <segue destination="VaB-LE-eif" kind="modal" animates="NO" id="vaD-AM-bfE"/>
                             </connections>
                         </barButtonItem>
@@ -169,7 +170,7 @@
                         <outlet property="errorMssg" destination="bKl-tH-icU" id="7yc-FT-9CO"/>
                         <outlet property="lnjtBtn" destination="rhE-xp-uqR" id="X2B-Sn-Heh"/>
                         <outlet property="telpTxtField" destination="HuZ-Oo-B88" id="dSZ-gm-idv"/>
-                        <segue destination="vMY-4Z-iyk" kind="show" identifier="LoginToVerify" id="wUq-bI-GYw"/>
+                        <segue destination="vMY-4Z-iyk" kind="show" identifier="LoginToVerify" id="zhn-Ou-xFt"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjY-A2-s8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -185,16 +186,16 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan kode verifikasi yang telah dikirimkan via SMS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thg-rl-vyI">
-                                <rect key="frame" x="20" y="132" width="335" height="41"/>
+                                <rect key="frame" x="20" y="186" width="335" height="41"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="41" id="XRh-HL-cDO"/>
+                                    <constraint firstAttribute="height" constant="41" id="cOe-Nj-pHq"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOB-D2-doX">
-                                <rect key="frame" x="15" y="223" width="351" height="70"/>
+                                <rect key="frame" x="15" y="277" width="351" height="70"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-uc-d3x">
                                         <rect key="frame" x="0.0" y="0.0" width="53" height="70"/>
@@ -299,7 +300,7 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-B3-BSJ">
-                                <rect key="frame" x="288" y="312.33333333333331" width="71" height="27"/>
+                                <rect key="frame" x="211" y="366" width="137" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title=" Kirim ulang">
                                     <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -311,25 +312,28 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="dOG-B3-BSJ" secondAttribute="trailing" constant="16" id="CEY-ow-gyT"/>
+                            <constraint firstItem="Thg-rl-vyI" firstAttribute="trailing" secondItem="GqK-Pd-l6e" secondAttribute="trailing" id="08J-MC-1lr"/>
                             <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="GqK-Pd-l6e" secondAttribute="trailing" constant="20" id="COi-Nh-4Rv"/>
-                            <constraint firstItem="dOG-B3-BSJ" firstAttribute="top" secondItem="iOB-D2-doX" secondAttribute="bottom" constant="19.329999999999998" id="O9f-6B-BS3"/>
-                            <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="Thg-rl-vyI" secondAttribute="trailing" constant="20" id="Yni-pC-Oqz"/>
+                            <constraint firstItem="Thg-rl-vyI" firstAttribute="top" secondItem="CEl-cI-FBl" secondAttribute="top" constant="98" id="YiF-EV-EA4"/>
                             <constraint firstItem="CEl-cI-FBl" firstAttribute="bottom" secondItem="GqK-Pd-l6e" secondAttribute="bottom" constant="53" id="cUP-gH-5Rs"/>
-                            <constraint firstItem="Thg-rl-vyI" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="20" id="gOe-mX-6Hl"/>
                             <constraint firstItem="GqK-Pd-l6e" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="20" id="gTe-Pz-eUV"/>
-                            <constraint firstItem="iOB-D2-doX" firstAttribute="top" secondItem="Thg-rl-vyI" secondAttribute="bottom" constant="50" id="gtp-De-Ggv"/>
+                            <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="dOG-B3-BSJ" secondAttribute="trailing" constant="27" id="jnB-VB-e8n"/>
+                            <constraint firstItem="Thg-rl-vyI" firstAttribute="leading" secondItem="GqK-Pd-l6e" secondAttribute="leading" id="jvn-cN-j8L"/>
                             <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="iOB-D2-doX" secondAttribute="trailing" constant="9" id="kfU-jd-gsq"/>
-                            <constraint firstItem="dOG-B3-BSJ" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="288" id="mqA-yH-uJS"/>
                             <constraint firstItem="iOB-D2-doX" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="15" id="pTK-Zf-DbJ"/>
-                            <constraint firstItem="Thg-rl-vyI" firstAttribute="top" secondItem="CEl-cI-FBl" secondAttribute="top" constant="10" id="rUp-Eh-gSY"/>
+                            <constraint firstItem="dOG-B3-BSJ" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="211" id="tnE-ro-aXj"/>
+                            <constraint firstItem="iOB-D2-doX" firstAttribute="top" secondItem="Thg-rl-vyI" secondAttribute="bottom" constant="50" id="y2M-qM-Nb5"/>
+                            <constraint firstItem="dOG-B3-BSJ" firstAttribute="top" secondItem="iOB-D2-doX" secondAttribute="bottom" constant="19" id="zd3-AZ-LuP"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="CEl-cI-FBl"/>
                     </view>
-                    <navigationItem key="navigationItem" title="Masuk" prompt="                " id="vJz-iT-g9r">
+                    <navigationItem key="navigationItem" title="Masuk" id="vJz-iT-g9r">
                         <barButtonItem key="leftBarButtonItem" image="arrowback" id="wdO-6l-nXn">
                             <inset key="imageInsets" minX="-45" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="return:" destination="vMY-4Z-iyk" id="G1z-To-jlm"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -444,6 +448,9 @@
                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="TDs-Or-gqU">
                             <inset key="imageInsets" minX="-45" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtn:" destination="da5-Bk-tOG" id="DMR-2Y-4JL"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -452,12 +459,12 @@
                         <outlet property="errorMssg" destination="8z8-Mk-4Vp" id="GCp-WT-nIR"/>
                         <outlet property="namaTxtField" destination="Ymp-Op-FWN" id="N6c-KB-OuF"/>
                         <outlet property="telpTxtField" destination="WfT-Zd-2ph" id="k28-Bb-i12"/>
-                        <segue destination="vMY-4Z-iyk" kind="show" identifier="RegisToVerify" id="BGV-JV-T4K"/>
+                        <segue destination="vMY-4Z-iyk" kind="show" identifier="RegisToVerify" id="kQs-fF-YaO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrw-P4-80m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5186.3999999999996" y="1534.729064039409"/>
+            <point key="canvasLocation" x="6128.8000000000002" y="1534.729064039409"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="khY-F9-oau">
@@ -477,12 +484,30 @@
             </objects>
             <point key="canvasLocation" x="4909.6000000000004" y="759.60591133004925"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="PzN-gb-SAo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="5Kc-hX-s7O" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3q1-sO-GWn">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="da5-Bk-tOG" kind="relationship" relationship="rootViewController" id="ZYd-8K-2p5"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ow8-Su-7O0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5186.3999999999996" y="1534.729064039409"/>
+        </scene>
     </scenes>
     <resources>
         <image name="arrowback" width="120" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="BGV-JV-T4K"/>
-        <segue reference="vaD-AM-bfE"/>
+        <segue reference="kQs-fF-YaO"/>
+        <segue reference="oSc-ER-jll"/>
     </inferredMetricsTieBreakers>
 </document>

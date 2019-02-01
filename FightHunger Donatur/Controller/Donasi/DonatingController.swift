@@ -10,8 +10,7 @@ import UIKit
 
 class DonatingController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate{
 
-    @IBOutlet weak var addPhoto: UIImageView!
-    //    buat passing data ke map
+   //    buat passing data ke map
     @IBOutlet weak var alamat: UILabel!
     var dataAlamat = "Lokasi"
     var kordinatPeta = [Double]()
@@ -38,7 +37,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
        tableView.delegate = self
        tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-        //tableView.estimatedRowHeight = 100
+       
     }
 
     @IBAction func btnLibraryFoto(_ sender: Any) {
@@ -69,21 +68,56 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-        addPhoto.isHidden = true
+       addPhoto.isHidden = true
         
         let passingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         
         imgDonasi.image = passingImage
-        addPhoto.isHidden = true
-        
+    
         picker.dismiss(animated: true, completion: nil)
         
        
     }
     
 
+    @IBOutlet weak var addPhoto: UIButton!
     
     
+    @IBAction func addPhotoBtn(_ sender: Any) {
+        
+        let imagePickerController = UIImagePickerController()
+        imagePickerController.delegate = self
+        
+        let alertAction = UIAlertController(title: "Add Photo", message: "", preferredStyle: .actionSheet)
+        
+        alertAction.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (UIAlertAction) in
+            
+            if UIImagePickerController.isSourceTypeAvailable(.camera)
+            {
+                imagePickerController.sourceType = .camera
+                self.present(imagePickerController,animated: true,completion: nil)
+                
+            } else
+                
+                //using camera in MAC IS NOT AVAILABLE
+            {
+                print("Camera not available")
+            }
+        }))
+        
+        
+        alertAction.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (UIAlertAction) in
+            
+            imagePickerController.sourceType = .photoLibrary
+            self.present(imagePickerController,animated: true,completion: nil)
+            
+        }))
+        
+        alertAction.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        self.present(alertAction,animated: true , completion: nil)
+        
+    }
     
     // MARK: - Table view data source
 

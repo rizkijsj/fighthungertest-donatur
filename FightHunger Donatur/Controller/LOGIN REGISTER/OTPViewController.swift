@@ -268,4 +268,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         self.becomeFirstResponder()
         
     }
+    @IBAction func `return`(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
 }
