@@ -29,7 +29,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="30J-aI-EYq" kind="modal" animates="NO" id="80b-02-faz"/>
+                                    <segue destination="30J-aI-EYq" kind="show" animates="NO" id="80b-02-faz"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
@@ -58,7 +58,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="profilBtn" id="7Z1-u0-Rua">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="jp7-0b-DRF" kind="modal" animates="NO" id="Zst-zb-KVc"/>
+                                <segue destination="jp7-0b-DRF" kind="show" animates="NO" id="Zst-zb-KVc"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
