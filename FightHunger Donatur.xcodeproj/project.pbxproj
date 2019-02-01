@@ -902,7 +902,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9SRL9PGJUW;
+				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -921,7 +921,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 9SRL9PGJUW;
+				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",

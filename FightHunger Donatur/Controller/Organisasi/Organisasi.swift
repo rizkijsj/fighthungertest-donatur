@@ -34,6 +34,34 @@ class Organisasi: UITableViewController {
 //    chat lewat api wa
     @IBAction func btnChatDonasi(_ sender: UIButton) {
 //        chat lewat WA
+//        let date = Date()
+//        let msg = " "
+//        let urlWhats = "whatsapp://send?text=\(msg)"
+//        
+//        if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) {
+//            if let whatsappURL = NSURL(string: urlString) {
+//                if UIApplication.shared.canOpenURL(whatsappURL as URL) {
+//                    UIApplication.shared.openURL(whatsappURL as URL)
+//                } else {
+//                    print("please install watsapp")
+//                }
+//            }
+//        }
+        
+        
+//        let url  = NSURL(string: "whatsapp://send?text=Hello%20Friends%2C%20Sharing%20some%20data%20here...%20!")
+//
+//        //Text which will be shared on WhatsApp is: "Hello Friends, Sharing some data here... !"
+//
+//        if UIApplication.shared.canOpenURL(url! as URL) {
+//            UIApplication.shared.open(url! as URL, options: [:]) { (success) in
+//                if success {
+//                    print("WhatsApp accessed successfully")
+//                } else {
+//                    print("Error accessing WhatsApp")
+//                }
+//            }
+//        }
     }
     
 //    lokasi organisasi
