@@ -44,6 +44,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
+        
         //disable login button dan bikin activity progress yg muter-muter
         setContinueButton(enabled: false)
         activityView = UIActivityIndicatorView(style: .gray)

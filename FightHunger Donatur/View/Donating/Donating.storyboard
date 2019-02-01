@@ -20,19 +20,19 @@
                         <sections>
                             <tableViewSection id="Myj-Iy-Aba">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="278" id="FZL-KC-7Kf" customClass="CaptureImageTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="280" id="FZL-KC-7Kf" customClass="CaptureImageTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FZL-KC-7Kf" id="pfW-FG-ctY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="278"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
-                                                    <rect key="frame" x="8" y="11" width="359" height="169"/>
+                                                    <rect key="frame" x="-1" y="9" width="375" height="210"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShW-zC-hEI">
-                                                    <rect key="frame" x="210" y="221" width="135" height="46"/>
+                                                    <rect key="frame" x="210" y="226" width="135" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="library"/>
                                                     <connections>
@@ -42,7 +42,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-wN-XT0">
-                                                    <rect key="frame" x="29" y="221" width="135" height="46"/>
+                                                    <rect key="frame" x="29" y="226" width="135" height="46"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="kamera"/>
                                                     <connections>
@@ -51,7 +51,7 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-Cc-Slg">
-                                                    <rect key="frame" x="44" y="30" width="280" height="138"/>
+                                                    <rect key="frame" x="0.0" y="7" width="374" height="210"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Gambar template donatur"/>
                                                 </button>
@@ -62,8 +62,8 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="tFf-RF-yAL">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="qF5-yL-e1t" customClass="NamaTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="286" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="qF5-yL-e1t">
+                                        <rect key="frame" x="0.0" y="288" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qF5-yL-e1t" id="I3i-MT-oBn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -83,12 +83,9 @@
                                                 <constraint firstAttribute="bottomMargin" secondItem="tC5-9f-7PZ" secondAttribute="bottom" constant="-14" id="qgG-eR-L8L"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="namaTxt" destination="tC5-9f-7PZ" id="Hqh-83-jZt"/>
-                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="uRu-ng-lB6" customClass="DeskripsiTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="346" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="uRu-ng-lB6">
+                                        <rect key="frame" x="0.0" y="348" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRu-ng-lB6" id="bMr-sA-gaJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -108,12 +105,9 @@
                                                 <constraint firstItem="piT-uo-BYB" firstAttribute="leading" secondItem="bMr-sA-gaJ" secondAttribute="leadingMargin" id="t2R-ur-LuQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="deskripsiTxt" destination="piT-uo-BYB" id="gCP-1R-IFV"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="KbC-IA-oqZ" customClass="pickerviewTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="406" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="408" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KbC-IA-oqZ" id="IZG-gJ-gRy">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -138,7 +132,7 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Uee-y4-eHV">
-                                        <rect key="frame" x="0.0" y="466" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="468" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uee-y4-eHV" id="UtD-0G-fbr">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -162,8 +156,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ouU-jS-7zY" customClass="KeteranganLokasiTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="526" width="375" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ouU-jS-7zY">
+                                        <rect key="frame" x="0.0" y="528" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ouU-jS-7zY" id="IjZ-tB-GBh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -178,12 +172,9 @@
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="keteranganTxt" destination="CX7-LV-Fii" id="zFV-V1-FUj"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ZYu-CG-fkZ" customClass="waktuPickerTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="586" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="588" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZYu-CG-fkZ" id="K4n-I3-8xC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -227,8 +218,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="alamat" destination="L65-r4-T5A" id="Qjf-RE-n7V"/>
+                        <outlet property="deskripsiTxt" destination="piT-uo-BYB" id="XFR-oy-vrP"/>
                         <outlet property="gbrTemplate" destination="YlE-Cc-Slg" id="fzL-Tg-It9"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
+                        <outlet property="keteranganTxt" destination="CX7-LV-Fii" id="3aS-GC-dhW"/>
+                        <outlet property="namaTxt" destination="tC5-9f-7PZ" id="pLe-Vy-xdt"/>
+                        <outlet property="submitButton" destination="xgW-Ih-GwM" id="59L-tc-UhC"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>

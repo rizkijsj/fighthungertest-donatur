@@ -8,9 +8,46 @@
 
 import UIKit
 
-class DonatingController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate{
-
-   //    buat passing data ke map
+class DonatingController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate{
+    @IBOutlet weak var namaTxt: CustomTextField!
+    @IBOutlet weak var deskripsiTxt: CustomTextField!
+    
+    @IBOutlet weak var keteranganTxt: CustomTextField!
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        namaTxt.resignFirstResponder()
+        deskripsiTxt.resignFirstResponder()
+        keteranganTxt.resignFirstResponder()
+        return true
+    }
+    
+    
+    //show keyboard
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveKeyboard(textField: deskripsiTxt, moveDistance: -250, up: true)
+    }
+    
+    //hide keyboard
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        moveKeyboard(textField: deskripsiTxt, moveDistance: -250, up: false)
+    }
+    
+    
+    func moveKeyboard(textField : CustomTextField , moveDistance: Float, up:Bool)
+    {
+        let MoveDuration = 0.3
+        let movement = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("moveTextfield", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(MoveDuration)
+        // self.contentView.frame = CGRectOffse
+        UIView.commitAnimations()
+    }
+    
+    
+    //    buat passing data ke map
     @IBOutlet weak var alamat: UILabel!
     var dataAlamat = "Lokasi"
     var kordinatPeta = [Double]()
@@ -25,6 +62,28 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     @IBAction func submitBtn(_ sender: Any) {
         
         //validasi untuk ke halaman selanjutnya
+       
+        if namaTxt.text == nil || namaTxt.text == ""
+        {
+            submitButton.isEnabled = false
+        }else
+        {
+            submitButton.isEnabled = true
+        }
+            
+//            else if deskripsiTxt.text == nil || deskripsiTxt.text == ""
+//        {
+//            submitButton.isEnabled = false
+//        }else if keteranganTxt.text == nil || keteranganTxt.text == ""
+//        {
+//            submitButton.isEnabled = false
+//        }else
+//        {
+//            submitButton.isEnabled = true
+//        }
+       
+        
+        
         
     }
     
@@ -37,7 +96,10 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
        tableView.delegate = self
        tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-       
+       submitButton.isEnabled = false
+        namaTxt.delegate = self
+        deskripsiTxt.delegate = self
+        keteranganTxt.delegate = self
     }
 
     @IBAction func btnLibraryFoto(_ sender: Any) {
@@ -66,7 +128,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     }
     @IBOutlet weak var imgDonasi: UIImageView!
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
       
         gbrTemplate.isHidden = true
@@ -89,6 +151,8 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         // #warning Incomplete implementation, return the number of sections
         return 2
     }
+    
+    
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
@@ -101,6 +165,8 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
 
     }
 
+    @IBOutlet weak var submitButton: UIBarButtonItem!
+   
     /*
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)

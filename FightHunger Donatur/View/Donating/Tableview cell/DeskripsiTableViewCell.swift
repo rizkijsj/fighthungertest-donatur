@@ -41,6 +41,8 @@ class DeskripsiTableViewCell: UITableViewCell , UITextFieldDelegate{
        // self.contentView.frame = CGRectOffse
         UIView.commitAnimations()
     }
+    
+     
    
     
     override func awakeFromNib() {
