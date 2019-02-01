@@ -72,6 +72,15 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         print(vc.kordinatAsli)
     }
     
+    func setSubmitButton(enabled:Bool) {
+        if enabled {
+            submitButton.
+            submitButton.isEnabled = true
+        } else {
+            submitButton.alpha = 0.5
+            submitButton.isEnabled = false
+        }
+    }
     
     @IBAction func submitBtn(_ sender: Any) {
         
@@ -123,7 +132,8 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     }
     
     @IBAction func cancelBtn(_ sender: Any) {
-      self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
+        
+        self.navigationController?.dismiss(animated: true, completion: nil)
     }
     
     override func viewDidLoad() {
