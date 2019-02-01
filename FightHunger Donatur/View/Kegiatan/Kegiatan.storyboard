@@ -147,7 +147,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="Keterangan Status">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="system" size="17"/>
+                                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -452,10 +452,10 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A18-Bn-aRc">
-                                                    <rect key="frame" x="15" y="6" width="345" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A18-Bn-aRc">
+                                                    <rect key="frame" x="-498" y="-79" width="1372" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" image="Batalkan"/>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -496,6 +496,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="Batalkan" width="1372" height="200"/>
         <image name="Telephone Inactive" width="200" height="200"/>
         <image name="konfirmasi" width="587" height="200"/>
         <image name="pin1b" width="76" height="76"/>

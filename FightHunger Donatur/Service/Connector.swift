@@ -252,52 +252,53 @@ class connector {
 		return true
 	}
 	
-	// MARK: - Program Detail
-	func programDetail() -> programObject {
-		
-		let item:programObject = programObject.init(proId: "1", proType: "1", orgID: "!", proName: "1", proLocName: "1", proLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: 1)!, longitude: CLLocationDegrees.init(exactly: 1)!), proTime: Date(), proDesc: "1", proImageLink: ["https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg"])
-		
-		
-		
-		return item
-	}
-	
-	// MARK: - Organizarion Detail
-	func organizationDetail() -> organizationObject {
-		
-		let item:organizationObject = organizationObject.init(orgId: "1", orgPhone: "1", orgEmail: "1@2.com", orgName: "1", orgDesc: "2", orgLogo: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg", orgLocName: "2", orgLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: 5)!, longitude: CLLocationDegrees.init(exactly: 5)!), orgLink: ["web":"google.com"])
-		
-		
-		
-		return item
-	}
-	
-	// MARK: - Donator Detail
-	func donatorDetail() -> donatorObject {
-		
-		let item:donatorObject = donatorObject.init(donId: "3", donPhone: "#", donEmail: "3@4.com", donName: "3", donPro: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg")
-		
-		
-		
-		return item
-	}
-	
-	// MARK: - Transaction (donation) Detail
-	func transactionDetail() -> transactionObject{
-		
-        let item:transactionObject = transactionObject.init(tranID: "1-", tranDonId: "3", tranOrgId: "1", tranName: "Duck", tranImage: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg", tranLocName: "10", tranLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: -6)!, longitude: CLLocationDegrees.init(exactly: 108)!), tranPickUpTime: Date(), tranDesc: "just duck", tranCourierName: "1", tranCourierDesc: "1 aja", tranStatus: 0, tranReason: "Ducks")
-		
-		return item
-	}
+    // MARK: - Program Detail
+    func programDetail(programID:String) -> programObject? {
+        
+        let item:programObject = programObject.init(proId: programID, orgID: "!", proName: "1", proLocName: "1", proLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: 1)!, longitude: CLLocationDegrees.init(exactly: 1)!), proTime:
+            "NOW", proDesc: "1 adalah anga yang indah. ini adalah sesuatu yang PERTAMA! lebih awal lagi dari semua angka, mungkin 0. TAPI 0 itu tidak NYATA! KITA HARUS BILANG 1! Satu! SATU! jangan pernah memilih yang 0. Pililah yang pasti hanya SATU! atau pilih yang bisa berdua. 2 itu ada;ah angka indah. 2 bisa membawa diri dan pasangan satu lagi. mungkin 3 kalo di hitung yang sebelah. Bersiaplah memilih yang akan sukses", proImageLink: "https://upload.wikimedia.org/wikipedia/commons/0/09/Ayam_Pelung.jpg")
+        
+        
+        
+        return item
+    }
+    
+    // MARK: - Organizarion Detail
+    func organizationDetail(organizationID:String) -> organizationObject? {
+        
+        let item:organizationObject = organizationObject.init(orgId: organizationID, orgPhone: "1", orgEmail: "1@2.com", orgName: "1", orgDesc: "2", orgLogo: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg", orgLocName: "2", orgLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: 5)!, longitude: CLLocationDegrees.init(exactly: 5)!), orgLink: ["web":"google.com"])
+        
+        
+        
+        return item
+    }
+    
+    // MARK: - Donator Detail
+    func donatorDetail(donatorID:String) -> donatorObject? {
+        
+        let item:donatorObject = donatorObject.init(donId: donatorID, donPhone: "#", donEmail: "3@4.com", donName: "3", donPro: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg")
+        
+        
+        
+        return item
+    }
+    
+    // MARK: - Transaction (donation) Detail
+    func transactionDetail(transactionID:String) -> transactionObject?{
+        
+        let item:transactionObject = transactionObject.init(tranID: transactionID, tranDonId: "3", tranOrgId: "!", tranName: "Duck", tranImage: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg", tranLocName: "10", tranLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: -6)!, longitude: CLLocationDegrees.init(exactly: 108)!), tranPickUpTime: Date(timeIntervalSince1970: 70000000), tranDesc: "Just Ducks", tranCourierName: "2", tranCourierDesc: "2 aja", tranStatus: 0, tranReason: "Ducks", tranQuantity: 100, tranLocNote: "Di hati mu", transArrivalTime: nil)
+        
+        return item
+    }
 
 	
 	// MARK: - Program List
 	func programList() -> [programObject] {
 		var items:[programObject] = []
 		
-		items.append(programDetail())
-		items.append(programDetail())
-		items.append(programDetail())
+        items.append(programDetail(programID: "P0")!)
+        items.append(programDetail(programID: "P1")!)
+        items.append(programDetail(programID: "P5")!)
 		
 		return items
 		
@@ -308,9 +309,9 @@ class connector {
 	func organizationList() -> [organizationObject] {
 		var items:[organizationObject] = []
 		
-		items.append(organizationDetail())
-		items.append(organizationDetail())
-		items.append(organizationDetail())
+        items.append(organizationDetail(organizationID: "O1")!)
+        items.append(organizationDetail(organizationID: "O2")!)
+        items.append(organizationDetail(organizationID: "O3")!)
 		
 		return items
 		
@@ -320,13 +321,13 @@ class connector {
 	func transactionList() -> [transactionObject] {
 		var items:[transactionObject] = []
 		
-		items.append(transactionDetail())
-		items.append(transactionDetail())
-		items.append(transactionDetail())
-		items.append(transactionDetail())
-		items.append(transactionDetail())
-		items.append(transactionDetail())
-		items.append(transactionDetail())
+        items.append(transactionDetail(transactionID: "T1")!)
+        items.append(transactionDetail(transactionID: "T2")!)
+        items.append(transactionDetail(transactionID: "T700")!)
+        items.append(transactionDetail(transactionID: "T5005")!)
+        items.append(transactionDetail(transactionID: "T2")!)
+        items.append(transactionDetail(transactionID: "T909")!)
+        items.append(transactionDetail(transactionID: "T189")!)
 		
 		items[0].status = 0
 		items[1].status = 1
@@ -349,121 +350,124 @@ class connector {
 // MARK: - Sample Classes
 // TODO: Remove the sample classes into proper class
 class transactionObject{
-	
-	/*
-	Reminder untuk status di Transaction:
-	0 - Batal User
-	1 - Pending
-	2 - Menunggu Kurir di assign
-	3 - Pickup
-	4 - Di Kirim (dari Donatur ke Organisasi)
-	5 - Sampai Di tujuan
-	6 - Batal Organisasi
-	*/
-	
-	var id:String
-	var donatorId:String
-	var organizationId:String
-	var name:String
-	var image:String
-	var locationName:String
-	var locationCoor:CLLocationCoordinate2D
-	var pickUpTime:Date
-	var description:String
-	var courierName:String?
-	var courierDescription:String?
-	var status:Int
-	var reason:String?
-	
-	init(tranID:String,tranDonId:String,tranOrgId:String,tranName:String,tranImage:String,tranLocName:String,tranLocCoor:CLLocationCoordinate2D,tranPickUpTime:Date,tranDesc:String, tranCourierName:String?, tranCourierDesc:String?, tranStatus:Int, tranReason:String?) {
-		
-		id = tranID
-		donatorId = tranDonId
-		organizationId = tranOrgId
-		name = tranName
-		image = tranImage
-		locationName = tranLocName
-		locationCoor = tranLocCoor
-		pickUpTime = tranPickUpTime
-		description = tranDesc
-		
-		courierName = tranCourierName
-		courierDescription = tranCourierDesc
-		
-		status = tranStatus
-		reason = tranReason
-	}
-	
-	
+    
+    /*
+     Reminder untuk status di Transaction:
+     0 - Batal User
+     1 - Pending
+     2 - Menunggu Kurir di assign
+     3 - Pickup
+     4 - Di Kirim (dari Donatur ke Organisasi)
+     5 - Sampai Di tujuan
+     6 - Batal Organisasi
+     */
+    
+    var id:String
+    var donatorId:String
+    var organizationId:String
+    var name:String
+    var image:String
+    var quantity:Int
+    var locationName:String
+    var locationCoor:CLLocationCoordinate2D
+    var locationNote:String
+    var pickUpTime:Date
+    var arrivalTime:Date?
+    var description:String
+    var courierName:String?
+    var courierDescription:String?
+    var status:Int
+    var reason:String?
+    
+    init(tranID:String,tranDonId:String,tranOrgId:String,tranName:String,tranImage:String,tranLocName:String,tranLocCoor:CLLocationCoordinate2D,tranPickUpTime:Date,tranDesc:String, tranCourierName:String?, tranCourierDesc:String?, tranStatus:Int, tranReason:String?, tranQuantity:Int, tranLocNote:String, transArrivalTime:Date?) {
+        
+        id = tranID
+        donatorId = tranDonId
+        organizationId = tranOrgId
+        name = tranName
+        image = tranImage
+        locationName = tranLocName
+        locationCoor = tranLocCoor
+        locationNote = tranLocNote
+        pickUpTime = tranPickUpTime
+        arrivalTime = transArrivalTime
+        description = tranDesc
+        
+        courierName = tranCourierName
+        courierDescription = tranCourierDesc
+        
+        status = tranStatus
+        reason = tranReason
+        quantity = tranQuantity
+    }
+    
+    
 }
 
 class donatorObject{
-	var id:String
-	var phone:String
-	var email:String
-	var name:String
-	var profile:String
-	
-	init(donId:String,donPhone:String,donEmail:String,donName:String,donPro:String) {
-		
-		id = donId
-		phone = donPhone
-		email = donEmail
-		name = donName
-		profile = donPro
-
-		
-	}
+    var id:String
+    var phone:String
+    var email:String
+    var name:String
+    var profile:String
+    
+    init(donId:String,donPhone:String,donEmail:String,donName:String,donPro:String) {
+        
+        id = donId
+        phone = donPhone
+        email = donEmail
+        name = donName
+        profile = donPro
+        
+        
+    }
 }
 
 class organizationObject{
-	var id:String
-	var phone:String
-	var email:String
-	var name:String
-	var description:String
-	var logo:String
-	var locationName:String
-	var locationCoor:CLLocationCoordinate2D
-	var link:[String:String]
-	
-	init(orgId:String,orgPhone:String,orgEmail:String,orgName:String,orgDesc:String,orgLogo:String,orgLocName:String,orgLocCoor:CLLocationCoordinate2D,orgLink:[String:String]) {
-		
-		id = orgId
-		phone = orgPhone
-		email = orgEmail
-		name = orgName
-		description = orgDesc
-		logo = orgLogo
-		locationName = orgLocName
-		locationCoor = orgLocCoor
-		link = orgLink
-		
-	}
+    var id:String
+    var phone:String
+    var email:String
+    var name:String
+    var description:String
+    var logo:String
+    var locationName:String
+    var locationCoor:CLLocationCoordinate2D
+    var link:[String:String]
+    
+    init(orgId:String,orgPhone:String,orgEmail:String,orgName:String,orgDesc:String,orgLogo:String,orgLocName:String,orgLocCoor:CLLocationCoordinate2D,orgLink:[String:String]) {
+        
+        id = orgId
+        phone = orgPhone
+        email = orgEmail
+        name = orgName
+        description = orgDesc
+        logo = orgLogo
+        locationName = orgLocName
+        locationCoor = orgLocCoor
+        link = orgLink
+        
+    }
 }
 
 class programObject{
-	var id:String
-	var type:String
-	var organizationID:String
-	var name:String
-	var locationName:String
-	var locationCoor:CLLocationCoordinate2D
-	var time:Date
-	var description:String
-	var imagesLink: [String]
-	
-	init(proId:String,proType:String,orgID:String,proName:String,proLocName:String,proLocCoor:CLLocationCoordinate2D,proTime:Date,proDesc:String,proImageLink:[String]) {
-		id = proId
-		type = proType
-		organizationID = proId
-		name = proName
-		locationName = proLocName
-		locationCoor = proLocCoor
-		time = proTime
-		description = proDesc
-		imagesLink = proImageLink
-	}
-	
+    var id:String
+    var organizationID:String
+    var name:String
+    var locationName:String
+    var locationCoor:CLLocationCoordinate2D
+    var time:String
+    var description:String
+    var imagesLink: String
+    
+    init(proId:String,orgID:String,proName:String,proLocName:String,proLocCoor:CLLocationCoordinate2D,proTime:String,proDesc:String,proImageLink:String) {
+        id = proId
+        organizationID = proId
+        name = proName
+        locationName = proLocName
+        locationCoor = proLocCoor
+        time = proTime
+        description = proDesc
+        imagesLink = proImageLink
+    }
+    
 }
-

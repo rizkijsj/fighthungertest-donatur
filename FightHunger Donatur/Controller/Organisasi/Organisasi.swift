@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import MapKit
 
 class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
