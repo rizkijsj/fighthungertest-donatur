@@ -147,7 +147,7 @@
                                                     <attributedString key="attributedText">
                                                         <fragment content="Keterangan Status">
                                                             <attributes>
-                                                                <font key="NSFont" metaFont="system" size="17"/>
+                                                                <font key="NSFont" size="14" name=".AppleSystemUIFont"/>
                                                                 <paragraphStyle key="NSParagraphStyle" alignment="center" lineBreakMode="wordWrapping" baseWritingDirection="natural" tighteningFactorForTruncation="0.0"/>
                                                             </attributes>
                                                         </fragment>
@@ -445,17 +445,17 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="Ylr-eH-QGl">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" id="mah-dI-4SE">
-                                        <rect key="frame" x="0.0" y="1348" width="375" height="44"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="70" id="mah-dI-4SE">
+                                        <rect key="frame" x="0.0" y="1348" width="375" height="70"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="mah-dI-4SE" id="R5e-a4-iyB">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="69.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A18-Bn-aRc">
-                                                    <rect key="frame" x="15" y="6" width="345" height="30"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A18-Bn-aRc">
+                                                    <rect key="frame" x="16" y="9" width="343" height="50"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" title="Button"/>
+                                                    <state key="normal" image="Tombol abu"/>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -483,20 +483,31 @@
                         <outlet property="namaKurir" destination="kyy-72-74f" id="oh4-uy-mCC"/>
                         <outlet property="namaOrganisasi" destination="2L4-7A-iiM" id="7ud-Up-isp"/>
                         <outlet property="nomorTelponOrganisasi" destination="UuS-an-mW1" id="ve4-up-YUK"/>
+                        <outlet property="organizationDetail" destination="8zL-mC-voO" id="hUw-gn-mRz"/>
                         <outlet property="stasus1" destination="UW6-zR-vhy" id="rPd-G3-l00"/>
                         <outlet property="status2" destination="ow2-gI-H9a" id="bO2-Qo-ozV"/>
                         <outlet property="status3" destination="7Np-o2-gzG" id="hJf-iw-1uA"/>
                         <outlet property="status4" destination="F2h-xN-Aja" id="b05-0f-Ega"/>
                         <outlet property="waktuPengambilan" destination="kWF-8W-sY0" id="oGD-TX-BAR"/>
+                        <segue destination="Xja-D8-UkC" kind="show" id="GTt-YR-P27"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mus-Co-Tcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3877.5999999999999" y="489.90147783251234"/>
         </scene>
+        <!--Organization-->
+        <scene sceneID="Skp-Nm-CJN">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Organization" id="Xja-D8-UkC" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Vy0-oP-P4A" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4430" y="490"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Telephone Inactive" width="200" height="200"/>
+        <image name="Tombol abu" width="1372" height="200"/>
         <image name="konfirmasi" width="587" height="200"/>
         <image name="pin1b" width="76" height="76"/>
         <image name="pin2b" width="80" height="80"/>

@@ -32,28 +32,28 @@
                                                     <rect key="frame" x="16" y="11" width="343" height="188"/>
                                                     <subviews>
                                                         <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="CFN-7M-gjz">
-                                                            <rect key="frame" x="128.66666666666666" y="0.0" width="86" height="86"/>
+                                                            <rect key="frame" x="145.66666666666666" y="0.0" width="52" height="52"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="CFN-7M-gjz" secondAttribute="height" multiplier="1:1" id="Gtx-Et-X7M"/>
                                                             </constraints>
                                                         </imageView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="5Pi-9E-KzS">
-                                                            <rect key="frame" x="0.0" y="102" width="343" height="86"/>
+                                                            <rect key="frame" x="0.0" y="68" width="343" height="52"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" text="Foodbank of Indonesia" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIx-fX-vAb">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="28"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="343" height="52"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jl. H. Abdul Majid Dalam III No.2B, RT.8/RW.5, Cipete Sel., Cilandak" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kR-ji-Eyq">
-                                                                    <rect key="frame" x="0.0" y="28" width="343" height="58"/>
-                                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Jl. H. Abdul Majid Dalam III No.2B, RT.8/RW.5, Cipete Sel., Cilandak" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1kR-ji-Eyq">
+                                                            <rect key="frame" x="6" y="136" width="331.33333333333331" height="52"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                     </subviews>
                                                     <constraints>
                                                         <constraint firstAttribute="bottom" secondItem="5Pi-9E-KzS" secondAttribute="bottom" id="LV7-OG-4JJ"/>
@@ -338,10 +338,15 @@
                     </tableView>
                     <connections>
                         <outlet property="alamatOrganisasi" destination="1kR-ji-Eyq" id="Xbt-1r-kGn"/>
+                        <outlet property="callOrganisasi" destination="KdK-qq-mbs" id="DTk-XI-KvV"/>
+                        <outlet property="chatOrganisasi" destination="dHn-Px-DTh" id="KNw-PP-ZIV"/>
                         <outlet property="deskripsiProgram1" destination="v5Q-SD-iBu" id="WR5-ze-7Th"/>
                         <outlet property="deskripsiProgram2" destination="MUB-gn-Ind" id="15Y-Ae-MfP"/>
                         <outlet property="deskripsiProgram3" destination="jNJ-l0-tjk" id="Gis-vd-v2M"/>
+                        <outlet property="keteranganOrganisasi" destination="TwI-mj-ThX" id="lF6-OB-bCd"/>
+                        <outlet property="linkOrganisasi" destination="7kn-TD-Ign" id="kVS-u7-UYL"/>
                         <outlet property="logoOrganisasi" destination="CFN-7M-gjz" id="RbP-LK-cH2"/>
+                        <outlet property="lokasiOrganisasi" destination="8iB-EP-ejd" id="Ry0-UO-iuD"/>
                         <outlet property="namaOrganisasi" destination="yIx-fX-vAb" id="i3h-Fo-xQb"/>
                         <outlet property="namaProgram1" destination="AtA-cE-1Uc" id="TSZ-G8-DGL"/>
                         <outlet property="namaProgram2" destination="wh2-t8-fvv" id="yKs-hP-evh"/>
