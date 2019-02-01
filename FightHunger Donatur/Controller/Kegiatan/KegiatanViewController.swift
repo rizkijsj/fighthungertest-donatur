@@ -156,43 +156,44 @@ class KegiatanViewController: UITableViewController {
     
     func updateDonationStatus(donationStage:Int){
         
-        stasus1.backgroundColor = .lightGray
-        status2.backgroundColor = .lightGray
-        status3.backgroundColor = .lightGray
-        status4.backgroundColor = .lightGray
+//        stasus1.backgroundColor = .lightGray
+//        status2.backgroundColor = .lightGray
+//        status3.backgroundColor = .lightGray
+//        status4.backgroundColor = .lightGray
         
-        btnCallOrganisasi.backgroundColor = .lightGray
-        btnKonfirmasi.backgroundColor = .lightGray
-        btnBatal.backgroundColor = .lightGray
+//        btnCallOrganisasi.backgroundColor = .lightGray
+//        btnKonfirmasi.backgroundColor = .lightGray
+//        btnBatal.backgroundColor = .lightGray
         
         if donationStage == 0 {
             print("baru push dari donatur")
         }else if donationStage == 1 {
         print("Menunggu untuk di claim")
-            btnBatal.backgroundColor = .red
+            btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
         }else if donationStage == 2 {
             print("Menunggu Menunggu Data Kurir")
-            stasus1.backgroundColor = .red
-            btnCallOrganisasi.backgroundColor = .red
-            btnBatal.backgroundColor = .red
+            stasus1.image = UIImage.init(named: "pin1a")
+            btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
+            btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
         }else if donationStage == 3 {
             print("Mengirim Kurir")
-            stasus1.backgroundColor = .red
-            status2.backgroundColor = .red
-            btnCallOrganisasi.backgroundColor = .red
-            btnKonfirmasi.backgroundColor = .red
+            stasus1.image = UIImage.init(named: "pin1a")
+            status2.image = UIImage.init(named: "pin2a")
+            btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
+            btnKonfirmasi.setImage(UIImage(named: "konfirmasi aktif"), for: .normal)
         } else if donationStage == 4 {
             print("Sedang diantar")
-            stasus1.backgroundColor = .red
-            status2.backgroundColor = .red
-            status3.backgroundColor = .red
-            btnCallOrganisasi.backgroundColor = .red
+            stasus1.image = UIImage.init(named: "pin1a")
+            status2.image = UIImage.init(named: "pin2a")
+            status3.image = UIImage.init(named: "pin2a")
+            btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
         } else if donationStage == 5 {
             print("Sudah sampai organisasi")
-            stasus1.backgroundColor = .red
-            status2.backgroundColor = .red
-            status3.backgroundColor = .red
-            status4.backgroundColor = .red
+            stasus1.image = UIImage.init(named: "pin1a")
+            status2.image = UIImage.init(named: "pin2a")
+            status3.image = UIImage.init(named: "pin3a")
+            status4.image = UIImage.init(named: "pin4a")
+            
         }
         
     }

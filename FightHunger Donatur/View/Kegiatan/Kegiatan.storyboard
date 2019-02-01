@@ -455,7 +455,7 @@
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A18-Bn-aRc">
                                                     <rect key="frame" x="-498" y="-79" width="1372" height="200"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="Batalkan"/>
+                                                    <state key="normal" image="Tombol abu"/>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -496,8 +496,8 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Batalkan" width="1372" height="200"/>
         <image name="Telephone Inactive" width="200" height="200"/>
+        <image name="Tombol abu" width="1372" height="200"/>
         <image name="konfirmasi" width="587" height="200"/>
         <image name="pin1b" width="76" height="76"/>
         <image name="pin2b" width="80" height="80"/>

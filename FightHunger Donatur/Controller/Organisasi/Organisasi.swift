@@ -16,6 +16,11 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     @IBOutlet weak var namaOrganisasi: UILabel!
     @IBOutlet weak var alamatOrganisasi: UILabel!
     
+    
+    
+    
+    
+    
 //    telpon organisasi
     var nomortelponOrganisasi = ""
     
@@ -80,8 +85,8 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         let latitude: CLLocationDegrees = kordinat[0]
         let longitude: CLLocationDegrees = kordinat[1]
         
-        let regionDistance:CLLocationDistance = 10000
-        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+//        let regionDistance:CLLocationDistance = 10000
+//        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
 //        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
 //        let options = [
 //            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
