@@ -10,9 +10,11 @@ import UIKit
 
 class LoginRegisterViewController: UIViewController {
 
-    @IBAction func backBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func backbutton(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+        
     }
+   
     override func viewDidLoad() {
         super.viewDidLoad()
 

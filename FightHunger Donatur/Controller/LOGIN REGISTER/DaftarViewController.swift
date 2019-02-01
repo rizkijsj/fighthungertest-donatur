@@ -13,9 +13,10 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     
 
 
-    @IBAction func backBtn(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
+    
     @IBOutlet weak var errorMssg: UILabel!
     @IBOutlet weak var emailTxtField: CustomTextField!
     @IBOutlet weak var telpTxtField: CustomTextField!

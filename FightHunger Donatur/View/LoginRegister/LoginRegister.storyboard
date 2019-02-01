@@ -87,7 +87,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="arrowback"/>
                                 <connections>
-                                    <action selector="backBtn:" destination="VaB-LE-eif" eventType="touchUpInside" id="CGA-OZ-MPy"/>
+                                    <action selector="backbutton:" destination="VaB-LE-eif" eventType="touchUpInside" id="VLS-8O-KzZ"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -160,8 +160,7 @@
                             <inset key="largeContentSizeImageInsets" minX="-9" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="backBtn:" destination="XiE-iL-Epf" id="R6m-R2-qvX"/>
-                                <segue destination="VaB-LE-eif" kind="modal" animates="NO" id="vaD-AM-bfE"/>
+                                <action selector="back:" destination="XiE-iL-Epf" id="hyY-O8-MB6"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -388,9 +387,6 @@
                                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="fF8-B4-d9R">
                                             <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
                                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <connections>
-                                                <segue destination="VaB-LE-eif" kind="modal" animates="NO" id="oSc-ER-jll"/>
-                                            </connections>
                                         </barButtonItem>
                                     </navigationItem>
                                 </items>
@@ -449,7 +445,7 @@
                             <inset key="imageInsets" minX="-45" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="backBtn:" destination="da5-Bk-tOG" id="DMR-2Y-4JL"/>
+                                <action selector="backButton:" destination="da5-Bk-tOG" id="c4W-gc-Kdi"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -507,7 +503,6 @@
         <image name="arrowback" width="120" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kQs-fF-YaO"/>
-        <segue reference="oSc-ER-jll"/>
+        <segue reference="zhn-Ou-xFt"/>
     </inferredMetricsTieBreakers>
 </document>

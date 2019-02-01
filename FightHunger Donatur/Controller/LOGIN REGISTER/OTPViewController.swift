@@ -269,6 +269,6 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         
     }
     @IBAction func `return`(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+        self.navigationController?.popToRootViewController(animated: true)
     }
 }

@@ -11,9 +11,12 @@ import Firebase
 
 class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDelegate{
 
-    @IBAction func backBtn(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        
+        self.navigationController?.popToRootViewController(animated: true)
+        print("test")
     }
+    
     @IBOutlet weak var lnjtBtn: UIButton!
     @IBOutlet weak var telpTxtField: CustomTextField!
     @IBOutlet weak var continueButton: UIButton!
