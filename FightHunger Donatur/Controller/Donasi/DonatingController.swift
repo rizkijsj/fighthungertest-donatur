@@ -72,15 +72,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         print(vc.kordinatAsli)
     }
     
-    func setSubmitButton(enabled:Bool) {
-        if enabled {
-            submitButton.
-            submitButton.isEnabled = true
-        } else {
-            submitButton.alpha = 0.5
-            submitButton.isEnabled = false
-        }
-    }
+    
     
     @IBAction func submitBtn(_ sender: Any) {
         
@@ -94,13 +86,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         }
         //validasi untuk ke halaman selanjutnya
        
-        if namaTxt.text == nil || namaTxt.text == ""
-        {
-            submitButton.isEnabled = false
-        }else
-        {
-            submitButton.isEnabled = true
-        }
+       
             
 //            else if deskripsiTxt.text == nil || deskripsiTxt.text == ""
 //        {
@@ -117,6 +103,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         
         
     }
+    
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let info = segue.destination as! LoginViewController
@@ -169,6 +156,42 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         namaTxt.delegate = self
         deskripsiTxt.delegate = self
         keteranganTxt.delegate = self
+        
+         namaTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        deskripsiTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        keteranganTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+    }
+    
+   
+    
+    @objc func textFieldChanged(_ target:UITextField)
+    {
+       let nama = namaTxt.text
+        let deskripsi = deskripsiTxt.text
+        let keteranganLokasi = keteranganTxt.text
+        
+        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && keteranganLokasi != "" && keteranganLokasi != nil
+        
+        if formFilled
+        {
+           
+            submitButton.isEnabled = true
+//            //set text bold
+//            let attributes: [NSAttributedString.Key : Any] = [ .font: UIFont.boldSystemFont(ofSize: 170) ]
+//            submitButton.setTitleTextAttributes(attributes, for: .normal)
+        }else if nama == nil || nama == ""
+        {
+            submitButton.isEnabled = false
+            
+        }else if deskripsi == nil || deskripsi == ""
+        {
+            submitButton.isEnabled = false
+        }else if keteranganLokasi == nil || keteranganLokasi == ""
+        {
+            submitButton.isEnabled = false
+        }
+        
+        
     }
 
     @IBAction func btnLibraryFoto(_ sender: Any) {

@@ -57,6 +57,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
         telpTxtField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        
        
     }
     
