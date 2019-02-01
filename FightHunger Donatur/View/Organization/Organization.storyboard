@@ -138,7 +138,7 @@
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="Lokasi"/>
                                                                     <connections>
-                                                                        <segue destination="73w-fn-FlY" kind="presentation" id="R4l-rI-bJm"/>
+                                                                        <action selector="btnMap:" destination="9w1-0l-aAf" eventType="touchUpInside" id="DYc-wT-O0V"/>
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokasi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-RW-aY6">

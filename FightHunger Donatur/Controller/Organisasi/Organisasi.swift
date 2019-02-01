@@ -9,7 +9,7 @@
 import UIKit
 import CoreLocation
 
-class Organisasi: UITableViewController {
+class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBOutlet weak var logoOrganisasi: UIImageView!
     @IBOutlet weak var namaOrganisasi: UILabel!
@@ -17,6 +17,7 @@ class Organisasi: UITableViewController {
     
 //    telpon organisasi
     var nomortelponOrganisasi = ""
+    
     @IBAction func btnCallOrganisasi(_ sender: UIButton) {
         
 //        nomortelponOrganisasi.resignFirstResponder()
@@ -32,12 +33,13 @@ class Organisasi: UITableViewController {
     }
     
 //    chat lewat api wa
+    
     @IBAction func btnChatDonasi(_ sender: UIButton) {
 //        chat lewat WA
 //        let date = Date()
 //        let msg = " "
 //        let urlWhats = "whatsapp://send?text=\(msg)"
-//        
+//
 //        if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) {
 //            if let whatsappURL = NSURL(string: urlString) {
 //                if UIApplication.shared.canOpenURL(whatsappURL as URL) {
@@ -49,6 +51,10 @@ class Organisasi: UITableViewController {
 //        }
         
         
+        
+        
+        
+//        ini refrensi
 //        let url  = NSURL(string: "whatsapp://send?text=Hello%20Friends%2C%20Sharing%20some%20data%20here...%20!")
 //
 //        //Text which will be shared on WhatsApp is: "Hello Friends, Sharing some data here... !"
@@ -62,17 +68,40 @@ class Organisasi: UITableViewController {
 //                }
 //            }
 //        }
+        
+        
     }
     
 //    lokasi organisasi
     var alamat = ""
     var kordinat = [Double]()
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let vc = segue.source as! LokasiOrganisasi
-        self.alamat = alamatOrganisasi.text!
-        alamatOrganisasi.text = vc.alamatLengkap
-        self.kordinat = vc.kordinatAsli
+    @IBAction func btnMap(_ sender: UIButton) {
+        let latitude: CLLocationDegrees = kordinat[0]
+        let longitude: CLLocationDegrees = kordinat[1]
+        
+        let regionDistance:CLLocationDistance = 10000
+        let coordinates = CLLocationCoordinate2DMake(latitude, longitude)
+//        let regionSpan = MKCoordinateRegionMakeWithDistance(coordinates, regionDistance, regionDistance)
+//        let options = [
+//            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+//            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+//        ]
+//        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+//        let mapItem = MKMapItem(placemark: placemark)
+//        mapItem.name = "Place Name"
+//        mapItem.openInMaps(launchOptions: options)
     }
+    
+    
+    
+    //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        let vc = segue.source as! LokasiOrganisasi
+//        self.alamat = alamatOrganisasi.text!
+//        alamatOrganisasi.text = vc.alamatLengkap
+//        self.kordinat = vc.kordinatAsli
+//    }
+    
+    
     
 //    buka link organisasi
     var addressWebsite = ""
@@ -108,6 +137,7 @@ class Organisasi: UITableViewController {
         // self.navigationItem.rightBarButtonItem = self.editButtonItem
         
         self.deskripsiOrganisasi = self.tentangOrganisasi.text!
+        self.nomortelponOrganisasi = ""
         
     }
 
