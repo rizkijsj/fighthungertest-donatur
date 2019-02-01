@@ -10,10 +10,7 @@ import UIKit
 
 class LoginRegisterViewController: UIViewController {
 
-    @IBAction func backbutton(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
-        
-    }
+  
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -21,6 +18,12 @@ class LoginRegisterViewController: UIViewController {
        btnMasuk.layer.cornerRadius = 6.0
        btnDaftar.layer.cornerRadius = 6.0
         
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        
+        super.viewDidAppear(animated)
+        navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
 
