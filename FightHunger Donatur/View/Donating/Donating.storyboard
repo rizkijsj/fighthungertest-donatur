@@ -51,12 +51,9 @@
                                                     </connections>
                                                 </button>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-Cc-Slg">
-                                                    <rect key="frame" x="16" y="30" width="343" height="138"/>
+                                                    <rect key="frame" x="44" y="30" width="280" height="138"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="Add Photo"/>
-                                                    <connections>
-                                                        <action selector="addPhotoBtn:" destination="f4w-s9-JZp" eventType="touchUpInside" id="DgF-8o-FqA"/>
-                                                    </connections>
+                                                    <state key="normal" image="Gambar template donatur"/>
                                                 </button>
                                             </subviews>
                                         </tableViewCellContentView>
@@ -229,8 +226,8 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="addPhoto" destination="YlE-Cc-Slg" id="EKK-fe-zMY"/>
                         <outlet property="alamat" destination="L65-r4-T5A" id="Qjf-RE-n7V"/>
+                        <outlet property="gbrTemplate" destination="YlE-Cc-Slg" id="fzL-Tg-It9"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
                     </connections>
                 </tableViewController>
@@ -283,7 +280,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="Add Photo" width="361" height="200"/>
+        <image name="Gambar template donatur" width="356" height="200"/>
         <image name="kamera" width="587" height="200"/>
         <image name="library" width="587" height="200"/>
         <image name="my_location" width="200" height="200"/>

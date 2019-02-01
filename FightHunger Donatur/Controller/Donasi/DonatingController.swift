@@ -68,8 +68,8 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         
-       addPhoto.isHidden = true
-        
+      
+        gbrTemplate.isHidden = true
         let passingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
         
         imgDonasi.image = passingImage
@@ -79,47 +79,11 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
        
     }
     
-
-    @IBOutlet weak var addPhoto: UIButton!
+  
     
+    @IBOutlet weak var gbrTemplate: UIButton!
     
-    @IBAction func addPhotoBtn(_ sender: Any) {
-        
-        let imagePickerController = UIImagePickerController()
-        imagePickerController.delegate = self
-        
-        let alertAction = UIAlertController(title: "Add Photo", message: "", preferredStyle: .actionSheet)
-        
-        alertAction.addAction(UIAlertAction(title: "Camera", style: .default, handler: { (UIAlertAction) in
-            
-            if UIImagePickerController.isSourceTypeAvailable(.camera)
-            {
-                imagePickerController.sourceType = .camera
-                self.present(imagePickerController,animated: true,completion: nil)
-                
-            } else
-                
-                //using camera in MAC IS NOT AVAILABLE
-            {
-                print("Camera not available")
-            }
-        }))
-        
-        
-        alertAction.addAction(UIAlertAction(title: "Photo Library", style: .default, handler: { (UIAlertAction) in
-            
-            imagePickerController.sourceType = .photoLibrary
-            self.present(imagePickerController,animated: true,completion: nil)
-            
-        }))
-        
-        alertAction.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
-        
-        self.present(alertAction,animated: true , completion: nil)
-        
-    }
-    
-    // MARK: - Table view data source
+        // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
