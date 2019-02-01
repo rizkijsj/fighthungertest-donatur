@@ -35,7 +35,8 @@ class connector {
 	// MARK: - Login Signup
     func verifyLogin(phoneNo:String,
                      completion: @escaping (Bool,String) -> Void){
-        if verifyUserExistance(phoneno: phoneNo) == true{
+		
+        if verifyUserExistanceInDataBase(phoneno: phoneNo) == true{
             PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in
             if error != nil{
                 let errorText = String(describing: error?.localizedDescription)
@@ -63,7 +64,7 @@ class connector {
         phoneNo:String,
         completion: @escaping (Bool,String) -> Void){
        
-        if verifyUserExistance(phoneno: phoneNo) == true{
+        if verifyUserExistanceInDataBase(phoneno: phoneNo) == true{
             print("error")
             let errorText = errorCode(code: 1)
             
@@ -135,8 +136,8 @@ class connector {
                 let userInfo = user?.providerData[0]
                 print("Provider ID: \(userInfo?.providerID)")
                 //codingan
-                
-                if self.verifyUserExistance(phoneno: phonenumber) == false{
+				
+                if self.verifyUserExistanceInDataBase(phoneno: phonenumber) == false{
                     
                     guard let uid = Auth.auth().currentUser?.uid else { return }
                     
@@ -278,7 +279,7 @@ class connector {
     // MARK: - Organizarion Detail
     func organizationDetail(organizationID:String) -> organizationObject? {
         
-        let item:organizationObject = organizationObject.init(orgId: organizationID, orgPhone: "1", orgEmail: "1@2.com", orgName: "1", orgDesc: "2", orgLogo: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg", orgLocName: "2", orgLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: 5)!, longitude: CLLocationDegrees.init(exactly: 5)!), orgLink: ["web":"google.com"])
+        let item:organizationObject = organizationObject.init(orgId: organizationID, orgPhone: "1", orgEmail: "1@2.com", orgName: "1", orgDesc: "2", orgLogo: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg", orgLocName: "2", orgLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: 5)!, longitude: CLLocationDegrees.init(exactly: 5)!), orgLink: "google.com")
         
         
         
@@ -376,7 +377,7 @@ class transactionObject{
     
     var id:String
     var donatorId:String
-    var organizationId:String
+    var organizationId:String?
     var name:String
     var image:String
     var quantity:Int
@@ -391,7 +392,7 @@ class transactionObject{
     var status:Int
     var reason:String?
     
-    init(tranID:String,tranDonId:String,tranOrgId:String,tranName:String,tranImage:String,tranLocName:String,tranLocCoor:CLLocationCoordinate2D,tranPickUpTime:Date,tranDesc:String, tranCourierName:String?, tranCourierDesc:String?, tranStatus:Int, tranReason:String?, tranQuantity:Int, tranLocNote:String, transArrivalTime:Date?) {
+    init(tranID:String,tranDonId:String,tranOrgId:String?,tranName:String,tranImage:String,tranLocName:String,tranLocCoor:CLLocationCoordinate2D,tranPickUpTime:Date,tranDesc:String, tranCourierName:String?, tranCourierDesc:String?, tranStatus:Int, tranReason:String?, tranQuantity:Int, tranLocNote:String, transArrivalTime:Date?) {
         
         id = tranID
         donatorId = tranDonId
@@ -444,9 +445,9 @@ class organizationObject{
     var logo:String
     var locationName:String
     var locationCoor:CLLocationCoordinate2D
-    var link:[String:String]
+	var link:String
     
-    init(orgId:String,orgPhone:String,orgEmail:String,orgName:String,orgDesc:String,orgLogo:String,orgLocName:String,orgLocCoor:CLLocationCoordinate2D,orgLink:[String:String]) {
+    init(orgId:String,orgPhone:String,orgEmail:String,orgName:String,orgDesc:String,orgLogo:String,orgLocName:String,orgLocCoor:CLLocationCoordinate2D,orgLink:String) {
         
         id = orgId
         phone = orgPhone

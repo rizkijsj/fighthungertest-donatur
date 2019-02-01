@@ -79,7 +79,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
             if state{
                 self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
             }else{
-                sendDataToNextVC()
+				self.sendDataToNextVC()
                 self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
             }
         }
@@ -111,7 +111,8 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let info = segue.destination as! LoginViewController
-        info.tempTampungTerima = tempTampungKirim
+		/// MARK: - Error Here
+		//info.tempTampungTerima = tempTampungKirim
         tempTampungKirim = []
     }
     
@@ -379,7 +380,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         
     }
 }
-
+/*
 extension DonatingController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
@@ -399,7 +400,7 @@ extension DonatingController: UIImagePickerControllerDelegate, UINavigationContr
         // Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
-    
+    */
     
     
     
@@ -418,4 +419,4 @@ extension DonatingController: UIImagePickerControllerDelegate, UINavigationContr
 //    }
     
     
-}
+

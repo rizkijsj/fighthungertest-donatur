@@ -77,16 +77,21 @@ class KegiatanViewController: UITableViewController {
     func updateDonationDetails(){
         
         if let statusObject = passingObject{
-             let organizationObject = connector().organizationDetail(organizationID: statusObject.organizationId)
+			
             
             transactionID = statusObject.id
             statusInteractionUpdate(Status: statusObject.status)
             
             loadImage(link: statusObject.image)
             updateDonationStatus(donationStage: statusObject.status)
-            
-            namaOrganisasi.text = organizationObject!.name
-            nomorTelponOrganisasi.text = organizationObject!.phone
+			
+			
+			if let orgID = statusObject.organizationId,let organizationObject = connector().organizationDetail(organizationID: orgID) {
+				
+            namaOrganisasi.text = organizationObject.name
+            nomorTelponOrganisasi.text = organizationObject.phone
+				
+			}
             
             namaKurir.text = statusObject.courierName
             deskripsiKurir.text = statusObject.courierDescription
