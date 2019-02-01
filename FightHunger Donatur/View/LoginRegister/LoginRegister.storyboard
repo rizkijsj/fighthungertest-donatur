@@ -65,7 +65,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="7CL-Yd-Npg" kind="show" animates="NO" id="aOD-GS-7ga"/>
+                                            <segue destination="cRr-k5-HYr" kind="show" animates="NO" id="aOD-GS-7ga"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSO-RP-Ovj">
@@ -76,14 +76,14 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="o4q-ld-0VY" kind="show" animates="NO" id="MYG-Us-44Q"/>
+                                            <segue destination="0Up-bs-UjX" kind="show" animates="NO" id="MYG-Us-44Q"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JjO-lu-YyK">
-                                <rect key="frame" x="20" y="51" width="13" height="19"/>
+                                <rect key="frame" x="20" y="51" width="16" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" backgroundImage="arrowback"/>
                                 <connections>
@@ -155,7 +155,7 @@
                         <viewLayoutGuide key="safeArea" id="9WB-Fw-tXW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="xIm-BI-XvK">
-                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="BVm-Zo-czw">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="BVm-Zo-czw">
                             <inset key="imageInsets" minX="-45" minY="0.0" maxX="0.0" maxY="-12"/>
                             <inset key="largeContentSizeImageInsets" minX="-9" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -169,7 +169,7 @@
                         <outlet property="errorMssg" destination="bKl-tH-icU" id="7yc-FT-9CO"/>
                         <outlet property="lnjtBtn" destination="rhE-xp-uqR" id="X2B-Sn-Heh"/>
                         <outlet property="telpTxtField" destination="HuZ-Oo-B88" id="dSZ-gm-idv"/>
-                        <segue destination="CGE-9N-0BM" kind="show" identifier="LoginToVerify" animates="NO" id="gF3-Qe-I5l"/>
+                        <segue destination="RLG-DL-gHz" kind="show" identifier="LoginToVerify" animates="NO" id="gF3-Qe-I5l"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjY-A2-s8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -330,8 +330,7 @@
                         <viewLayoutGuide key="safeArea" id="CEl-cI-FBl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="vJz-iT-g9r">
-                        <barButtonItem key="backBarButtonItem" title="arrowback" id="3y9-pe-kjr"/>
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="3KU-U5-q4g">
+                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="wdO-6l-nXn">
                             <inset key="imageInsets" minX="-45" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
@@ -380,6 +379,21 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <textInputTraits key="textInputTraits"/>
                             </textField>
+                            <navigationBar contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="xYg-HQ-eeF">
+                                <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <items>
+                                    <navigationItem title="Daftar" id="sV7-0p-t5A">
+                                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="fF8-B4-d9R">
+                                            <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
+                                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <connections>
+                                                <segue destination="VaB-LE-eif" kind="modal" animates="NO" id="oSc-ER-jll"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="No.Handphone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3fQ-CN-QmG">
                                 <rect key="frame" x="40" y="299" width="243" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -430,7 +444,7 @@
                         <viewLayoutGuide key="safeArea" id="NXT-HM-hGg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Daftar" id="9ZY-Ay-iOd">
-                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="TDs-Or-gqU">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="TDs-Or-gqU">
                             <inset key="imageInsets" minX="-45" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </barButtonItem>
@@ -441,7 +455,7 @@
                         <outlet property="errorMssg" destination="8z8-Mk-4Vp" id="GCp-WT-nIR"/>
                         <outlet property="namaTxtField" destination="Ymp-Op-FWN" id="N6c-KB-OuF"/>
                         <outlet property="telpTxtField" destination="WfT-Zd-2ph" id="k28-Bb-i12"/>
-                        <segue destination="CGE-9N-0BM" kind="show" identifier="RegisToVerify" animates="NO" id="gyy-oT-mva"/>
+                        <segue destination="RLG-DL-gHz" kind="show" identifier="RegisToVerify" animates="NO" id="gyy-oT-mva"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrw-P4-80m" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -449,58 +463,58 @@
             <point key="canvasLocation" x="5186.3999999999996" y="1534.729064039409"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="fLW-n8-COw">
+        <scene sceneID="khY-F9-oau">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7CL-Yd-Npg" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="cRr-k5-HYr" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" backIndicatorImage="arrowback" id="pO7-2b-3sB">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="LQw-35-orE">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="XiE-iL-Epf" kind="relationship" relationship="rootViewController" id="dRR-3g-Wci"/>
+                        <segue destination="XiE-iL-Epf" kind="relationship" relationship="rootViewController" id="fdY-TZ-f8W"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ULq-ch-YkA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="vwS-rs-kgY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4909.6000000000004" y="759.60591133004925"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="odg-Er-TzK">
+        <scene sceneID="42H-EI-Hg9">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="o4q-ld-0VY" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="RLG-DL-gHz" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="agv-YK-X8Y">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2DB-Hh-PUT">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="da5-Bk-tOG" kind="relationship" relationship="rootViewController" id="2ig-Rw-zoT"/>
+                        <segue destination="vMY-4Z-iyk" kind="relationship" relationship="rootViewController" id="m8a-P7-rkp"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="EnO-ot-amg" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="4244" y="1534.729064039409"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="0Hi-9c-exo">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CGE-9N-0BM" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Y3A-Zz-yFn">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="vMY-4Z-iyk" kind="relationship" relationship="rootViewController" id="Vum-5s-ncQ"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="eb4-qX-kaj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Wgl-gB-ylS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6738.3999999999996" y="762.5615763546798"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="N2G-Kb-OmY">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="0Up-bs-UjX" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="4YS-Sg-kAd">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="da5-Bk-tOG" kind="relationship" relationship="rootViewController" id="U1y-UY-hPr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="25J-Gc-fUj" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="4244" y="1534.729064039409"/>
         </scene>
     </scenes>
     <resources>
@@ -508,5 +522,6 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="gyy-oT-mva"/>
+        <segue reference="oSc-ER-jll"/>
     </inferredMetricsTieBreakers>
 </document>
