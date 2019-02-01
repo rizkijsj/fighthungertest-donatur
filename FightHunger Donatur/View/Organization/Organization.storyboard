@@ -338,10 +338,15 @@
                     </tableView>
                     <connections>
                         <outlet property="alamatOrganisasi" destination="1kR-ji-Eyq" id="Xbt-1r-kGn"/>
+                        <outlet property="callOrganisasi" destination="KdK-qq-mbs" id="DTk-XI-KvV"/>
+                        <outlet property="chatOrganisasi" destination="dHn-Px-DTh" id="KNw-PP-ZIV"/>
                         <outlet property="deskripsiProgram1" destination="v5Q-SD-iBu" id="WR5-ze-7Th"/>
                         <outlet property="deskripsiProgram2" destination="MUB-gn-Ind" id="15Y-Ae-MfP"/>
                         <outlet property="deskripsiProgram3" destination="jNJ-l0-tjk" id="Gis-vd-v2M"/>
+                        <outlet property="keteranganOrganisasi" destination="TwI-mj-ThX" id="lF6-OB-bCd"/>
+                        <outlet property="linkOrganisasi" destination="7kn-TD-Ign" id="kVS-u7-UYL"/>
                         <outlet property="logoOrganisasi" destination="CFN-7M-gjz" id="RbP-LK-cH2"/>
+                        <outlet property="lokasiOrganisasi" destination="8iB-EP-ejd" id="Ry0-UO-iuD"/>
                         <outlet property="namaOrganisasi" destination="yIx-fX-vAb" id="i3h-Fo-xQb"/>
                         <outlet property="namaProgram1" destination="AtA-cE-1Uc" id="TSZ-G8-DGL"/>
                         <outlet property="namaProgram2" destination="wh2-t8-fvv" id="yKs-hP-evh"/>

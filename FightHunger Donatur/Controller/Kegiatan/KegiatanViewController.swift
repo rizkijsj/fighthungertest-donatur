@@ -25,7 +25,6 @@ class KegiatanViewController: UITableViewController {
     @IBOutlet weak var nomorTelponOrganisasi: UILabel!
     @IBOutlet weak var btnCallOrganisasi: UIButton!
     
-    
     @IBOutlet weak var namaKurir: UILabel!
     @IBOutlet weak var deskripsiKurir: UILabel!
     
@@ -37,6 +36,10 @@ class KegiatanViewController: UITableViewController {
     
     @IBOutlet weak var btnBatal: UIButton!
     
+    
+    @IBOutlet weak var organizationDetail: UITableViewCell!
+    
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 0
     }
@@ -45,13 +48,25 @@ class KegiatanViewController: UITableViewController {
         return UITableViewCell.init()
     }
     
+//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//
+//    }
+    
     var passingObject:transactionObject?
     var transactionID:String?
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        let tap = UITapGestureRecognizer.init(target: self, action: #selector(openOrganisation))
+        
+        organizationDetail.gestureRecognizers = [tap]
+        
         //        statusDonasi()
         reloadObject()
+    }
+    
+ @objc  func openOrganisation() {
+        performSegue(withIdentifier: "toOrganization", sender: self)
     }
     
     func reloadObject(){
@@ -155,15 +170,6 @@ class KegiatanViewController: UITableViewController {
     }
     
     func updateDonationStatus(donationStage:Int){
-        
-//        stasus1.backgroundColor = .lightGray
-//        status2.backgroundColor = .lightGray
-//        status3.backgroundColor = .lightGray
-//        status4.backgroundColor = .lightGray
-        
-//        btnCallOrganisasi.backgroundColor = .lightGray
-//        btnKonfirmasi.backgroundColor = .lightGray
-//        btnBatal.backgroundColor = .lightGray
         
         if donationStage == 0 {
             print("baru push dari donatur")

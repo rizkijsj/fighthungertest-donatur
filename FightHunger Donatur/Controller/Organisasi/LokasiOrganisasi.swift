@@ -36,6 +36,22 @@ class LokasiOrganisasi: UIViewController, CLLocationManagerDelegate, MKMapViewDe
         peta.mapType = .standard
         
     }
+    @objc func openMapOnApplicationMap(){
+        
+        guard let locationObject = passingObject else {return}
+        
+        let regionDistance:CLLocationDistance = 1000
+        let coordinates = locationObject.locationCoor
+        let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+        let options = [
+            MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+            MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+        ]
+        let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+        let mapItem = MKMapItem(placemark: placemark)
+        mapItem.name = locationObject.locationName
+        mapItem.openInMaps(launchOptions: options)
+    }
     
 //    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
 //        let location = locations.last! as CLLocation
