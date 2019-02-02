@@ -29,7 +29,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <segue destination="30J-aI-EYq" kind="show" animates="NO" id="80b-02-faz"/>
+                                    <segue destination="30J-aI-EYq" kind="show" id="80b-02-faz"/>
                                 </connections>
                             </button>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
@@ -71,15 +71,15 @@
             </objects>
             <point key="canvasLocation" x="1028" y="100.49261083743843"/>
         </scene>
-        <!--Donating-->
+        <!--Kegiatan-->
         <scene sceneID="wg1-S5-cM7">
             <objects>
-                <viewControllerPlaceholder storyboardName="Donating" id="30J-aI-EYq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Kegiatan" id="30J-aI-EYq" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bIC-s6-cM9"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVZ-nJ-RUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1433" y="-255"/>
+            <point key="canvasLocation" x="1827" y="83"/>
         </scene>
         <!--Profile-->
         <scene sceneID="niM-IS-dI8">

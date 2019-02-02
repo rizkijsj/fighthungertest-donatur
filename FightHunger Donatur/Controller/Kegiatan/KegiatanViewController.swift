@@ -41,13 +41,30 @@ class KegiatanViewController: UITableViewController {
     
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 0
+        
+        if section == 0 {
+            return 3
+        }else if section ==  1 {
+            return 3
+        }else if section == 2{
+            return 3
+        }else if section == 3 {
+            return 6
+        }else if section == 4 {
+            return 1
+        }
+        
+        return 1
     }
     
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 5
+    }
+    /*
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         return UITableViewCell.init()
     }
-    
+    */
 //    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 //
 //    }
@@ -56,6 +73,7 @@ class KegiatanViewController: UITableViewController {
     var transactionID:String?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         
         let tap = UITapGestureRecognizer.init(target: self, action: #selector(openOrganisation))
         
@@ -70,15 +88,25 @@ class KegiatanViewController: UITableViewController {
     }
     
     func reloadObject(){
-        passingObject = connector().transactionDetail(transactionID: transactionID!)
-        updateDonationDetails()
+        transactionID = "T1"
+        if let transID = transactionID {
+        passingObject = connector().transactionDetail(transactionID: transID)
+            passingObject?.status = 2
+            updateDonationDetails()
+        }else{
+          dismiss(animated: true, completion: nil)
+            self.navigationController?.popViewController(animated: true)
+        }
+        
+        
     }
+    
     
     func updateDonationDetails(){
         
         if let statusObject = passingObject{
 			
-            
+            print(statusObject.status)
             transactionID = statusObject.id
             statusInteractionUpdate(Status: statusObject.status)
             
@@ -92,6 +120,7 @@ class KegiatanViewController: UITableViewController {
             nomorTelponOrganisasi.text = organizationObject.phone
 				
 			}
+            
             
             namaKurir.text = statusObject.courierName
             deskripsiKurir.text = statusObject.courierDescription
@@ -107,9 +136,11 @@ class KegiatanViewController: UITableViewController {
             dateFormat.dateFormat = "MMMM dd yyyy"
             timeFormat.dateFormat = "HH:mm"
             
-            waktuPengambilan.text = "\(dateFormat.string(from: statusObject.pickUpTime)),\(timeFormat.string(from:statusObject.pickUpTime)),\(timeFormat.string(from: statusObject.arrivalTime!))"
             
-            viewDidLayoutSubviews()
+            
+            waktuPengambilan.text = "\(dateFormat.string(from: statusObject.pickUpTime)),\(timeFormat.string(from:statusObject.pickUpTime)))"
+            
+            
             
         }else{
             print("Failed to load details")
