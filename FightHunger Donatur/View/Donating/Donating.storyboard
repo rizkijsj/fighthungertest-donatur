@@ -138,21 +138,21 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alamat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L65-r4-T5A">
-                                                    <rect key="frame" x="16" y="0.0" width="300" height="59.666666666666664"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <color key="textColor" white="0.78789419240000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    <nil key="highlightedColor"/>
-                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Xy-Bj6">
                                                     <rect key="frame" x="324" y="11" width="35" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="my_location"/>
                                                     <connections>
-                                                        <segue destination="zu9-Xr-40N" kind="show" identifier="DonasiToLogin" animates="NO" id="76O-4p-wrX"/>
+                                                        <action selector="toMap:" destination="f4w-s9-JZp" eventType="touchUpInside" id="7Pg-q0-A1u"/>
                                                     </connections>
                                                 </button>
+                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-6B-5QZ" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="15" width="300" height="30"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <nil key="textColor"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <textInputTraits key="textInputTraits"/>
+                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -212,29 +212,30 @@
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="submitBtn:" destination="f4w-s9-JZp" id="9qQ-bw-iFZ"/>
-                                <segue destination="Qye-FF-Kdx" kind="show" id="j4g-DB-NGC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="alamat" destination="L65-r4-T5A" id="Qjf-RE-n7V"/>
+                        <outlet property="alamat" destination="2IE-6B-5QZ" id="luq-fP-qhO"/>
                         <outlet property="deskripsiTxt" destination="piT-uo-BYB" id="XFR-oy-vrP"/>
                         <outlet property="gbrTemplate" destination="YlE-Cc-Slg" id="fzL-Tg-It9"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
                         <outlet property="keteranganTxt" destination="CX7-LV-Fii" id="3aS-GC-dhW"/>
                         <outlet property="namaTxt" destination="tC5-9f-7PZ" id="pLe-Vy-xdt"/>
                         <outlet property="submitButton" destination="xgW-Ih-GwM" id="59L-tc-UhC"/>
+                        <segue destination="Qye-FF-Kdx" kind="show" identifier="DonasiToLogin" id="7iQ-GF-BBJ"/>
+                        <segue destination="zu9-Xr-40N" kind="show" identifier="DonasiToMap" id="WNH-Pg-2Py"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3764" y="1903"/>
+            <point key="canvasLocation" x="3764" y="1902.7093596059115"/>
         </scene>
         <!--LoginRegister-->
         <scene sceneID="6Xe-2Q-kM4">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginRegister" id="Qye-FF-Kdx" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegister" id="Qye-FF-Kdx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1et-5f-pWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4345" y="1218"/>

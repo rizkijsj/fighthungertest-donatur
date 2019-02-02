@@ -28,6 +28,9 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     func textFieldDidBeginEditing(_ textField: UITextField) {
         moveKeyboard(textField: deskripsiTxt, moveDistance: -250, up: true)
     }
+    @IBAction func toMap(_ sender: Any) {
+        performSegue(withIdentifier: "DonasiToMap", sender: nil)
+    }
     
     //hide keyboard
     func textFieldDidEndEditing(_ textField: UITextField) {
@@ -50,7 +53,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     
     //    buat passing data ke map
-    @IBOutlet weak var alamat: UILabel!
+   
     
     @IBOutlet weak var imgDonasi: UIImageView!
     
@@ -61,6 +64,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     var takenPhoto:UIImage?
     var imagePicker:UIImagePickerController!
     
+    @IBOutlet weak var alamat: CustomTextField!
     @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){
         let vc = sender.source as! LokasiPengambilan
         alamat.text = vc.alamatLengkap
@@ -88,10 +92,16 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let info = segue.destination as! LoginViewController
+        if segue.identifier == "DonasiToLogin"{
+            let info = segue.destination as! LoginViewController
+            tempTampungKirim = []
+        }else{
+            
+        }
+        
 		/// MARK: - Error Here
 		//info.tempTampungTerima = tempTampungKirim
-        tempTampungKirim = []
+        
     }
     
     func sendDataToNextVC(){
@@ -148,7 +158,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     @objc func textFieldChanged(_ target:UITextField)
     {
-       let nama = namaTxt.text
+        let nama = namaTxt.text
         let deskripsi = deskripsiTxt.text
         let keteranganLokasi = keteranganTxt.text
         let textFieldLength = deskripsiTxt.text!.characters.count

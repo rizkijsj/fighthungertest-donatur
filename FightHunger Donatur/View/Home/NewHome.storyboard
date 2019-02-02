@@ -55,7 +55,8 @@
                         <viewLayoutGuide key="safeArea" id="1Dj-tO-iWW"/>
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="3wi-pR-LVa">
-                        <barButtonItem key="rightBarButtonItem" title="Item" image="profilBtn" id="7Z1-u0-Rua">
+                        <barButtonItem key="rightBarButtonItem" image="profilBtn" id="7Z1-u0-Rua">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-7"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <segue destination="jp7-0b-DRF" kind="show" animates="NO" id="Zst-zb-KVc"/>
@@ -71,10 +72,10 @@
             </objects>
             <point key="canvasLocation" x="1028" y="100.49261083743843"/>
         </scene>
-        <!--LoginRegister-->
+        <!--Donating-->
         <scene sceneID="wg1-S5-cM7">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginRegister" id="30J-aI-EYq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Donating" id="30J-aI-EYq" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bIC-s6-cM9"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVZ-nJ-RUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
