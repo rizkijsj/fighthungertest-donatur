@@ -354,13 +354,13 @@ class connector {
         items.append(transactionDetail(transactionID: "T909")!)
         items.append(transactionDetail(transactionID: "T189")!)
 		
-		items[0].status = 0
+		items[0].status = 1
 		items[1].status = 1
 		items[2].status = 2
 		items[3].status = 3
 		items[4].status = 4
-		items[5].status = 5
-		items[6].status = 6
+		items[5].status = 4
+		items[6].status = 2
 		
 		return items
 		

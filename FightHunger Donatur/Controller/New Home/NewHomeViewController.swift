@@ -19,6 +19,10 @@ class NewHomeViewController: UIViewController {
     var newActivityData = [1,3]
     // partner data should always referred to your data source, which it will be real time updated data
     var partnerData = [1,2,3]
+	
+	var activityList = connector().transactionList()
+	var organizationList = connector().organizationList()
+	var programList = connector().programList()
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,7 +37,7 @@ class NewHomeViewController: UIViewController {
         tableView.register(UINib(nibName: "SectionThreeHomeCell", bundle: nil), forCellReuseIdentifier: "partnerCellID")
         
         // Set the donate button corner radius to comply design requirement
-        donateButton.layer.cornerRadius = 6.0
+        donateButton.layer.cornerRadius = donateButton.frame.height / 4
         donateButton.layer.masksToBounds = true
     }
 
@@ -47,11 +51,11 @@ extension NewHomeViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         switch section {
         case 0:
-            return temporaryArrayData.count
+            return activityList.count
         case 1:
-            return newActivityData.count
+            return programList.count
         case 2:
-            return partnerData.count
+            return organizationList.count
         default:
             return 0
         }
@@ -100,11 +104,38 @@ extension NewHomeViewController: UITableViewDataSource, UITableViewDelegate {
         }
     }
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+		
+		let dateFormat = DateFormatter()
+		let timeFormat = DateFormatter()
+		dateFormat.locale = Locale.init(identifier: "Id")
+		timeFormat.locale = Locale.init(identifier: "Id")
+		dateFormat.dateFormat = "MMMM dd yyyy"
+		timeFormat.dateFormat = "HH:mm"
+		
         switch indexPath.section {
         case 0:
             let cell = (tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as? SectionOneHomeCell)!
+			
+
+			
+			loadImage(link: activityList[indexPath.row].image, object: cell.contentImage)
             
-            cell.contentName.text = temporaryArrayData[indexPath.row]
+            cell.contentName.text = activityList[indexPath.row].name
+			cell.contentStatus.text = updateDonationStatus(donationStage: activityList[indexPath.row].status)
+			cell.contentExpiredDate.text = activityList[indexPath.row].description
+			
+			
+			cell.contentActivityTime.text = timeFormat.string(from: activityList[indexPath.row].pickUpTime)
+			
+			if activityList[indexPath.row].status > 1 {
+				if let orgID = activityList[indexPath.row].organizationId, let orgObject = connector().organizationDetail(organizationID: orgID){
+					loadImage(link: orgObject.logo, object: cell.contentOrganisationIcon)
+					cell.contentOrganisationName.text = orgObject.name
+				}
+			}else {
+				cell.contentOrganisationName.text = ""
+				cell.contentOrganisationIcon.image = nil
+			}
             
             return cell
         case 1:
@@ -144,4 +175,32 @@ extension NewHomeViewController: UITableViewDataSource, UITableViewDelegate {
             }, completion: nil)
         }
     }
+	
+	func loadImage(link:String, object: UIImageView){
+		DispatchQueue.global(qos: .userInitiated).async {
+			let imageFile = UIImage.init(url: URL.init(string: link))
+			
+			DispatchQueue.main.async {
+				object.image = imageFile!
+			}
+			
+		}
+	}
+	func updateDonationStatus(donationStage:Int) -> String{
+		
+		switch donationStage {
+		case 1:
+			return "Menunggu Claim"
+		case 2:
+			return "Menunggu Kurir"
+		case 3:
+			return "Di Jemput"
+		case 4:
+			return "Di Antar"
+		default:
+			return ""
+		}
+		
+	}
+	
 }
