@@ -11,6 +11,9 @@ import CoreLocation
 
 class KegiatanViewController: UITableViewController {
     
+    @IBAction func back(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBOutlet weak var fotoDonasi: UIImageView!
     
     @IBOutlet weak var stasus1: UIImageView!
