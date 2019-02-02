@@ -94,7 +94,7 @@ class KegiatanViewController: UITableViewController {
         transactionID = "T1"
         if let transID = transactionID {
         passingObject = connector().transactionDetail(transactionID: transID)
-            passingObject?.status = 2
+            passingObject?.status = 1
             updateDonationDetails()
         }else{
           dismiss(animated: true, completion: nil)

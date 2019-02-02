@@ -13,7 +13,7 @@
         <scene sceneID="En1-HO-xZ7">
             <objects>
                 <tableViewController id="9w1-0l-aAf" customClass="Organisasi" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="16" sectionFooterHeight="16" id="eQ2-cD-Ynq">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" keyboardDismissMode="interactive" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="16" sectionFooterHeight="16" id="eQ2-cD-Ynq">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -74,7 +74,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="Fud-Ea-nM1">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="103" id="FAT-F3-tFu">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="103" id="FAT-F3-tFu">
                                         <rect key="frame" x="0.0" y="226" width="375" height="103"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FAT-F3-tFu" id="gb2-FF-dSP">
@@ -94,10 +94,6 @@
                                                                         <constraint firstAttribute="width" secondItem="KdK-qq-mbs" secondAttribute="height" multiplier="1:1" id="eIB-ml-Ke7"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="Logo call"/>
-                                                                    <connections>
-                                                                        <action selector="btnCall:" destination="9w1-0l-aAf" eventType="touchUpInside" id="K9u-lw-FMp"/>
-                                                                        <action selector="btnCallOrganisasi:" destination="9w1-0l-aAf" eventType="touchUpInside" id="y6z-sj-rGh"/>
-                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telphone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8G-CA-n9t">
                                                                     <rect key="frame" x="0.0" y="63.000000000000007" width="55" height="20.333333333333336"/>
@@ -116,9 +112,6 @@
                                                                         <constraint firstAttribute="width" secondItem="dHn-Px-DTh" secondAttribute="height" multiplier="1:1" id="GtB-bS-vht"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="SMS"/>
-                                                                    <connections>
-                                                                        <action selector="btnChatDonasi:" destination="9w1-0l-aAf" eventType="touchUpInside" id="lQI-5N-SLn"/>
-                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-Wv-zax">
                                                                     <rect key="frame" x="0.0" y="63.000000000000007" width="55" height="20.333333333333336"/>
@@ -138,7 +131,7 @@
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="Lokasi"/>
                                                                     <connections>
-                                                                        <action selector="btnMap:" destination="9w1-0l-aAf" eventType="touchUpInside" id="DYc-wT-O0V"/>
+                                                                        <action selector="clickedOnLocation:" destination="9w1-0l-aAf" eventType="touchUpInside" id="HuH-OL-1En"/>
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokasi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-RW-aY6">
@@ -158,9 +151,6 @@
                                                                         <constraint firstAttribute="width" secondItem="7kn-TD-Ign" secondAttribute="height" multiplier="1:1" id="gwH-eF-xqA"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="Website"/>
-                                                                    <connections>
-                                                                        <action selector="linkOrganisasi:" destination="9w1-0l-aAf" eventType="touchUpInside" id="yqg-px-pfb"/>
-                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik8-OQ-hgp">
                                                                     <rect key="frame" x="0.0" y="63.000000000000007" width="55" height="20.333333333333336"/>
@@ -190,7 +180,7 @@
                             </tableViewSection>
                             <tableViewSection headerTitle=" " id="tQ9-cO-N2N">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="87" id="UO9-uN-ZSR">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="87" id="UO9-uN-ZSR">
                                         <rect key="frame" x="0.0" y="345" width="375" height="87"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="UO9-uN-ZSR" id="rfK-k5-i3T">
@@ -215,27 +205,21 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection headerTitle="Program" id="7bw-QX-fA7">
+                            <tableViewSection headerTitle=" " id="7bw-QX-fA7">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="AGg-a6-QgY">
-                                        <rect key="frame" x="0.0" y="448" width="375" height="106"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="66" id="AGg-a6-QgY">
+                                        <rect key="frame" x="0.0" y="448" width="375" height="66"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AGg-a6-QgY" id="gVV-Pa-K1k">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="65.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="lpB-nV-Wje">
-                                                    <rect key="frame" x="32" y="19" width="311" height="68"/>
+                                                    <rect key="frame" x="32" y="19" width="311" height="28"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is program name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtA-cE-1Uc">
-                                                            <rect key="frame" x="0.0" y="0.0" width="311" height="22"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Program" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AtA-cE-1Uc">
+                                                            <rect key="frame" x="0.0" y="0.0" width="311" height="28"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                                                            <nil key="textColor"/>
-                                                            <nil key="highlightedColor"/>
-                                                        </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is program description. This will be a long ass text... so bear with on this one" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v5Q-SD-iBu">
-                                                            <rect key="frame" x="0.0" y="22" width="311" height="46"/>
-                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
@@ -249,29 +233,25 @@
                                                 <constraint firstAttribute="trailingMargin" secondItem="lpB-nV-Wje" secondAttribute="trailing" constant="16" id="xkI-vl-UMt"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="namaProgramOrganisasi" destination="AtA-cE-1Uc" id="8xr-o0-n4J"/>
-                                            <outlet property="penjelasanProgramOrganisasi" destination="v5Q-SD-iBu" id="dLH-Tj-8kc"/>
-                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="d73-na-puK">
-                                        <rect key="frame" x="0.0" y="554" width="375" height="106"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="d73-na-puK">
+                                        <rect key="frame" x="0.0" y="514" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="d73-na-puK" id="LgO-Jf-sZn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="105.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="H0h-xf-DVJ">
-                                                    <rect key="frame" x="32" y="19" width="311" height="68"/>
+                                                    <rect key="frame" x="32" y="19" width="285" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is program name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wh2-t8-fvv">
-                                                            <rect key="frame" x="0.0" y="0.0" width="311" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="285" height="16.333333333333332"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is program description. This will be a long ass text... so bear with on this one" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MUB-gn-Ind">
-                                                            <rect key="frame" x="0.0" y="22" width="311" height="46"/>
+                                                            <rect key="frame" x="0.0" y="16.333333333333339" width="285" height="51.666666666666657"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -286,29 +266,25 @@
                                                 <constraint firstItem="H0h-xf-DVJ" firstAttribute="top" secondItem="LgO-Jf-sZn" secondAttribute="topMargin" constant="8" id="Phy-UR-0QU"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="namaProgramOrganisasi" destination="wh2-t8-fvv" id="toE-nb-ejU"/>
-                                            <outlet property="penjelasanProgramOrganisasi" destination="MUB-gn-Ind" id="o8K-yA-rbR"/>
-                                        </connections>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="blue" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="0Ai-EW-ncT">
-                                        <rect key="frame" x="0.0" y="660" width="375" height="106"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="0Ai-EW-ncT">
+                                        <rect key="frame" x="0.0" y="620" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="0Ai-EW-ncT" id="Dai-fG-UeG">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="105.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="105.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="hCR-HV-ruD">
-                                                    <rect key="frame" x="32" y="19" width="311" height="68"/>
+                                                    <rect key="frame" x="32" y="19" width="285" height="68"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is program name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I21-Jg-45D">
-                                                            <rect key="frame" x="0.0" y="0.0" width="311" height="22"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="285" height="16.333333333333332"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is program description. This will be a long ass text... so bear with on this one" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jNJ-l0-tjk">
-                                                            <rect key="frame" x="0.0" y="22" width="311" height="46"/>
+                                                            <rect key="frame" x="0.0" y="16.333333333333339" width="285" height="51.666666666666657"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -323,10 +299,39 @@
                                                 <constraint firstItem="hCR-HV-ruD" firstAttribute="top" secondItem="Dai-fG-UeG" secondAttribute="topMargin" constant="8" id="qZP-aO-hhQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="namaProgramOrganisasi" destination="I21-Jg-45D" id="YUv-Ci-4bh"/>
-                                            <outlet property="penjelasanProgramOrganisasi" destination="jNJ-l0-tjk" id="NsO-dB-lPO"/>
-                                        </connections>
+                                    </tableViewCell>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" accessoryType="disclosureIndicator" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" rowHeight="106" id="gCA-Ax-asc">
+                                        <rect key="frame" x="0.0" y="726" width="375" height="106"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gCA-Ax-asc" id="74g-a6-Tq6">
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="105.66666666666667"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                            <subviews>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0XY-Ed-yZ0">
+                                                    <rect key="frame" x="32" y="19" width="285" height="68"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is program name" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edk-Fk-eq3">
+                                                            <rect key="frame" x="0.0" y="0.0" width="285" height="16.333333333333332"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="This is program description. This will be a long ass text... so bear with on this one" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="XIX-i5-Kc4">
+                                                            <rect key="frame" x="0.0" y="16.333333333333339" width="285" height="51.666666666666657"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                    </subviews>
+                                                </stackView>
+                                            </subviews>
+                                            <constraints>
+                                                <constraint firstAttribute="trailingMargin" secondItem="0XY-Ed-yZ0" secondAttribute="trailing" constant="16" id="I6I-EK-jWx"/>
+                                                <constraint firstItem="0XY-Ed-yZ0" firstAttribute="top" secondItem="74g-a6-Tq6" secondAttribute="topMargin" constant="8" id="McV-qn-vSu"/>
+                                                <constraint firstItem="0XY-Ed-yZ0" firstAttribute="leading" secondItem="74g-a6-Tq6" secondAttribute="leadingMargin" constant="16" id="PgJ-rB-0Ga"/>
+                                                <constraint firstAttribute="bottomMargin" secondItem="0XY-Ed-yZ0" secondAttribute="bottom" constant="8" id="oql-9d-X4S"/>
+                                            </constraints>
+                                        </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
@@ -340,32 +345,16 @@
                         <outlet property="alamatOrganisasi" destination="1kR-ji-Eyq" id="Xbt-1r-kGn"/>
                         <outlet property="callOrganisasi" destination="KdK-qq-mbs" id="7lm-sy-6Ii"/>
                         <outlet property="chatOrganisasi" destination="dHn-Px-DTh" id="P3P-qK-oIW"/>
-                        <outlet property="deskripsiProgram1" destination="v5Q-SD-iBu" id="WR5-ze-7Th"/>
-                        <outlet property="deskripsiProgram2" destination="MUB-gn-Ind" id="15Y-Ae-MfP"/>
-                        <outlet property="deskripsiProgram3" destination="jNJ-l0-tjk" id="Gis-vd-v2M"/>
                         <outlet property="keteranganOrganisasi" destination="TwI-mj-ThX" id="lF6-OB-bCd"/>
                         <outlet property="linkOrganisasi" destination="7kn-TD-Ign" id="kVS-u7-UYL"/>
                         <outlet property="logoOrganisasi" destination="CFN-7M-gjz" id="RbP-LK-cH2"/>
                         <outlet property="lokasiOrganisasi" destination="8iB-EP-ejd" id="Ry0-UO-iuD"/>
                         <outlet property="namaOrganisasi" destination="yIx-fX-vAb" id="i3h-Fo-xQb"/>
-                        <outlet property="namaProgram1" destination="AtA-cE-1Uc" id="TSZ-G8-DGL"/>
-                        <outlet property="namaProgram2" destination="wh2-t8-fvv" id="yKs-hP-evh"/>
-                        <outlet property="namaProgram3" destination="I21-Jg-45D" id="w46-ft-Tab"/>
-                        <outlet property="tentangOrganisasi" destination="TwI-mj-ThX" id="CkF-v4-Qqm"/>
-                        <segue destination="ufx-BC-4ak" kind="show" id="C9X-lz-o1l"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4h-1a-vut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1960.8" y="790.64039408866995"/>
-        </scene>
-        <!--UITableViewController-wxA-CI-nGU-->
-        <scene sceneID="51Z-7H-psX">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" referencedIdentifier="UITableViewController-wxA-CI-nGU" id="ufx-BC-4ak" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Erg-1t-eEY" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2749" y="791"/>
         </scene>
     </scenes>
     <resources>

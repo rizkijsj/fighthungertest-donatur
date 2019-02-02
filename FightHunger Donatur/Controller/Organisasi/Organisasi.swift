@@ -22,19 +22,27 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     @IBOutlet weak var keteranganOrganisasi: UILabel!
     
     var organisasiObject : organizationObject?
+    var organisasiProgramObject: [programObject] = []
     var organisasiID : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        organisasiID = "O07"
         
-        if let organisasiObject = connector().organizationDetail(organizationID: organisasiID!){
-            organisasiID = organisasiObject.id
-//            loadImage(link: logoOrganisasi!.image)
-            namaOrganisasi.text = organisasiObject.name
-            alamatOrganisasi.text = organisasiObject.locationName
-            btnAction()
-            keteranganOrganisasi.text = organisasiObject.description
+        if let orgID = organisasiID, let organisasi = connector().organizationDetail(organizationID: orgID)
+             {
+                organisasiID = organisasi.id
+                loadImage(link: organisasi.logo)
+                namaOrganisasi.text = organisasi.name
+                alamatOrganisasi.text = organisasi.locationName
+                //btnAction()
+                keteranganOrganisasi.text = organisasi.description
+               
+                organisasiProgramObject = connector().getOrganizationProgramList(organizationID: orgID, limit: 3)
             
+                self.tableView.reloadData()
+        }else {
+            self.navigationController?.popViewController(animated: false)
         }
     }
     
@@ -46,6 +54,10 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
                 self.logoOrganisasi.image = imageFile!
             }
         }
+    }
+    
+    @IBAction func clickedOnLocation(_ sender: UIButton) {
+         print("Open Map")
     }
     
     func btnAction(){
@@ -79,6 +91,33 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
             mapItem.name = organisasiObject?.locationName
             mapItem.openInMaps(launchOptions: options)
         }
+        
+    }
+    
+    override func numberOfSections(in tableView: UITableView) -> Int {
+        return 4
+    }
+    
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        
+        if section == 0{
+            return 1
+        }else if section == 1 {
+            return 1
+        } else if section == 2 {
+            return 1
+        } else if section == 3 {
+            if organisasiProgramObject.count > 0 {
+                return organisasiProgramObject.count + 1
+            }else {
+                return 0
+            }
+            
+        }
+        return 0
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
     

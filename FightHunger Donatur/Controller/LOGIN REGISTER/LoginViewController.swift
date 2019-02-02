@@ -14,7 +14,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
     @IBAction func back(_ sender: UIBarButtonItem) {
         
         self.navigationController?.popToRootViewController(animated: true)
-        print("test")
+       
     }
     
     @IBOutlet weak var lnjtBtn: UIButton!

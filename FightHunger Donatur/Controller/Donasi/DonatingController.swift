@@ -19,6 +19,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         namaTxt.resignFirstResponder()
         deskripsiTxt.resignFirstResponder()
         keteranganTxt.resignFirstResponder()
+        
         return true
     }
     
@@ -50,11 +51,6 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     //    buat passing data ke map
     @IBOutlet weak var alamat: UILabel!
-    @IBOutlet weak var namaBarang: CustomTextField!
-    @IBOutlet weak var deskripsiBarang: CustomTextField!
-    @IBOutlet weak var kuantitasBarang: CustomTextField!
-    @IBOutlet weak var keteranganTambahanLokasi: CustomTextField!
-    @IBOutlet weak var waktuPengambilan: UINavigationItem!
     
     @IBOutlet weak var imgDonasi: UIImageView!
     
@@ -84,21 +80,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
                 self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
             }
         }
-        //validasi untuk ke halaman selanjutnya
-       
-       
-            
-//            else if deskripsiTxt.text == nil || deskripsiTxt.text == ""
-//        {
-//            submitButton.isEnabled = false
-//        }else if keteranganTxt.text == nil || keteranganTxt.text == ""
-//        {
-//            submitButton.isEnabled = false
-//        }else
-//        {
-//            submitButton.isEnabled = true
-//        }
-       
+     
         
         
         
@@ -149,10 +131,10 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         
-       tableView.delegate = self
-       tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-       submitButton.isEnabled = false
+        submitButton.isEnabled = false
         namaTxt.delegate = self
         deskripsiTxt.delegate = self
         keteranganTxt.delegate = self
@@ -169,6 +151,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
        let nama = namaTxt.text
         let deskripsi = deskripsiTxt.text
         let keteranganLokasi = keteranganTxt.text
+        let textFieldLength = deskripsiTxt.text!.characters.count
         
         let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && keteranganLokasi != "" && keteranganLokasi != nil
         
@@ -176,9 +159,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         {
            
             submitButton.isEnabled = true
-//            //set text bold
-//            let attributes: [NSAttributedString.Key : Any] = [ .font: UIFont.boldSystemFont(ofSize: 170) ]
-//            submitButton.setTitleTextAttributes(attributes, for: .normal)
+
         }else if nama == nil || nama == ""
         {
             submitButton.isEnabled = false
@@ -186,7 +167,11 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         }else if deskripsi == nil || deskripsi == ""
         {
             submitButton.isEnabled = false
-        }else if keteranganLokasi == nil || keteranganLokasi == ""
+        }else if textFieldLength > 120
+        {
+            submitButton.isEnabled = false
+        }
+        else if keteranganLokasi == nil || keteranganLokasi == ""
         {
             submitButton.isEnabled = false
         }

@@ -212,6 +212,7 @@
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="submitBtn:" destination="f4w-s9-JZp" id="9qQ-bw-iFZ"/>
+                                <segue destination="Qye-FF-Kdx" kind="show" id="j4g-DB-NGC"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -229,14 +230,6 @@
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3764" y="1903"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="Tww-I4-eRL">
-            <objects>
-                <viewControllerPlaceholder id="Epj-7i-wxT" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x7O-Kj-TBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3764" y="1180"/>
         </scene>
         <!--LoginRegister-->
         <scene sceneID="6Xe-2Q-kM4">

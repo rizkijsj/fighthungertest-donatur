@@ -15,10 +15,17 @@ class ProfilController: UITableViewController {
 
         tableView.delegate = self
         tableView.dataSource = self
+        
+
+        
+    }
+    
+    @objc func dismissProfile(){
+        
     }
 
-    @IBAction func backBtn(_ sender: Any) {
-        self.dismiss(animated: true, completion: nil)
+    @IBAction func clickedOnArrowBack(_ sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewController(animated: true)
     }
     // MARK: - Table view data source
 

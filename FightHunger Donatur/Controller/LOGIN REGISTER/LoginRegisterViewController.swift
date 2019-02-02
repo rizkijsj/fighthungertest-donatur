@@ -12,7 +12,7 @@ class LoginRegisterViewController: UIViewController {
 
     @IBAction func backToHome(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
-            performSegue(withIdentifier: "toNewHome", sender: self)
+//            performSegue(withIdentifier: "toNewHome", sender: self)
     }
     
    
