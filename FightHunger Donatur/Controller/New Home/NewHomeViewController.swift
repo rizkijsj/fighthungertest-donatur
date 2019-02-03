@@ -30,6 +30,8 @@ class NewHomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Set what needs to display within your view
+		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
 		setupView()
 	}
 

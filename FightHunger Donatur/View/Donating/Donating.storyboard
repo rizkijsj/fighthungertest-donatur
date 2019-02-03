@@ -230,16 +230,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="alamat" destination="2IE-6B-5QZ" id="luq-fP-qhO"/>
-                        <outlet property="deskripsiTxt" destination="piT-uo-BYB" id="XFR-oy-vrP"/>
-                        <outlet property="gbrTemplate" destination="YlE-Cc-Slg" id="fzL-Tg-It9"/>
+                        <outlet property="alamat" destination="L65-r4-T5A" id="Qjf-RE-n7V"/>
+                        <outlet property="continueButton" destination="xgW-Ih-GwM" id="fmV-sv-Wrq"/>
+                        <outlet property="deskripsiBarang" destination="piT-uo-BYB" id="Wzc-ld-n90"/>
+                        <outlet property="gbrTemplate" destination="YlE-Cc-Slg" id="r5b-MZ-fyP"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
-                        <outlet property="keteranganTxt" destination="CX7-LV-Fii" id="3aS-GC-dhW"/>
-                        <outlet property="namaTxt" destination="tC5-9f-7PZ" id="pLe-Vy-xdt"/>
-                        <outlet property="submitButton" destination="xgW-Ih-GwM" id="59L-tc-UhC"/>
-                        <segue destination="Qye-FF-Kdx" kind="show" identifier="DonasiToLogin" id="7iQ-GF-BBJ"/>
-                        <segue destination="zu9-Xr-40N" kind="show" identifier="DonasiToMap" id="WNH-Pg-2Py"/>
-                        <segue destination="UCY-DD-sUE" kind="show" identifier="DonasiToHome" id="6kj-uL-z58"/>
+                        <outlet property="keteranganTambahanLokasi" destination="CX7-LV-Fii" id="nBG-jA-wrX"/>
+                        <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="vjU-CR-aYY"/>
+                        <outlet property="namaBarang" destination="tC5-9f-7PZ" id="VZg-rl-hyp"/>
+                        <segue destination="Qye-FF-Kdx" kind="show" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
+                        <segue destination="NF9-gH-61M" kind="show" identifier="DonasiToHome" id="ued-cH-GoR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -263,6 +263,14 @@
             </objects>
             <point key="canvasLocation" x="4345" y="1218"/>
         </scene>
+        <!--HomeDonatur-->
+        <scene sceneID="F4L-EP-cqZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewHome" referencedIdentifier="HomeDonatur" id="NF9-gH-61M" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lYj-Rx-zTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3799" y="1372"/>
+        </scene>
         <!--Location-->
         <scene sceneID="RT6-cy-kbA">
             <objects>
@@ -282,8 +290,7 @@
         <!--Navigation Controller-->
         <scene sceneID="WFU-xz-uPj">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dl4-sV-5yT" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="FLL-hy-RYO" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostDonasi" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lk5-bb-8ao" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bcx-cz-LX9">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>

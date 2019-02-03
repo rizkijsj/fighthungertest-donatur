@@ -191,6 +191,22 @@
             </objects>
             <point key="canvasLocation" x="7736.8000000000002" y="759.60591133004925"/>
         </scene>
+        <!--HomeDonatur-->
+        <scene sceneID="xoG-rc-ckm">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewHome" referencedIdentifier="HomeDonatur" id="qDD-gJ-eu3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="2Ya-CP-FLs" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7698" y="245"/>
+        </scene>
+        <!--PostDonasi-->
+        <scene sceneID="pSZ-EO-wR5">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Donating" referencedIdentifier="PostDonasi" id="Z2c-qG-ZY2" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="T9I-Sk-dr0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9067" y="252"/>
+        </scene>
         <!--Masuk-->
         <scene sceneID="gJg-CD-gfX">
             <objects>
@@ -310,7 +326,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="lanjutBtn:" destination="vMY-4Z-iyk" eventType="touchUpInside" id="TNL-Oz-Wf4"/>
+                                    <action selector="lanjutBtn:" destination="vMY-4Z-iyk" eventType="touchUpInside" id="35Z-Js-kWh"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-B3-BSJ">
@@ -352,18 +368,19 @@
                     </navigationItem>
                     <connections>
                         <outlet property="continueButton" destination="GqK-Pd-l6e" id="Fyh-36-G8P"/>
-                        <outlet property="lnjtBtn" destination="GqK-Pd-l6e" id="LBg-LD-Z1Q"/>
                         <outlet property="otpTxt1" destination="ucS-uc-d3x" id="9oc-Ri-g9w"/>
                         <outlet property="otpTxt2" destination="egw-Et-akI" id="CIN-dP-pej"/>
                         <outlet property="otpTxt3" destination="n3t-cs-R8X" id="O2Z-6p-Myg"/>
                         <outlet property="otpTxt4" destination="nxj-ut-yas" id="OFN-9a-SJp"/>
                         <outlet property="otpTxt5" destination="Xbc-F4-UVt" id="djn-0s-SWq"/>
                         <outlet property="otpTxt6" destination="f1V-JK-N0q" id="rjf-J9-nOl"/>
+                        <segue destination="qDD-gJ-eu3" kind="show" identifier="LoginToHome" id="KAB-Li-jBs"/>
+                        <segue destination="Z2c-qG-ZY2" kind="show" identifier="OTPToHome" id="22D-7g-c8v"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zal-mt-FQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9565.6000000000004" y="762.5615763546798"/>
+            <point key="canvasLocation" x="8594" y="831"/>
         </scene>
         <!--Register-->
         <scene sceneID="iO6-ve-G6C">

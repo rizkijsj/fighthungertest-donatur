@@ -9,6 +9,14 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
+        <!--HomeDonatur-->
+        <scene sceneID="23F-fq-j16">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewHome" referencedIdentifier="HomeDonatur" id="gu4-Up-Jbj" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="WTb-HQ-P9q" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="6357" y="781"/>
+        </scene>
         <!--UbahProfil-->
         <scene sceneID="mUi-Q0-ewH">
             <objects>
@@ -164,7 +172,15 @@
                                 <action selector="cancelBtn:" destination="qlw-we-uJF" id="IMb-uu-mcV"/>
                             </connections>
                         </barButtonItem>
+                        <barButtonItem key="rightBarButtonItem" title="Sign Out" id="1xm-gr-8qO">
+                            <connections>
+                                <action selector="signOutHandlerAct:" destination="qlw-we-uJF" id="4FT-uW-336"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
+                    <connections>
+                        <segue destination="gu4-Up-Jbj" kind="show" identifier="GoToHome" id="haY-mh-gnM"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4if-sM-RbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -185,6 +201,24 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="7Yf-iQ-y7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="3685" y="1495"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="u2I-TA-EMt">
+            <objects>
+                <navigationController storyboardIdentifier="ProfileDonatur" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="anx-9z-F9V" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="az9-ce-FiO">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="qlw-we-uJF" kind="relationship" relationship="rootViewController" id="bNb-w6-6Ko"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dGH-eb-OKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="5384.8000000000002" y="1193.3497536945813"/>
         </scene>
     </scenes>
     <resources>
