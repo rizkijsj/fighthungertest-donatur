@@ -149,20 +149,22 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         //imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
-        
-        tableView.delegate = self
-        tableView.dataSource = self
-        tableView.rowHeight = UITableView.automaticDimension
+		
+		self.tableView.delegate = self
+		self.tableView.dataSource = self
+       // tableView.delegate = self
+       // tableView.dataSource = self
+        //tableView.rowHeight = UITableView.automaticDimension
         continueButton.isEnabled = false
-        namaBarang.delegate = self
-        deskripsiBarang.delegate = self
-        keteranganBarang.delegate = self
-        alamat.delegate = self
+        //namaBarang.delegate = self
+        //deskripsiBarang.delegate = self
+        //keteranganBarang.delegate = self
+        //alamat.delegate = self
         
         
-         namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+         //namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        //deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        //keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -257,7 +259,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     }
     
     
-
+/*
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 3
@@ -276,7 +278,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		}
 
     }
-
+*/
     
     
     @objc func handlePosting() {
