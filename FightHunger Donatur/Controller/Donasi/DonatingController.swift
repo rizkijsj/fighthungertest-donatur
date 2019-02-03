@@ -19,7 +19,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         namaTxt.resignFirstResponder()
         deskripsiTxt.resignFirstResponder()
         keteranganTxt.resignFirstResponder()
-        
+       
         return true
     }
     
@@ -78,10 +78,13 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         
         connector().verifyUserLoginState { (state) in
             if state{
-                self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
-            }else{
-				self.sendDataToNextVC()
+                self.sendDataToNextVC()
                 self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
+              
+            }else{
+				
+                
+                self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
             }
         }
      
@@ -90,7 +93,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         
     }
     
-    //ERROR MAKANYA W COMMENT DULU
+  //ERROR JD W COMMENT DULU
 //    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 //        if segue.identifier == "DonasiToLogin"{
 //            let info = segue.destination as! LoginViewController
@@ -177,7 +180,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         {
             submitButton.isEnabled = false
             
-        }else if deskripsi == nil || deskripsi == ""
+        }else if deskripsi == nil || deskripsi == "" 
         {
             submitButton.isEnabled = false
         }else if textFieldLength > 120
