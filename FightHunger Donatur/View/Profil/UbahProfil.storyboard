@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="dNi-3x-IM0">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jDV-6z-NTv">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -19,19 +19,19 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jtc-uV-H0X">
-                                <rect key="frame" x="20" y="110" width="335" height="21"/>
+                                <rect key="frame" x="20" y="66" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomor telfon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="COr-q3-N1K">
-                                <rect key="frame" x="20" y="164" width="335" height="21"/>
+                                <rect key="frame" x="20" y="120" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cth: Nicholas saputra" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Jvr-gC-OTB" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                <rect key="frame" x="20" y="135" width="335" height="20"/>
+                                <rect key="frame" x="20" y="91" width="335" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="hJC-xa-eyw"/>
                                 </constraints>
@@ -39,7 +39,7 @@
                                 <textInputTraits key="textInputTraits" returnKeyType="next"/>
                             </textField>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cth: 0812127357xx" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gY3-BJ-EbD" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                <rect key="frame" x="20" y="188" width="335" height="20"/>
+                                <rect key="frame" x="20" y="144" width="335" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="jjd-Xf-GJP"/>
                                 </constraints>
@@ -47,13 +47,13 @@
                                 <textInputTraits key="textInputTraits" keyboardType="phonePad" returnKeyType="next"/>
                             </textField>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7vi-5z-i9F">
-                                <rect key="frame" x="20" y="217" width="335" height="21"/>
+                                <rect key="frame" x="20" y="173" width="335" height="21"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cth: abcd@example.com" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Tmg-kx-89W" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                <rect key="frame" x="20" y="241" width="335" height="20"/>
+                                <rect key="frame" x="20" y="197" width="335" height="20"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="20" id="Uko-XH-0Tr"/>
                                 </constraints>
@@ -89,10 +89,10 @@
                         <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="GeO-d0-Q0G">
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
-                                <action selector="cancelBtn:" destination="jDV-6z-NTv" id="3Pu-mV-xWW"/>
+                                <action selector="cancelBtn:" destination="jDV-6z-NTv" id="kAG-CQ-jQ1"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Submit" id="dmh-Uy-s7d">
+                        <barButtonItem key="rightBarButtonItem" title="Simpan" id="dmh-Uy-s7d">
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="submitBtn:" destination="jDV-6z-NTv" id="rhd-Af-3Jq"/>
@@ -109,24 +109,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="SoI-9k-jT5" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="672.79999999999995" y="-1328.5714285714287"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="BFp-vT-KLt">
-            <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lbb-bJ-skm" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="dNi-3x-IM0" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="wqF-gE-4lJ">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="jDV-6z-NTv" kind="relationship" relationship="rootViewController" id="X0N-IT-bHF"/>
-                    </connections>
-                </navigationController>
-            </objects>
-            <point key="canvasLocation" x="-269.60000000000002" y="-1328.5714285714287"/>
         </scene>
     </scenes>
 </document>

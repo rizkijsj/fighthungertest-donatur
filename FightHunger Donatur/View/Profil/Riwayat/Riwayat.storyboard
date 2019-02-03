@@ -93,29 +93,20 @@
                     </view>
                     <navigationItem key="navigationItem" title="Riwayat Donasi" id="57H-QA-byf">
                         <barButtonItem key="leftBarButtonItem" image="arrowback" id="hBo-mO-dql">
-                            <inset key="imageInsets" minX="-30" minY="0.0" maxX="27" maxY="-12"/>
+                            <inset key="imageInsets" minX="-50" minY="0.0" maxX="27" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="6lo-B8-0tN" kind="show" id="raZ-Mt-JH4"/>
+                                <action selector="backBtn:" destination="wZf-WO-A02" id="WbX-z8-M8H"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="EhS-jU-Jzf" id="Gwg-tC-oEy"/>
-                        <segue destination="15Y-ON-kaB" kind="show" animates="NO" id="jbW-Zh-c1c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8g-lX-DkI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4491.304347826087" y="1183.9285714285713"/>
-        </scene>
-        <!--Kegiatan-->
-        <scene sceneID="qZg-5O-vlV">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Kegiatan" id="15Y-ON-kaB" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4pW-bV-m1a" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5171.1999999999998" y="1193.3497536945813"/>
+            <point key="canvasLocation" x="6311.594202898551" y="1183.9285714285713"/>
         </scene>
     </scenes>
     <resources>

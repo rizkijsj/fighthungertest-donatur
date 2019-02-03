@@ -10,7 +10,10 @@ import UIKit
 
 class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
- 
+    @IBAction func backBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
     @IBOutlet weak var tableView: UITableView!
     
     func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {

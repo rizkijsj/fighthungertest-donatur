@@ -10,16 +10,20 @@ import UIKit
 
 class ProfilController: UITableViewController {
 
+    @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewController(animated: true)
+        print("hei")
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
         
-
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         
     }
-    
+  
     @objc func dismissProfile(){
         
     }
@@ -31,7 +35,7 @@ class ProfilController: UITableViewController {
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -39,9 +43,6 @@ class ProfilController: UITableViewController {
        if section == 0
        {
             return 2
-        }else if section == 1
-       {
-            return 1
         }else
        {
             return 1

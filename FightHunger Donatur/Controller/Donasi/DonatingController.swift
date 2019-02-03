@@ -241,7 +241,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
-        return 2
+        return 3
     }
     
     
@@ -249,9 +249,10 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
 		
-		if section == 0{
+		if section == 0 || section == 1{
 			return 1
-		}else {
+        } 
+        else {
 			return 6
 		}
 

@@ -10,10 +10,8 @@ import UIKit
 
 class UbahprofilViewController: UIViewController, UITextFieldDelegate {
 
-    @IBAction func cancelBtn(_ sender: Any) {
-        
-        
-      self.dismiss(animated: true, completion: nil)
+    @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
+       self.navigationController?.popViewController(animated: true)
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -57,6 +55,8 @@ class UbahprofilViewController: UIViewController, UITextFieldDelegate {
         //validation
         
     }
+    
+    
     @objc func doneClicked()
     {
         view.endEditing(true)
