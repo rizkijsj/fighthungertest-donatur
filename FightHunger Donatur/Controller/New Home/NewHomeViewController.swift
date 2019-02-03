@@ -255,12 +255,38 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 	}
 	
+	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage) {
+		let nextImage = newImage
+		
+		if previousImageView.image == nil{
+			previousImageView.image = newImage
+		}else{
+			let tmpImageView = UIImageView(image: nextImage)
+			tmpImageView.contentMode = previousImageView.contentMode
+			tmpImageView.frame = previousImageView.bounds
+			tmpImageView.alpha = 0.0
+			previousImageView.addSubview(tmpImageView)
+			
+			UIView.animate(withDuration: 1, animations: {
+				tmpImageView.alpha = 1.0
+			}, completion: {
+				finished in
+				previousImageView.image = nextImage
+				tmpImageView.image = nil
+				tmpImageView.removeFromSuperview()
+				tmpImageView.removeFromSuperview()
+				
+			})
+		}
+	}
+	
 	func loadImage(link:String, object: UIImageView){
 		DispatchQueue.global(qos: .background).async {
-			let imageFile = UIImage.init(url: URL.init(string: link))
+			guard let imageFile = UIImage.init(url: URL.init(string: link)) else {return}
 			
 			DispatchQueue.main.async {
-				object.image = imageFile
+				self.fadeInNewImage(previousImageView: object, newImage: imageFile)
+				//object.image = imageFile
 			}
 			
 		}
