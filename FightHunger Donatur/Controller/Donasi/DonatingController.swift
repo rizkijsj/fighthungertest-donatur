@@ -9,16 +9,19 @@
 import UIKit
 import Firebase
 
-class DonatingController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate{
-    @IBOutlet weak var namaTxt: CustomTextField!
-    @IBOutlet weak var deskripsiTxt: CustomTextField!
+class DonatingController: UITableViewController , UITextFieldDelegate{
+    @IBOutlet weak var namaBarang: CustomTextField!
+    @IBOutlet weak var deskripsiBarang: CustomTextField!
     
-    @IBOutlet weak var keteranganTxt: CustomTextField!
+	@IBOutlet weak var kuantitasBarang: CustomTextField!
+	@IBOutlet weak var keteranganBarang: CustomTextField!
+	
+	
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
-        namaTxt.resignFirstResponder()
-        deskripsiTxt.resignFirstResponder()
-        keteranganTxt.resignFirstResponder()
+        namaBarang.resignFirstResponder()
+        deskripsiBarang.resignFirstResponder()
+        keteranganBarang.resignFirstResponder()
        
         return true
     }
@@ -26,7 +29,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     //show keyboard
     func textFieldDidBeginEditing(_ textField: UITextField) {
-        moveKeyboard(textField: deskripsiTxt, moveDistance: -250, up: true)
+        moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: true)
     }
     @IBAction func toMap(_ sender: Any) {
         performSegue(withIdentifier: "DonasiToMap", sender: nil)
@@ -35,7 +38,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     //hide keyboard
     func textFieldDidEndEditing(_ textField: UITextField) {
         
-        moveKeyboard(textField: deskripsiTxt, moveDistance: -250, up: false)
+        moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: false)
     }
     
     
@@ -125,17 +128,17 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
 //        print(userProfile.phonenumber)
         
         //delegate textfield
-        namaBarang.delegate = self as? UITextFieldDelegate
+        namaBarang.delegate = self
         //alamat.delegate = self as? UILabel
-        deskripsiBarang.delegate = self as? UITextFieldDelegate
-        kuantitasBarang.delegate = self as? UITextFieldDelegate
-        keteranganTambahanLokasi.delegate = self as? UITextFieldDelegate
+        deskripsiBarang.delegate = self
+        kuantitasBarang.delegate = self
+        keteranganBarang.delegate = self
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
         namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        keteranganTambahanLokasi.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
         imgDonasi.isUserInteractionEnabled = true
@@ -150,51 +153,52 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         tableView.delegate = self
         tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-        submitButton.isEnabled = false
-        namaTxt.delegate = self
-        deskripsiTxt.delegate = self
-        keteranganTxt.delegate = self
+        continueButton.isEnabled = false
+        namaBarang.delegate = self
+        deskripsiBarang.delegate = self
+        keteranganBarang.delegate = self
         alamat.delegate = self
         
         
-         namaTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        deskripsiTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        keteranganTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+         namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
+		loadPostData()
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     @objc func textFieldChanged(_ target:UITextField)
     {
-        let nama = namaTxt.text
-        let deskripsi = deskripsiTxt.text
-        let keteranganLokasi = keteranganTxt.text
-        let textFieldLength = deskripsiTxt.text!.characters.count
+        let nama = namaBarang.text
+        let deskripsi = deskripsiBarang.text
+        let keteranganLokasi = keteranganBarang.text
+        let textFieldLength = deskripsiBarang.text!.characters.count
         
         let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && keteranganLokasi != "" && keteranganLokasi != nil
         
         if formFilled
         {
            
-            submitButton.isEnabled = true
+            continueButton.isEnabled = true
 
         }else if nama == nil || nama == ""
         {
-            submitButton.isEnabled = false
+            continueButton.isEnabled = false
             
         }else if deskripsi == nil || deskripsi == "" 
         {
-            submitButton.isEnabled = false
+            continueButton.isEnabled = false
         }else if textFieldLength > 120
         {
-            submitButton.isEnabled = false
+            continueButton.isEnabled = false
         }
         else if keteranganLokasi == nil || keteranganLokasi == ""
         {
-            submitButton.isEnabled = false
+            continueButton.isEnabled = false
         }
         
         
@@ -203,10 +207,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
       
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        loadPostData()
-    }
-    
+
     func loadPostData(){
         
         guard let tempPostData = defaults.object(forKey: "tempPostData") as? [String] else{return}
@@ -219,7 +220,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
             
                 gbrTemplate.isHidden = true
                 namaBarang.text = tempPostData[0]
-                keteranganTambahanLokasi.text = tempPostData[1]
+                keteranganBarang.text = tempPostData[1]
                 deskripsiBarang.text = tempPostData[2]
                 imgDonasi.image = imgTemp
                                 }
@@ -296,34 +297,6 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
             }
         }
     }
-
-
-
-    
-    
-    @objc func textFieldChanged(_ target:UITextField) {
-        let nama = namaBarang.text
-        let deskripsi = deskripsiBarang.text
-        let jumlah = kuantitasBarang.text
-        let keteranganTambahan = keteranganTambahanLokasi.text
-        
-        
-        //syaratnya
-        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && jumlah != nil && jumlah != "" && keteranganTambahan != nil && keteranganTambahan != ""
-        
-        //testing
-        //print(phonenumber.count)
-        print(formFilled)
-        if formFilled
-        {
-            setContinueButton(enabled: true)
-            
-        }
-        
-        
-    }
-    
-
     
     func sendDataToNextVC(){
         guard let namaBarang = namaBarang.text else { return }
@@ -352,39 +325,9 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         // Open Image Picker
         self.present(imagePicker, animated: true, completion: nil)
     }
-    
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        namaBarang.resignFirstResponder()
-        deskripsiBarang.resignFirstResponder()
-        keteranganTambahanLokasi.resignFirstResponder()
-        return true
-    }
-    
-    
-    //show keyboard
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: true)
-    }
-    
-    //hide keyboard
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: false)
-    }
-    
-    
-    func moveKeyboard(textField : CustomTextField , moveDistance: Float, up:Bool)
-    {
-        let MoveDuration = 0.3
-        let movement = CGFloat(up ? moveDistance : -moveDistance)
-        
-        UIView.beginAnimations("moveTextfield", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(MoveDuration)
-        // self.contentView.frame = CGRectOffse
-        UIView.commitAnimations()
-    }
+
+	
+	
     
     
     
@@ -415,6 +358,8 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         
     }
 }
+
+
 
 extension DonatingController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {

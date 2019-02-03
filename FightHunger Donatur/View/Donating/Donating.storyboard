@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="FLL-hy-RYO">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lk5-bb-8ao">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -20,18 +20,37 @@
                         <sections>
                             <tableViewSection id="Myj-Iy-Aba">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="228" id="FZL-KC-7Kf" customClass="CaptureImageTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="228"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="280" id="FZL-KC-7Kf" customClass="CaptureImageTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FZL-KC-7Kf" id="pfW-FG-ctY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="228"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
                                                     <rect key="frame" x="-1" y="9" width="375" height="210"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleAspectFit" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-Cc-Slg">
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShW-zC-hEI">
+                                                    <rect key="frame" x="210" y="226" width="135" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="library"/>
+                                                    <connections>
+                                                        <action selector="btnGallery:" destination="0pU-vt-mi9" eventType="touchUpInside" id="0Ym-0I-hXw"/>
+                                                        <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="FxU-No-aZn"/>
+                                                        <action selector="btnLibraryFoto:" destination="f4w-s9-JZp" eventType="touchUpInside" id="50r-iN-0yP"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-wN-XT0">
+                                                    <rect key="frame" x="29" y="226" width="135" height="46"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <state key="normal" backgroundImage="kamera"/>
+                                                    <connections>
+                                                        <action selector="btnKamera:" destination="f4w-s9-JZp" eventType="touchUpInside" id="5Xq-2K-nAc"/>
+                                                        <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="Vp2-e6-7Z1"/>
+                                                    </connections>
+                                                </button>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-Cc-Slg">
                                                     <rect key="frame" x="0.0" y="7" width="374" height="210"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" image="Gambar template donatur"/>
@@ -41,43 +60,10 @@
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
-                            <tableViewSection id="Euo-Dt-pWr">
-                                <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="70" id="Edj-ga-pIn">
-                                        <rect key="frame" x="0.0" y="228" width="375" height="70"/>
-                                        <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Edj-ga-pIn" id="3XC-bd-0l0">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="70"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                            <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="31g-qF-CNy">
-                                                    <rect key="frame" x="210" y="14" width="135" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="library"/>
-                                                    <connections>
-                                                        <action selector="btnGallery:" destination="0pU-vt-mi9" eventType="touchUpInside" id="NXy-yt-aCP"/>
-                                                        <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="gCw-67-LIb"/>
-                                                        <action selector="btnLibraryFoto:" destination="f4w-s9-JZp" eventType="touchUpInside" id="yfw-lj-wMs"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sim-fe-PZX">
-                                                    <rect key="frame" x="29" y="14" width="135" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="kamera"/>
-                                                    <connections>
-                                                        <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="bqi-nz-2fS"/>
-                                                        <action selector="btnKamera:" destination="f4w-s9-JZp" eventType="touchUpInside" id="nsF-1T-hrG"/>
-                                                    </connections>
-                                                </button>
-                                            </subviews>
-                                        </tableViewCellContentView>
-                                    </tableViewCell>
-                                </cells>
-                            </tableViewSection>
                             <tableViewSection headerTitle=" " id="tFf-RF-yAL">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="qF5-yL-e1t">
-                                        <rect key="frame" x="0.0" y="306" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="288" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qF5-yL-e1t" id="I3i-MT-oBn">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -99,7 +85,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="uRu-ng-lB6">
-                                        <rect key="frame" x="0.0" y="366" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="348" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRu-ng-lB6" id="bMr-sA-gaJ">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -121,7 +107,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="KbC-IA-oqZ" customClass="pickerviewTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="426" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="408" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KbC-IA-oqZ" id="IZG-gJ-gRy">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -146,32 +132,33 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Uee-y4-eHV">
-                                        <rect key="frame" x="0.0" y="486" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="468" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uee-y4-eHV" id="UtD-0G-fbr">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Alamat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="L65-r4-T5A">
+                                                    <rect key="frame" x="16" y="0.0" width="300" height="59.666666666666664"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                    <color key="textColor" white="0.78789419240000003" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <nil key="highlightedColor"/>
+                                                </label>
                                                 <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Xy-Bj6">
                                                     <rect key="frame" x="324" y="11" width="35" height="32"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="my_location"/>
                                                     <connections>
-                                                        <action selector="toMap:" destination="f4w-s9-JZp" eventType="touchUpInside" id="GZs-Xz-oac"/>
+                                                        <action selector="toMap:" destination="f4w-s9-JZp" eventType="touchUpInside" id="piq-HE-E42"/>
+                                                        <segue destination="zu9-Xr-40N" kind="show" animates="NO" id="76O-4p-wrX"/>
                                                     </connections>
                                                 </button>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-6B-5QZ" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="15" width="312" height="30"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
                                             </subviews>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ouU-jS-7zY">
-                                        <rect key="frame" x="0.0" y="546" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="528" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ouU-jS-7zY" id="IjZ-tB-GBh">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -188,7 +175,7 @@
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ZYu-CG-fkZ" customClass="waktuPickerTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="606" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="588" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZYu-CG-fkZ" id="K4n-I3-8xC">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -232,12 +219,13 @@
                     <connections>
                         <outlet property="alamat" destination="L65-r4-T5A" id="Qjf-RE-n7V"/>
                         <outlet property="continueButton" destination="xgW-Ih-GwM" id="fmV-sv-Wrq"/>
-                        <outlet property="deskripsiBarang" destination="piT-uo-BYB" id="Wzc-ld-n90"/>
+                        <outlet property="deskripsiBarang" destination="piT-uo-BYB" id="RCA-sn-zsC"/>
                         <outlet property="gbrTemplate" destination="YlE-Cc-Slg" id="r5b-MZ-fyP"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
+                        <outlet property="keteranganBarang" destination="CX7-LV-Fii" id="gMI-do-q1Z"/>
                         <outlet property="keteranganTambahanLokasi" destination="CX7-LV-Fii" id="nBG-jA-wrX"/>
-                        <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="vjU-CR-aYY"/>
-                        <outlet property="namaBarang" destination="tC5-9f-7PZ" id="VZg-rl-hyp"/>
+                        <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="X2J-u8-Xtu"/>
+                        <outlet property="namaBarang" destination="tC5-9f-7PZ" id="5Yy-ey-yx8"/>
                         <segue destination="Qye-FF-Kdx" kind="show" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
                         <segue destination="NF9-gH-61M" kind="show" identifier="DonasiToHome" id="ued-cH-GoR"/>
                     </connections>
@@ -245,20 +233,12 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="4706.3999999999996" y="1902.7093596059115"/>
-        </scene>
-        <!--NewHome-->
-        <scene sceneID="1Qu-5T-E3a">
-            <objects>
-                <viewControllerPlaceholder storyboardName="NewHome" id="UCY-DD-sUE" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lhK-xZ-2hC" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="6113.6000000000004" y="1835.4679802955666"/>
+            <point key="canvasLocation" x="3764" y="1903"/>
         </scene>
         <!--LoginRegister-->
         <scene sceneID="6Xe-2Q-kM4">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegister" id="Qye-FF-Kdx" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="LoginRegister" id="Qye-FF-Kdx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1et-5f-pWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4345" y="1218"/>
@@ -288,21 +268,22 @@
             <point key="canvasLocation" x="1062" y="2277"/>
         </scene>
         <!--Navigation Controller-->
-        <scene sceneID="WFU-xz-uPj">
+        <scene sceneID="oOM-wA-cu6">
             <objects>
                 <navigationController storyboardIdentifier="PostDonasi" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lk5-bb-8ao" sceneMemberID="viewController">
                     <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="bcx-cz-LX9">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1aA-hN-sX0">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="f4w-s9-JZp" kind="relationship" relationship="rootViewController" id="4mm-eb-qcC"/>
+                        <segue destination="f4w-s9-JZp" kind="relationship" relationship="rootViewController" id="lOk-8U-rPD"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m0h-kX-KDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3764" y="1902.7093596059115"/>
+            <point key="canvasLocation" x="2830" y="1578"/>
         </scene>
     </scenes>
     <resources>
