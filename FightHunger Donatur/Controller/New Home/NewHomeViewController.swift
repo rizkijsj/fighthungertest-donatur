@@ -105,14 +105,14 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		let label = UILabel(frame: CGRect(x: 16, y: 0, width: 200, height: 44))
 		label.textColor = .black
 		label.textAlignment = .left
-		label.font = UIFont.preferredFont(forTextStyle: .subheadline)
+		label.font = UIFont.preferredFont(forTextStyle: .title3)
 		headerView.addSubview(label)
 		
 		//let seeMore = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
 		let seeMore = UILabel(frame: CGRect(x: -16, y: 0, width: self.view.frame.width, height: 44))
 		seeMore.textColor = .red
 		seeMore.textAlignment = .right
-		seeMore.text = "Semua"
+		seeMore.text = "Lihat Semua"
 		seeMore.isUserInteractionEnabled = true
 		seeMore.font = UIFont.preferredFont(forTextStyle: .caption1)
 		
@@ -156,11 +156,11 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		switch indexPath.section {
 		case 0:
-			return 150
+			return 160
 		case 1:
-			return 324
+			return 352
 		case 2:
-			return 88
+			return 96
 		default:
 			return 0
 		}
@@ -203,9 +203,26 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		case 1:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "newActivityCellID", for: indexPath) as? SectionTwoHomeCell)!
 			
+			loadImage(link: programList[indexPath.row].imagesLink, object: cell.contentImage)
+			
+			if let orgObject = connector().organizationDetail(organizationID: programList[indexPath.row].organizationID){
+				loadImage(link: orgObject.logo, object: cell.contentOrganisationIcon)
+				cell.contentOrganisationName.text = orgObject.name
+			}
+			
+			cell.contentActivityDate.text = programList[indexPath.row].time
+			cell.contentTitle.text = programList[indexPath.row].name
+			cell.contentDesc.text = programList[indexPath.row].description
+			
+			
 			return cell
 		case 2:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "partnerCellID", for: indexPath) as? SectionThreeHomeCell)!
+			
+			loadImage(link: organizationList[indexPath.row].logo, object: cell.contentImage)
+			
+			cell.contentName.text = organizationList[indexPath.row].name
+			cell.contentAddress.text = organizationList[indexPath.row].locationName
 			
 			return cell
 		default:
