@@ -24,6 +24,9 @@ class NewHomeViewController: UIViewController {
 	var organizationList = connector().organizationList()
 	var programList = connector().programList()
 	
+	var selectedIndexPath:IndexPath?
+	var toDetail:Bool = false
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Set what needs to display within your view
@@ -39,6 +42,30 @@ class NewHomeViewController: UIViewController {
 		// Set the donate button corner radius to comply design requirement
 		donateButton.layer.cornerRadius = donateButton.frame.height / 4
 		donateButton.layer.masksToBounds = true
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if toDetail {
+			
+		}else{
+			guard let nextIndexPath = selectedIndexPath else {return}
+			
+			if nextIndexPath.section == 0 {
+				let activityVC = segue.destination as! KegiatanViewController
+				activityVC.passingObject = activityList[nextIndexPath.row]
+				activityVC.transactionID = activityList[nextIndexPath.row].id
+			}else if nextIndexPath.section == 1{
+				/// MARK: - TODO
+				/// Does program controller does not exist
+				
+				//let programVC = segue.destination as! KegiatanViewController
+				//programVC = programList[nextIndexPath.row]
+			}else if nextIndexPath.section == 2{
+				let organizationVC = segue.destination as! Organisasi
+				organizationVC.organisasiObject = organizationList[nextIndexPath.row]
+				organizationVC.organisasiID = organizationList[nextIndexPath.row].id
+			}
+		}
 	}
 	
 }
@@ -78,7 +105,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		let seeMore = UILabel(frame: CGRect(x: -16, y: 0, width: self.view.frame.width, height: 44))
 		seeMore.textColor = .red
 		seeMore.textAlignment = .right
-		seeMore.text = "Melihat Lebih"
+		seeMore.text = "Semua"
 		seeMore.isUserInteractionEnabled = true
 		seeMore.font = UIFont.preferredFont(forTextStyle: .caption1)
 		
@@ -104,14 +131,20 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		toDetail = false
 		
-		if indexPath.section == 1
-		{
-			if  indexPath.row == 0
-			{
-				print("salah")
-			}
+		if indexPath.section == 0{
+			selectedIndexPath = indexPath
+			print("Somewhere in Activity with \(activityList[indexPath.row].name)")
+		}else if indexPath.section == 1 {
+			selectedIndexPath = indexPath
+			print("Somewhere in Program with \(programList[indexPath.row].name)")
+		}else if indexPath.section == 2 {
+			selectedIndexPath = indexPath
+			print("Somewhere in Organization with \(organizationList[indexPath.row].name)")
 		}
+		
+		
 	}
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		switch indexPath.section {
@@ -226,10 +259,12 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	@objc func toMoreProgram(){
+		toDetail = true
 		print("Should segue to More Programs here")
 	}
 	
 	@objc func toMoreOrganization(){
+		toDetail = true
 		print("Should segue to More Organization Here")
 	}
 	
