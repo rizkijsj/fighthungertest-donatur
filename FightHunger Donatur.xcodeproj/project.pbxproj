@@ -247,6 +247,7 @@
 				B23731CC7207B133985E3096 /* Pods-FightHunger DonaturTests.release.xcconfig */,
 			);
 			name = Pods;
+			path = ..;
 			sourceTree = "<group>";
 		};
 		7956A38613A68ED60CA12F1D /* Frameworks */ = {
@@ -429,7 +430,6 @@
 				FB34B3F221FB32330070AA5E /* FightHunger Donatur */,
 				FB34B40A21FB32350070AA5E /* FightHunger DonaturTests */,
 				FB34B3F121FB32330070AA5E /* Products */,
-				3701E10949980CE5FEDF7F7B /* Pods */,
 				7956A38613A68ED60CA12F1D /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -446,6 +446,7 @@
 		FB34B3F221FB32330070AA5E /* FightHunger Donatur */ = {
 			isa = PBXGroup;
 			children = (
+				3701E10949980CE5FEDF7F7B /* Pods */,
 				2F5D060421FED60200CDD125 /* FightHunger Donatur.entitlements */,
 				911453E222041D3E0074C0FC /* Utility */,
 				2F5D05F921FED44700CDD125 /* Structure Data */,
@@ -918,7 +919,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7VX669QKF;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -938,7 +939,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7VX669QKF;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

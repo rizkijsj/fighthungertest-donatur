@@ -158,9 +158,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         deskripsiBarang.delegate = self
         keteranganBarang.delegate = self
         alamat.delegate = self
-        
-        
-         namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+    
+        namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }

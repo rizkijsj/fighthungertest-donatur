@@ -28,9 +28,9 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
         
         switch component {
         case 0:
-            return "\(row) jam"
+            return "jam \(row)"
         case 1:
-            return "\(row) min"
+            return "min \(row)"
         default:
             return ""
         }
@@ -60,8 +60,8 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
     }
     
     
-   var hours = Array(1...23)
-   var minutes = Array(00...59)
+   var hours = Array(1...24)
+   var minutes = Array(00...60)
   
     
     @IBOutlet weak var textWaktu: CustomTextField!
