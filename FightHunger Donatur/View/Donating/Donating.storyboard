@@ -151,7 +151,7 @@
                                                     <state key="normal" backgroundImage="my_location"/>
                                                     <connections>
                                                         <action selector="toMap:" destination="f4w-s9-JZp" eventType="touchUpInside" id="piq-HE-E42"/>
-                                                        <segue destination="zu9-Xr-40N" kind="show" animates="NO" id="76O-4p-wrX"/>
+                                                        <segue destination="zu9-Xr-40N" kind="show" identifier="DonasiToMap" animates="NO" id="76O-4p-wrX"/>
                                                     </connections>
                                                 </button>
                                             </subviews>

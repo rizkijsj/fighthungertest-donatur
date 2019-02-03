@@ -42,7 +42,48 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
         peta.addSubview(pinPoint)
         peta.addSubview(titikAwal)
         peta.addSubview(setLokasi)
-        
+		
+		let center = getCenterLocation(for: peta)
+		let geoCoder = CLGeocoder()
+		
+		guard let lokasiawal = self.lokasiSebelumnya else {return}
+		
+		center.distance(from: lokasiawal)
+		
+		self.lokasiSebelumnya = center
+		
+		geoCoder.reverseGeocodeLocation(center) { [weak self](placemarks, error) in
+			
+			
+			guard let self = self  else {return}
+			
+			if let err = error {
+				print(err.localizedDescription)
+				return
+			}
+			
+			guard let placemark = placemarks?.first else {
+				return
+			}
+			
+			let noJalan = placemark.subThoroughfare ?? ""
+			let jalan = placemark.thoroughfare ?? ""
+			let kelurahan = placemark.subLocality ?? ""
+			let kecamatan = placemark.locality ?? ""
+			let kota = placemark.subAdministrativeArea ?? ""
+			let kodePost = placemark.postalCode ?? ""
+			let provinsi = placemark.administrativeArea ?? ""
+			let negara = placemark.country ?? ""
+			
+			print("ini alamat lengkap : \(String(describing: placemarks))")
+			
+			DispatchQueue.main.async {
+				self.alamat.text = "Lokasi anda:\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+				
+				self.alamatLengkap = self.alamat.text!
+			}
+			
+		}
     }
     
     func setupLocationManager() {
@@ -194,8 +235,8 @@ extension LokasiPengambilan: MKMapViewDelegate{
         
         guard let lokasiawal = self.lokasiSebelumnya else {return}
         
-        guard center.distance(from: lokasiawal) > 50 else {return}
-        
+        guard center.distance(from: lokasiawal) > 10 else {return}
+		
         self.lokasiSebelumnya = center
         
         geoCoder.reverseGeocodeLocation(center) { [weak self](placemarks, error) in
@@ -203,7 +244,8 @@ extension LokasiPengambilan: MKMapViewDelegate{
 
             guard let self = self  else {return}
 
-            if let _ = error {
+            if let err = error {
+				print(err.localizedDescription)
                 return
             }
 
