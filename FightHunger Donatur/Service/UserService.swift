@@ -18,7 +18,7 @@ class UserService {
         
         userRef.observe(.value, with: { snapshot in
             var userProfile:UserProfile?
-            print(snapshot.value)
+            //print(snapshot.value)
             if let dict = snapshot.value as? [String:Any],
                 let email = dict["email"] as? String,
                 let photoURL = dict["photoURL"] as? String,

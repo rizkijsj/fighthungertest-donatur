@@ -9,44 +9,7 @@
 import UIKit
 import Firebase
 
-class DonatingController: UITableViewController , UIImagePickerControllerDelegate,UINavigationControllerDelegate, UITextFieldDelegate{
-    @IBOutlet weak var namaTxt: CustomTextField!
-    @IBOutlet weak var deskripsiTxt: CustomTextField!
-    
-    @IBOutlet weak var keteranganTxt: CustomTextField!
-    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
-        namaTxt.resignFirstResponder()
-        deskripsiTxt.resignFirstResponder()
-        keteranganTxt.resignFirstResponder()
-        return true
-    }
-    
-    
-    //show keyboard
-    func textFieldDidBeginEditing(_ textField: UITextField) {
-        moveKeyboard(textField: deskripsiTxt, moveDistance: -250, up: true)
-    }
-    
-    //hide keyboard
-    func textFieldDidEndEditing(_ textField: UITextField) {
-        
-        moveKeyboard(textField: deskripsiTxt, moveDistance: -250, up: false)
-    }
-    
-    
-    func moveKeyboard(textField : CustomTextField , moveDistance: Float, up:Bool)
-    {
-        let MoveDuration = 0.3
-        let movement = CGFloat(up ? moveDistance : -moveDistance)
-        
-        UIView.beginAnimations("moveTextfield", context: nil)
-        UIView.setAnimationBeginsFromCurrentState(true)
-        UIView.setAnimationDuration(MoveDuration)
-        // self.contentView.frame = CGRectOffse
-        UIView.commitAnimations()
-    }
-    
+class DonatingController: UITableViewController , UITextFieldDelegate{
     
     //    buat passing data ke map
     @IBOutlet weak var alamat: UILabel!
@@ -57,10 +20,17 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     @IBOutlet weak var waktuPengambilan: UINavigationItem!
     
     @IBOutlet weak var imgDonasi: UIImageView!
+    @IBOutlet weak var continueButton: UIBarButtonItem!
     
-    var tempTampungKirim = [String]()
+    @IBOutlet weak var gbrTemplate: UIButton!
+    
+    var dataPostTampungDonasiVC = [String:Any]()
+    let defaults = UserDefaults.standard
+
     var dataAlamat = "Lokasi"
     var kordinatPeta = [Double]()
+    
+    var activityView:UIActivityIndicatorView!
     
     var takenPhoto:UIImage?
     var imagePicker:UIImagePickerController!
@@ -74,53 +44,19 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     
     @IBAction func submitBtn(_ sender: Any) {
-        
+        setContinueButton(enabled: false)
         connector().verifyUserLoginState { (state) in
             if state{
-                self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
+                self.handlePosting()
             }else{
 				self.sendDataToNextVC()
                 self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
             }
         }
-        //validasi untuk ke halaman selanjutnya
-       
-        if namaTxt.text == nil || namaTxt.text == ""
-        {
-            submitButton.isEnabled = false
-        }else
-        {
-            submitButton.isEnabled = true
-        }
-            
-//            else if deskripsiTxt.text == nil || deskripsiTxt.text == ""
-//        {
-//            submitButton.isEnabled = false
-//        }else if keteranganTxt.text == nil || keteranganTxt.text == ""
-//        {
-//            submitButton.isEnabled = false
-//        }else
-//        {
-//            submitButton.isEnabled = true
-//        }
-       
-        
-        
         
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        let info = segue.destination as! LoginViewController
-		/// MARK: - Error Here
-		//info.tempTampungTerima = tempTampungKirim
-        tempTampungKirim = []
-    }
     
-    func sendDataToNextVC(){
-//        tempTampungKirim.append(emailTxtField.text!)
-//        tempTampungKirim.append(namaTxtField.text!)
-//        tempTampungKirim.append(telpTxtField.text!)
-    }
     
     @IBAction func cancelBtn(_ sender: Any) {
       self.view.window?.rootViewController?.dismiss(animated: true, completion: nil)
@@ -128,38 +64,80 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         
         //guard let userProfile = UserService.currentUserProfile else { return }
         if let availableImage = takenPhoto {
             imgDonasi.image = availableImage
-            //bgPhoto.image = nil
         }
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        //disable login button dan bikin activity progress yg muter-muter
+        setContinueButton(enabled: false)
+        activityView = UIActivityIndicatorView(style: .gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
+        activityView.center = view.center
+        view.addSubview(activityView)
 //        print(userProfile.username)
 //        print(userProfile.email)
 //        print(userProfile.phonenumber)
         
+        //delegate textfield
+        namaBarang.delegate = self as? UITextFieldDelegate
+        //alamat.delegate = self as? UILabel
+        deskripsiBarang.delegate = self as? UITextFieldDelegate
+        kuantitasBarang.delegate = self as? UITextFieldDelegate
+        keteranganTambahanLokasi.delegate = self as? UITextFieldDelegate
+        
+        //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
+        namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        keteranganTambahanLokasi.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
         imgDonasi.isUserInteractionEnabled = true
         imgDonasi.addGestureRecognizer(imageTap)
-        //        foto_Donasi.layer.cornerRadius = logoKomunitas.bounds.height / 2
-        //imgDonasi.clipsToBounds = true
-        //tapToChangeProfileButton.addTarget(self, action: #selector(openImagePicker), for: .touchUpInside)
+        
         
         imagePicker = UIImagePickerController()
-        imagePicker.allowsEditing = true
+        //imagePicker.allowsEditing = true
         imagePicker.sourceType = .photoLibrary
         imagePicker.delegate = self
         
-       tableView.delegate = self
-       tableView.dataSource = self
+        tableView.delegate = self
+        tableView.dataSource = self
         tableView.rowHeight = UITableView.automaticDimension
-       submitButton.isEnabled = false
-        namaTxt.delegate = self
-        deskripsiTxt.delegate = self
-        keteranganTxt.delegate = self
+        continueButton.isEnabled = false
+        deskripsiBarang.delegate = self
+      
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadPostData()
+    }
+    
+    func loadPostData(){
+        
+        guard let tempPostData = defaults.object(forKey: "tempPostData") as? [String] else{return}
+        if  tempPostData != nil{
+            print(tempPostData)
+            let imgTemp = loadImageFromDiskWith(fileName: "tempPostImage")
+            print(imgTemp)
+            if imgTemp != nil {
+                print("sonto")
+            
+                gbrTemplate.isHidden = true
+                namaBarang.text = tempPostData[0]
+                keteranganTambahanLokasi.text = tempPostData[1]
+                deskripsiBarang.text = tempPostData[2]
+                imgDonasi.image = imgTemp
+                                }
+            }else{
+                print("Foto tidak ditemukan")
+            }
+        
+}
+    
 
     @IBAction func btnLibraryFoto(_ sender: Any) {
         let imagePickerController = UIImagePickerController()
@@ -186,24 +164,7 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         }
     }
     
-   func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-      
-        gbrTemplate.isHidden = true
-        let passingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
-        
-        imgDonasi.image = passingImage
     
-        picker.dismiss(animated: true, completion: nil)
-        
-       
-    }
-    
-  
-    
-    @IBOutlet weak var gbrTemplate: UIButton!
-    
-        // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
@@ -223,63 +184,73 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
 
     }
 
-    @IBOutlet weak var submitButton: UIBarButtonItem!
-   
-    /*
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "reuseIdentifier", for: indexPath)
+    
+    
+    @objc func handlePosting() {
 
-        // Configure the cell...
+        guard let namaBarang = namaBarang.text else { return }
+        guard let namaLokasi = alamat.text else { return }
+        //guard let pickUpTime = waktuPengambilan.text else { return }
+        guard let fotobarang = imgDonasi.image else { return }
+        guard let deskripsi = deskripsiBarang.text else { return }
 
-        return cell
+
+        
+        connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi, fotodonasi: fotobarang, deskripsiBarang: deskripsi) { (result) in
+            if result{
+                self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
+            }else{
+                self.resetForm()
+            }
+        }
     }
-    */
 
-    /*
-    // Override to support conditional editing of the table view.
-    override func tableView(_ tableView: UITableView, canEditRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the specified item to be editable.
-        return true
+
+
+    
+    
+    @objc func textFieldChanged(_ target:UITextField) {
+        let nama = namaBarang.text
+        let deskripsi = deskripsiBarang.text
+        let jumlah = kuantitasBarang.text
+        let keteranganTambahan = keteranganTambahanLokasi.text
+        
+        
+        //syaratnya
+        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && jumlah != nil && jumlah != "" && keteranganTambahan != nil && keteranganTambahan != ""
+        
+        //testing
+        //print(phonenumber.count)
+        print(formFilled)
+        if formFilled
+        {
+            setContinueButton(enabled: true)
+            
+        }
+        
+        
     }
-    */
+    
 
-    /*
-    // Override to support editing the table view.
-    override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCellEditingStyle, forRowAt indexPath: IndexPath) {
-        if editingStyle == .delete {
-            // Delete the row from the data source
-            tableView.deleteRows(at: [indexPath], with: .fade)
-        } else if editingStyle == .insert {
-            // Create a new instance of the appropriate class, insert it into the array, and add a new row to the table view
-        }    
+    
+    func sendDataToNextVC(){
+        guard let namaBarang = namaBarang.text else { return }
+        guard let namaLokasi = alamat.text else { return }
+        //guard let pickUpTime = waktuPengambilan.text else { return }
+        
+        guard let deskripsi = deskripsiBarang.text else { return }
+        
+        guard let fotobarang = imgDonasi.image else { return }
+        
+        let tempPostData = [namaBarang,namaLokasi,deskripsi]
+        
+        defaults.set(tempPostData, forKey: "tempPostData")
+        defaults.set(true, forKey: "ngepostDonasi")
+        saveImageLocally(imageName: "tempPostImage", image: fotobarang)
+        
+        
+        
     }
-    */
-
-    /*
-    // Override to support rearranging the table view.
-    override func tableView(_ tableView: UITableView, moveRowAt fromIndexPath: IndexPath, to: IndexPath) {
-
-    }
-    */
-
-    /*
-    // Override to support conditional rearranging of the table view.
-    override func tableView(_ tableView: UITableView, canMoveRowAt indexPath: IndexPath) -> Bool {
-        // Return false if you do not want the item to be re-orderable.
-        return true
-    }
-    */
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
     
     @objc func viewTapped(gestureRecognizer: UITapGestureRecognizer){
         view.endEditing(true)
@@ -290,85 +261,57 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         self.present(imagePicker, animated: true, completion: nil)
     }
     
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        
+        namaBarang.resignFirstResponder()
+        deskripsiBarang.resignFirstResponder()
+        keteranganTambahanLokasi.resignFirstResponder()
+        return true
+    }
     
-//    @objc func handlePosting() {
-//
-//        guard let namaBarang = namaDonasi.text else { return }
-//        guard let namaLokasi = namaLokasi.text else { return }
-//        guard let pickUpTime = pickupTime.text else { return }
-//        guard let fotobarang = fotoDonasi.image else { return }
-//        guard let deskripsi = deskripsiDonasi.text else { return }
-//
-//        guard let userProfile = UserService.currentUserProfile else { return }
-//
-//        let uid = userProfile.uid
-//        // 1. Upload the profile image to Firebase Storage
-//
-//        self.uploadPostImage(fotobarang) { url in
-//
-//            if url != nil {
-//                print("url ga kosong")
-//                guard let userProfile = UserService.currentUserProfile else { return }
-//                let postRef = Database.database().reference().child("Post/\(uid)").childByAutoId()
-//                let postObject = [
-//                    "author": [
-//                        "uid": userProfile.uid,
-//                        "email": userProfile.email,
-//                        "phonenumber":userProfile.phonenumber,
-//                        "photoURL": userProfile.photoURL.absoluteString,
-//                        "username": userProfile.username
-//                    ],"namabarang": namaBarang,"namalokasi": namaLokasi,"pickupTime":pickUpTime,"deskripsiBarang":deskripsi,"postphotourl": url?.absoluteString,"timestamp": [".sv":"timestamp"],"status": "active"
-//                    ] as [String:Any]
-//
-//                postRef.setValue(postObject, withCompletionBlock: { error, ref in
-//                    if error == nil {
-//                        print("sukses")
-//                        let alert = UIAlertController(title: "Sukses Post Item", message:"Mohon menunggu komunitas menerima post donasi anda", preferredStyle: .alert)
-//                        alert.addAction(UIAlertAction(title: "Okay", style: .default, handler: { (action) in
-//
-//                        }))
-//                        self.present(alert, animated: true, completion: nil)
-//                    } else {
-//                        // Handle the error
-//                        print("error")
-//                        //  self.resetForm()
-//                    }})
-//            } else {
-//                //                self.resetForm()
-//                print("Error unable to upload profile image URL is nil")
-//            }
-//        }
-//    }
-//
-//
-//    func uploadPostImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
-//        var ref: DatabaseReference!
-//
-//        ref = Database.database().reference()
-//        let uid = ref.child("Post/FOI").childByAutoId().key
-//        let storageRef = Storage.storage().reference().child("Post/FOI/\(uid)")
-//
-//        guard let imageData = image.jpegData(compressionQuality: 0.75)else { return }
-//
-//
-//        let metaData = StorageMetadata()
-//        metaData.contentType = "image/jpg"
-//
-//        storageRef.putData(imageData, metadata: metaData) { metaData, error in
-//            if error == nil, metaData != nil {
-//
-//                storageRef.downloadURL { url, error in
-//                    completion(url)
-//                }
-//            } else {
-//                print(error)
-//                print(metaData)
-//                // failed
-//                print("failed")
-//                completion(nil)
-//            }
-//        }
-//    }
+    
+    //show keyboard
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: true)
+    }
+    
+    //hide keyboard
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        
+        moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: false)
+    }
+    
+    
+    func moveKeyboard(textField : CustomTextField , moveDistance: Float, up:Bool)
+    {
+        let MoveDuration = 0.3
+        let movement = CGFloat(up ? moveDistance : -moveDistance)
+        
+        UIView.beginAnimations("moveTextfield", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(MoveDuration)
+        // self.contentView.frame = CGRectOffse
+        UIView.commitAnimations()
+    }
+    
+    
+    
+    func setContinueButton(enabled:Bool) {
+        if enabled {
+            continueButton.tintColor = .black
+            continueButton.isEnabled = true
+        } else {
+            continueButton.tintColor = .black
+            continueButton.isEnabled = false
+        }
+    }
+    
+    func resetForm() {
+        
+        //setContinueButton(enabled: true)
+        activityView.stopAnimating()
+        setContinueButton(enabled: true)
+    }
     
     override var canBecomeFirstResponder: Bool{
         return true
@@ -380,35 +323,76 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         
     }
 }
-/*
+
 extension DonatingController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     func imagePickerControllerDidCancel(_ picker: UIImagePickerController) {
         picker.dismiss(animated: true, completion: nil)
     }
-    
+ 
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        
-        // The info dictionary may contain multiple representations of the image. You want to use the original.
+ 
+//         The info dictionary may contain multiple representations of the image. You want to use the original.
         guard let selectedImage = info[.originalImage] as? UIImage else {
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
-        
+ 
+        gbrTemplate.isHidden = true
         // Set photoImageView to display the selected image.
         self.imgDonasi.image = selectedImage
-        //self.bgPhoto.image = nil
-        
-        // Dismiss the picker.
+ 
+         //Dismiss the picker.
         dismiss(animated: true, completion: nil)
     }
-    */
+ 
+    func saveImageLocally(imageName: String, image: UIImage) {
+        
+        
+        guard let documentsDirectory = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first else { return }
+        
+        let fileName = imageName
+        let fileURL = documentsDirectory.appendingPathComponent(fileName)
+        guard let data = image.jpegData(compressionQuality: 1) else { return }
+        
+        //Checks if file exists, removes it if so.
+        if FileManager.default.fileExists(atPath: fileURL.path) {
+            do {
+                try FileManager.default.removeItem(atPath: fileURL.path)
+                print("Removed old image")
+            } catch let removeError {
+                print("couldn't remove file at path", removeError)
+            }
+            
+        }
+        
+        do {
+            try data.write(to: fileURL)
+        } catch let error {
+            print("error saving file with error", error)
+        }
+        
+    }
     
+    func loadImageFromDiskWith(fileName: String) -> UIImage? {
+        
+        let documentDirectory = FileManager.SearchPathDirectory.documentDirectory
+        
+        let userDomainMask = FileManager.SearchPathDomainMask.userDomainMask
+        let paths = NSSearchPathForDirectoriesInDomains(documentDirectory, userDomainMask, true)
+        
+        if let dirPath = paths.first {
+            let imageUrl = URL(fileURLWithPath: dirPath).appendingPathComponent(fileName)
+            let image = UIImage(contentsOfFile: imageUrl.path)
+            return image
+            
+        }
+        
+        return nil
+    }
     
-    
-    // punya juli
 //    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
 //
 //
-//
+//        gbrTemplate.isHidden = true
 //        let passingImage = info[UIImagePickerController.InfoKey.originalImage] as? UIImage
 //
 //        imgDonasi.image = passingImage
@@ -417,6 +401,7 @@ extension DonatingController: UIImagePickerControllerDelegate, UINavigationContr
 //
 //
 //    }
-    
+
+}
     
 

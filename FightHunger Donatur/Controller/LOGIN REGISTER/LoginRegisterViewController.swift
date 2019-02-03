@@ -9,8 +9,8 @@
 import UIKit
 
 class LoginRegisterViewController: UIViewController {
-
-  
+    
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -19,6 +19,7 @@ class LoginRegisterViewController: UIViewController {
        btnDaftar.layer.cornerRadius = 6.0
         
     }
+    
     
     override func viewDidAppear(_ animated: Bool) {
         

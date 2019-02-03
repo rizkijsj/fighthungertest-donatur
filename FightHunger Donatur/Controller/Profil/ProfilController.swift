@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class ProfilController: UITableViewController {
 
@@ -19,6 +20,16 @@ class ProfilController: UITableViewController {
 
     @IBAction func backBtn(_ sender: Any) {
         self.dismiss(animated: true, completion: nil)
+    }
+    
+    @IBAction func signOutHandlerAct(_ sender: Any) {
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.performSegue(withIdentifier: "GoToHome", sender: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
     }
     // MARK: - Table view data source
 

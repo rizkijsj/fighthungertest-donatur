@@ -22,6 +22,8 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
     @IBOutlet weak var continueButton: UIButton!
     var phonenumber = ""
     
+    var dataPostTampungLoginVC = [String:Any]()
+    
     var activityView:UIActivityIndicatorView!
 
     override func viewDidLoad() {
@@ -134,6 +136,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         }
         
     }
+    
     
     
     

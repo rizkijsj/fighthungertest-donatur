@@ -145,10 +145,10 @@
             </objects>
             <point key="canvasLocation" x="1957" y="609"/>
         </scene>
-        <!--Profile-->
+        <!--ProfileDonatur-->
         <scene sceneID="gdl-So-ShX">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="hBa-hO-8FF" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileDonatur" id="hBa-hO-8FF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="9pc-Qj-Lui" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1930" y="968"/>
@@ -164,7 +164,7 @@
         <!--FightHunger-->
         <scene sceneID="HNi-Cd-Erm">
             <objects>
-                <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="SEp-dX-SOd" customClass="HomeViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="HomeVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="SEp-dX-SOd" customClass="HomeViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="f9h-cY-13M">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -386,7 +386,7 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" image="profilBtn" id="FLq-Wp-VDZ">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="CYR-bp-8RT" kind="modal" id="10c-5w-rok"/>
+                                <segue destination="hBa-hO-8FF" kind="show" id="Pg1-IV-TP8"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -399,18 +399,18 @@
             </objects>
             <point key="canvasLocation" x="1328.8" y="1639.6551724137933"/>
         </scene>
-        <!--Profile-->
+        <!--ProfileDonatur-->
         <scene sceneID="ygb-qg-heW">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="CYR-bp-8RT" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileDonatur" id="CYR-bp-8RT" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="MVK-Wn-Utb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1891" y="1357"/>
         </scene>
-        <!--Donating-->
+        <!--PostDonasi-->
         <scene sceneID="Fa1-IA-1nH">
             <objects>
-                <viewControllerPlaceholder storyboardName="Donating" id="4b1-Hk-OCC" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Donating" referencedIdentifier="PostDonasi" id="4b1-Hk-OCC" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w2C-v3-env" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1962" y="1420"/>
@@ -418,7 +418,7 @@
         <!--Navigation Controller-->
         <scene sceneID="uwI-UQ-Fnf">
             <objects>
-                <navigationController storyboardIdentifier="HomeDonatur" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="EcE-dn-laR" sceneMemberID="viewController">
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="EcE-dn-laR" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="VWU-hx-WHJ">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -442,4 +442,7 @@
         <image name="btnDonasi" width="343" height="51"/>
         <image name="profilBtn" width="28" height="31"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="Pg1-IV-TP8"/>
+    </inferredMetricsTieBreakers>
 </document>

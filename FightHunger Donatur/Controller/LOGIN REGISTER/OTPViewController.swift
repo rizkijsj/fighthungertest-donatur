@@ -18,7 +18,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     }
     
   
-    @IBOutlet weak var lnjtBtn: UIButton!
+
     
     @IBOutlet weak var otpTxt6: UITextField!
     @IBOutlet weak var otpTxt5: UITextField!
@@ -36,7 +36,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     override func viewDidLoad() {
         super.viewDidLoad()
         
-            lnjtBtn.layer.cornerRadius = 6.0
+        continueButton.layer.cornerRadius = 6.0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
         //disable login button dan bikin activity progress yg muter-muter
@@ -107,7 +107,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
     
     @IBAction func lanjutBtn(_ sender: Any) {
-        
+        setContinueButton(enabled: false)
         let defaults = UserDefaults.standard
         guard let email = tempTampungTerima[0] as? String else { return }
         guard let username = tempTampungTerima[1] as? String else { return }
@@ -117,14 +117,33 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         
         let credential: PhoneAuthCredential = PhoneAuthProvider.provider().credential(withVerificationID: defaults.string(forKey: "authVID")!, verificationCode: combinedOTP)
         
-        if connector().signUpIn(email: email, nama: username, phonenumber: phonenumber, kodeotp: credential){
-            print("masuk pak eko")
-        }
+        
+            let status = defaults.bool(forKey: "ngepostDonasi")
+        
+            connector().signUpIn(email: email, nama: username, phonenumber: phonenumber, kodeotp: credential) { (result) in
+                if result{
+                    print("sukses untuk sign up / login")
+                    if status {
+                        self.performSegue(withIdentifier: "OTPToHome", sender: nil)
+                    }else{
+                        self.performSegue(withIdentifier: "LoginToHome", sender: nil)
+                    }
+                }else{
+                    print("gagal sign in di vc")
+                }
+            }
+        
+        
+        
+        
+        
         
         
         
     }
     
+    
+        
     
 
     
@@ -226,7 +245,6 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         let otp5 = otpTxt5.text
         let otp6 = otpTxt6.text
         
-        print("asu")
         //syaratnya
         let formFilled = otp1 != nil && otp1 != "" && otp2 != nil && otp2 != "" && otp3 != nil && otp3 != "" && otp4 != nil && otp4 != "" && otp5 != nil && otp5 != "" && otp6 != nil && otp6 != ""
 
@@ -237,6 +255,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         }
         
     }
+    
+    
     
     func setContinueButton(enabled:Bool) {
         if enabled {

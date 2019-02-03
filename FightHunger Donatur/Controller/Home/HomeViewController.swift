@@ -7,13 +7,15 @@
 //
 
 import UIKit
+import Firebase
 
 class HomeViewController: UIViewController {
 
     @IBOutlet weak var donasiBtn: UIButton!
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
         //MAKE ROUNDED BUTTON
         donasiBtn.layer.cornerRadius = 6.0
         

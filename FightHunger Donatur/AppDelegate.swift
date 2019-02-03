@@ -43,7 +43,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         
         let authListener = Auth.auth().addStateDidChangeListener { auth, user in
-            let storyboard = UIStoryboard(name: "NewHome", bundle: nil)
+            //let storyboard = UIStoryboard(name: "NewHome", bundle: nil)
             if user != nil{
                 UserService.observeUserProfile(user!.uid) { userProfile in
                     UserService.currentUserProfile = userProfile
@@ -54,16 +54,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 //                    print("database is changed")
 //                })
                 //auto login
-                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
-                self.window?.rootViewController = controller
-                self.window?.makeKeyAndVisible()
+//                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
+//                self.window?.rootViewController = controller
+//                self.window?.makeKeyAndVisible()
                 
             } else {
                 
                 UserService.currentUserProfile = nil
-                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
-                self.window?.rootViewController = controller
-                self.window?.makeKeyAndVisible()
+//                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
+//                self.window?.rootViewController = controller
+//                self.window?.makeKeyAndVisible()
             }
             
             
@@ -107,6 +107,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func applicationWillTerminate(_ application: UIApplication) {
 		// Called when the application is about to terminate. Save data if appropriate. See also applicationDidEnterBackground:.
 		// Saves changes in the application's managed object context before the application terminates.
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
 		self.saveContext()
 	}
     

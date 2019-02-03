@@ -80,6 +80,7 @@ class connector {
                 } else {
                     let defaults = UserDefaults.standard
                     defaults.set(verificationID, forKey: "authVID")
+                    print(verificationID)
                     let errorText = self.errorCode(code: 0)
                     
                     completion(true,errorText)
@@ -119,51 +120,104 @@ class connector {
         return result
     }
     
+    
 	
-    func signUpIn(email:String, nama:String, phonenumber:String,kodeotp:PhoneAuthCredential) -> Bool{
+    func signUpIn(email:String, nama:String, phonenumber:String,kodeotp:PhoneAuthCredential, completion: @escaping (Bool) -> Void){
 		// TODO:
         let url = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/profiledefault.jpg?alt=media&token=8234e660-a04d-4e54-abe3-e615c74ff91f")
-        var result = false
+        //var result = false
         
-        Auth.auth().signIn(with: kodeotp) { (user, error) in
-            if error != nil && user != nil{
-                print("error: \(String(describing: error?.localizedDescription))")
-                result = false
-            }else{
-                //testing
-                
-                print("Phone number: \(user?.phoneNumber)")
-                let userInfo = user?.providerData[0]
-                print("Provider ID: \(userInfo?.providerID)")
-                //codingan
-				
-                if self.verifyUserExistanceInDataBase(phoneno: phonenumber) == false{
-                    
-                    guard let uid = Auth.auth().currentUser?.uid else { return }
-                    
-                    let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
-                    let phoneNumberDatabaseRef = Database.database().reference().child("users/phonenumber/\(phonenumber)")
-                    let userObject = [
-                        "username":nama,"email": email,"photoURL":url?.absoluteString,"phonenumber": phonenumber
-                        ] as [String:Any]
-                    let phoneNumberObject = [
-                        phonenumber:uid
-                        ] as [String:Any]
-                    
-                    databaseRef.setValue(userObject) { error, ref in
-                        //completion(error == nil)
-                    }
-                    phoneNumberDatabaseRef.setValue(phoneNumberObject) { error, ref in
-                        //completion(error == nil)
-                    }
+        if self.verifyUserExistanceInDataBase(phoneno: phonenumber) {
+            Auth.auth().signIn(with: kodeotp) { (user, error) in
+                if error != nil && user != nil{
+                    print("error: \(String(describing: error?.localizedDescription))")
+                    //result = false
+                    completion(false)
+                }else{
+                  print("sukses sign in")
+                    completion(true)
                 }
-                
-               result = true
+            }
+        }else{
+            Auth.auth().signIn(with: kodeotp) { (user, error) in
+                if error != nil && user != nil{
+                    print("error: \(String(describing: error?.localizedDescription))")
+                    //result = false
+                    completion(false)
+                }else{
+                    
+                        guard let uid = Auth.auth().currentUser?.uid else { return }
+                        
+                        let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
+                        let phoneNumberDatabaseRef = Database.database().reference().child("users/phonenumber/\(phonenumber)")
+                        let userObject = [
+                            "username":nama,"email": email,"photoURL":url?.absoluteString,"phonenumber": phonenumber
+                            ] as [String:Any]
+                        let phoneNumberObject = [
+                            phonenumber:uid
+                            ] as [String:Any]
+                        
+                        databaseRef.setValue(userObject) { error, ref in
+                            //completion(error == nil)
+                        }
+                        phoneNumberDatabaseRef.setValue(phoneNumberObject) { error, ref in
+                            //completion(error == nil)
+                        }
+                        completion(true)
+                    print("sukses sign up")
+                }
             }
         }
         
-		return result
+        
+        
 	}
+    
+    
+    func postDonate(namaBarang: String,lokasiBarang : String,fotodonasi: UIImage,deskripsiBarang : String,completion: @escaping (Bool) -> Void) {
+        print("masuk post donate")
+//        let namaBarang = nama
+//        let namaLokasi = lokasi
+        //guard let pickUpTime = waktuPengambilan.text else { return }
+        let fotobarang = fotodonasi
+        //guard let deskripsi = deskripsiBarang.text
+        guard let userProfile = UserService.currentUserProfile else { return }
+        
+        let uid = userProfile.uid
+        
+        self.uploadPostImage(fotobarang) { url in
+            print(url)
+            if url != nil {
+                print("url ga kosong")
+                guard let userProfile = UserService.currentUserProfile else { return }
+                let postRef = Database.database().reference().child("Post/\(uid)").childByAutoId()
+                let postObject = [
+                    "author": [
+                        "uid": userProfile.uid,
+                        "email": userProfile.email,
+                        "phonenumber":userProfile.phonenumber,
+                        "photoURL": userProfile.photoURL.absoluteString,
+                        "username": userProfile.username
+                    ],"namabarang": namaBarang,"namalokasi": lokasiBarang/*,"pickupTime":pickUpTime*/,"deskripsiBarang":deskripsiBarang,"postphotourl": url?.absoluteString,"timestamp": [".sv":"timestamp"],"status": "active"
+                    ] as [String:Any]
+                
+                postRef.setValue(postObject, withCompletionBlock: { error, ref in
+                    if error == nil {
+                        print("sukses post donasi")
+                        completion(true)
+                    } else {
+                        // Handle the error
+                        print("error post donasi")
+                        completion(false)
+                        //  self.resetForm()
+                    }})
+            } else {
+                //                self.resetForm()
+                print("Error unable to upload profile image URL is nil")
+                completion(false)
+            }
+        }
+    }
 
     func verifyUserLoginState(completion: @escaping (Bool) -> Void) {
         let authListener = Auth.auth().addStateDidChangeListener { auth, user in

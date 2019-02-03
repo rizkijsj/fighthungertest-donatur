@@ -217,26 +217,21 @@
                     </navigationItem>
                     <connections>
                         <outlet property="alamat" destination="L65-r4-T5A" id="Qjf-RE-n7V"/>
-                        <outlet property="deskripsiTxt" destination="piT-uo-BYB" id="XFR-oy-vrP"/>
-                        <outlet property="gbrTemplate" destination="YlE-Cc-Slg" id="fzL-Tg-It9"/>
+                        <outlet property="continueButton" destination="xgW-Ih-GwM" id="fmV-sv-Wrq"/>
+                        <outlet property="deskripsiBarang" destination="piT-uo-BYB" id="Wzc-ld-n90"/>
+                        <outlet property="gbrTemplate" destination="YlE-Cc-Slg" id="r5b-MZ-fyP"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
-                        <outlet property="keteranganTxt" destination="CX7-LV-Fii" id="3aS-GC-dhW"/>
-                        <outlet property="namaTxt" destination="tC5-9f-7PZ" id="pLe-Vy-xdt"/>
-                        <outlet property="submitButton" destination="xgW-Ih-GwM" id="59L-tc-UhC"/>
+                        <outlet property="keteranganTambahanLokasi" destination="CX7-LV-Fii" id="nBG-jA-wrX"/>
+                        <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="vjU-CR-aYY"/>
+                        <outlet property="namaBarang" destination="tC5-9f-7PZ" id="VZg-rl-hyp"/>
+                        <segue destination="Qye-FF-Kdx" kind="show" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
+                        <segue destination="NF9-gH-61M" kind="show" identifier="DonasiToHome" id="ued-cH-GoR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3764" y="1903"/>
-        </scene>
-        <!--Storyboard Reference-->
-        <scene sceneID="Tww-I4-eRL">
-            <objects>
-                <viewControllerPlaceholder id="Epj-7i-wxT" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="x7O-Kj-TBf" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3764" y="1180"/>
         </scene>
         <!--LoginRegister-->
         <scene sceneID="6Xe-2Q-kM4">
@@ -245,6 +240,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1et-5f-pWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4345" y="1218"/>
+        </scene>
+        <!--HomeDonatur-->
+        <scene sceneID="F4L-EP-cqZ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="NewHome" referencedIdentifier="HomeDonatur" id="NF9-gH-61M" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lYj-Rx-zTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3799" y="1372"/>
         </scene>
         <!--Location-->
         <scene sceneID="RT6-cy-kbA">
@@ -265,7 +268,7 @@
         <!--Navigation Controller-->
         <scene sceneID="oOM-wA-cu6">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lk5-bb-8ao" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="PostDonasi" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lk5-bb-8ao" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1aA-hN-sX0">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
