@@ -28,7 +28,7 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
         
         switch component {
         case 0:
-            return "\(row) hour"
+            return "\(row) jam"
         case 1:
             return "\(row) min"
         default:
@@ -60,7 +60,7 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
     }
     
     
-   var hours = Array(0...23)
+   var hours = Array(1...23)
    var minutes = Array(00...59)
   
     

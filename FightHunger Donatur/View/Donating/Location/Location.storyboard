@@ -68,7 +68,15 @@
                         <viewLayoutGuide key="safeArea" id="o1n-hv-onG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Lokasi" id="u5U-4E-ico">
+                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="56n-KF-aIu">
+                            <inset key="imageInsets" minX="-50" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtn:" destination="dfe-hM-wgt" id="pPx-zx-4Sv"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="jfE-GE-Dn7">
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="searchBtn:" destination="dfe-hM-wgt" id="Xl4-m7-Um7"/>
                             </connections>
@@ -92,6 +100,7 @@
     <resources>
         <image name="Current Location" width="128" height="128"/>
         <image name="Set Lokasi" width="314" height="56"/>
+        <image name="arrowback" width="120" height="200"/>
         <image name="location_on" width="138" height="200"/>
     </resources>
 </document>

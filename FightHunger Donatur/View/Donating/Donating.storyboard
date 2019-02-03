@@ -143,11 +143,11 @@
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <state key="normal" backgroundImage="my_location"/>
                                                     <connections>
-                                                        <action selector="toMap:" destination="f4w-s9-JZp" eventType="touchUpInside" id="7Pg-q0-A1u"/>
+                                                        <action selector="toMap:" destination="f4w-s9-JZp" eventType="touchUpInside" id="GZs-Xz-oac"/>
                                                     </connections>
                                                 </button>
                                                 <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="2IE-6B-5QZ" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="15" width="300" height="30"/>
+                                                    <rect key="frame" x="16" y="15" width="312" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
@@ -259,6 +259,7 @@
         <!--Navigation Controller-->
         <scene sceneID="oOM-wA-cu6">
             <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="m0h-kX-KDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="lk5-bb-8ao" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1aA-hN-sX0">
@@ -270,7 +271,6 @@
                         <segue destination="f4w-s9-JZp" kind="relationship" relationship="rootViewController" id="lOk-8U-rPD"/>
                     </connections>
                 </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="m0h-kX-KDD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2830" y="1578"/>
         </scene>

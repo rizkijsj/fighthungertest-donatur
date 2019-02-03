@@ -20,7 +20,10 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     
     @IBOutlet weak var setLokasi: UIButton!
     
-//    unwindsegue dan pasing data
+    @IBAction func backBtn(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    //    unwindsegue dan pasing data
     var alamatLengkap = ""
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let destVC = segue.destination as! DonatingController

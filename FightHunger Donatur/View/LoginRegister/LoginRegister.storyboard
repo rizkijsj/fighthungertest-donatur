@@ -82,19 +82,19 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cmd-wd-BVh">
-                                <rect key="frame" x="33" y="56" width="12" height="18"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="arrowback"/>
-                                <connections>
-                                    <action selector="backToHome:" destination="VaB-LE-eif" eventType="touchUpInside" id="1xb-JS-IoA"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <viewLayoutGuide key="safeArea" id="R3X-k8-CgA"/>
                     </view>
-                    <navigationItem key="navigationItem" id="4WA-s9-OiH"/>
+                    <navigationItem key="navigationItem" id="4WA-s9-OiH">
+                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="UWo-uf-Ua0">
+                            <inset key="imageInsets" minX="-40" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backToHome:" destination="VaB-LE-eif" id="bBX-bv-p43"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
                         <outlet property="btnDaftar" destination="oSO-RP-Ovj" id="aTt-FO-GPc"/>
                         <outlet property="btnMasuk" destination="YuU-4z-R7W" id="Szv-re-GGo"/>
@@ -102,7 +102,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPG-dd-s0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="5591.1999999999998" y="762.5615763546798"/>
+            <point key="canvasLocation" x="6533.6000000000004" y="762.5615763546798"/>
         </scene>
         <!--Login-->
         <scene sceneID="bJU-ga-NjO">
@@ -175,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjY-A2-s8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6794.3999999999996" y="759.60591133004925"/>
+            <point key="canvasLocation" x="7736.8000000000002" y="759.60591133004925"/>
         </scene>
         <!--Masuk-->
         <scene sceneID="gJg-CD-gfX">
@@ -349,7 +349,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zal-mt-FQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8623.2000000000007" y="762.5615763546798"/>
+            <point key="canvasLocation" x="9565.6000000000004" y="762.5615763546798"/>
         </scene>
         <!--Register-->
         <scene sceneID="iO6-ve-G6C">

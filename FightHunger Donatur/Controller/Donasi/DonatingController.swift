@@ -90,29 +90,30 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         
     }
     
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "DonasiToLogin"{
-            let info = segue.destination as! LoginViewController
-            tempTampungKirim = []
-        }else{
-            
-        }
-        
-		/// MARK: - Error Here
-		//info.tempTampungTerima = tempTampungKirim
-        
-    }
+    //ERROR MAKANYA W COMMENT DULU
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "DonasiToLogin"{
+//            let info = segue.destination as! LoginViewController
+//            tempTampungKirim = []
+//        }else{
+//
+//        }
+//
+//        /// MARK: - Error Here
+//        //info.tempTampungTerima = tempTampungKirim
+//
+//    }
     
     func sendDataToNextVC(){
 //        tempTampungKirim.append(emailTxtField.text!)
 //        tempTampungKirim.append(namaTxtField.text!)
 //        tempTampungKirim.append(telpTxtField.text!)
     }
-    
+   
     @IBAction func cancelBtn(_ sender: Any) {
         
-        self.navigationController?.dismiss(animated: true, completion: nil)
+      self.dismiss(animated: true, completion: nil)
+        print("hei")
     }
     
     override func viewDidLoad() {
@@ -148,6 +149,8 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         namaTxt.delegate = self
         deskripsiTxt.delegate = self
         keteranganTxt.delegate = self
+        alamat.delegate = self
+        
         
          namaTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         deskripsiTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)

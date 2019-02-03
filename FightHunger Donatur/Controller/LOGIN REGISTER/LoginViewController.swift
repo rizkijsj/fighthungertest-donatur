@@ -13,7 +13,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
 
     @IBAction func back(_ sender: UIBarButtonItem) {
         
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
        
     }
     

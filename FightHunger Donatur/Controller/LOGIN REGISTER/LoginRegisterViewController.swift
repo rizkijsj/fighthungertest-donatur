@@ -10,8 +10,8 @@ import UIKit
 
 class LoginRegisterViewController: UIViewController {
 
-    @IBAction func backToHome(_ sender: UIButton) {
-        self.navigationController?.popToRootViewController(animated: true)
+    @IBAction func backToHome(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
 //            performSegue(withIdentifier: "toNewHome", sender: self)
     }
     
@@ -25,11 +25,11 @@ class LoginRegisterViewController: UIViewController {
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        
         super.viewDidAppear(animated)
         navigationController?.setNavigationBarHidden(true, animated: false)
     }
     
+   
 
     @IBOutlet weak var btnMasuk: UIButton!
     

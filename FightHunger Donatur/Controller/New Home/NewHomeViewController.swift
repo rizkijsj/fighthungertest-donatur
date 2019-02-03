@@ -181,7 +181,7 @@ extension NewHomeViewController: UITableViewDataSource, UITableViewDelegate {
 			let imageFile = UIImage.init(url: URL.init(string: link))
 			
 			DispatchQueue.main.async {
-				object.image = imageFile!
+				object.image = imageFile
 			}
 			
 		}

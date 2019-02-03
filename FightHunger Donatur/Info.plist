@@ -38,7 +38,7 @@
 	<key>NSCameraUsageDescription</key>
 	<string>Camera</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We  need your location</string>
+	<string></string>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Photo</string>
 	<key>UIBackgroundModes</key>

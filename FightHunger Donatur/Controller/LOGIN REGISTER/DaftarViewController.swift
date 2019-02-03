@@ -14,7 +14,7 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
 
 
     @IBAction func backButton(_ sender: UIBarButtonItem) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
     
     override func viewDidAppear(_ animated: Bool) {
