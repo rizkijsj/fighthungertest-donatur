@@ -18,6 +18,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
     }
     
     @IBOutlet weak var lnjtBtn: UIButton!
+    @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var telpTxtField: CustomTextField!
     @IBOutlet weak var continueButton: UIButton!
     var phonenumber = ""
@@ -26,7 +27,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
 
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        accessibility()
         lnjtBtn.layer.cornerRadius = 6.0
         
         var toolbar = UIToolbar()
@@ -59,6 +60,18 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         telpTxtField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
        
+    }
+    
+    func accessibility()
+    {
+        backBtn.isAccessibilityElement = true
+        telpTxtField.isAccessibilityElement = true
+        
+        backBtn.accessibilityTraits = UIAccessibilityTraits.button
+        telpTxtField.accessibilityTraits = UIAccessibilityTraits.staticText
+        
+        backBtn.accessibilityLabel = "Back"
+        telpTxtField.accessibilityLabel = "Nomor telfon"
     }
     
     

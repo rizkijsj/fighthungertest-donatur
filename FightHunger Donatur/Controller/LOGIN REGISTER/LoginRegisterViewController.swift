@@ -21,7 +21,7 @@ class LoginRegisterViewController: UIViewController {
 
        btnMasuk.layer.cornerRadius = 6.0
        btnDaftar.layer.cornerRadius = 6.0
-        
+       accessibility()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -39,5 +39,26 @@ class LoginRegisterViewController: UIViewController {
     
     @IBOutlet weak var btnDaftar: UIButton!
     
-
+    @IBOutlet weak var labelBody: UILabel!
+    @IBOutlet weak var lblMariMulai: UILabel!
+    @IBOutlet weak var labelTitle: UILabel!
+    
+    @IBOutlet weak var backBtn: UIButton!
+    
+    func accessibility()
+    {
+        backBtn.isAccessibilityElement = true
+        btnMasuk.isAccessibilityElement = true
+        btnDaftar.isAccessibilityElement = true
+        labelTitle.isAccessibilityElement = true
+        labelBody.isAccessibilityElement = true
+        lblMariMulai.isAccessibilityElement = true
+        
+        
+        //Button
+        backBtn.accessibilityTraits = UIAccessibilityTraits.button
+        backBtn.accessibilityLabel = "Back Button"
+       
+    }
+    
 }

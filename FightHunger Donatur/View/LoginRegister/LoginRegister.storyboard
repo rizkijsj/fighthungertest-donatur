@@ -104,8 +104,12 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backBtn" destination="lIl-2M-bAr" id="MEG-F4-gJD"/>
                         <outlet property="btnDaftar" destination="oSO-RP-Ovj" id="aTt-FO-GPc"/>
                         <outlet property="btnMasuk" destination="YuU-4z-R7W" id="Szv-re-GGo"/>
+                        <outlet property="labelBody" destination="iaX-5J-nJk" id="2fk-LS-3fk"/>
+                        <outlet property="labelTitle" destination="VSI-E4-UVb" id="Z6E-ma-DmC"/>
+                        <outlet property="lblMariMulai" destination="Mhz-TD-6OO" id="L9J-Ss-lbv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPG-dd-s0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -169,11 +173,13 @@
                             <inset key="largeContentSizeImageInsets" minX="-9" minY="0.0" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="back:" destination="XiE-iL-Epf" id="hyY-O8-MB6"/>
+                                <action selector="back:" destination="XiE-iL-Epf" id="BD3-dQ-YoO"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="back" destination="BVm-Zo-czw" id="K6I-jH-ez6"/>
+                        <outlet property="backBtn" destination="BVm-Zo-czw" id="rzk-QG-qfV"/>
                         <outlet property="continueButton" destination="rhE-xp-uqR" id="i5A-dk-C2S"/>
                         <outlet property="errorMssg" destination="bKl-tH-icU" id="7yc-FT-9CO"/>
                         <outlet property="lnjtBtn" destination="rhE-xp-uqR" id="X2B-Sn-Heh"/>
@@ -476,6 +482,6 @@
         <image name="arrowback" width="120" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kQs-fF-YaO"/>
+        <segue reference="zhn-Ou-xFt"/>
     </inferredMetricsTieBreakers>
 </document>
