@@ -63,9 +63,8 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
     
     
     
-    override func viewDidAppear(_ animated: Bool) {
-        
-       
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         self.navigationController?.navigationBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width , height: 80.0)
         navigationController?.setNavigationBarHidden(false, animated: false)
     }

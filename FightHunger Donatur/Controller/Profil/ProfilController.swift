@@ -12,16 +12,19 @@ class ProfilController: UITableViewController {
 
     @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
-        print("hei")
+       // print("hei")
     }
     override func viewDidLoad() {
         super.viewDidLoad()
 
         tableView.delegate = self
         tableView.dataSource = self
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        
+ 
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+          self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
   
     @objc func dismissProfile(){

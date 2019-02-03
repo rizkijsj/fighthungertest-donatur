@@ -17,8 +17,8 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         self.navigationController?.popViewController(animated: true)
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     

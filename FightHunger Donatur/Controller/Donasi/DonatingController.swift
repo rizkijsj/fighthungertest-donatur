@@ -78,13 +78,14 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         
         connector().verifyUserLoginState { (state) in
             if state{
-                self.sendDataToNextVC()
-                self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
-              
+                 self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
+             
             }else{
 				
+                self.sendDataToNextVC()
+                self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
                 
-                self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
+               
             }
         }
      
@@ -160,7 +161,10 @@ class DonatingController: UITableViewController , UIImagePickerControllerDelegat
         keteranganTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
     
-   
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
     
     @objc func textFieldChanged(_ target:UITextField)
     {

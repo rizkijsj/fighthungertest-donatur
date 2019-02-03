@@ -15,7 +15,7 @@
                 <viewControllerPlaceholder storyboardName="UbahProfil" id="Px6-PA-hSR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z67-fm-BTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8719.2000000000007" y="868.9655172413793"/>
+            <point key="canvasLocation" x="9661.6000000000004" y="868.9655172413793"/>
         </scene>
         <!--Profil-->
         <scene sceneID="9cw-ae-Dgn">
@@ -168,7 +168,7 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4if-sM-RbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8212" y="1193.3497536945813"/>
+            <point key="canvasLocation" x="9154.3999999999996" y="1193.3497536945813"/>
         </scene>
         <!--Riwayat-->
         <scene sceneID="5OX-WR-quT">
@@ -176,7 +176,7 @@
                 <viewControllerPlaceholder storyboardName="Riwayat" id="G2t-dD-fqk" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4n-Ja-G0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8830.3999999999996" y="1282.0197044334975"/>
+            <point key="canvasLocation" x="9772.7999999999993" y="1282.0197044334975"/>
         </scene>
         <!--Main-->
         <scene sceneID="9IE-6E-jjZ">

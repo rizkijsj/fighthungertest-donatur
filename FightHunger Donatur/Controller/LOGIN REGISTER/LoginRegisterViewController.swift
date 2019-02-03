@@ -32,6 +32,9 @@ class LoginRegisterViewController: UIViewController {
     
    
 
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popViewController(animated: true)
+    }
     @IBOutlet weak var btnMasuk: UIButton!
     
     @IBOutlet weak var btnDaftar: UIButton!
