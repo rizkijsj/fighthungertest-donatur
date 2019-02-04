@@ -47,6 +47,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if user != nil{
                 UserService.observeUserProfile(user!.uid) { userProfile in
                     UserService.currentUserProfile = userProfile
+                    print("berhasil observe")
+                    print(UserService.currentUserProfile?.uid)
+                    print(UserService.currentUserProfile?.phonenumber)
+                    print(UserService.currentUserProfile?.email)
                 }
 //                let postRef = Database.database().reference().child("Post/\(user!.uid)")
 //                postRef.observe(.childChanged, with: { (snapshot) -> Void in

@@ -178,7 +178,6 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="back" destination="BVm-Zo-czw" id="K6I-jH-ez6"/>
                         <outlet property="backBtn" destination="BVm-Zo-czw" id="rzk-QG-qfV"/>
                         <outlet property="continueButton" destination="rhE-xp-uqR" id="i5A-dk-C2S"/>
                         <outlet property="errorMssg" destination="bKl-tH-icU" id="7yc-FT-9CO"/>
@@ -499,6 +498,6 @@
         <image name="arrowback" width="120" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zhn-Ou-xFt"/>
+        <segue reference="kQs-fF-YaO"/>
     </inferredMetricsTieBreakers>
 </document>

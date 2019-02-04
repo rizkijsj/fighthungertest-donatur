@@ -21,12 +21,10 @@ class UserService {
             //print(snapshot.value)
             if let dict = snapshot.value as? [String:Any],
                 let email = dict["email"] as? String,
-                let photoURL = dict["photoURL"] as? String,
-                let url = URL(string:photoURL),
                 let phonenumber = dict["phonenumber"] as? String,
                 let namaDonatur = dict["username"] as? String
             {
-                userProfile = UserProfile(uid: snapshot.key, email: email,phonenumber: phonenumber ,photoURL: url, username: namaDonatur)
+                userProfile = UserProfile(uid: snapshot.key, email: email,phonenumber: phonenumber, username: namaDonatur)
             }
             
             completion(userProfile)

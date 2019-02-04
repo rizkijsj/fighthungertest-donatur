@@ -102,12 +102,12 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         else if email == nil || email == ""
         {
             errorMssg.isHidden = false
-            errorMssg.text = "Phone number cannot be empty!"
+            errorMssg.text = "Email  cannot be empty!"
             setContinueButton(enabled: false)
         }else if nama == nil || nama == ""
         {
             errorMssg.isHidden = false
-            errorMssg.text = "Phone number cannot be empty!"
+            errorMssg.text = "Nama cannot be empty!"
             setContinueButton(enabled: false)
         }else if email?.contains("@") == false || email?.contains(".com") == false{
             errorMssg.isHidden = false
@@ -155,13 +155,14 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         let info = segue.destination as! OTPViewController
         info.tempTampungTerima = tempTampungKirim
+        info.userExistance = false
         tempTampungKirim = []
     }
     
     func sendDataToNextVC(){
         tempTampungKirim.append(emailTxtField.text!)
         tempTampungKirim.append(namaTxtField.text!)
-        tempTampungKirim.append(telpTxtField.text!)
+        tempTampungKirim.append(phonenumber)
     }
     
     func setContinueButton(enabled:Bool) {
@@ -176,7 +177,7 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     
     func resetForm() {
         
-        //setContinueButton(enabled: true)
+        setContinueButton(enabled: false)
         activityView.stopAnimating()
     }
     

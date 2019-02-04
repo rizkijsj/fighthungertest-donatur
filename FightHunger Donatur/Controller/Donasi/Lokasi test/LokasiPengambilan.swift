@@ -223,7 +223,7 @@ extension LokasiPengambilan: MKMapViewDelegate{
             print("ini alamat lengkap : \(String(describing: placemarks))")
 
             DispatchQueue.main.async {
-                self.alamat.text = "Lokasi anda:\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+                self.alamat.text = "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
                 
                 self.alamatLengkap = self.alamat.text!
             }

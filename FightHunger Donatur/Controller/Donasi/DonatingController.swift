@@ -15,7 +15,10 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
 	@IBOutlet weak var kuantitasBarang: CustomTextField!
 	@IBOutlet weak var keteranganBarang: CustomTextField!
-	
+    @IBOutlet weak var waktuPengambilan: CustomTextField!
+    
+    var latitude = ""
+    var longitude = ""
 	
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -25,6 +28,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
        
         return true
     }
+    
     
     
     //show keyboard
@@ -63,7 +67,6 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     @IBOutlet weak var gbrTemplate: UIButton!
     
-    var dataPostTampungDonasiVC = [String:Any]()
     let defaults = UserDefaults.standard
 
     var dataAlamat = "Lokasi"
@@ -128,17 +131,21 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 //        print(userProfile.phonenumber)
         
         //delegate textfield
-        namaBarang.delegate = self
+        namaBarang.delegate = self as? UITextFieldDelegate
         //alamat.delegate = self as? UILabel
-        deskripsiBarang.delegate = self
-        kuantitasBarang.delegate = self
-        keteranganBarang.delegate = self
+        deskripsiBarang.delegate = self as? UITextFieldDelegate
+        kuantitasBarang.delegate = self as? UITextFieldDelegate
+        keteranganBarang.delegate = self as? UITextFieldDelegate
+        alamat.delegate = self as? UITextFieldDelegate
+        waktuPengambilan.delegate = self as? UITextFieldDelegate
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
         namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEndOnExit)
         keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+//        alamat.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        waktuPengambilan.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEndOnExit)
         
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
         imgDonasi.isUserInteractionEnabled = true
@@ -152,17 +159,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         
         tableView.delegate = self
         tableView.dataSource = self
-        tableView.rowHeight = UITableView.automaticDimension
         continueButton.isEnabled = false
-        namaBarang.delegate = self
-        deskripsiBarang.delegate = self
-        keteranganBarang.delegate = self
-        alamat.delegate = self
-        
-        
-         namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -177,53 +174,53 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         let deskripsi = deskripsiBarang.text
         let keteranganLokasi = keteranganBarang.text
         let textFieldLength = deskripsiBarang.text!.characters.count
+        let alamatBarang = alamat.text
+        let fotobarang = imgDonasi.image
+        let waktuAmbil = waktuPengambilan.text
         
-        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && keteranganLokasi != "" && keteranganLokasi != nil
-        
+        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && keteranganLokasi != "" && keteranganLokasi != nil && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil
+        print(formFilled)
         if formFilled
         {
-           
-            continueButton.isEnabled = true
+            print("gas pak aji")
+            setContinueButton(enabled: true)
 
-        }else if nama == nil || nama == ""
-        {
-            continueButton.isEnabled = false
-            
-        }else if deskripsi == nil || deskripsi == "" 
-        {
-            continueButton.isEnabled = false
-        }else if textFieldLength > 120
-        {
-            continueButton.isEnabled = false
+        }else{
+            print("rem pak aji")
+            setContinueButton(enabled: false)
         }
-        else if keteranganLokasi == nil || keteranganLokasi == ""
-        {
-            continueButton.isEnabled = false
-        }
+//        else if alamatBarang == nil || alamatBarang == ""
+//        {
+//            continueButton.isEnabled = false
+//        }
+//
         
-        
-        continueButton.isEnabled = false
-        deskripsiBarang.delegate = self
       
     }
     
 
     func loadPostData(){
         
-        guard let tempPostData = defaults.object(forKey: "tempPostData") as? [String] else{return}
+        let tempPostData = defaults.object(forKey: "tempPostData") as? [String]
         if  tempPostData != nil{
             print(tempPostData)
             let imgTemp = loadImageFromDiskWith(fileName: "tempPostImage")
-            print(imgTemp)
             if imgTemp != nil {
                 print("sonto")
             
                 gbrTemplate.isHidden = true
-                namaBarang.text = tempPostData[0]
-                keteranganBarang.text = tempPostData[1]
-                deskripsiBarang.text = tempPostData[2]
+                namaBarang.text = tempPostData?[0]
+                alamat.text = tempPostData?[1]
+                deskripsiBarang.text = tempPostData?[2]
                 imgDonasi.image = imgTemp
-                                }
+                keteranganBarang.text = tempPostData?[3]
+                kuantitasBarang.text = tempPostData?[4]
+                waktuPengambilan.text = tempPostData?[5]
+                latitude = tempPostData![6]
+                longitude = tempPostData![7]
+                defaults.removeObject(forKey: "tempPostData")
+                defaults.synchronize()
+                }
             }else{
                 print("Foto tidak ditemukan")
             }
@@ -255,27 +252,6 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
             print("Camera not available")
         }
     }
-    
-    
-
-    override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 3
-    }
-    
-    
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-		
-		if section == 0 || section == 1{
-			return 1
-        } 
-        else {
-			return 6
-		}
-
-    }
 
     
     
@@ -283,13 +259,18 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 
         guard let namaBarang = namaBarang.text else { return }
         guard let namaLokasi = alamat.text else { return }
-        //guard let pickUpTime = waktuPengambilan.text else { return }
+        guard let pickUpTime = waktuPengambilan.text else { return }
         guard let fotobarang = imgDonasi.image else { return }
         guard let deskripsi = deskripsiBarang.text else { return }
 
-
+        guard let keteranganTambahanLokasi = keteranganBarang.text else {return}
+        guard let jumlahBarang = kuantitasBarang.text else {return}
         
-        connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi, fotodonasi: fotobarang, deskripsiBarang: deskripsi) { (result) in
+        guard let latitudeBarang = latitude as? String else {return}
+        guard let longitudeBarang = longitude as? String else {return}
+        
+        
+        connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganTambahanLokasi ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang) { (result) in
             if result{
                 self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
             }else{
@@ -301,13 +282,21 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     func sendDataToNextVC(){
         guard let namaBarang = namaBarang.text else { return }
         guard let namaLokasi = alamat.text else { return }
-        //guard let pickUpTime = waktuPengambilan.text else { return }
+        guard let pickUpTime = waktuPengambilan.text else { return }
         
         guard let deskripsi = deskripsiBarang.text else { return }
         
         guard let fotobarang = imgDonasi.image else { return }
+        guard let keteranganTambahanLokasi = keteranganBarang.text else {return}
         
-        let tempPostData = [namaBarang,namaLokasi,deskripsi]
+        guard let jumlahBarang = kuantitasBarang.text else {return}
+        
+        guard let waktuAmbil = waktuPengambilan.text else {return}
+        
+        let tempLatitude = "\(kordinatPeta[0])"
+        let tempLongitude = "\(kordinatPeta[1])"
+        
+        let tempPostData = [namaBarang,namaLokasi,deskripsi,keteranganTambahanLokasi,jumlahBarang,waktuAmbil,tempLatitude,tempLongitude]
         
         defaults.set(tempPostData, forKey: "tempPostData")
         defaults.set(true, forKey: "ngepostDonasi")
@@ -345,7 +334,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         
         //setContinueButton(enabled: true)
         activityView.stopAnimating()
-        setContinueButton(enabled: true)
+        setContinueButton(enabled: false)
     }
     
     override var canBecomeFirstResponder: Bool{

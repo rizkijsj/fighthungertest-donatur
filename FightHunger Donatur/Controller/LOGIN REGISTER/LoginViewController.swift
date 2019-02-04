@@ -123,6 +123,12 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        let info = segue.destination as! OTPViewController
+        info.userExistance = true
+    }
+    
+    
     func setContinueButton(enabled:Bool) {
         if enabled {
             continueButton.alpha = 1.0
@@ -162,7 +168,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
     }
     func resetForm() {
         
-        setContinueButton(enabled: true)
+        setContinueButton(enabled: false)
         activityView.stopAnimating()
     }
     
