@@ -7,11 +7,13 @@
 //
 
 import UIKit
-
+import Firebase
 class NewHomeViewController: UIViewController {
 	
 	@IBOutlet weak var donateButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
+    
+    var posts = [Post]()
 	// activity data should always referred to your data source, which it will be real time updated data
 	var activityData = [1]
 	var temporaryArrayData = ["asd", "bsdn", "kausrg", "asjdfyr"]
@@ -33,11 +35,16 @@ class NewHomeViewController: UIViewController {
 		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         UserDefaults.standard.synchronize()
 		setupView()
+        
+        print(posts)
+        
 	}
 
 	override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
+        observePosts()
+        self.tableView.reloadData()
     }
 	
 	func setupView(){
@@ -327,4 +334,59 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		print("Should segue to More Organization Here")
 	}
 	
+}
+
+extension NewHomeViewController{
+    
+    func observePosts() {
+        
+        guard let userProfile = UserService.currentUserProfile else { return }
+        let uid = userProfile.uid
+        
+        let postsRef = Database.database().reference().child("Post/\(uid)")
+        
+        
+        postsRef.observe(.value, with: { snapshot in
+            
+            var tempPosts = [Post]()
+            //var tempIdProfile = String
+            
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String:Any],
+                    let author = dict["author"] as? [String:Any],
+                    let uid = author["uid"] as? String,
+                    let email = author["email"] as? String,
+                    let name = author["username"] as? String,
+                    let phnumber = author["phonenumber"] as? String,
+                    let postphotourl = dict["postphotourl"] as? String,
+                    let posturl = URL(string: postphotourl),
+                    let address = dict["namalokasi"] as? String,
+                    let keteranganlokasi = dict["keteranganlokasi"] as? String,
+                    let namaitem = dict["namabarang"] as? String,
+                    let jumlah = dict["jumlahbarang"] as? String,
+                    let deskripsi = dict["deskripsibarang"] as? String,
+                    let pickdate = dict["waktuambil"] as? String,
+                    let latitude = dict["latitude"] as? String,
+                    let longitude = dict["longitude"] as? String,
+                    let timestamp = dict["timestamp"] as? Double,
+                    let status = dict["status"] as? String{
+                    let userProfile = UserProfile(uid: uid, email: email, phonenumber: phnumber, username: name)
+                    
+                    let post = Post(id: childSnapshot.key, author: userProfile, namaitem: namaitem, alamat: address, keteranganlokasi: keteranganlokasi, deskripsi: deskripsi, postphotourl: posturl, waktuambil: pickdate, jumlahbarang: jumlah, timestamp: timestamp, status: status, latitude: latitude, longitude: longitude)
+                    
+                    
+                    if userProfile.uid == Auth.auth().currentUser?.uid
+                    {
+                        tempPosts.append(post)
+                        
+                    }
+                }
+            }
+            self.posts = tempPosts
+            self.tableView.reloadData()
+            
+        })
+    }
+    
 }

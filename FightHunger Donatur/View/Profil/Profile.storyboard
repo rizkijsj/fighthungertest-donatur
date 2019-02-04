@@ -17,10 +17,18 @@
             </objects>
             <point key="canvasLocation" x="6357" y="781"/>
         </scene>
+        <!--LoginRegister-->
+        <scene sceneID="qBb-eB-drW">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegister" id="K4C-u4-4OA" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="KvM-bl-RT6" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9190" y="727"/>
+        </scene>
         <!--UbahProfil-->
         <scene sceneID="mUi-Q0-ewH">
             <objects>
-                <viewControllerPlaceholder storyboardName="UbahProfil" id="Px6-PA-hSR" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="UbahProfil" referencedIdentifier="UbahProfil" id="Px6-PA-hSR" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z67-fm-BTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9661.6000000000004" y="868.9655172413793"/>
@@ -77,7 +85,7 @@
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
-                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0Y-Hb-kSH">
+                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Label email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a0Y-Hb-kSH">
                                                     <rect key="frame" x="16" y="166" width="332" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
@@ -146,15 +154,14 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="43.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5TN-W6-IQV">
-                                                    <rect key="frame" x="16" y="10" width="48" height="33"/>
+                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnd-zb-PUh">
+                                                    <rect key="frame" x="16" y="6" width="43" height="30"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="Keluar">
-                                                        <color key="titleColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                                        <color key="titleColor" red="0.75537753105163574" green="0.157878577709198" blue="0.1646779477596283" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
-                                                        <action selector="keluarBtn:" destination="qlw-we-uJF" eventType="touchUpInside" id="OTu-Gv-EVd"/>
+                                                        <action selector="signOutHandlerAct:" destination="qlw-we-uJF" eventType="touchUpInside" id="Td5-lJ-vlc"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -178,12 +185,16 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="emailLbl" destination="a0Y-Hb-kSH" id="3yp-dD-qee"/>
+                        <outlet property="namaLbl" destination="IXl-SS-rhv" id="TFO-M9-QDs"/>
+                        <outlet property="noHpLbl" destination="7Ba-VN-Kdh" id="xCC-7j-bo5"/>
                         <segue destination="gu4-Up-Jbj" kind="show" identifier="GoToHome" id="haY-mh-gnM"/>
+                        <segue destination="K4C-u4-4OA" kind="show" identifier="ProfileToLogin" id="n5E-eA-kSv"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4if-sM-RbY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9154.3999999999996" y="1193.3497536945813"/>
+            <point key="canvasLocation" x="8914" y="1521"/>
         </scene>
         <!--Riwayat-->
         <scene sceneID="5OX-WR-quT">
@@ -192,14 +203,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4n-Ja-G0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9772.7999999999993" y="1282.0197044334975"/>
-        </scene>
-        <!--Main-->
-        <scene sceneID="9IE-6E-jjZ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Main" id="JRC-gy-ARf" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="7Yf-iQ-y7O" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3685" y="1495"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="u2I-TA-EMt">

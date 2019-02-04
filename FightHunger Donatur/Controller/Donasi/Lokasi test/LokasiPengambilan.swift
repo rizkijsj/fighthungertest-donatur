@@ -21,7 +21,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
     @IBOutlet weak var setLokasi: UIButton!
     
     @IBAction func backBtn(_ sender: Any) {
-        self.navigationController?.popViewController(animated: true)
+		self.navigationController?.popToRootViewController(animated: true)
     }
     //    unwindsegue dan pasing data
     var alamatLengkap = ""
@@ -265,7 +265,7 @@ extension LokasiPengambilan: MKMapViewDelegate{
             print("ini alamat lengkap : \(String(describing: placemarks))")
 
             DispatchQueue.main.async {
-                self.alamat.text = "Lokasi anda:\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+                self.alamat.text = "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
                 
                 self.alamatLengkap = self.alamat.text!
             }

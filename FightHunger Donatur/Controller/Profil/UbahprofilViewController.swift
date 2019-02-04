@@ -7,18 +7,49 @@
 //
 
 import UIKit
+import Firebase
 
 class UbahprofilViewController: UIViewController, UITextFieldDelegate {
 
     @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
        self.navigationController?.popViewController(animated: true)
     }
+    
+    
+    @IBAction func submitBtn(_ sender: Any) {
+        
+        handleSaveProfile()
+        
+    }
+    
+    @IBOutlet weak var emailTxt: CustomTextField!
+    
+    @IBOutlet weak var namaTxt: CustomTextField!
+    
+    @IBOutlet weak var telfonTxt: CustomTextField!
+    @IBOutlet weak var continueButton: UIBarButtonItem!
+    var activityView:UIActivityIndicatorView!
+
+    @IBOutlet weak var errorMssg: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
+        //disable login button dan bikin activity progress yg muter-muter
+        setContinueButton(enabled: false)
+        activityView = UIActivityIndicatorView(style: .gray)
+        activityView.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
+        activityView.center = view.center
+        view.addSubview(activityView)
+        
         emailTxt.delegate = self
         namaTxt.delegate = self
         telfonTxt.delegate = self
+        errorMssg.isHidden = true
+        //
+        emailTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        namaTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         //add done button
         var toolbar = UIToolbar()
@@ -31,7 +62,11 @@ class UbahprofilViewController: UIViewController, UITextFieldDelegate {
         toolbar.setItems([flexibleSpace,doneBtn], animated: false)
         
         telfonTxt.inputAccessoryView = toolbar
-     
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        loadUserProfileData()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
@@ -50,21 +85,116 @@ class UbahprofilViewController: UIViewController, UITextFieldDelegate {
         return false
     }
     
-    @IBAction func submitBtn(_ sender: Any) {
+    @objc func textFieldChanged(_ target:UITextField) {
+        let phonenumber = telfonTxt.text
+        //phonenumber = currentNumber
+        let email = emailTxt.text
+        let nama = namaTxt.text
         
-        //validation
+        
+        //syaratnya
+        let formFilled = /*phonenumber != nil && phonenumber != "" &&*/ email != nil && email != "" && email?.contains("@") == true && email?.contains(".com") == true && nama != nil && nama != ""
+        
+        //testing
+        print(formFilled)
+        if formFilled
+        {
+            setContinueButton(enabled: true)
+            errorMssg.isHidden = true
+        }
+//        else if phonenumber == nil || phonenumber == ""
+//        {
+//            errorMssg.isHidden = false
+//            errorMssg.text = "Phone number cannot be empty!"
+//            setContinueButton(enabled: false)
+//        }
+        else if email == nil || email == ""
+        {
+            errorMssg.isHidden = false
+            errorMssg.text = "Email cannot be empty!"
+            setContinueButton(enabled: false)
+        }else if nama == nil || nama == ""
+        {
+            errorMssg.isHidden = false
+            errorMssg.text = "Nama cannot be empty!"
+            setContinueButton(enabled: false)
+        }else if email?.contains("@") == false || email?.contains(".com") == false{
+            errorMssg.isHidden = false
+            errorMssg.text = "Enter the right email format"
+            setContinueButton(enabled: false)
+        }
         
     }
-    
     
     @objc func doneClicked()
     {
         view.endEditing(true)
     }
     
-    @IBOutlet weak var emailTxt: CustomTextField!
     
-    @IBOutlet weak var namaTxt: CustomTextField!
+    @objc func handleSaveProfile() {
+        
+        activityView.startAnimating()
+        
+        guard let username = namaTxt.text else { return }
+        guard let email = emailTxt.text else { return }
+        // 1. Upload the profile image to Firebase Storage
+        
+                let changeRequest = Auth.auth().currentUser?.createProfileChangeRequest()
+                changeRequest?.displayName = username
+                changeRequest?.commitChanges { error in
+                    if error == nil {
+                        print("Profile changed!")
+                        
+                        connector().saveProfile(username: username, email: email) { success in
+                            if success {
+                                self.navigationController?.popViewController(animated: true)
+                            }else{
+                                self.resetForm()
+                            }
+                        }
+                        
+                    } else {
+                        print("Error: \(error!.localizedDescription)")
+                        self.resetForm()
+                    }
+                }
+        
+        
+    }
     
-    @IBOutlet weak var telfonTxt: CustomTextField!
+    
+    func setContinueButton(enabled:Bool) {
+        if enabled {
+            continueButton.tintColor = .black
+            continueButton.isEnabled = true
+        } else {
+            continueButton.tintColor = .black
+            continueButton.isEnabled = false
+        }
+    }
+    
+    func resetForm() {
+        
+        //setContinueButton(enabled: true)
+        activityView.stopAnimating()
+        setContinueButton(enabled: false)
+    }
+    
+    override var canBecomeFirstResponder: Bool{
+        return true
+        
+    }
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        self.becomeFirstResponder()
+        
+    }
+    
+    func loadUserProfileData(){
+        guard let userProfile = UserService.currentUserProfile else { return }
+        emailTxt.text = userProfile.email
+        namaTxt.text =  userProfile.username
+        telfonTxt.text = userProfile.phonenumber
+    }
 }

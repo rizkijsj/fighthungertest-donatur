@@ -36,156 +36,154 @@ class connector {
     func verifyLogin(phoneNo:String,
                      completion: @escaping (Bool,String) -> Void){
 		
-        if verifyUserExistanceInDataBase(phoneno: phoneNo) == true{
-            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in
-            if error != nil{
-                let errorText = String(describing: error?.localizedDescription)
+        verifyUserExistanceInDataBase(phoneno: phoneNo){ result in
+            if result {
+                PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in
+                    if error != nil{
+                        let errorText = String(describing: error?.localizedDescription)
                         
-                completion(false,errorText)
-                print("error: \(String(describing: error?.localizedDescription))")
-            }else{
-                let defaults = UserDefaults.standard
-                defaults.set(verificationID, forKey: "authVID")
-                let errorText = self.errorCode(code: 0)
-                
-                completion(true,errorText)
-                print("sukses verify dong")
+                        completion(false,errorText)
+                        print("error: \(String(describing: error?.localizedDescription))")
+                    }else{
+                        let defaults = UserDefaults.standard
+                        defaults.set(verificationID, forKey: "authVID")
+                        let errorText = self.errorCode(code: 0)
+                        
+                        completion(true,errorText)
+                        print("sukses verify dong")
+                    }
                 }
+            }else{
+                print("error")
+                let errorText = self.errorCode(code: 2)
+                
+                completion(false,errorText)
             }
-        }else{
-            print("error")
-            let errorText = errorCode(code: 2)
             
-            completion(false,errorText)
         }
-	}
+        
+    }
     
     func verifyRegister(
         phoneNo:String,
         completion: @escaping (Bool,String) -> Void){
        
-        if verifyUserExistanceInDataBase(phoneno: phoneNo) == true{
-            print("error")
-            let errorText = errorCode(code: 1)
-            
-            completion(false,errorText)
-        }else{
-            print("ini no nya ",phoneNo)
-            PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in
-                if error != nil {
-                    let errorText = String(describing: error?.localizedDescription)
+        verifyUserExistanceInDataBase(phoneno: phoneNo) { (result) in
+            if result {
+                print("error")
+                let errorText = self.errorCode(code: 1)
+                
+                completion(false,errorText)
+            }else{
+                print("ini no nya ",phoneNo)
+                PhoneAuthProvider.provider().verifyPhoneNumber(phoneNo, uiDelegate: nil) { (verificationID, error) in
+                    if error != nil {
+                        let errorText = String(describing: error?.localizedDescription)
                         
-                    completion(false,errorText)
-                    print("error: \(String(describing: error?.localizedDescription))")
-                } else {
-                    let defaults = UserDefaults.standard
-                    defaults.set(verificationID, forKey: "authVID")
-                    print(verificationID)
-                    let errorText = self.errorCode(code: 0)
-                    
-                    completion(true,errorText)
-                    print("sukses verify dong")
+                        completion(false,errorText)
+                        print("error: \(String(describing: error?.localizedDescription))")
+                    } else {
+                        let defaults = UserDefaults.standard
+                        defaults.set(verificationID, forKey: "authVID")
+                        print(verificationID)
+                        let errorText = self.errorCode(code: 0)
+                        
+                        completion(true,errorText)
+                        print("sukses verify dong")
+                    }
                 }
             }
-//            self.verifyPhone(phonenumber: phoneNo) { (success) in
-//                if success{
-//                    print("kokokoko")
-//                    tempStatus = true
-////                    codeError = 0
-//                }
-//                else{
-//                    //tempStatus = false
-//                    //codeError = 100
-//                    print("gagal")
-//                }
-//                print("kukuku")
-//                completion(tempStatus)
-//            }
         }
-//        return(tempStatus,codeError)
     }
     
-    func verifyUserExistanceInDataBase(phoneno:String) -> Bool{
+    func verifyUserExistanceInDataBase(phoneno:String,completion: @escaping (Bool) -> Void){
         let ref = Database.database().reference()
-        var result = false
+        //var result = false
         ref.child("users/phonenumber/\(phoneno)").observeSingleEvent(of: .value, with: { (snapshot) in
             if snapshot.exists(){
                 print("phone number exist")
-                result = true
+                completion(true)
             }else{
                 print("phone number not exist")
-                result = false
+                completion(false)
             }
         })
-        return result
     }
     
-    
-	
-    func signUpIn(email:String, nama:String, phonenumber:String,kodeotp:PhoneAuthCredential, completion: @escaping (Bool) -> Void){
-		// TODO:
-        let url = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/profiledefault.jpg?alt=media&token=8234e660-a04d-4e54-abe3-e615c74ff91f")
-        //var result = false
+    func logIn(kodeotp:PhoneAuthCredential,completion: @escaping (Bool) -> Void){
         
-        if self.verifyUserExistanceInDataBase(phoneno: phonenumber) {
-            Auth.auth().signIn(with: kodeotp) { (user, error) in
-                if error != nil && user != nil{
-                    print("error: \(String(describing: error?.localizedDescription))")
-                    //result = false
-                    completion(false)
-                }else{
-                  print("sukses sign in")
-                    completion(true)
-                }
-            }
-        }else{
-            Auth.auth().signIn(with: kodeotp) { (user, error) in
-                if error != nil && user != nil{
-                    print("error: \(String(describing: error?.localizedDescription))")
-                    //result = false
-                    completion(false)
-                }else{
-                    
-                        guard let uid = Auth.auth().currentUser?.uid else { return }
-                        
-                        let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
-                        let phoneNumberDatabaseRef = Database.database().reference().child("users/phonenumber/\(phonenumber)")
-                        let userObject = [
-                            "username":nama,"email": email,"photoURL":url?.absoluteString,"phonenumber": phonenumber
-                            ] as [String:Any]
-                        let phoneNumberObject = [
-                            phonenumber:uid
-                            ] as [String:Any]
-                        
-                        databaseRef.setValue(userObject) { error, ref in
-                            //completion(error == nil)
-                        }
-                        phoneNumberDatabaseRef.setValue(phoneNumberObject) { error, ref in
-                            //completion(error == nil)
-                        }
-                        completion(true)
-                    print("sukses sign up")
-                }
+        Auth.auth().signIn(with: kodeotp) { (user, error) in
+            if error != nil && user != nil{
+                print("error: \(String(describing: error?.localizedDescription))")
+                //result = false
+                completion(false)
+            }else{
+                print("sukses sign in")
+                completion(true)
             }
         }
+        
+    }
+	
+    func signUp(email:String, nama:String, phonenumber:String,kodeotp:PhoneAuthCredential, completion: @escaping (Bool) -> Void){
+		// TODO:
+//        let url = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/profiledefault.jpg?alt=media&token=8234e660-a04d-4e54-abe3-e615c74ff91f")
+        //var result = false
+        
+        logIn(kodeotp: kodeotp) { (result) in
+            if result{
+                guard let uid = Auth.auth().currentUser?.uid else { return }
+                
+                let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
+                let phoneNumberDatabaseRef = Database.database().reference().child("users/phonenumber/\(phonenumber)")
+                let userObject = [
+                    "username":nama,"email": email,"phonenumber": phonenumber
+                    ] as [String:Any]
+                let phoneNumberObject = [
+                    phonenumber:uid
+                    ] as [String:Any]
+                
+                databaseRef.setValue(userObject) { error, ref in
+                    //completion(error == nil)
+                }
+                phoneNumberDatabaseRef.setValue(phoneNumberObject) { error, ref in
+                    //completion(error == nil)
+                }
+                completion(true)
+                print("sukses sign up")
+            }else{
+                print("gagal sign up")
+            }
+        }
+        
+//                Auth.auth().signIn(with: kodeotp) { (user, error) in
+//                    if error != nil && user != nil{
+//                        print("error: \(String(describing: error?.localizedDescription))")
+//                        //result = false
+//                        completion(false)
+//                    }else{
+//
+//
+//                }
+    
         
         
         
 	}
     
     
-    func postDonate(namaBarang: String,lokasiBarang : String,fotodonasi: UIImage,deskripsiBarang : String,completion: @escaping (Bool) -> Void) {
+    func postDonate(namaBarang: String,lokasiBarang : String,keteranganLokasi: String,fotodonasi: UIImage,deskripsiBarang : String,kuantitasBarang: String,waktuAmbil : String,latitude: String,longitude: String,completion: @escaping (Bool) -> Void) {
         print("masuk post donate")
 //        let namaBarang = nama
 //        let namaLokasi = lokasi
         //guard let pickUpTime = waktuPengambilan.text else { return }
-        let fotobarang = fotodonasi
+//        let fotobarang = fotodonasi
         //guard let deskripsi = deskripsiBarang.text
         guard let userProfile = UserService.currentUserProfile else { return }
-        
+        guard let gambardonasi = fotodonasi as? UIImage else {return}
         let uid = userProfile.uid
         
-        self.uploadPostImage(fotobarang) { url in
+        self.uploadPostImage(gambardonasi) { url in
             print(url)
             if url != nil {
                 print("url ga kosong")
@@ -196,9 +194,8 @@ class connector {
                         "uid": userProfile.uid,
                         "email": userProfile.email,
                         "phonenumber":userProfile.phonenumber,
-                        "photoURL": userProfile.photoURL.absoluteString,
                         "username": userProfile.username
-                    ],"namabarang": namaBarang,"namalokasi": lokasiBarang/*,"pickupTime":pickUpTime*/,"deskripsiBarang":deskripsiBarang,"postphotourl": url?.absoluteString,"timestamp": [".sv":"timestamp"],"status": "active"
+                    ],"namabarang": namaBarang,"namalokasi": lokasiBarang,"keteranganlokasi":keteranganLokasi/*,"pickupTime":pickUpTime*/,"deskripsibarang":deskripsiBarang,"jumlahbarang":kuantitasBarang,"waktuambil":waktuAmbil,"latitude":latitude,"longitude":longitude,"postphotourl": url?.absoluteString,"timestamp": [".sv":"timestamp"],"status": "pending"
                     ] as [String:Any]
                 
                 postRef.setValue(postObject, withCompletionBlock: { error, ref in
@@ -258,15 +255,14 @@ class connector {
             }
         }
     
-    func saveProfile(username:String,email:String ,profileImageURL:URL, completion: @escaping ((_ success:Bool)->())) {
+    func saveProfile(username:String,email:String, completion: @escaping ((_ success:Bool)->())) {
         guard let uid = Auth.auth().currentUser?.uid else { return }
         
         
         let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
         
         let userObject = [
-            "username": username,"email": email,
-            "photoURL": profileImageURL.absoluteString] as [String:Any]
+            "username": username,"email": email] as [String:Any]
         
         databaseRef.updateChildValues(userObject) { error, ref in
             completion(error == nil)

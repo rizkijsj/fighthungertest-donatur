@@ -12,15 +12,13 @@ class UserProfile {
     var uid:String
     var email:String
     var phonenumber:String
-    var photoURL:URL
     var username:String
     //var role:String
     
-    init(uid:String, email:String,phonenumber:String,photoURL:URL,username:String) {
+    init(uid:String, email:String,phonenumber:String,username:String) {
         self.uid = uid
         self.email = email
         self.phonenumber = phonenumber
-        self.photoURL = photoURL
         self.username = username
         //self.role = role
     }

@@ -29,7 +29,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
     @IBOutlet weak var continueButton: UIButton!
     
-    
+    var userExistance: Bool!
     var tempTampungTerima = [String]()
     var activityView:UIActivityIndicatorView!
     
@@ -113,30 +113,39 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
     @IBAction func lanjutBtn(_ sender: Any) {
         setContinueButton(enabled: false)
+        activityView.startAnimating()
         let defaults = UserDefaults.standard
-        guard let email = tempTampungTerima[0] as? String else { return }
-        guard let username = tempTampungTerima[1] as? String else { return }
-        guard let phonenumber = tempTampungTerima[2] as? String else { return }
+        
         let combinedOTP = otpTxt1.text! + otpTxt2.text! + otpTxt3.text! + otpTxt4!.text! + otpTxt5.text! + otpTxt6.text!
         print("ini kodenya\(combinedOTP)")
         
         let credential: PhoneAuthCredential = PhoneAuthProvider.provider().credential(withVerificationID: defaults.string(forKey: "authVID")!, verificationCode: combinedOTP)
         
-        
+        if userExistance{
+            connector().logIn(kodeotp: credential) { (result) in
+                if result{
+                    self.performSegue(withIdentifier: "LoginToHome", sender: nil)
+                }
+            }
+        }else{
+            guard let email = tempTampungTerima[0] as? String else { return }
+            guard let username = tempTampungTerima[1] as? String else { return }
+            guard let phonenumber = tempTampungTerima[2] as? String else { return }
             let status = defaults.bool(forKey: "ngepostDonasi")
-        
-            connector().signUpIn(email: email, nama: username, phonenumber: phonenumber, kodeotp: credential) { (result) in
+            
+            connector().signUp(email: email, nama: username, phonenumber: phonenumber, kodeotp: credential) { (result) in
                 if result{
                     print("sukses untuk sign up / login")
                     if status {
                         self.performSegue(withIdentifier: "OTPToHome", sender: nil)
-                    }else{
-                        self.performSegue(withIdentifier: "LoginToHome", sender: nil)
                     }
                 }else{
                     print("gagal sign in di vc")
                 }
             }
+        }
+        
+        
         
         
         
