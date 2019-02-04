@@ -166,10 +166,10 @@ class UbahprofilViewController: UIViewController, UITextFieldDelegate {
     
     func setContinueButton(enabled:Bool) {
         if enabled {
-            continueButton.tintColor = .black
+            continueButton.tintColor = UIColor(displayP3Red: 193/255, green: 27/255, blue: 42/255, alpha: 1)
             continueButton.isEnabled = true
         } else {
-            continueButton.tintColor = .black
+            //continueButton.tintColor = .black
             continueButton.isEnabled = false
         }
     }
