@@ -22,7 +22,8 @@ class NewHomeViewController: UIViewController {
 	// partner data should always referred to your data source, which it will be real time updated data
 	var partnerData = [1,2,3]
 	
-	var activityList = connector().transactionList()
+	var activityListRaw = connector().transactionList()
+	var activityList:[Post] = []
 	var organizationList = connector().organizationList()
 	var programList = connector().programList()
 	
@@ -37,6 +38,21 @@ class NewHomeViewController: UIViewController {
 		setupView()
         
         print(posts)
+		DispatchQueue.global().asyncAfter(deadline: .now() + 2) {
+			self.processOngoingDonation(rawData: self.activityListRaw) { (aPost) in
+				self.activityList = aPost
+				
+				let transition = CATransition()
+				transition.type = CATransitionType.push
+				transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
+				transition.fillMode = CAMediaTimingFillMode.forwards
+				transition.duration = 0.5
+				transition.subtype = CATransitionSubtype.fromBottom
+				self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
+				// Update your data source here
+				self.tableView.reloadData()
+			}
+		}
         
 	}
 
@@ -82,6 +98,24 @@ class NewHomeViewController: UIViewController {
 		}
 	}
 	
+	func processOngoingDonation(rawData:[Post],completion: @escaping ([Post]) -> Void){
+		
+		var filteredData:[Post] = []
+		
+		rawData.forEach { (post) in
+			if post.status == "1"{
+				filteredData.append(post)
+			}else if post.status == "2"{
+				filteredData.append(post)
+			}else if post.status == "3"{
+				filteredData.append(post)
+			}else if post.status == "4"{
+				filteredData.append(post)
+			}
+		}
+		
+		completion(filteredData)
+	}
 }
 
 extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
@@ -204,7 +238,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			
 			cell.contentActivityTime.text = timeFormat.string(from: Date(timeIntervalSince1970: activityList[indexPath.row].waktuambil))
 			
-			if activityList[indexPath.row].status != "1" {
+			if activityList[indexPath.row].status == "2" || activityList[indexPath.row].status == "3" || activityList[indexPath.row].status == "4" {
 				if let orgObject = activityList[indexPath.row].organisasi{
 					
 					loadImage(link: orgObject.email, object: cell.contentOrganisationIcon)
