@@ -169,8 +169,9 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-		loadPostData()
+		
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        loadPostData()
     }
     
     @objc func textFieldChanged(_ target:UITextField)
@@ -204,7 +205,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         }
         
         
-        continueButton.isEnabled = false
+        //continueButton.isEnabled = false
         deskripsiBarang.delegate = self
       
     }
@@ -335,10 +336,11 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     func setContinueButton(enabled:Bool) {
         if enabled {
-            continueButton.tintColor = .black
+            continueButton.tintColor = .red
+            continueButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)], for: .normal)
             continueButton.isEnabled = true
         } else {
-            continueButton.tintColor = .black
+            //continueButton.tintColor = .red
             continueButton.isEnabled = false
         }
     }
