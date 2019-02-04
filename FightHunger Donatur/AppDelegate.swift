@@ -21,7 +21,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
-        print("test")
         FirebaseApp.configure()
         
         if #available(iOS 10.0, *) {
@@ -47,7 +46,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             if user != nil{
                 UserService.observeUserProfile(user!.uid) { userProfile in
                     UserService.currentUserProfile = userProfile
-                    print("berhasil observe")
                     print(UserService.currentUserProfile?.uid)
                     print(UserService.currentUserProfile?.phonenumber)
                     print(UserService.currentUserProfile?.email)
@@ -106,6 +104,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 	func applicationDidBecomeActive(_ application: UIApplication) {
 		// Restart any tasks that were paused (or not yet started) while the application was inactive. If the application was previously in the background, optionally refresh the user interface.
+        //fetch sync data
+        //masalah user profile add target trus panggil function fetch data pake completion baru segue
 	}
 
 	func applicationWillTerminate(_ application: UIApplication) {

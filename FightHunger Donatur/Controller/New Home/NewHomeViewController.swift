@@ -13,7 +13,10 @@ class NewHomeViewController: UIViewController {
 	@IBOutlet weak var donateButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
     
+    let repeatedLoginAttempt = RepeatingTimer(timeInterval: 5)
+    
     var posts = [Post]()
+    var organisasi = [OrganisasiProfile]()
 	// activity data should always referred to your data source, which it will be real time updated data
 	var activityData = [1]
 	var temporaryArrayData = ["asd", "bsdn", "kausrg", "asjdfyr"]
@@ -32,18 +35,34 @@ class NewHomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Set what needs to display within your view
-		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        
+        setupView()
+    UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
         UserDefaults.standard.synchronize()
-		setupView()
+        repeatedLoginAttempt.eventHandler = {
+            guard let userProfile = UserService.currentUserProfile else {
+                print("Error")
+                return }
+            let uid = userProfile.uid
+            self.observePost(id: uid)
+            self.observeOrganisasi()
+            self.repeatedLoginAttempt.suspend()
+        }
         
-        print(posts)
         
+		
+        repeatedLoginAttempt.resume()
 	}
+    
 
 	override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
-        observePosts()
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+        }
+        
+        //observePosts()
         self.tableView.reloadData()
     }
 	
@@ -92,7 +111,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		switch section {
 		case 0:
-			return activityList.count
+			return posts.count
 		case 1:
 			return programList.count
 		case 2:
@@ -213,7 +232,9 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 				cell.contentOrganisationName.text = ""
 				cell.contentOrganisationIcon.image = nil
 			}
-			
+        
+            cell.set(post: posts[indexPath.row])
+
 			return cell
 		case 1:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "newActivityCellID", for: indexPath) as? SectionTwoHomeCell)!
@@ -338,12 +359,11 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension NewHomeViewController{
     
-    func observePosts() {
+    
+    
+    func observePost(id: String) {
         
-        guard let userProfile = UserService.currentUserProfile else { return }
-        let uid = userProfile.uid
-        
-        let postsRef = Database.database().reference().child("Post/\(uid)")
+        let postsRef = Database.database().reference().child("Post/\(id)")
         
         
         postsRef.observe(.value, with: { snapshot in
@@ -383,7 +403,57 @@ extension NewHomeViewController{
                     }
                 }
             }
+            print("berhasil ambil data post")
             self.posts = tempPosts
+            self.tableView.reloadData()
+            
+        })
+    }
+    
+    func observeOrganisasi() {
+        
+        //        guard let userProfile = UserService.currentUserProfile else { return }
+        //        let uid = userProfile.uid
+        
+        let orgRef = Database.database().reference().child("users/komunitas/profile/")
+        
+        
+        orgRef.observe(.value, with: { snapshot in
+            
+            var tempOrganisasi = [OrganisasiProfile]()
+            //var tempIdProfile = String
+            
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String:Any],
+                    let locationcoor = dict["locationcoor"] as? [String:Any],
+                    let latitude = locationcoor["latitude"] as? String,
+                    let longitude = locationcoor["longitude"] as? String,
+                    //                    let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(([longitude] as NSString).doubleValue), longitude: Double(([latitude] as NSString).doubleValue)),
+                    let logo = dict["logo"] as? String,
+                    let logourl = URL(string: logo),
+                    let address = dict["locationname"] as? String,
+                    let name = dict["name"] as? String,
+                    let phonenumber = dict["phone"] as? String,
+                    let link = dict["link"] as? String,
+                    let linkwebsite = URL(string: link),
+                    let deskripsi = dict["description"] as? String,
+                    let email = dict["email"] as? String,
+                    let id = dict["id"] as? String{
+                    let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
+                    
+                    
+                    tempOrganisasi.append(organisasi)
+                    print(tempOrganisasi)
+                    //                    if userProfile.uid == Auth.auth().currentUser?.uid
+                    //                    {
+                    //                        tempOrganisasi.append(post)
+                    //
+                    //                    }
+                }
+            }
+            print("berhasil ambil data organisasi")
+            self.organisasi = tempOrganisasi
             self.tableView.reloadData()
             
         })

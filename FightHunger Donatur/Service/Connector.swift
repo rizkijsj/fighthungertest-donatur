@@ -230,8 +230,8 @@ class connector {
             var ref: DatabaseReference!
     
             ref = Database.database().reference()
-            let uid = ref.child("Post/FOI").childByAutoId().key
-            let storageRef = Storage.storage().reference().child("Post/FOI/\(uid)")
+            let uid = ref.child("Post/").childByAutoId().key
+            let storageRef = Storage.storage().reference().child("Post/\(uid)")
     
             guard let imageData = image.jpegData(compressionQuality: 0.75)else { return }
     
