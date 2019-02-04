@@ -72,7 +72,7 @@ class KegiatanViewController: UITableViewController {
 //
 //    }
     
-    var passingObject:transactionObject?
+    var passingObject:Post?
     var transactionID:String?
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -94,7 +94,7 @@ class KegiatanViewController: UITableViewController {
         transactionID = "T1"
         if let transID = transactionID {
         passingObject = connector().transactionDetail(transactionID: transID)
-            passingObject?.status = 1
+            passingObject?.status = "1"
             updateDonationDetails()
         }else{
           dismiss(animated: true, completion: nil)
@@ -113,24 +113,24 @@ class KegiatanViewController: UITableViewController {
             transactionID = statusObject.id
             statusInteractionUpdate(Status: statusObject.status)
             
-            loadImage(link: statusObject.image)
+            loadImage(link: statusObject.postphotourl)
             updateDonationStatus(donationStage: statusObject.status)
 			
 			
-			if let orgID = statusObject.organizationId,let organizationObject = connector().organizationDetail(organizationID: orgID) {
+			if let orgID = statusObject.organisasi?.uid,let organizationObject = connector().organizationDetail(organizationID: orgID) {
 				
-            namaOrganisasi.text = organizationObject.name
-            nomorTelponOrganisasi.text = organizationObject.phone
+            namaOrganisasi.text = organizationObject.username
+            nomorTelponOrganisasi.text = organizationObject.phonenumber
 				
 			}
             
             
-            namaKurir.text = statusObject.courierName
-            deskripsiKurir.text = statusObject.courierDescription
+            namaKurir.text = statusObject.namakurir
+            deskripsiKurir.text = statusObject.deskripsikurir
             
-            namaDonasi.text = statusObject.name
-            deskripsiDonasi.text = statusObject.description
-            jumlahDonasi.text = "\(statusObject.quantity) Item"
+            namaDonasi.text = statusObject.namaitem
+            deskripsiDonasi.text = statusObject.deskripsi
+            jumlahDonasi.text = "\(statusObject.jumlahbarang) Item"
 
             let dateFormat = DateFormatter()
             let timeFormat = DateFormatter()
@@ -141,7 +141,7 @@ class KegiatanViewController: UITableViewController {
             
             
             
-            waktuPengambilan.text = "\(dateFormat.string(from: statusObject.pickUpTime)),\(timeFormat.string(from:statusObject.pickUpTime)))"
+            waktuPengambilan.text = "\(dateFormat.string(from: Date(timeIntervalSince1970: statusObject.waktuambil))), \(timeFormat.string(from: Date(timeIntervalSince1970: statusObject.waktuambil)))"
             
             
             
@@ -150,20 +150,19 @@ class KegiatanViewController: UITableViewController {
         }
     }
     
-    func statusInteractionUpdate(Status:Int){
+    func statusInteractionUpdate(Status:String){
         
-        switch Status {
-        case 1:
+		if Status == "1" {
             btnBatal.isEnabled = true
             batalkanDonasi()
             print("Menunggu konfirmasi")
-        case 2:
+		}else if Status == "2"{
             btnBatal.isEnabled = true
             batalkanDonasi()
             btnCallOrganisasi.isEnabled = true
             callOrganisasi()
             print("organisasi mencari Kurir")
-        case 3:
+        }else if Status == "3"{
             btnKonfirmasi.isEnabled = true
             btnCallOrganisasi.isEnabled = true
             callOrganisasi()
@@ -171,11 +170,11 @@ class KegiatanViewController: UITableViewController {
 //                push notif ke organisasi
             }
             print("sedang di jemput")
-        case 4:
+        }else if Status == "4"{
             btnCallOrganisasi.isEnabled = true
             callOrganisasi()
             print("sedang di antar")
-        default:
+        }else{
             print("hmmmm")
             btnKonfirmasi.isEnabled = false
             btnCallOrganisasi.isEnabled = false
@@ -208,31 +207,31 @@ class KegiatanViewController: UITableViewController {
         }
     }
     
-    func updateDonationStatus(donationStage:Int){
+    func updateDonationStatus(donationStage:String){
         
-        if donationStage == 0 {
+        if donationStage == "0" {
             print("baru push dari donatur")
-        }else if donationStage == 1 {
+        }else if donationStage == "1" {
         print("Menunggu untuk di claim")
             btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
-        }else if donationStage == 2 {
+        }else if donationStage == "2" {
             print("Menunggu Menunggu Data Kurir")
             stasus1.image = UIImage.init(named: "pin1a")
             btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
             btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
-        }else if donationStage == 3 {
+        }else if donationStage == "3" {
             print("Mengirim Kurir")
             stasus1.image = UIImage.init(named: "pin1a")
             status2.image = UIImage.init(named: "pin2a")
             btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
             btnKonfirmasi.setImage(UIImage(named: "konfirmasi aktif"), for: .normal)
-        } else if donationStage == 4 {
+        } else if donationStage == "4" {
             print("Sedang diantar")
             stasus1.image = UIImage.init(named: "pin1a")
             status2.image = UIImage.init(named: "pin2a")
             status3.image = UIImage.init(named: "pin2a")
             btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
-        } else if donationStage == 5 {
+        } else if donationStage == "5" {
             print("Sudah sampai organisasi")
             stasus1.image = UIImage.init(named: "pin1a")
             status2.image = UIImage.init(named: "pin2a")

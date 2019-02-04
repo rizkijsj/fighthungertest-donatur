@@ -171,7 +171,8 @@ class connector {
         
 	}
     
-    
+	
+	// MARK: - Post Donation
     func postDonate(namaBarang: String,lokasiBarang : String,keteranganLokasi: String,fotodonasi: UIImage,deskripsiBarang : String,kuantitasBarang: String,waktuAmbil : String,latitude: String,longitude: String,completion: @escaping (Bool) -> Void) {
         print("masuk post donate")
 //        let namaBarang = nama
@@ -294,16 +295,6 @@ class connector {
         }
     }
 	
-	// MARK: - Post Donation
-	func postDonationSucess(donationName:String,image:UIImage,locationName:String, locationCoor:CLLocationCoordinate2D,pickupTime:Date,desccription:String) -> Bool {
-		// TODO:
-		return true
-	}
-	func postDonationFail(donationName:String,image:UIImage,locationName:String, locationCoor:CLLocationCoordinate2D,pickup:Date,desccription:String) -> Bool {
-		
-		return false
-	}
-	
 	// MARK: - Update donation Status
 	func donationUpdateDeliverySuccess(transactionID:String) -> Bool{
 		return true
@@ -327,9 +318,9 @@ class connector {
     }
     
     // MARK: - Organizarion Detail
-    func organizationDetail(organizationID:String) -> organizationObject? {
+    func organizationDetail(organizationID:String) -> UserProfile? {
         
-        let item:organizationObject = organizationObject.init(orgId: organizationID, orgPhone: "1", orgEmail: "1@2.com", orgName: "1", orgDesc: "2", orgLogo: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg", orgLocName: "2", orgLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: 5)!, longitude: CLLocationDegrees.init(exactly: 5)!), orgLink: "google.com")
+        let item = UserProfile.init(uid: organizationID, email: "organisasi@organization.com", phonenumber: "+62 818081828238", username: "organisasi")
         
         
         
@@ -337,19 +328,20 @@ class connector {
     }
     
     // MARK: - Donator Detail
-    func donatorDetail(donatorID:String) -> donatorObject? {
+    func donatorDetail(donatorID:String) -> UserProfile? {
         
-        let item:donatorObject = donatorObject.init(donId: donatorID, donPhone: "#", donEmail: "3@4.com", donName: "3", donPro: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg")
-        
+        //let item:donatorObject = donatorObject.init(donId: donatorID, donPhone: "#", donEmail: "3@4.com", donName: "3", donPro: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg")
+		
+		let item = UserProfile.init(uid: donatorID, email: "donatur@donator.com", phonenumber: "+62 81808082828", username: "donasi")
         
         
         return item
     }
     
     // MARK: - Transaction (donation) Detail
-    func transactionDetail(transactionID:String) -> transactionObject?{
+    func transactionDetail(transactionID:String) -> Post?{
         
-        let item:transactionObject = transactionObject.init(tranID: transactionID, tranDonId: "3", tranOrgId: "!", tranName: "Duck", tranImage: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg", tranLocName: "10", tranLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: -6)!, longitude: CLLocationDegrees.init(exactly: 108)!), tranPickUpTime: Date(timeIntervalSince1970: 70000000), tranDesc: "Just Ducks", tranCourierName: "2", tranCourierDesc: "2 aja", tranStatus: 0, tranReason: "Ducks", tranQuantity: 100, tranLocNote: "Di hati mu", transArrivalTime: nil)
+		let item = Post.init(id: "T01", author: connector().donatorDetail(donatorID: "D1")!, organisasi: connector().organizationDetail(organizationID: "T1"), postphotourl: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg", namaitem: "Yogurt", deskripsi: "Segera di santap karena cepat basi", jumlahbarang: "5", alamat: "l. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: "-6.2747551", longitude: "106.8602302", waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: "1", alasanbatal: "Sudah Basi")
         
         return item
     }
@@ -381,8 +373,8 @@ class connector {
 	
 	
 	// MARK: - Organization List
-	func organizationList() -> [organizationObject] {
-		var items:[organizationObject] = []
+	func organizationList() -> [UserProfile] {
+		var items:[UserProfile] = []
 		
         items.append(organizationDetail(organizationID: "O1")!)
         items.append(organizationDetail(organizationID: "O2")!)
@@ -393,8 +385,8 @@ class connector {
 	}
 	
 	// MARK: - Transaction List List
-	func transactionList() -> [transactionObject] {
-		var items:[transactionObject] = []
+	func transactionList() -> [Post] {
+		var items:[Post] = []
 		
         items.append(transactionDetail(transactionID: "T1")!)
         items.append(transactionDetail(transactionID: "T2")!)
@@ -404,13 +396,13 @@ class connector {
         items.append(transactionDetail(transactionID: "T909")!)
         items.append(transactionDetail(transactionID: "T189")!)
 		
-		items[0].status = 1
-		items[1].status = 1
-		items[2].status = 2
-		items[3].status = 3
-		items[4].status = 4
-		items[5].status = 4
-		items[6].status = 2
+		items[0].status = "0"
+		items[1].status = "1"
+		items[2].status = "2"
+		items[3].status = "3"
+		items[4].status = "4"
+		items[5].status = "5"
+		items[6].status = "6"
 		
 		return items
 		
@@ -424,6 +416,7 @@ class connector {
 
 // MARK: - Sample Classes
 // TODO: Remove the sample classes into proper class
+/*
 class transactionObject{
     
     /*
@@ -497,7 +490,7 @@ class donatorObject{
         
     }
 }
-
+*/
 class organizationObject{
     var id:String
     var phone:String

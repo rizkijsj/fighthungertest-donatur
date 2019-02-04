@@ -21,7 +21,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     @IBOutlet weak var linkOrganisasi: UIButton!
     @IBOutlet weak var keteranganOrganisasi: UILabel!
     
-    var organisasiObject : organizationObject?
+    var organisasiObject : UserProfile?
     var organisasiProgramObject: [programObject] = []
     var organisasiID : String?
     
@@ -31,12 +31,12 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         
         if let orgID = organisasiID, let organisasi = connector().organizationDetail(organizationID: orgID)
              {
-                organisasiID = organisasi.id
-                loadImage(link: organisasi.logo)
-                namaOrganisasi.text = organisasi.name
-                alamatOrganisasi.text = organisasi.locationName
+                organisasiID = organisasi.uid
+                loadImage(link: organisasi.email)
+                namaOrganisasi.text = organisasi.username
+                alamatOrganisasi.text = organisasi.email
                 //btnAction()
-                keteranganOrganisasi.text = organisasi.description
+                keteranganOrganisasi.text = organisasi.username
                
                 organisasiProgramObject = connector().getOrganizationProgramList(organizationID: orgID, limit: 3)
             
@@ -63,7 +63,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     func btnAction(){
         if callOrganisasi.isTouchInside{
             
-            if let phoneURL = NSURL(string: "tel://\(String(describing: organisasiObject?.phone))"){
+            if let phoneURL = NSURL(string: "tel://\(String(describing: organisasiObject?.phonenumber))"){
                     UIApplication.shared.open(phoneURL as URL)
                         }
                     }
@@ -85,22 +85,24 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         }
         
         if linkOrganisasi.isTouchInside{
-            if let url = URL(string: "\(String(describing: organisasiObject?.link))") {
+            if let url = URL(string: "\(String(describing: organisasiObject?.email))") {
                     UIApplication.shared.open(url, options: [:])
                         }
             }
         
         if lokasiOrganisasi.isTouchInside{
             let regionDistance:CLLocationDistance = 1000
-            let coordinates = organisasiObject?.locationCoor
-            let regionSpan = MKCoordinateRegion(center: coordinates!, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+            let coordinates = CLLocationCoordinate2D.init(latitude: -6, longitude: 106)
+			
+			//organisasiObject?.email
+			let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
             let options = [
                 MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
                 MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
             ]
-            let placemark = MKPlacemark(coordinate: coordinates!, addressDictionary: nil)
+			let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
             let mapItem = MKMapItem(placemark: placemark)
-            mapItem.name = organisasiObject?.locationName
+            mapItem.name = organisasiObject?.username
             mapItem.openInMaps(launchOptions: options)
         }
         

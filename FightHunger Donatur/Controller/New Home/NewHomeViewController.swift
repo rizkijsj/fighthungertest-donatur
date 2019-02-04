@@ -77,7 +77,7 @@ class NewHomeViewController: UIViewController {
 			}else if nextIndexPath.section == 2{
 				let organizationVC = segue.destination as! Organisasi
 				organizationVC.organisasiObject = organizationList[nextIndexPath.row]
-				organizationVC.organisasiID = organizationList[nextIndexPath.row].id
+				organizationVC.organisasiID = organizationList[nextIndexPath.row].uid
 			}
 		}
 	}
@@ -149,13 +149,13 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		if indexPath.section == 0{
 			selectedIndexPath = indexPath
-			print("Somewhere in Activity with \(activityList[indexPath.row].name)")
+			print("Somewhere in Activity with \(activityList[indexPath.row].namaitem)")
 		}else if indexPath.section == 1 {
 			selectedIndexPath = indexPath
 			print("Somewhere in Program with \(programList[indexPath.row].name)")
 		}else if indexPath.section == 2 {
 			selectedIndexPath = indexPath
-			print("Somewhere in Organization with \(organizationList[indexPath.row].name)")
+			print("Somewhere in Organization with \(organizationList[indexPath.row].username)")
 		}
 		
 		
@@ -195,19 +195,20 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			
 			
 			
-			loadImage(link: activityList[indexPath.row].image, object: cell.contentImage)
+			loadImage(link: activityList[indexPath.row].postphotourl, object: cell.contentImage)
 			
-			cell.contentName.text = activityList[indexPath.row].name
+			cell.contentName.text = activityList[indexPath.row].namaitem
 			cell.contentStatus.text = updateDonationStatus(donationStage: activityList[indexPath.row].status)
-			cell.contentExpiredDate.text = activityList[indexPath.row].description
+			cell.contentExpiredDate.text = activityList[indexPath.row].deskripsi
 			
 			
-			cell.contentActivityTime.text = timeFormat.string(from: activityList[indexPath.row].pickUpTime)
+			cell.contentActivityTime.text = timeFormat.string(from: Date(timeIntervalSince1970: activityList[indexPath.row].waktuambil))
 			
-			if activityList[indexPath.row].status > 1 {
-				if let orgID = activityList[indexPath.row].organizationId, let orgObject = connector().organizationDetail(organizationID: orgID){
-					loadImage(link: orgObject.logo, object: cell.contentOrganisationIcon)
-					cell.contentOrganisationName.text = orgObject.name
+			if activityList[indexPath.row].status != "1" {
+				if let orgObject = activityList[indexPath.row].organisasi{
+					
+					loadImage(link: orgObject.email, object: cell.contentOrganisationIcon)
+					cell.contentOrganisationName.text = orgObject.username
 				}
 			}else {
 				cell.contentOrganisationName.text = ""
@@ -221,8 +222,8 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			loadImage(link: programList[indexPath.row].imagesLink, object: cell.contentImage)
 			
 			if let orgObject = connector().organizationDetail(organizationID: programList[indexPath.row].organizationID){
-				loadImage(link: orgObject.logo, object: cell.contentOrganisationIcon)
-				cell.contentOrganisationName.text = orgObject.name
+				loadImage(link: orgObject.email, object: cell.contentOrganisationIcon)
+				cell.contentOrganisationName.text = orgObject.username
 			}
 			
 			cell.contentActivityDate.text = programList[indexPath.row].time
@@ -234,10 +235,10 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		case 2:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "partnerCellID", for: indexPath) as? SectionThreeHomeCell)!
 			
-			loadImage(link: organizationList[indexPath.row].logo, object: cell.contentImage)
+			loadImage(link: organizationList[indexPath.row].email, object: cell.contentImage)
 			
-			cell.contentName.text = organizationList[indexPath.row].name
-			cell.contentAddress.text = organizationList[indexPath.row].locationName
+			cell.contentName.text = organizationList[indexPath.row].username
+			cell.contentAddress.text = organizationList[indexPath.row].email
 			
 			return cell
 		default:
@@ -307,16 +308,16 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			
 		}
 	}
-	func updateDonationStatus(donationStage:Int) -> String{
+	func updateDonationStatus(donationStage:String) -> String{
 		
 		switch donationStage {
-		case 1:
+		case "1":
 			return "Menunggu Claim"
-		case 2:
+		case "2":
 			return "Menunggu Kurir"
-		case 3:
+		case "3":
 			return "Di Jemput"
-		case 4:
+		case "4":
 			return "Di Antar"
 		default:
 			return ""
@@ -345,12 +346,12 @@ extension NewHomeViewController{
         
         let postsRef = Database.database().reference().child("Post/\(uid)")
         
-        
+        /*
         postsRef.observe(.value, with: { snapshot in
             
             var tempPosts = [Post]()
             //var tempIdProfile = String
-            
+			
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot,
                     let dict = childSnapshot.value as? [String:Any],
@@ -387,6 +388,7 @@ extension NewHomeViewController{
             self.tableView.reloadData()
             
         })
+*/
     }
     
 }
