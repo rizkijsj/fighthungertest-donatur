@@ -25,7 +25,34 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         namaBarang.resignFirstResponder()
         deskripsiBarang.resignFirstResponder()
         keteranganBarang.resignFirstResponder()
-       
+        
+        if namaBarang.isFirstResponder
+        {
+            deskripsiBarang.becomeFirstResponder()
+        }else if deskripsiBarang.isFirstResponder
+        {
+            keteranganBarang.becomeFirstResponder()
+        }else
+        {
+            keteranganBarang.resignFirstResponder()
+        }
+        
+        
+        /* if namaTxt.isFirstResponder
+         {
+         telfonTxt.becomeFirstResponder()
+         }else if telfonTxt.isFirstResponder
+         {
+         emailTxt.becomeFirstResponder()
+         }else
+         {
+         emailTxt.resignFirstResponder()
+         }
+         
+         return false*/
+ 
+ 
+ 
         return true
     }
     
@@ -180,24 +207,18 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         let waktuAmbil = waktuPengambilan.text
         
         let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && keteranganLokasi != "" && keteranganLokasi != nil && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil
+        
         print(formFilled)
+        
         if formFilled
         {
             print("gas pak aji")
             setContinueButton(enabled: true)
 
-        }else{
-            print("rem pak aji")
+        }else
+        {
             setContinueButton(enabled: false)
         }
-//        else if alamatBarang == nil || alamatBarang == ""
-//        {
-//            continueButton.isEnabled = false
-//        }
-//
-        
-        
-        //continueButton.isEnabled = false
         deskripsiBarang.delegate = self
       
     }
@@ -325,7 +346,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     func setContinueButton(enabled:Bool) {
         if enabled {
-            continueButton.tintColor = .red
+            continueButton.tintColor = UIColor(displayP3Red: 193/255, green: 27/255, blue: 42/255, alpha: 1.0)
             continueButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)], for: .normal)
             continueButton.isEnabled = true
         } else {
@@ -338,7 +359,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         
         //setContinueButton(enabled: true)
         activityView.stopAnimating()
-        setContinueButton(enabled: false)
+        setContinueButton(enabled: true)
     }
     
     override var canBecomeFirstResponder: Bool{

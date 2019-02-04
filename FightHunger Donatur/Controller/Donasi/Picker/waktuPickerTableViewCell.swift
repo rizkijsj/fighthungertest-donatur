@@ -14,9 +14,9 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
         switch component {
         case 0:
-            return 23
+            return 24
         case 1:
-            return 59
+            return 60
             
         default:
             return 0
@@ -60,8 +60,8 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
     }
     
     
-   var hours = Array(1...24)
-   var minutes = Array(00...60)
+   var hours = Array(0...24)
+   var minutes = Array(00...59)
   
     
     @IBOutlet weak var textWaktu: CustomTextField!
