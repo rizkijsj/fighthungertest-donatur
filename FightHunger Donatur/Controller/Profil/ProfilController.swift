@@ -45,6 +45,18 @@ class ProfilController: UITableViewController {
             print ("Error signing out: %@", signOutError)
         }
     }
+    
+    @IBAction func keluarBtn(_ sender: Any) {
+        
+        let firebaseAuth = Auth.auth()
+        do {
+            try firebaseAuth.signOut()
+            self.performSegue(withIdentifier: "GoToHome", sender: nil)
+        } catch let signOutError as NSError {
+            print ("Error signing out: %@", signOutError)
+        }
+    }
+    
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
