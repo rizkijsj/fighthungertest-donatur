@@ -165,6 +165,14 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			return 0
 		}
 	}
+	
+	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+		return 8
+	}
+	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
+		return ""
+	}
+	
 	func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 		
 		let dateFormat = DateFormatter()
@@ -259,7 +267,8 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		let nextImage = newImage
 		
 		if previousImageView.image == nil{
-			previousImageView.image = newImage
+			previousImageView.image = UIImage.init()
+			//previousImageView.image = newImage
 		}else{
 			let tmpImageView = UIImageView(image: nextImage)
 			tmpImageView.contentMode = previousImageView.contentMode
