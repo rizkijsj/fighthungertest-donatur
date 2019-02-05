@@ -20,6 +20,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
   
 
     
+    @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var otpTxt6: UITextField!
     @IBOutlet weak var otpTxt5: UITextField!
     @IBOutlet weak var otpTxt4: UITextField!
@@ -35,7 +36,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        accessibility()
         continueButton.layer.cornerRadius = 6.0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
@@ -103,13 +104,14 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         otpTxt1.becomeFirstResponder()
-    }
-    
-    override func viewDidAppear(_ animated: Bool) {
-        super.viewDidAppear(animated)
+//        self.navigationController?.navigationBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width , height: 80.0)
+       self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
+    
+    
+   
     
     @IBAction func lanjutBtn(_ sender: Any) {
         setContinueButton(enabled: false)
@@ -302,7 +304,19 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         self.becomeFirstResponder()
         
     }
+    @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBAction func `return`(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    func accessibility()
+    {
+        backBtn.isAccessibilityElement = true
+        labelTitle.isAccessibilityElement = true
+        backBtn.accessibilityTraits = UIAccessibilityTraits.button
+        backBtn.accessibilityLabel = "Back"
+        
+     
+        labelTitle.adjustsFontForContentSizeCategory = true
     }
 }

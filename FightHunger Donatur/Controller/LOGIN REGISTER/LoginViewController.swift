@@ -17,6 +17,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
        
     }
     
+    @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var lnjtBtn: UIButton!
     @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var telpTxtField: CustomTextField!
@@ -69,18 +70,22 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         backBtn.isAccessibilityElement = true
         telpTxtField.isAccessibilityElement = true
         
+        labelTitle.isAccessibilityElement = true
+        
         backBtn.accessibilityTraits = UIAccessibilityTraits.button
         telpTxtField.accessibilityTraits = UIAccessibilityTraits.staticText
         
         backBtn.accessibilityLabel = "Back"
         telpTxtField.accessibilityLabel = "Nomor telfon"
+        
+        labelTitle.adjustsFontForContentSizeCategory = true
     }
     
     
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width , height: 80.0)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         navigationController?.setNavigationBarHidden(false, animated: false)
     }
     

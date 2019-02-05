@@ -58,6 +58,11 @@ class LoginRegisterViewController: UIViewController {
         //Button
         backBtn.accessibilityTraits = UIAccessibilityTraits.button
         backBtn.accessibilityLabel = "Back Button"
+        
+        //LABEL
+        labelBody.adjustsFontForContentSizeCategory = true
+        lblMariMulai.adjustsFontForContentSizeCategory = true
+        
        
     }
     
