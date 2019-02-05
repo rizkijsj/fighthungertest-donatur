@@ -117,10 +117,10 @@ class KegiatanViewController: UITableViewController {
             updateDonationStatus(donationStage: statusObject.status)
 			
 			
-			if let orgID = statusObject.organisasi?.uid,let organizationObject = connector().organizationDetail(organizationID: orgID) {
+			if let orgID = statusObject.organisasi?.id,let organizationObject = connector().organizationDetail(organizationID: orgID) {
 				
-            namaOrganisasi.text = organizationObject.username
-            nomorTelponOrganisasi.text = organizationObject.phonenumber
+            namaOrganisasi.text = organizationObject.name
+            nomorTelponOrganisasi.text = organizationObject.phone
 				
 			}
             

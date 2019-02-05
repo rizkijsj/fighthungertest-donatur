@@ -318,9 +318,11 @@ class connector {
     }
     
     // MARK: - Organizarion Detail
-    func organizationDetail(organizationID:String) -> UserProfile? {
+    func organizationDetail(organizationID:String) -> OrganisasiProfile? {
         
-        let item = UserProfile.init(uid: organizationID, email: "organisasi@organization.com", phonenumber: "+62 818081828238", username: "organisasi")
+		let item = OrganisasiProfile.init(orgId: organizationID, orgPhone: "+62 81808082838", orgEmail: "organisasi@organization.com", orgName: "PT Lawan Lapar Bersama Solusindo", orgDesc: "Melawan Kelaparan di dunia  dan menuntaskan kelaparan yang akan muncul", orgLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png", orgLocName: "Jl. Moh. Husni Thamrin Kota Tangerang Selatan Banten", latitude: "-6.2753768", longitude: "106.7216066", orgLink: "google.com")
+		
+		//UserProfile.init(uid: organizationID, email: "organisasi@organization.com", phonenumber: "+62 818081828238", username: "organisasi")
         
         
         
@@ -332,7 +334,7 @@ class connector {
         
         //let item:donatorObject = donatorObject.init(donId: donatorID, donPhone: "#", donEmail: "3@4.com", donName: "3", donPro: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg")
 		
-		let item = UserProfile.init(uid: donatorID, email: "donatur@donator.com", phonenumber: "+62 81808082828", username: "donasi")
+		let item = UserProfile.init(uid: donatorID, email: "donatur@donator.com", phonenumber: "+62 81808082838", username: "donasi")
         
         
         return item
@@ -373,8 +375,8 @@ class connector {
 	
 	
 	// MARK: - Organization List
-	func organizationList() -> [UserProfile] {
-		var items:[UserProfile] = []
+	func organizationList() -> [OrganisasiProfile] {
+		var items:[OrganisasiProfile] = []
 		
         items.append(organizationDetail(organizationID: "O1")!)
         items.append(organizationDetail(organizationID: "O2")!)
@@ -490,7 +492,7 @@ class donatorObject{
         
     }
 }
-*/
+
 class organizationObject{
     var id:String
     var phone:String
@@ -516,7 +518,7 @@ class organizationObject{
         
     }
 }
-
+*/
 class programObject{
     var id:String
     var organizationID:String

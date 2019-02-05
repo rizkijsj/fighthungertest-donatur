@@ -28,7 +28,7 @@ class SectionOneHomeCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
-    
+  /*
     func set(post:Post) {
         
         ImageService.getImage(withURL: post.postphotourl) { image, url in
@@ -40,5 +40,5 @@ class SectionOneHomeCell: UITableViewCell {
         contentStatus.text = post.status
         print(post.namaitem)
     }
-    
+    */
 }
