@@ -10,6 +10,7 @@ import UIKit
 
 class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     
+    @IBOutlet weak var backButton: UIBarButtonItem!
     @IBAction func backBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
     }
@@ -66,11 +67,22 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
-       // tableView.rowHeight = UITableView.automaticDimension
-        //tableView.estimatedRowHeight = 116
+      
     }
     
-
+    func accessibility()
+    {
+        backButton.isAccessibilityElement = true
+        
+        backButton.accessibilityTraits = UIAccessibilityTraits.button
+        backButton.accessibilityLabel = "Back"
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
    
 
 }

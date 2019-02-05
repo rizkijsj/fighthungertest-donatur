@@ -10,6 +10,7 @@ import UIKit
 
 class KegiatanTerbaruController: UITableViewController {
 
+    @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var isiKegiatan: UILabel!
     @IBOutlet weak var titleKegiatan: UILabel!
     @IBOutlet weak var imgOrganisasi: UIImageView!
@@ -26,6 +27,15 @@ class KegiatanTerbaruController: UITableViewController {
         tableView.rowHeight = UITableView.automaticDimension
     }
 
+    @IBAction func backButton(_ sender: Any) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
+    }
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
