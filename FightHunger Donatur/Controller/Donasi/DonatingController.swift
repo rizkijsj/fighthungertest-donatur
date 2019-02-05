@@ -38,21 +38,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         }
         
         
-        /* if namaTxt.isFirstResponder
-         {
-         telfonTxt.becomeFirstResponder()
-         }else if telfonTxt.isFirstResponder
-         {
-         emailTxt.becomeFirstResponder()
-         }else
-         {
-         emailTxt.resignFirstResponder()
-         }
-         
-         return false*/
- 
- 
- 
+       
         return true
     }
     
@@ -206,7 +192,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         let fotobarang = imgDonasi.image
         let waktuAmbil = waktuPengambilan.text
         
-        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && keteranganLokasi != "" && keteranganLokasi != nil && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil
+        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && textFieldLength >= 1 && textFieldLength <= 120 && keteranganLokasi != "" && keteranganLokasi != nil && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil
         
         print(formFilled)
         
