@@ -23,21 +23,20 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     
     var organisasiObject : OrganisasiProfile?
     var organisasiProgramObject: [programObject] = []
-    var organisasiID : String?
+    //var organisasiID : String?
     
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        if let orgID = organisasiID, let organisasi = connector().organizationDetail(organizationID: orgID)
+        if let organisasi = organisasiObject
              {
-				organisasiID = organisasi.id
                 loadImage(link: organisasi.logo)
                 namaOrganisasi.text = organisasi.name
                 alamatOrganisasi.text = organisasi.email
                 //btnAction()
                 keteranganOrganisasi.text = organisasi.description
                
-                organisasiProgramObject = connector().getOrganizationProgramList(organizationID: orgID, limit: 3)
+                organisasiProgramObject = connector().getOrganizationProgramList(organizationID: organisasi.id, limit: 3)
             
                 self.tableView.reloadData()
         }else {
@@ -45,12 +44,13 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         }
     }
     
-    func loadImage(link:String){
+    func loadImage(link:URL){
         DispatchQueue.global(qos: .userInitiated).async {
-            let imageFile = UIImage.init(url: URL.init(string: link))
-            
+            let image = UIImage.init(url: link)
+			
+			guard let imageFile = image else {return}
             DispatchQueue.main.async {
-                self.logoOrganisasi.image = imageFile!
+                self.logoOrganisasi.image = imageFile
             }
         }
     }

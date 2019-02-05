@@ -117,12 +117,11 @@ class KegiatanViewController: UITableViewController {
             updateDonationStatus(donationStage: statusObject.status)
 			
 			
-			if let orgID = statusObject.organisasi?.id,let organizationObject = connector().organizationDetail(organizationID: orgID) {
+
+            namaOrganisasi.text = statusObject.namakomunitas
+            nomorTelponOrganisasi.text = statusObject.idkomunitas
 				
-            namaOrganisasi.text = organizationObject.name
-            nomorTelponOrganisasi.text = organizationObject.phone
-				
-			}
+			
             
             
             namaKurir.text = statusObject.namakurir
@@ -196,12 +195,13 @@ class KegiatanViewController: UITableViewController {
         }
     }
     
-    func loadImage(link:String){
+    func loadImage(link:URL){
         DispatchQueue.global(qos: .userInitiated).async {
-            let imageFile = UIImage.init(url: URL.init(string: link))
-            
+            let image = UIImage.init(url: link)
+			
+			guard let imageFile = image else {return}
             DispatchQueue.main.async {
-                self.fotoDonasi.image = imageFile!
+                self.fotoDonasi.image = imageFile
             }
             
         }

@@ -48,6 +48,7 @@ class NewHomeViewController: UIViewController {
             let uid = userProfile.uid
             self.observePost(id: uid)
             self.observeOrganisasi()
+            self.tableView.reloadData()
             self.repeatedLoginAttempt.suspend()
         }
         
@@ -103,6 +104,7 @@ class NewHomeViewController: UIViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(self.posts)
 		if toDetail {
 			
 		}else{
@@ -121,7 +123,6 @@ class NewHomeViewController: UIViewController {
 			}else if nextIndexPath.section == 2{
 				let organizationVC = segue.destination as! Organisasi
 				organizationVC.organisasiObject = organizationList[nextIndexPath.row]
-				organizationVC.organisasiID = organizationList[nextIndexPath.row].id
 			}
 		}
 	}
@@ -277,11 +278,11 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 				cell.contentActivityTime.text = timeFormat.string(from: Date(timeIntervalSince1970: activityList[indexPath.row].waktuambil))
 				
 				if activityList[indexPath.row].status == "2" || activityList[indexPath.row].status == "3" || activityList[indexPath.row].status == "4" {
-					if let orgObject = activityList[indexPath.row].organisasi{
+
 						
-						loadImage(link: orgObject.logo, object: cell.contentOrganisationIcon)
-						cell.contentOrganisationName.text = orgObject.name
-					}
+						loadImage(link: activityList[indexPath.row].logokomunitas, object: cell.contentOrganisationIcon)
+						cell.contentOrganisationName.text = activityList[indexPath.row].namakomunitas
+					
 				}else {
 					cell.contentOrganisationName.text = ""
 					cell.contentOrganisationIcon.image = nil
@@ -293,12 +294,12 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			case 1:
 				let cell = (tableView.dequeueReusableCell(withIdentifier: "newActivityCellID", for: indexPath) as? SectionTwoHomeCell)!
 				
-				loadImage(link: programList[indexPath.row].imagesLink, object: cell.contentImage)
+				loadImage(link: URL(string: programList[indexPath.row].imagesLink)!, object: cell.contentImage)
 				
-				if let orgObject = connector().organizationDetail(organizationID: programList[indexPath.row].organizationID){
-					loadImage(link: orgObject.logo, object: cell.contentOrganisationIcon)
-					cell.contentOrganisationName.text = orgObject.name
-				}
+
+				loadImage(link: URL(string:programList[indexPath.row].imagesLink)!, object: cell.contentOrganisationIcon)
+					cell.contentOrganisationName.text = programList[indexPath.row].name
+				
 				
 				cell.contentActivityDate.text = programList[indexPath.row].time
 				cell.contentTitle.text = programList[indexPath.row].name
@@ -374,11 +375,9 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 	}
 	
-	func loadImage(link:String, object: UIImageView){
+	func loadImage(link:URL, object: UIImageView){
 		DispatchQueue.global(qos: .userInitiated).async {
-			guard let imageURL = URL.init(string: link) else {return}
-			
-			ImageService.getImage(withURL: imageURL) { image, url in
+			ImageService.getImage(withURL: link) { image, url in
 				guard let imageFile = image else {return}
 				DispatchQueue.main.async {
 					self.fadeInNewImage(previousImageView: object, newImage: imageFile)
@@ -426,7 +425,7 @@ extension NewHomeViewController{
         
         let postsRef = Database.database().reference().child("Post/\(id)")
         
-        
+        print(id)
         postsRef.observe(.value, with: { snapshot in
             
             var tempPosts = [Post]()
@@ -442,22 +441,28 @@ extension NewHomeViewController{
                     let name = author["username"] as? String,
                     let phnumber = author["phonenumber"] as? String,
 					
-					let organisasi = dict["komunitas"] as? [String:Any],
-					let orgID = organisasi["id"] as? String,
-					let orgName = organisasi["name"] as? String,
-					let orgDesc = organisasi["description"] as? String,
-					let orgLink = organisasi["link"] as? String,
-					let orgLogo = organisasi["logo"] as? String,
-					let orgEmail = organisasi["email"] as? String,
-					let orgPhone = organisasi["phone"] as? String,
-					let orgLocName = organisasi["locationname"] as? String,
-					let orgLocCoor = organisasi["locationcoor"] as? [String:Any],
-					let orgLati = orgLocCoor["latitude"] as? String,
-					let orgLong = orgLocCoor["longitude"] as? String,
+//					let organisasi = dict["komunitas"] as? [String:Any],
+//					let orgID = organisasi["id"] as? String,
+//					let orgName = organisasi["name"] as? String,
+//					let orgDesc = organisasi["description"] as? String,
+//					let orgLink = organisasi["link"] as? String,
+//					let orgLogo = organisasi["logo"] as? String,
+//					let orgEmail = organisasi["email"] as? String,
+//					let orgPhone = organisasi["phone"] as? String,
+//					let orgLocName = organisasi["locationname"] as? String,
+//					let orgLocCoor = organisasi["locationcoor"] as? [String:Any],
+//					let orgLati = orgLocCoor["latitude"] as? String,
+//					let orgLong = orgLocCoor["longitude"] as? String,
 					
-//                  let posturl = string: postphotourl as? String,
+                    let komunitas = dict["komunitas"] as? [String:Any],
+                    let id = komunitas["id"] as? String,
+                    let logo = komunitas["logo"] as? String,
+                    let namakomunitas = komunitas["name"] as? String,
+                    let logourl = URL(string: logo),
 					
 					let postphotourl = dict["postphotourl"] as? String,
+					let photourl = URL(string: postphotourl),
+					
                     let namaitem = dict["namabarang"] as? String,
                     let jumlah = dict["jumlahbarang"] as? String,
                     let deskripsi = dict["deskripsibarang"] as? String,
@@ -480,12 +485,17 @@ extension NewHomeViewController{
 					
 					
                     let userProfile = UserProfile(uid: uid, email: email, phonenumber: phnumber, username: name)
-					let orgProfile = OrganisasiProfile(orgId: orgID, orgPhone: orgPhone, orgEmail: orgEmail, orgName: orgName, orgDesc: orgDesc, orgLogo: orgLogo, orgLocName: orgLocName, latitude: orgLati, longitude: orgLong, orgLink: orgLink)
+					//let orgProfile = OrganisasiProfile(orgId: orgID, orgPhone: orgPhone, orgEmail: orgEmail, orgName: orgName, orgDesc: orgDesc, orgLogo: orgLogo, orgLocName: orgLocName, latitude: orgLati, longitude: orgLong, orgLink: orgLink)
 					
-					let post = Post(id: childSnapshot.key, author: userProfile, organisasi: orgProfile, postphotourl: postphotourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal)
+					//let post = Post(id: childSnapshot.key, author: userProfile, organisasi: orgProfile, postphotourl: postphotourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal)
                     
                     //let post = Post(id: childSnapshot.key, author: userProfile, namaitem: namaitem, alamat: address, keteranganlokasi: keteranganlokasi, deskripsi: deskripsi, postphotourl: posturl, waktuambil: pickdate, jumlahbarang: jumlah, timestamp: timestamp, status: status, latitude: latitude, longitude: longitude)
-                    
+                    print("mamamia")
+					//let post = Post(id: childSnapshot.key, author: userProfile, organisasi: logourl, postphotourl: logourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: namakomunitas, namakurir: id, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal)
+					
+					let post = Post(id: childSnapshot.key, author: userProfile, idkomunitas: id, logokomunitas: logourl, namakomunitas: namakomunitas, postphotourl: photourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal)
+					
+					
                     
                     if userProfile.uid == Auth.auth().currentUser?.uid
                     {
@@ -516,14 +526,14 @@ extension NewHomeViewController{
         //        guard let userProfile = UserService.currentUserProfile else { return }
         //        let uid = userProfile.uid
         
-        let orgRef = Database.database().reference().child("users/komunitas/profile/")
+        let orgRef = Database.database().reference().child("users/komunitas")
         
         
         orgRef.observe(.value, with: { snapshot in
 			
             var tempOrganisasi = [OrganisasiProfile]()
             //var tempIdProfile = String
-            
+            print("nelis")
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot,
                     let dict = childSnapshot.value as? [String:Any],
@@ -532,17 +542,17 @@ extension NewHomeViewController{
                     let longitude = locationcoor["longitude"] as? String,
                     //                    let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(([longitude] as NSString).doubleValue), longitude: Double(([latitude] as NSString).doubleValue)),
                     let logo = dict["logo"] as? String,
-                    //let logourl = URL(string: logo),
+                    let logourl = URL(string: logo),
                     let address = dict["locationname"] as? String,
                     let name = dict["name"] as? String,
                     let phonenumber = dict["phone"] as? String,
                     let link = dict["link"] as? String,
-                    //let linkwebsite = URL(string: link),
+                    let linkwebsite = URL(string: link),
                     let deskripsi = dict["description"] as? String,
                     let email = dict["email"] as? String,
                     let id = dict["id"] as? String{
 					
-                    let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logo, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: link)
+                    let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
 					
                     
                     tempOrganisasi.append(organisasi)

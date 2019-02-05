@@ -180,6 +180,7 @@ class connector {
         //guard let pickUpTime = waktuPengambilan.text else { return }
 //        let fotobarang = fotodonasi
         //guard let deskripsi = deskripsiBarang.text
+                let urlKomunitas = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/placeholder%20logo%20komunitas.png?alt=media&token=1ad83629-5d24-4f9b-83a8-444fbf47866b")
         guard let userProfile = UserService.currentUserProfile else { return }
         guard let gambardonasi = fotodonasi as? UIImage else {return}
         let uid = userProfile.uid
@@ -196,6 +197,10 @@ class connector {
                         "email": userProfile.email,
                         "phonenumber":userProfile.phonenumber,
                         "username": userProfile.username
+                    ],"komunitas": [
+                        "id": "0",
+                        "logo": urlKomunitas?.absoluteString,
+                        "name":"Searching"
                     ],"namabarang": namaBarang,"namalokasi": lokasiBarang,"keteranganlokasi":keteranganLokasi/*,"pickupTime":pickUpTime*/,"deskripsibarang":deskripsiBarang,"jumlahbarang":kuantitasBarang,"waktuambil":waktuAmbil,"latitude":latitude,"longitude":longitude,"postphotourl": url?.absoluteString,"timestamp": [".sv":"timestamp"],"status": "pending"
                     ] as [String:Any]
                 
@@ -307,7 +312,7 @@ class connector {
 	}
 	
     // MARK: - Program Detail
-    func programDetail(programID:String) -> programObject? {
+    func programDetail(programID:String) -> programObject {
         
         let item:programObject = programObject.init(proId: programID, orgID: "!", proName: "1", proLocName: "1", proLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: 1)!, longitude: CLLocationDegrees.init(exactly: 1)!), proTime:
             "NOW", proDesc: "1 adalah anga yang indah. ini adalah sesuatu yang PERTAMA! lebih awal lagi dari semua angka, mungkin 0. TAPI 0 itu tidak NYATA! KITA HARUS BILANG 1! Satu! SATU! jangan pernah memilih yang 0. Pililah yang pasti hanya SATU! atau pilih yang bisa berdua. 2 itu ada;ah angka indah. 2 bisa membawa diri dan pasangan satu lagi. mungkin 3 kalo di hitung yang sebelah. Bersiaplah memilih yang akan sukses", proImageLink: "https://upload.wikimedia.org/wikipedia/commons/0/09/Ayam_Pelung.jpg")
@@ -318,9 +323,9 @@ class connector {
     }
     
     // MARK: - Organizarion Detail
-    func organizationDetail(organizationID:String) -> OrganisasiProfile? {
+    func organizationDetail(organizationID:String) -> OrganisasiProfile {
         
-		let item = OrganisasiProfile.init(orgId: organizationID, orgPhone: "+62 81808082838", orgEmail: "organisasi@organization.com", orgName: "PT Lawan Lapar Bersama Solusindo", orgDesc: "Melawan Kelaparan di dunia  dan menuntaskan kelaparan yang akan muncul", orgLogo: "https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png", orgLocName: "Jl. Moh. Husni Thamrin Kota Tangerang Selatan Banten", latitude: "-6.2753768", longitude: "106.7216066", orgLink: "google.com")
+		let item = OrganisasiProfile.init(orgId: organizationID, orgPhone: "+62 81808082838", orgEmail: "organisasi@organization.com", orgName: "PT Lawan Lapar Bersama Solusindo", orgDesc: "Melawan Kelaparan di dunia  dan menuntaskan kelaparan yang akan muncul", orgLogo: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, orgLocName: "Jl. Moh. Husni Thamrin Kota Tangerang Selatan Banten", latitude: "-6.2753768", longitude: "106.7216066", orgLink: URL(string:"google.com")!)
 		
 		//UserProfile.init(uid: organizationID, email: "organisasi@organization.com", phonenumber: "+62 818081828238", username: "organisasi")
         
@@ -330,7 +335,7 @@ class connector {
     }
     
     // MARK: - Donator Detail
-    func donatorDetail(donatorID:String) -> UserProfile? {
+    func donatorDetail(donatorID:String) -> UserProfile {
         
         //let item:donatorObject = donatorObject.init(donId: donatorID, donPhone: "#", donEmail: "3@4.com", donName: "3", donPro: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg")
 		
@@ -341,9 +346,13 @@ class connector {
     }
     
     // MARK: - Transaction (donation) Detail
-    func transactionDetail(transactionID:String) -> Post?{
+    func transactionDetail(transactionID:String) -> Post{
         
-		let item = Post.init(id: "T01", author: connector().donatorDetail(donatorID: "D1")!, organisasi: connector().organizationDetail(organizationID: "T1"), postphotourl: "https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg", namaitem: "Yogurt", deskripsi: "Segera di santap karena cepat basi", jumlahbarang: "5", alamat: "l. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: "-6.2747551", longitude: "106.8602302", waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: "1", alasanbatal: "Sudah Basi")
+		let item = Post.init(id: transactionID, author: connector().donatorDetail(donatorID: "D1"), idkomunitas: "K1", logokomunitas: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, namakomunitas: "PT Kerja Sama Yuk ID", postphotourl: URL(string:"https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg")!, namaitem: "Yogurt", deskripsi: "Segera di ambil, karena ini cepat basi", jumlahbarang: "1", alamat: "Jl. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: "-6.2747551", longitude: "106.8602302", waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: "1", alasanbatal: "Sudah Basi")
+			
+			
+			
+			//Post.init(id: "T01", author: connector().donatorDetail(donatorID: "D1")!, organisasi: connector().organizationDetail(organizationID: "T1")!, postphotourl: URL(String:"https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg", namaitem: "Yogurt", deskripsi: "Segera di santap karena cepat basi", jumlahbarang: "5", alamat: "l. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: "-6.2747551", longitude: "106.8602302", waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: "1", alasanbatal: "Sudah Basi")
         
         return item
     }
@@ -353,9 +362,9 @@ class connector {
 	func programList() -> [programObject] {
 		var items:[programObject] = []
 		
-        items.append(programDetail(programID: "P0")!)
-        items.append(programDetail(programID: "P1")!)
-        items.append(programDetail(programID: "P5")!)
+        items.append(programDetail(programID: "P0"))
+        items.append(programDetail(programID: "P1"))
+        items.append(programDetail(programID: "P5"))
 		
 		return items
 		
@@ -365,9 +374,9 @@ class connector {
         
         var items:[programObject] = []
         
-        items.append(programDetail(programID: "P0")!)
-        items.append(programDetail(programID: "P1")!)
-        items.append(programDetail(programID: "P5")!)
+        items.append(programDetail(programID: "P0"))
+        items.append(programDetail(programID: "P1"))
+        items.append(programDetail(programID: "P5"))
         
         return items
         
@@ -378,9 +387,9 @@ class connector {
 	func organizationList() -> [OrganisasiProfile] {
 		var items:[OrganisasiProfile] = []
 		
-        items.append(organizationDetail(organizationID: "O1")!)
-        items.append(organizationDetail(organizationID: "O2")!)
-        items.append(organizationDetail(organizationID: "O3")!)
+        items.append(organizationDetail(organizationID: "O1"))
+        items.append(organizationDetail(organizationID: "O2"))
+        items.append(organizationDetail(organizationID: "O3"))
 		
 		return items
 		
@@ -390,13 +399,13 @@ class connector {
 	func transactionList() -> [Post] {
 		var items:[Post] = []
 		
-        items.append(transactionDetail(transactionID: "T1")!)
-        items.append(transactionDetail(transactionID: "T2")!)
-        items.append(transactionDetail(transactionID: "T700")!)
-        items.append(transactionDetail(transactionID: "T5005")!)
-        items.append(transactionDetail(transactionID: "T2")!)
-        items.append(transactionDetail(transactionID: "T909")!)
-        items.append(transactionDetail(transactionID: "T189")!)
+        items.append(transactionDetail(transactionID: "T1"))
+        items.append(transactionDetail(transactionID: "T2"))
+        items.append(transactionDetail(transactionID: "T700"))
+        items.append(transactionDetail(transactionID: "T5005"))
+        items.append(transactionDetail(transactionID: "T2"))
+        items.append(transactionDetail(transactionID: "T909"))
+        items.append(transactionDetail(transactionID: "T189"))
 		
 		items[0].status = "0"
 		items[1].status = "1"
