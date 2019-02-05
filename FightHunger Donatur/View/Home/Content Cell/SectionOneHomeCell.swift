@@ -29,4 +29,16 @@ class SectionOneHomeCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func set(post:Post) {
+        
+        ImageService.getImage(withURL: post.postphotourl) { image, url in
+            self.contentImage.image = image
+            
+        }
+        contentName.text = post.namaitem
+        contentExpiredDate.text = post.deskripsi
+        contentStatus.text = post.status
+        print(post.namaitem)
+    }
+    
 }

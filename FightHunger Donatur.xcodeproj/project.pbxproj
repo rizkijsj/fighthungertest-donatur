@@ -33,6 +33,7 @@
 		2BF68C4F21FEB2FA008C85CE /* SectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4E21FEB2FA008C85CE /* SectionCollectionReusableView.swift */; };
 		2F1C8A812205F70B00C57764 /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00913221FB7E0E00BC89AE /* LoginRegister.storyboard */; };
 		2F1C8A822205F74200C57764 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */; };
+		2F34F53822087F2B007FDA8C /* OrganisasiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34F53722087F2B007FDA8C /* OrganisasiProfile.swift */; };
 		2F5D05FC21FED50900CDD125 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FA21FED50900CDD125 /* Post.swift */; };
 		2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FB21FED50900CDD125 /* UserProfile.swift */; };
 		2F5D060021FED51E00CDD125 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FE21FED51E00CDD125 /* UserService.swift */; };
@@ -93,6 +94,7 @@
 		2BF68C4A21FEB11F008C85CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2BF68C4C21FEB17C008C85CE /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BF68C4E21FEB2FA008C85CE /* SectionCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCollectionReusableView.swift; sourceTree = "<group>"; };
+		2F34F53722087F2B007FDA8C /* OrganisasiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganisasiProfile.swift; sourceTree = "<group>"; };
 		2F5D05FA21FED50900CDD125 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2F5D05FB21FED50900CDD125 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
 		2F5D05FE21FED51E00CDD125 /* UserService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
@@ -234,6 +236,7 @@
 			children = (
 				2F5D05FA21FED50900CDD125 /* Post.swift */,
 				2F5D05FB21FED50900CDD125 /* UserProfile.swift */,
+				2F34F53722087F2B007FDA8C /* OrganisasiProfile.swift */,
 			);
 			path = "Structure Data";
 			sourceTree = "<group>";
@@ -728,6 +731,7 @@
 				2B4836702201EE5D00B18E72 /* UbahprofilViewController.swift in Sources */,
 				FB0C42242203218A006BEC67 /* Organisasi.swift in Sources */,
 				2B4836662201B52B00B18E72 /* SectionTwoHomeCell.swift in Sources */,
+				2F34F53822087F2B007FDA8C /* OrganisasiProfile.swift in Sources */,
 				2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */,
 				2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */,
 				2BF68C4F21FEB2FA008C85CE /* SectionCollectionReusableView.swift in Sources */,
@@ -919,7 +923,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7VX669QKF;
+				DEVELOPMENT_TEAM = 29LM4FT5NH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -939,7 +943,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = W7VX669QKF;
+				DEVELOPMENT_TEAM = 29LM4FT5NH;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
