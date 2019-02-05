@@ -94,7 +94,7 @@ class KegiatanViewController: UITableViewController {
         transactionID = "T1"
         if let transID = transactionID {
         passingObject = connector().transactionDetail(transactionID: transID)
-            passingObject?.status = "1"
+            passingObject?.status = 1
             updateDonationDetails()
         }else{
           dismiss(animated: true, completion: nil)
@@ -149,19 +149,19 @@ class KegiatanViewController: UITableViewController {
         }
     }
     
-    func statusInteractionUpdate(Status:String){
+    func statusInteractionUpdate(Status:Int){
         
-		if Status == "1" {
+		if Status == 1 {
             btnBatal.isEnabled = true
             batalkanDonasi()
             print("Menunggu konfirmasi")
-		}else if Status == "2"{
+		}else if Status == 2{
             btnBatal.isEnabled = true
             batalkanDonasi()
             btnCallOrganisasi.isEnabled = true
             callOrganisasi()
             print("organisasi mencari Kurir")
-        }else if Status == "3"{
+        }else if Status == 3{
             btnKonfirmasi.isEnabled = true
             btnCallOrganisasi.isEnabled = true
             callOrganisasi()
@@ -169,7 +169,7 @@ class KegiatanViewController: UITableViewController {
 //                push notif ke organisasi
             }
             print("sedang di jemput")
-        }else if Status == "4"{
+        }else if Status == 4{
             btnCallOrganisasi.isEnabled = true
             callOrganisasi()
             print("sedang di antar")
@@ -207,31 +207,31 @@ class KegiatanViewController: UITableViewController {
         }
     }
     
-    func updateDonationStatus(donationStage:String){
+    func updateDonationStatus(donationStage:Int){
         
-        if donationStage == "0" {
+        if donationStage == 0 {
             print("baru push dari donatur")
-        }else if donationStage == "1" {
+        }else if donationStage == 1 {
         print("Menunggu untuk di claim")
             btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
-        }else if donationStage == "2" {
+        }else if donationStage == 2 {
             print("Menunggu Menunggu Data Kurir")
             stasus1.image = UIImage.init(named: "pin1a")
             btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
             btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
-        }else if donationStage == "3" {
+        }else if donationStage == 3 {
             print("Mengirim Kurir")
             stasus1.image = UIImage.init(named: "pin1a")
             status2.image = UIImage.init(named: "pin2a")
             btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
             btnKonfirmasi.setImage(UIImage(named: "konfirmasi aktif"), for: .normal)
-        } else if donationStage == "4" {
+        } else if donationStage == 4 {
             print("Sedang diantar")
             stasus1.image = UIImage.init(named: "pin1a")
             status2.image = UIImage.init(named: "pin2a")
             status3.image = UIImage.init(named: "pin2a")
             btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
-        } else if donationStage == "5" {
+        } else if donationStage == 5 {
             print("Sudah sampai organisasi")
             stasus1.image = UIImage.init(named: "pin1a")
             status2.image = UIImage.init(named: "pin2a")

@@ -200,8 +200,26 @@ class connector {
                     ],"komunitas": [
                         "id": "0",
                         "logo": urlKomunitas?.absoluteString,
-                        "name":"Searching"
-                    ],"namabarang": namaBarang,"namalokasi": lokasiBarang,"keteranganlokasi":keteranganLokasi/*,"pickupTime":pickUpTime*/,"deskripsibarang":deskripsiBarang,"jumlahbarang":kuantitasBarang,"waktuambil":waktuAmbil,"latitude":latitude,"longitude":longitude,"postphotourl": url?.absoluteString,"timestamp": [".sv":"timestamp"],"status": "pending"
+                        "name":"Searching",
+                        "phone": "0"
+                    ],"alamat": [
+                        "keteranganlokasi":keteranganLokasi,
+                       "namalokasi": lokasiBarang,
+                       "latitude":latitude,
+                       "longitude":longitude
+                    ],"transaksi": [
+                        "alasanbatal":"kosong",
+                        "deskripsikurir": "kosong",
+                        "namakurir":"kosong",
+                        "status": "1",
+                        "waktuambil": waktuAmbil,
+                        "waktusampai": "kosong"
+                    ],"barang": [
+                        "namabarang": namaBarang,
+                        "deskripsibarang":deskripsiBarang,
+                        "jumlahbarang":kuantitasBarang,
+                        "postphotourl": url?.absoluteString,
+                    ],"timestamp": [".sv":"timestamp"]
                     ] as [String:Any]
                 
                 postRef.setValue(postObject, withCompletionBlock: { error, ref in
@@ -348,7 +366,7 @@ class connector {
     // MARK: - Transaction (donation) Detail
     func transactionDetail(transactionID:String) -> Post{
         
-		let item = Post.init(id: transactionID, author: connector().donatorDetail(donatorID: "D1"), idkomunitas: "K1", logokomunitas: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, namakomunitas: "PT Kerja Sama Yuk ID", postphotourl: URL(string:"https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg")!, namaitem: "Yogurt", deskripsi: "Segera di ambil, karena ini cepat basi", jumlahbarang: "1", alamat: "Jl. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: "-6.2747551", longitude: "106.8602302", waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: "1", alasanbatal: "Sudah Basi")
+		let item = Post.init(id: transactionID, author: connector().donatorDetail(donatorID: "D1"), idkomunitas: "K1", logokomunitas: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, namakomunitas: "PT Kerja Sama Yuk ID", postphotourl: URL(string:"https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg")!, namaitem: "Yogurt", deskripsi: "Segera di ambil, karena ini cepat basi", jumlahbarang: "1", alamat: "Jl. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: -6.2747551, longitude: 106.8602302, waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: 1, alasanbatal: "Sudah Basi")
 			
 			
 			
@@ -407,13 +425,13 @@ class connector {
         items.append(transactionDetail(transactionID: "T909"))
         items.append(transactionDetail(transactionID: "T189"))
 		
-		items[0].status = "0"
-		items[1].status = "1"
-		items[2].status = "2"
-		items[3].status = "3"
-		items[4].status = "4"
-		items[5].status = "5"
-		items[6].status = "6"
+		items[0].status = 0
+		items[1].status = 1
+		items[2].status = 2
+		items[3].status = 3
+		items[4].status = 4
+		items[5].status = 5
+		items[6].status = 6
 		
 		return items
 		

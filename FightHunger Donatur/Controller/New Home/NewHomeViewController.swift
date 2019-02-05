@@ -132,13 +132,13 @@ class NewHomeViewController: UIViewController {
 		var filteredData:[Post] = []
 		
 		rawData.forEach { (post) in
-			if post.status == "1"{
+			if post.status == 1{
 				filteredData.append(post)
-			}else if post.status == "2"{
+			}else if post.status == 2{
 				filteredData.append(post)
-			}else if post.status == "3"{
+			}else if post.status == 3{
 				filteredData.append(post)
-			}else if post.status == "4"{
+			}else if post.status == 4{
 				filteredData.append(post)
 			}
 		}
@@ -268,7 +268,14 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 				
 				
 				
-				loadImage(link: activityList[indexPath.row].postphotourl, object: cell.contentImage)
+//                loadImage(link: activityList[indexPath.row].postphotourl, object: cell.contentImage)
+                
+                ImageService.getImage(withURL: activityList[indexPath.row].postphotourl) { image, url in
+                    cell.contentImage.image = image
+                    
+                }
+                
+                loadImage(link: activityList[indexPath.row].logokomunitas, object: cell.contentOrganisationIcon)
 				
 				cell.contentName.text = activityList[indexPath.row].namaitem
 				cell.contentStatus.text = updateDonationStatus(donationStage: activityList[indexPath.row].status)
@@ -277,7 +284,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 				
 				cell.contentActivityTime.text = timeFormat.string(from: Date(timeIntervalSince1970: activityList[indexPath.row].waktuambil))
 				
-				if activityList[indexPath.row].status == "2" || activityList[indexPath.row].status == "3" || activityList[indexPath.row].status == "4" {
+				if activityList[indexPath.row].status == 2 || activityList[indexPath.row].status == 3 || activityList[indexPath.row].status == 4{
 
 						
 						loadImage(link: activityList[indexPath.row].logokomunitas, object: cell.contentOrganisationIcon)
@@ -388,16 +395,16 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			}
 		}
 	}
-	func updateDonationStatus(donationStage:String) -> String{
+	func updateDonationStatus(donationStage:Int) -> String{
 		
 		switch donationStage {
-		case "1":
+		case 1:
 			return "Menunggu Claim"
-		case "2":
+		case 2:
 			return "Menunggu Kurir"
-		case "3":
+		case 3:
 			return "Di Jemput"
-		case "4":
+		case 4:
 			return "Di Antar"
 		default:
 			return ""
@@ -459,28 +466,44 @@ extension NewHomeViewController{
                     let logo = komunitas["logo"] as? String,
                     let namakomunitas = komunitas["name"] as? String,
                     let logourl = URL(string: logo),
+                    let phonenumber = komunitas["phone"] as? String,
+                    
+                    
+                    
+                    let alamat = dict["alamat"] as? [String:Any],
+                    let address = alamat["namalokasi"] as? String,
+                    let keteranganlokasi = alamat["keteranganlokasi"] as? String,
+                    let latitude = alamat["latitude"] as? Double,
+                    let longitude = alamat["longitude"] as? Double,
+                    
+                    
+                    
+                    let transaksi = dict["transaksi"] as? [String:Any],
+                    let namaKurir = transaksi["namakurir"] as? String,
+                    let descKurir = transaksi["deskripsikurir"] as? String,
+                    let status = transaksi["status"] as? Int,
+                    let alasanbatal = transaksi["alasanbatal"] as? String,
+                    let waktuambil = transaksi["waktuambil"] as? Double,
+                    let waktusampai = transaksi["waktusampai"] as? Double,
+                    
+                    
+                    let barang = dict["barang"] as? [String:Any],
+                    let postphotourl = barang["postphotourl"] as? String,
+                    let photourl = URL(string: postphotourl),
+                    
+                    let namaitem = barang["namabarang"] as? String,
+                    let jumlah = barang["jumlahbarang"] as? String,
+                    let deskripsi = barang["deskripsibarang"] as? String,
+                    
+                    
 					
-					let postphotourl = dict["postphotourl"] as? String,
-					let photourl = URL(string: postphotourl),
 					
-                    let namaitem = dict["namabarang"] as? String,
-                    let jumlah = dict["jumlahbarang"] as? String,
-                    let deskripsi = dict["deskripsibarang"] as? String,
 					
-					let address = dict["namalokasi"] as? String,
-					let keteranganlokasi = dict["keteranganlokasi"] as? String,
-                    let latitude = dict["latitude"] as? String,
-                    let longitude = dict["longitude"] as? String,
 					
-					let waktuambil = dict["waktuambil"] as? Double,
-					let waktusampai = dict["waktusampai"] as? Double,
-                    let timestamp = dict["timestamp"] as? Double,
 					
-					let namaKurir = dict["namakurir"] as? String,
-					let descKurir = dict["deskripsikurir"] as? String,
+                    let timestamp = dict["timestamp"] as? Double
 					
-                    let status = dict["status"] as? String,
-					let alasanbatal = dict["alasanbatal"] as? String{
+					{
 					
 					
 					
@@ -551,7 +574,7 @@ extension NewHomeViewController{
                     let deskripsi = dict["description"] as? String,
                     let email = dict["email"] as? String,
                     let id = dict["id"] as? String{
-					
+					print("mumumia")
                     let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
 					
                     

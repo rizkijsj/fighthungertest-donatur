@@ -25,8 +25,8 @@ class Post {
 	
     var alamat:String
     var keteranganlokasi:String
-	var latitude:String
-	var longitude:String
+	var latitude:Double
+	var longitude:Double
 	
     var waktuambil:Double
 	var waktusampai:Double
@@ -36,10 +36,10 @@ class Post {
 	
 	
     var timestamp:Double
-    var status:String
+    var status:Int
 	var alasanbatal:String
 	
-	init(id:String, author:UserProfile, idkomunitas:String, logokomunitas: URL, namakomunitas: String , postphotourl:URL, namaitem:String, deskripsi:String, jumlahbarang:String, alamat:String, keteranganlokasi:String, latitude:String, longitude:String, waktuambil:Double, waktusampai:Double, namakurir:String, deskripsikurir:String, timestamp:Double, status:String, alasanbatal:String) {
+	init(id:String, author:UserProfile, idkomunitas:String, logokomunitas: URL, namakomunitas: String , postphotourl:URL, namaitem:String, deskripsi:String, jumlahbarang:String, alamat:String, keteranganlokasi:String, latitude:Double, longitude:Double, waktuambil:Double, waktusampai:Double, namakurir:String, deskripsikurir:String, timestamp:Double, status:Int, alasanbatal:String) {
 		
 		self.id = id
 		self.author = author
