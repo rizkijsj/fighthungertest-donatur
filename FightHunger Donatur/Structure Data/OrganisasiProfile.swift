@@ -15,14 +15,14 @@ class OrganisasiProfile {
     var email:String
     var name:String
     var description:String
-    var logo:URL
+    var logo:String
     var locationName:String
     //var locationCoor:CLLocationCoordinate2D
     var latitude: String
     var longitude: String
-    var link:URL
+    var link:String
     
-    init(orgId:String,orgPhone:String,orgEmail:String,orgName:String,orgDesc:String,orgLogo:URL,orgLocName:String,latitude: String,longitude: String,orgLink:URL) {
+    init(orgId:String,orgPhone:String,orgEmail:String,orgName:String,orgDesc:String,orgLogo:String,orgLocName:String,latitude: String,longitude: String,orgLink:String) {
         
         self.id = orgId
         self.phone = orgPhone

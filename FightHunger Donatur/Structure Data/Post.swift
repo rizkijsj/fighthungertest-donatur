@@ -11,7 +11,7 @@ import Foundation
 class Post {
     var id:String
     var author:UserProfile
-	var organisasi:UserProfile? // Organisasi
+	var organisasi:OrganisasiProfile? // Organisasi
 	
 	var postphotourl:String
 	
@@ -35,7 +35,7 @@ class Post {
     var status:String
 	var alasanbatal:String?
 	
-	init(id:String, author:UserProfile, organisasi:UserProfile?, postphotourl:String, namaitem:String, deskripsi:String, jumlahbarang:String, alamat:String, keteranganlokasi:String, latitude:String, longitude:String, waktuambil:Double, waktusampai:Double?, namakurir:String?, deskripsikurir:String?, timestamp:Double, status:String, alasanbatal:String?) {
+	init(id:String, author:UserProfile, organisasi:OrganisasiProfile?, postphotourl:String, namaitem:String, deskripsi:String, jumlahbarang:String, alamat:String, keteranganlokasi:String, latitude:String, longitude:String, waktuambil:Double, waktusampai:Double?, namakurir:String?, deskripsikurir:String?, timestamp:Double, status:String, alasanbatal:String?) {
 		
 		self.id = id
 		self.author = author

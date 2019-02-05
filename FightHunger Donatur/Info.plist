@@ -37,11 +37,11 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Camera</string>
+	<string>Ini memungkinan Anda mengambil foto untuk barang donasi</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>We  need your location</string>
+	<string>Lokasi diperlukan saat Anda akan melakukan donasi </string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>Photo</string>
+	<string>Ini memungkinkan Anda membagikan foto dari perpustakaan Anda dan menyimpan foto ke Rol Kamera Anda untuk barang donasi</string>
 	<key>UIBackgroundModes</key>
 	<array>
 		<string>fetch</string>
