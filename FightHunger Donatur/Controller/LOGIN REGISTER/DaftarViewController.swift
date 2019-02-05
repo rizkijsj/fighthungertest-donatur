@@ -20,8 +20,12 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        
     }
     
+    @IBOutlet weak var labelTitle: UILabel!
+    @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var errorMssg: UILabel!
     @IBOutlet weak var emailTxtField: CustomTextField!
     @IBOutlet weak var telpTxtField: CustomTextField!
@@ -34,9 +38,18 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     var tempTampungKirim = [String]()
     var phonenumber = ""
     
+    func accessibility()
+    {
+        backBtn.isAccessibilityElement = true
+        labelTitle.isAccessibilityElement = true
+        backBtn.accessibilityTraits = UIAccessibilityTraits.button
+        backBtn.accessibilityLabel = "Back"
+        labelTitle.adjustsFontForContentSizeCategory = true
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-  
+        accessibility()
        continueButton.layer.cornerRadius = 6.0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         

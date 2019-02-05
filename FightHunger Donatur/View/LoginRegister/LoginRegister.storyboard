@@ -33,14 +33,14 @@
                                         <rect key="frame" x="16" y="0.0" width="452" height="134"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <subviews>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mari kita mulai!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-TD-6OO">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Mari kita mulai!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-TD-6OO">
                                                 <rect key="frame" x="117" y="20" width="202" height="32"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apakah anda siap berpartisipasi mengurangi kelaparan?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-5J-nJk">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Apakah anda siap berpartisipasi mengurangi kelaparan?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iaX-5J-nJk">
                                                 <rect key="frame" x="38" y="56" width="339" height="78"/>
                                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
@@ -127,7 +127,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Masukkan nomor handphone Anda yang terdaftar untuk login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-VO-TRi">
                                 <rect key="frame" x="16" y="125" width="325" height="49"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -181,6 +181,7 @@
                         <outlet property="backBtn" destination="BVm-Zo-czw" id="rzk-QG-qfV"/>
                         <outlet property="continueButton" destination="rhE-xp-uqR" id="i5A-dk-C2S"/>
                         <outlet property="errorMssg" destination="bKl-tH-icU" id="7yc-FT-9CO"/>
+                        <outlet property="labelTitle" destination="Jr4-VO-TRi" id="Zmj-E1-tmh"/>
                         <outlet property="lnjtBtn" destination="rhE-xp-uqR" id="X2B-Sn-Heh"/>
                         <outlet property="telpTxtField" destination="HuZ-Oo-B88" id="dSZ-gm-idv"/>
                         <segue destination="vMY-4Z-iyk" kind="show" identifier="LoginToVerify" id="zhn-Ou-xFt"/>
@@ -219,7 +220,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="41" id="cOe-Nj-pHq"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -366,7 +367,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backBtn" destination="wdO-6l-nXn" id="tte-hW-Dl8"/>
                         <outlet property="continueButton" destination="GqK-Pd-l6e" id="Fyh-36-G8P"/>
+                        <outlet property="labelTitle" destination="Thg-rl-vyI" id="Uf9-55-Aaa"/>
                         <outlet property="otpTxt1" destination="ucS-uc-d3x" id="9oc-Ri-g9w"/>
                         <outlet property="otpTxt2" destination="egw-Et-akI" id="CIN-dP-pej"/>
                         <outlet property="otpTxt3" destination="n3t-cs-R8X" id="O2Z-6p-Myg"/>
@@ -392,7 +395,7 @@
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Masukkan data diri Anda dibawah ini:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJm-7X-3w7">
                                 <rect key="frame" x="40" y="139" width="295" height="59"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -481,9 +484,11 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backBtn" destination="TDs-Or-gqU" id="7w6-7E-cEq"/>
                         <outlet property="continueButton" destination="JjT-Fc-sfJ" id="JTg-6r-Ivc"/>
                         <outlet property="emailTxtField" destination="Qi3-UV-feW" id="f0t-EO-gO4"/>
                         <outlet property="errorMssg" destination="8z8-Mk-4Vp" id="GCp-WT-nIR"/>
+                        <outlet property="labelTitle" destination="hJm-7X-3w7" id="r5H-ub-xCk"/>
                         <outlet property="namaTxtField" destination="Ymp-Op-FWN" id="N6c-KB-OuF"/>
                         <outlet property="telpTxtField" destination="WfT-Zd-2ph" id="k28-Bb-i12"/>
                         <segue destination="vMY-4Z-iyk" kind="show" identifier="RegisToVerify" id="kQs-fF-YaO"/>
