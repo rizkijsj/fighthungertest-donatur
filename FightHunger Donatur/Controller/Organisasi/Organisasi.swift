@@ -69,19 +69,14 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
                     }
         
         if chatOrganisasi.isTouchInside{
-//            info plistnya itu masih ada yang kurang
-//            let urlWhats = "whatsapp://send?phone=+\(String(describing: organisasiObject?.phone))"
-//            if let urlString = urlWhats.addingPercentEncoding(withAllowedCharacters: NSCharacterSet.urlQueryAllowed) {
-//                if let whatsappURL = URL(string: urlString) {
-//                    if UIApplication.shared.canOpenURL(whatsappURL) {
-//                        UIApplication.shared.openURL(whatsappURL)
-//                    } else {
-//                        print("Install Whatsapp")
-//                    }
-//                }
-//            }
-//
-//            print("chat WA")
+            guard let tempPhonenumber = organisasiObject?.phone else {return}
+            let whatsapp = "whatsapp://send?phone=\(tempPhonenumber)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+            print(whatsapp)
+            if let whatsappURL = whatsapp, let url = URL(string: whatsappURL) {
+                UIApplication.shared.open(url, options: [:], completionHandler: nil)
+            }
+            
+            print("chat WA")
         }
         
         if linkOrganisasi.isTouchInside{
