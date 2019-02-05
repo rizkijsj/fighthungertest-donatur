@@ -179,6 +179,7 @@ class connector {
         //guard let pickUpTime = waktuPengambilan.text else { return }
 //        let fotobarang = fotodonasi
         //guard let deskripsi = deskripsiBarang.text
+                let urlKomunitas = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/placeholder%20logo%20komunitas.png?alt=media&token=1ad83629-5d24-4f9b-83a8-444fbf47866b")
         guard let userProfile = UserService.currentUserProfile else { return }
         guard let gambardonasi = fotodonasi as? UIImage else {return}
         let uid = userProfile.uid
@@ -195,6 +196,10 @@ class connector {
                         "email": userProfile.email,
                         "phonenumber":userProfile.phonenumber,
                         "username": userProfile.username
+                    ],"komunitas": [
+                        "id": "0",
+                        "logo": urlKomunitas?.absoluteString,
+                        "name":"Searching"
                     ],"namabarang": namaBarang,"namalokasi": lokasiBarang,"keteranganlokasi":keteranganLokasi/*,"pickupTime":pickUpTime*/,"deskripsibarang":deskripsiBarang,"jumlahbarang":kuantitasBarang,"waktuambil":waktuAmbil,"latitude":latitude,"longitude":longitude,"postphotourl": url?.absoluteString,"timestamp": [".sv":"timestamp"],"status": "pending"
                     ] as [String:Any]
                 

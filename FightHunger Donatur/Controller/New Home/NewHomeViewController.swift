@@ -46,6 +46,7 @@ class NewHomeViewController: UIViewController {
             let uid = userProfile.uid
             self.observePost(id: uid)
             self.observeOrganisasi()
+            self.tableView.reloadData()
             self.repeatedLoginAttempt.suspend()
         }
         
@@ -78,6 +79,7 @@ class NewHomeViewController: UIViewController {
 	}
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print(self.posts)
 		if toDetail {
 			
 		}else{
@@ -224,6 +226,8 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			cell.contentActivityTime.text = timeFormat.string(from: activityList[indexPath.row].pickUpTime)
 			
 			if activityList[indexPath.row].status > 1 {
+                print(self.posts)
+                cell.setOrg(post: posts[indexPath.row])
 				if let orgID = activityList[indexPath.row].organizationId, let orgObject = connector().organizationDetail(organizationID: orgID){
 					loadImage(link: orgObject.logo, object: cell.contentOrganisationIcon)
 					cell.contentOrganisationName.text = orgObject.name
@@ -365,7 +369,7 @@ extension NewHomeViewController{
         
         let postsRef = Database.database().reference().child("Post/\(id)")
         
-        
+        print(id)
         postsRef.observe(.value, with: { snapshot in
             
             var tempPosts = [Post]()
@@ -379,6 +383,11 @@ extension NewHomeViewController{
                     let email = author["email"] as? String,
                     let name = author["username"] as? String,
                     let phnumber = author["phonenumber"] as? String,
+                    let komunitas = dict["komunitas"] as? [String:Any],
+                    let id = komunitas["id"] as? String,
+                    let logo = komunitas["logo"] as? String,
+                    let namakomunitas = komunitas["name"] as? String,
+                    let logourl = URL(string: logo),
                     let postphotourl = dict["postphotourl"] as? String,
                     let posturl = URL(string: postphotourl),
                     let address = dict["namalokasi"] as? String,
@@ -392,8 +401,8 @@ extension NewHomeViewController{
                     let timestamp = dict["timestamp"] as? Double,
                     let status = dict["status"] as? String{
                     let userProfile = UserProfile(uid: uid, email: email, phonenumber: phnumber, username: name)
-                    
-                    let post = Post(id: childSnapshot.key, author: userProfile, namaitem: namaitem, alamat: address, keteranganlokasi: keteranganlokasi, deskripsi: deskripsi, postphotourl: posturl, waktuambil: pickdate, jumlahbarang: jumlah, timestamp: timestamp, status: status, latitude: latitude, longitude: longitude)
+                    print("mamamia")
+                    let post = Post(id: childSnapshot.key, author: userProfile, namaitem: namaitem, alamat: address, keteranganlokasi: keteranganlokasi, deskripsi: deskripsi, postphotourl: posturl, waktuambil: pickdate, jumlahbarang: jumlah, timestamp: timestamp, status: status, latitude: latitude, longitude: longitude, logokomunitas: logourl, namakomunitas: namakomunitas, idkomunitas: id)
                     
                     
                     if userProfile.uid == Auth.auth().currentUser?.uid
@@ -405,6 +414,7 @@ extension NewHomeViewController{
             }
             print("berhasil ambil data post")
             self.posts = tempPosts
+            print(self.posts)
             self.tableView.reloadData()
             
         })
@@ -415,14 +425,14 @@ extension NewHomeViewController{
         //        guard let userProfile = UserService.currentUserProfile else { return }
         //        let uid = userProfile.uid
         
-        let orgRef = Database.database().reference().child("users/komunitas/profile/")
+        let orgRef = Database.database().reference().child("users/komunitas")
         
         
         orgRef.observe(.value, with: { snapshot in
             
             var tempOrganisasi = [OrganisasiProfile]()
             //var tempIdProfile = String
-            
+            print("nelis")
             for child in snapshot.children {
                 if let childSnapshot = child as? DataSnapshot,
                     let dict = childSnapshot.value as? [String:Any],
@@ -440,9 +450,10 @@ extension NewHomeViewController{
                     let deskripsi = dict["description"] as? String,
                     let email = dict["email"] as? String,
                     let id = dict["id"] as? String{
+                    print("kappa")
                     let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
                     
-                    
+                    print("mumumia")
                     tempOrganisasi.append(organisasi)
                     print(tempOrganisasi)
                     //                    if userProfile.uid == Auth.auth().currentUser?.uid
@@ -454,6 +465,7 @@ extension NewHomeViewController{
             }
             print("berhasil ambil data organisasi")
             self.organisasi = tempOrganisasi
+            print(self.organisasi)
             self.tableView.reloadData()
             
         })

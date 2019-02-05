@@ -38,7 +38,17 @@ class SectionOneHomeCell: UITableViewCell {
         contentName.text = post.namaitem
         contentExpiredDate.text = post.deskripsi
         contentStatus.text = post.status
+        contentActivityTime.text = post.waktuambil
         print(post.namaitem)
+    }
+    
+    func setOrg(post:Post) {
+        
+        ImageService.getImage(withURL: post.logokomunitas) { image, url in
+            self.contentOrganisationIcon.image = image
+            
+        }
+        contentName.text = post.namaitem
     }
     
 }
