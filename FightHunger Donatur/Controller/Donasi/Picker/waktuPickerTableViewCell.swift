@@ -56,7 +56,7 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
     {
         let picker = UIPickerView()
         picker.delegate = self
-        textWaktu.inputView = picker
+        //textWaktu.inputView = picker
     }
     
     
@@ -69,7 +69,7 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
 
     override func awakeFromNib() {
         super.awakeFromNib()
-      
+      /*
         createPicker()
         var toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -82,6 +82,7 @@ class waktuPickerTableViewCell: UITableViewCell , UIPickerViewDelegate , UIPicke
         toolbar.setItems([flexibleSpace,doneBtn], animated: false)
         
         textWaktu.inputAccessoryView = toolbar
+		*/
     }
 
     @objc func doneClicked()

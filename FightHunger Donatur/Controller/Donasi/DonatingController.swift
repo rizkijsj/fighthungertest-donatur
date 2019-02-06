@@ -19,6 +19,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     var latitude = ""
     var longitude = ""
+	let picker = UIDatePicker()
 	
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
@@ -70,6 +71,37 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         // self.contentView.frame = CGRectOffse
         UIView.commitAnimations()
     }
+	
+	func createPicker()
+	{
+		
+		picker.locale = Locale.init(identifier: "Id")
+		picker.datePickerMode = .time
+		
+		var toolbar = UIToolbar()
+		toolbar.sizeToFit()
+		
+		//add done button
+		var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+		
+		var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		
+		toolbar.setItems([flexibleSpace,doneBtn], animated: false)
+		
+		waktuPengambilan.inputAccessoryView = toolbar
+		
+		waktuPengambilan.inputView = picker
+	}
+	
+	@objc func doneClicked(){
+		let dateFormat = DateFormatter()
+		dateFormat.dateStyle = .none
+		dateFormat.timeStyle = .short
+		dateFormat.locale = Locale.init(identifier: "Id")
+		
+		waktuPengambilan.text = "\(dateFormat.string(from: picker.date))"
+		waktuPengambilan.endEditing(true)
+	}
     
     
     //    buat passing data ke map
@@ -126,7 +158,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+		
+		createPicker()
         
         //guard let userProfile = UserService.currentUserProfile else { return }
         if let availableImage = takenPhoto {
@@ -226,11 +259,23 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
                 imgDonasi.image = imgTemp
                 keteranganBarang.text = tempPostData?[3]
                 kuantitasBarang.text = tempPostData?[4]
-                waktuPengambilan.text = tempPostData?[5]
+				
+				print(tempPostData?[5])
+				if let dateText = tempPostData?[5]{
+					let dateFormat = DateFormatter()
+					dateFormat.dateStyle = .none
+					dateFormat.timeStyle = .short
+					dateFormat.locale = Locale.init(identifier: "Id")
+					
+					picker.date = Date(timeIntervalSince1970: Double(dateText)!)
+					waktuPengambilan.text = "\(dateFormat.string(from: picker.date))"
+				}
                 latitude = tempPostData![6]
                 longitude = tempPostData![7]
                 defaults.removeObject(forKey: "tempPostData")
                 defaults.synchronize()
+				
+				
                 }
             }else{
                 print("Foto tidak ditemukan")
@@ -269,7 +314,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 
         guard let namaBarang = namaBarang.text else { return }
         guard let namaLokasi = alamat.text else { return }
-        guard let pickUpTime = waktuPengambilan.text else { return }
+        let pickUpTime = picker.date.timeIntervalSince1970
         guard let fotobarang = imgDonasi.image else { return }
         guard let deskripsi = deskripsiBarang.text else { return }
 
@@ -300,9 +345,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         guard let keteranganTambahanLokasi = keteranganBarang.text else {return}
         
         guard let jumlahBarang = kuantitasBarang.text else {return}
-        
-        guard let waktuAmbil = waktuPengambilan.text else {return}
-        
+        let waktuAmbil = "\(picker.date.timeIntervalSince1970)"
+        print(waktuAmbil)
         let tempLatitude = "\(kordinatPeta[0])"
         let tempLongitude = "\(kordinatPeta[1])"
         

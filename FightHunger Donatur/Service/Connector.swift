@@ -173,7 +173,7 @@ class connector {
     
 	
 	// MARK: - Post Donation
-    func postDonate(namaBarang: String,lokasiBarang : String,keteranganLokasi: String,fotodonasi: UIImage,deskripsiBarang : String,kuantitasBarang: String,waktuAmbil : String,latitude: String,longitude: String,completion: @escaping (Bool) -> Void) {
+    func postDonate(namaBarang: String,lokasiBarang : String,keteranganLokasi: String,fotodonasi: UIImage,deskripsiBarang : String,kuantitasBarang: String,waktuAmbil : Double,latitude: String,longitude: String,completion: @escaping (Bool) -> Void) {
         print("masuk post donate")
 //        let namaBarang = nama
 //        let namaLokasi = lokasi
@@ -184,6 +184,8 @@ class connector {
         guard let userProfile = UserService.currentUserProfile else { return }
         guard let gambardonasi = fotodonasi as? UIImage else {return}
         let uid = userProfile.uid
+		
+		
         
         self.uploadPostImage(gambardonasi) { url in
             print(url)
@@ -211,9 +213,9 @@ class connector {
                         "alasanbatal":"kosong",
                         "deskripsikurir": "kosong",
                         "namakurir":"kosong",
-                        "status": "1",
+                        "status": 1,
                         "waktuambil": waktuAmbil,
-                        "waktusampai": "kosong"
+                        "waktusampai": 0
                     ],"barang": [
                         "namabarang": namaBarang,
                         "deskripsibarang":deskripsiBarang,

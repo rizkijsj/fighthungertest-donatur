@@ -190,9 +190,6 @@
                                                 </textField>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="textWaktu" destination="5YL-GD-4og" id="EWW-NL-AFD"/>
-                                        </connections>
                                     </tableViewCell>
                                 </cells>
                             </tableViewSection>
