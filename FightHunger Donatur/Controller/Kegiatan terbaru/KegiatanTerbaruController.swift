@@ -24,7 +24,7 @@ class KegiatanTerbaruController: UITableViewController {
         tableView.dataSource = self
         btnDonasi.layer.cornerRadius = 6.0
         
-       
+		
     }
 
 

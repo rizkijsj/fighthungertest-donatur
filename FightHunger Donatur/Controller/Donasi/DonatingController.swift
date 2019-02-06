@@ -16,6 +16,9 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 	@IBOutlet weak var kuantitasBarang: CustomTextField!
 	@IBOutlet weak var keteranganBarang: CustomTextField!
     @IBOutlet weak var waktuPengambilan: CustomTextField!
+	
+	
+	
     
     var latitude = ""
     var longitude = ""
@@ -42,6 +45,30 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
        
         return true
     }
+	
+	func AddUITapGestureToImageView(){
+		
+		let tapImageVIew = UITapGestureRecognizer(target: self, action: #selector(onClick))
+		self.imgDonasi.addGestureRecognizer(tapImageVIew)
+		
+		
+		imgDonasi.isUserInteractionEnabled = true
+	}
+	
+	@objc func onClick(){
+		let alert = UIAlertController(title: nil, message: nil, preferredStyle: .actionSheet)
+		alert.addAction(UIAlertAction(title: "Kamera", style: .default, handler: { _ in
+			self.btnKamera(self)
+		}))
+		
+		alert.addAction(UIAlertAction(title: "Library Foto", style: .default, handler: { _ in
+			self.btnLibraryFoto(self)
+		}))
+		
+		alert.addAction(UIAlertAction.init(title: "Cancel", style: .cancel, handler: nil))
+		
+		self.present(alert, animated: true, completion: nil)
+	}
     
     
     
@@ -109,9 +136,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     @IBOutlet weak var imgDonasi: UIImageView!
     @IBOutlet weak var continueButton: UIBarButtonItem!
-    
-    @IBOutlet weak var gbrTemplate: UIButton!
-    
+	
     let defaults = UserDefaults.standard
 
     var dataAlamat = "Lokasi"
@@ -151,10 +176,29 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         }
         
     }
-    
-    
-    
-    @IBAction func cancelBtn(_ sender: Any) {
+    /*
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath.section == 0{
+			if imgDonasi.frame.height > 180 {
+				return 240
+			}else {
+				return 320
+			}
+		}else{
+			return 60
+		}
+	}
+	*/
+	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
+	}
+	
+	override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
+	}
+	
+	@IBAction func cancelBtn(_ sender: Any) {
         
       self.dismiss(animated: true, completion: nil)
         print("hei")
@@ -162,6 +206,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
+		
 		
 		createPicker()
         
@@ -196,11 +241,13 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
 //        alamat.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         waktuPengambilan.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEndOnExit)
-        
+        /*
         let imageTap = UITapGestureRecognizer(target: self, action: #selector(openImagePicker))
         imgDonasi.isUserInteractionEnabled = true
         imgDonasi.addGestureRecognizer(imageTap)
-        
+        */
+		
+		AddUITapGestureToImageView()
         
         imagePicker = UIImagePickerController()
         //imagePicker.allowsEditing = true
@@ -256,7 +303,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
             if imgTemp != nil {
                 print("sonto")
             
-                gbrTemplate.isHidden = true
+                //gbrTemplate.isHidden = true
                 namaBarang.text = tempPostData?[0]
                 alamat.text = tempPostData?[1]
                 deskripsiBarang.text = tempPostData?[2]
@@ -422,7 +469,7 @@ extension DonatingController: UIImagePickerControllerDelegate, UINavigationContr
             fatalError("Expected a dictionary containing an image, but was provided the following: \(info)")
         }
  
-        gbrTemplate.isHidden = true
+        //gbrTemplate.isHidden = true
         // Set photoImageView to display the selected image.
         self.imgDonasi.image = selectedImage
  

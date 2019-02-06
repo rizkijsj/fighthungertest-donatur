@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="lk5-bb-8ao">
-    <device id="retina5_9" orientation="portrait">
+    <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -14,48 +14,65 @@
             <objects>
                 <tableViewController id="f4w-s9-JZp" customClass="DonatingController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="8" sectionFooterHeight="8" id="OPl-Mr-Ewm">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <sections>
                             <tableViewSection id="Myj-Iy-Aba">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="280" id="FZL-KC-7Kf" customClass="CaptureImageTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="328" id="FZL-KC-7Kf" customClass="CaptureImageTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="FZL-KC-7Kf" id="pfW-FG-ctY">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="280"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="328"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
-                                                    <rect key="frame" x="-1" y="9" width="375" height="210"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="Gambar template donatur" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
+                                                    <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="width" secondItem="wwU-na-Baq" secondAttribute="height" multiplier="16:9" id="W74-6B-lFu"/>
+                                                    </constraints>
                                                 </imageView>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShW-zC-hEI">
-                                                    <rect key="frame" x="210" y="226" width="135" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="library"/>
-                                                    <connections>
-                                                        <action selector="btnGallery:" destination="0pU-vt-mi9" eventType="touchUpInside" id="0Ym-0I-hXw"/>
-                                                        <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="FxU-No-aZn"/>
-                                                        <action selector="btnLibraryFoto:" destination="f4w-s9-JZp" eventType="touchUpInside" id="50r-iN-0yP"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-wN-XT0">
-                                                    <rect key="frame" x="29" y="226" width="135" height="46"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="kamera"/>
-                                                    <connections>
-                                                        <action selector="btnKamera:" destination="f4w-s9-JZp" eventType="touchUpInside" id="5Xq-2K-nAc"/>
-                                                        <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="Vp2-e6-7Z1"/>
-                                                    </connections>
-                                                </button>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YlE-Cc-Slg">
-                                                    <rect key="frame" x="0.0" y="7" width="374" height="210"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" image="Gambar template donatur"/>
-                                                </button>
+                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="32" translatesAutoresizingMaskIntoConstraints="NO" id="rTT-AM-nxp">
+                                                    <rect key="frame" x="20" y="255.5" width="374" height="52.5"/>
+                                                    <subviews>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="EUd-wN-XT0">
+                                                            <rect key="frame" x="0.0" y="0.0" width="171" height="52.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="EUd-wN-XT0" secondAttribute="height" multiplier="163:50" id="LVL-9C-24N"/>
+                                                            </constraints>
+                                                            <state key="normal" title="Kamera" image="kamera">
+                                                                <color key="titleColor" red="1" green="0.000832612335216254" blue="0.18144577741622925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                            </state>
+                                                            <connections>
+                                                                <action selector="btnKamera:" destination="f4w-s9-JZp" eventType="touchUpInside" id="5Xq-2K-nAc"/>
+                                                                <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="Vp2-e6-7Z1"/>
+                                                            </connections>
+                                                        </button>
+                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ShW-zC-hEI">
+                                                            <rect key="frame" x="203" y="0.0" width="171" height="52.5"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="ShW-zC-hEI" secondAttribute="height" multiplier="163:50" id="FDx-6a-auw"/>
+                                                            </constraints>
+                                                            <state key="normal" image="library"/>
+                                                            <connections>
+                                                                <action selector="btnGallery:" destination="0pU-vt-mi9" eventType="touchUpInside" id="0Ym-0I-hXw"/>
+                                                                <action selector="btnKamera:" destination="0pU-vt-mi9" eventType="touchUpInside" id="FxU-No-aZn"/>
+                                                                <action selector="btnLibraryFoto:" destination="f4w-s9-JZp" eventType="touchUpInside" id="50r-iN-0yP"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="rTT-AM-nxp" firstAttribute="top" relation="greaterThanOrEqual" secondItem="wwU-na-Baq" secondAttribute="bottom" constant="16" id="KJW-cc-Ih2"/>
+                                                <constraint firstItem="wwU-na-Baq" firstAttribute="top" secondItem="pfW-FG-ctY" secondAttribute="top" id="RqW-dT-dCH"/>
+                                                <constraint firstItem="wwU-na-Baq" firstAttribute="leading" secondItem="pfW-FG-ctY" secondAttribute="leading" id="atg-0F-CKJ"/>
+                                                <constraint firstAttribute="bottom" secondItem="rTT-AM-nxp" secondAttribute="bottom" constant="20" symbolic="YES" id="hQH-td-Yl7"/>
+                                                <constraint firstAttribute="trailing" secondItem="wwU-na-Baq" secondAttribute="trailing" id="pLr-MH-Ms1"/>
+                                                <constraint firstItem="rTT-AM-nxp" firstAttribute="leading" secondItem="pfW-FG-ctY" secondAttribute="leading" constant="20" symbolic="YES" id="qVi-0d-4cV"/>
+                                                <constraint firstAttribute="trailing" secondItem="rTT-AM-nxp" secondAttribute="trailing" constant="20" symbolic="YES" id="trt-K3-X4T"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -63,68 +80,77 @@
                             <tableViewSection headerTitle=" " id="tFf-RF-yAL">
                                 <cells>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="qF5-yL-e1t">
-                                        <rect key="frame" x="0.0" y="288" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="336" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qF5-yL-e1t" id="I3i-MT-oBn">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama donasi" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tC5-9f-7PZ" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="8" width="343" height="55"/>
+                                                    <rect key="frame" x="16" y="4" width="398" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="LM9-wp-y8b"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="leading" secondItem="I3i-MT-oBn" secondAttribute="leadingMargin" id="1aG-tv-vcH"/>
-                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="trailing" secondItem="I3i-MT-oBn" secondAttribute="trailingMargin" id="Jiy-tj-ekA"/>
-                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="top" secondItem="I3i-MT-oBn" secondAttribute="topMargin" constant="-3" id="naP-81-7Hd"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="tC5-9f-7PZ" secondAttribute="bottom" constant="-14" id="qgG-eR-L8L"/>
+                                                <constraint firstAttribute="trailing" secondItem="tC5-9f-7PZ" secondAttribute="trailing" id="A77-Ef-43S"/>
+                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="leading" secondItem="I3i-MT-oBn" secondAttribute="leading" constant="16" id="Z2m-O7-tFB"/>
+                                                <constraint firstItem="tC5-9f-7PZ" firstAttribute="top" secondItem="I3i-MT-oBn" secondAttribute="top" constant="4" id="qLu-Mx-zLw"/>
+                                                <constraint firstAttribute="bottom" secondItem="tC5-9f-7PZ" secondAttribute="bottom" id="wEd-EG-AEO"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="uRu-ng-lB6">
-                                        <rect key="frame" x="0.0" y="348" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="396" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRu-ng-lB6" id="bMr-sA-gaJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Deskripsi" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piT-uo-BYB" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="8" width="343" height="55"/>
+                                                    <rect key="frame" x="16" y="4" width="398" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="RF5-ya-FSu"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="piT-uo-BYB" firstAttribute="top" secondItem="bMr-sA-gaJ" secondAttribute="topMargin" constant="-3" id="3wi-z2-2sh"/>
-                                                <constraint firstItem="piT-uo-BYB" firstAttribute="trailing" secondItem="bMr-sA-gaJ" secondAttribute="trailingMargin" id="C5g-py-hzq"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="piT-uo-BYB" secondAttribute="bottom" constant="-14" id="ZfQ-rz-Swj"/>
-                                                <constraint firstItem="piT-uo-BYB" firstAttribute="leading" secondItem="bMr-sA-gaJ" secondAttribute="leadingMargin" id="t2R-ur-LuQ"/>
+                                                <constraint firstAttribute="bottom" secondItem="piT-uo-BYB" secondAttribute="bottom" id="4Xu-aQ-6EV"/>
+                                                <constraint firstItem="piT-uo-BYB" firstAttribute="leading" secondItem="bMr-sA-gaJ" secondAttribute="leading" constant="16" id="Ixz-Yg-iey"/>
+                                                <constraint firstItem="piT-uo-BYB" firstAttribute="top" secondItem="bMr-sA-gaJ" secondAttribute="top" constant="4" id="aXz-2R-M3M"/>
+                                                <constraint firstAttribute="trailing" secondItem="piT-uo-BYB" secondAttribute="trailing" id="lWL-dw-QA6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="KbC-IA-oqZ" customClass="pickerviewTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="408" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="456" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KbC-IA-oqZ" id="IZG-gJ-gRy">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kuantitas" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfL-x6-g0J" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="8" width="343" height="55"/>
+                                                    <rect key="frame" x="16" y="4" width="398" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="lrZ-Kk-48B"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="trailing" secondItem="IZG-gJ-gRy" secondAttribute="trailingMargin" id="8hP-A4-My0"/>
-                                                <constraint firstAttribute="bottomMargin" secondItem="sfL-x6-g0J" secondAttribute="bottom" constant="-14" id="GRE-vP-ylc"/>
-                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="leading" secondItem="IZG-gJ-gRy" secondAttribute="leadingMargin" id="c9t-eR-3QS"/>
-                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="top" secondItem="IZG-gJ-gRy" secondAttribute="topMargin" constant="-3" id="fzF-Ym-7hd"/>
+                                                <constraint firstAttribute="bottom" secondItem="sfL-x6-g0J" secondAttribute="bottom" id="Jcd-sn-7Z5"/>
+                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="leading" secondItem="IZG-gJ-gRy" secondAttribute="leading" constant="16" id="Wps-sk-gSo"/>
+                                                <constraint firstAttribute="trailing" secondItem="sfL-x6-g0J" secondAttribute="trailing" id="cAx-xW-5lf"/>
+                                                <constraint firstItem="sfL-x6-g0J" firstAttribute="top" secondItem="IZG-gJ-gRy" secondAttribute="top" constant="4" id="rG7-oh-EqM"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
@@ -132,63 +158,94 @@
                                         </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="Uee-y4-eHV">
-                                        <rect key="frame" x="0.0" y="468" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="516" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Uee-y4-eHV" id="UtD-0G-fbr">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Xy-Bj6">
-                                                    <rect key="frame" x="324" y="11" width="35" height="32"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <state key="normal" backgroundImage="my_location"/>
-                                                    <connections>
-                                                        <action selector="toMap:" destination="f4w-s9-JZp" eventType="touchUpInside" id="piq-HE-E42"/>
-                                                        <segue destination="zu9-Xr-40N" kind="show" identifier="DonasiToMap" animates="NO" id="76O-4p-wrX"/>
-                                                    </connections>
-                                                </button>
-                                                <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r26-Oi-EoT" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="2" width="300" height="55"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <textInputTraits key="textInputTraits"/>
-                                                </textField>
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-10-le8">
+                                                    <rect key="frame" x="16" y="4" width="398" height="56"/>
+                                                    <subviews>
+                                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r26-Oi-EoT" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="56"/>
+                                                            <nil key="textColor"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <textInputTraits key="textInputTraits"/>
+                                                        </textField>
+                                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Xy-Bj6">
+                                                            <rect key="frame" x="342" y="0.0" width="56" height="56"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="width" secondItem="sa6-Xy-Bj6" secondAttribute="height" multiplier="1:1" id="3GA-FW-Qg8"/>
+                                                            </constraints>
+                                                            <state key="normal" backgroundImage="my_location"/>
+                                                            <connections>
+                                                                <action selector="toMap:" destination="f4w-s9-JZp" eventType="touchUpInside" id="piq-HE-E42"/>
+                                                                <segue destination="zu9-Xr-40N" kind="show" identifier="DonasiToMap" animates="NO" id="76O-4p-wrX"/>
+                                                            </connections>
+                                                        </button>
+                                                    </subviews>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="z7z-6T-gFb"/>
+                                                    </constraints>
+                                                </stackView>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="9Aw-10-le8" firstAttribute="leading" secondItem="UtD-0G-fbr" secondAttribute="leading" constant="16" id="6If-KF-5fX"/>
+                                                <constraint firstItem="9Aw-10-le8" firstAttribute="top" secondItem="UtD-0G-fbr" secondAttribute="top" constant="4" id="GFt-1y-IZA"/>
+                                                <constraint firstAttribute="bottom" secondItem="9Aw-10-le8" secondAttribute="bottom" id="Iab-wP-PhB"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Aw-10-le8" secondAttribute="trailing" id="VNH-hs-hd5"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ouU-jS-7zY">
-                                        <rect key="frame" x="0.0" y="528" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="576" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ouU-jS-7zY" id="IjZ-tB-GBh">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Keterangan tambahan lokasi (optional)" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CX7-LV-Fii" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="18" width="343" height="42"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Keterangan tambahan lokasi (optional)" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CX7-LV-Fii" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="4" width="398" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="tHl-lZ-YD8"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits" returnKeyType="next"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="CX7-LV-Fii" firstAttribute="leading" secondItem="IjZ-tB-GBh" secondAttribute="leading" constant="16" id="SrA-eS-0KY"/>
+                                                <constraint firstItem="CX7-LV-Fii" firstAttribute="top" secondItem="IjZ-tB-GBh" secondAttribute="top" constant="4" id="V1q-kO-KcI"/>
+                                                <constraint firstAttribute="bottom" secondItem="CX7-LV-Fii" secondAttribute="bottom" id="kmU-sv-bkF"/>
+                                                <constraint firstAttribute="trailing" secondItem="CX7-LV-Fii" secondAttribute="trailing" id="zJL-tp-VrR"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="60" id="ZYu-CG-fkZ" customClass="waktuPickerTableViewCell" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="588" width="375" height="60"/>
+                                        <rect key="frame" x="0.0" y="636" width="414" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="ZYu-CG-fkZ" id="K4n-I3-8xC">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Waktu pengambilan" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5YL-GD-4og" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="16" y="18" width="343" height="42"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Waktu pengambilan" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5YL-GD-4og" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                    <rect key="frame" x="16" y="4" width="398" height="56"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="56" id="5RZ-Hc-bVV"/>
+                                                    </constraints>
                                                     <nil key="textColor"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <textInputTraits key="textInputTraits"/>
                                                 </textField>
                                             </subviews>
+                                            <constraints>
+                                                <constraint firstItem="5YL-GD-4og" firstAttribute="leading" secondItem="K4n-I3-8xC" secondAttribute="leading" constant="16" id="6Mf-b9-Nef"/>
+                                                <constraint firstAttribute="trailing" secondItem="5YL-GD-4og" secondAttribute="trailing" id="Et2-Sf-6GM"/>
+                                                <constraint firstItem="5YL-GD-4og" firstAttribute="top" secondItem="K4n-I3-8xC" secondAttribute="top" constant="4" id="cyk-oZ-8ZX"/>
+                                                <constraint firstAttribute="bottom" secondItem="5YL-GD-4og" secondAttribute="bottom" id="kSq-q3-4qg"/>
+                                            </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
                                 </cells>
@@ -217,7 +274,6 @@
                         <outlet property="alamat" destination="r26-Oi-EoT" id="Gmd-ff-oM1"/>
                         <outlet property="continueButton" destination="xgW-Ih-GwM" id="fmV-sv-Wrq"/>
                         <outlet property="deskripsiBarang" destination="piT-uo-BYB" id="RCA-sn-zsC"/>
-                        <outlet property="gbrTemplate" destination="YlE-Cc-Slg" id="r5b-MZ-fyP"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
                         <outlet property="keteranganBarang" destination="CX7-LV-Fii" id="umx-cm-Vin"/>
                         <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="X2J-u8-Xtu"/>
@@ -229,7 +285,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3764" y="1902.7093596059115"/>
+            <point key="canvasLocation" x="3763.7681159420295" y="1902.4553571428571"/>
         </scene>
         <!--LoginRegister-->
         <scene sceneID="6Xe-2Q-kM4">
@@ -261,7 +317,7 @@
                 <navigationController storyboardIdentifier="PostDonasi" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="lk5-bb-8ao" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="1aA-hN-sX0">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
