@@ -15,10 +15,46 @@ class LoginRegisterViewController: UIViewController {
 //            performSegue(withIdentifier: "toNewHome", sender: self)
     }
     
+    func getScaledFont(forFont name: String, textStyle: UIFont.TextStyle) -> UIFont {
+        
+        /// Uncomment the code below to check all the available fonts and have them printed in the console to double check the font name with existing fonts 😉
+        
+        /*for family: String in UIFont.familyNames
+         {
+         print("\(family)")
+         for names: String in UIFont.fontNames(forFamilyName: family)
+         {
+         print("== \(names)")
+         }
+         }*/
+        
+        let userFont =  UIFontDescriptor.preferredFontDescriptor(withTextStyle: textStyle)
+        let pointSize = userFont.pointSize
+        guard let customFont = UIFont(name: name, size: pointSize) else {
+            fatalError("""
+                Failed to load the "\(name)" font.
+                Make sure the font file is included in the project and the font name is spelled correctly.
+                """
+            )
+        }
+        if #available(iOS 11.0, *) {
+            return UIFontMetrics.default.scaledFont(for: customFont)
+        } else {
+            return UIFont.init(name: name, size: 34)!
+            // Fallback on earlier versions
+        }
+    }
+    
    
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        if #available(iOS 11.0, *) {
+            labelTitle.font = getScaledFont(forFont: "Avenir-Heavy", textStyle: .largeTitle)
+        } else {
+            labelTitle.font = UIFont.init(name: "Avenir-Heavy", size: 34)
+            // Fallback on earlier versions
+        }
        btnMasuk.layer.cornerRadius = 6.0
        btnDaftar.layer.cornerRadius = 6.0
        accessibility()

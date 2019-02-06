@@ -36,7 +36,7 @@ class ProfilController: UITableViewController {
                 self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
             }else{
                 
-                self.performSegue(withIdentifier: "ProfileToLogin", sender: nil)
+                self.performSegue(withIdentifier: "ProfileToLogin", sender: self)
                 
                 
             }
