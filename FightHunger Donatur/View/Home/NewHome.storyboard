@@ -68,26 +68,35 @@
                         <outlet property="tableView" destination="0xs-z0-Hux" id="ZBF-Lf-lcS"/>
                         <segue destination="jp7-0b-DRF" kind="show" identifier="Profil" id="CSz-Fd-9Ml"/>
                         <segue destination="fL7-n3-YWV" kind="presentation" identifier="Login" id="9r3-Xy-oG4"/>
+                        <segue destination="vAa-Ur-EJs" kind="show" identifier="keAktivitas" id="HSw-Nw-UnV"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0Y-5z-x1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1028" y="100.49261083743843"/>
         </scene>
-        <!--Donating-->
+        <!--AktivitasVC-->
+        <scene sceneID="ugT-ad-XgJ">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Kegiatan" referencedIdentifier="AktivitasVC" id="vAa-Ur-EJs" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mCf-rq-Ljw" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1606" y="189"/>
+        </scene>
+        <!--PostDonasi-->
         <scene sceneID="wg1-S5-cM7">
             <objects>
-                <viewControllerPlaceholder storyboardName="Donating" id="30J-aI-EYq" sceneMemberID="viewController">
+                <viewControllerPlaceholder storyboardName="Donating" referencedIdentifier="PostDonasi" id="30J-aI-EYq" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="bIC-s6-cM9"/>
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVZ-nJ-RUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1574" y="-293"/>
         </scene>
-        <!--Profile-->
+        <!--ProfileDonatur-->
         <scene sceneID="niM-IS-dI8">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" id="jp7-0b-DRF" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileDonatur" id="jp7-0b-DRF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB7-TU-Vxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1606" y="-158"/>
@@ -95,7 +104,7 @@
         <!--LoginRegister-->
         <scene sceneID="AK6-1m-uK4">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginRegister" id="fL7-n3-YWV" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegister" id="fL7-n3-YWV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTb-JN-KyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1650" y="-13"/>

@@ -37,10 +37,11 @@ class Post {
 	
 	
     var timestamp:Double
+    var idtransaksi:String
     var status:Int
 	var alasanbatal:String
 	
-	init(id:String, author:UserProfile, idkomunitas:String, logokomunitas: URL, namakomunitas: String, phonekomunitas:String , postphotourl:URL, namaitem:String, deskripsi:String, jumlahbarang:String, alamat:String, keteranganlokasi:String, latitude:Double, longitude:Double, waktuambil:Double, waktusampai:Double, namakurir:String, deskripsikurir:String, timestamp:Double, status:Int, alasanbatal:String) {
+    init(id:String, author:UserProfile, idkomunitas:String, logokomunitas: URL, namakomunitas: String, phonekomunitas:String , postphotourl:URL, namaitem:String, deskripsi:String, jumlahbarang:String, alamat:String, keteranganlokasi:String, latitude:Double, longitude:Double, waktuambil:Double, waktusampai:Double, namakurir:String, deskripsikurir:String, timestamp:Double, status:Int, alasanbatal:String,idtransaction:String) {
 		
 		self.id = id
 		self.author = author
@@ -69,6 +70,7 @@ class Post {
 		self.deskripsikurir = deskripsikurir
 		
 		self.timestamp = timestamp
+        self.idtransaksi = idtransaction
 		self.status = status
 		self.alasanbatal = alasanbatal
 		

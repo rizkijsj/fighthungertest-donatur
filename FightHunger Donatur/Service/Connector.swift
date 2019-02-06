@@ -195,11 +195,17 @@ class connector {
 			return}
 		print("Berhasil dan siap")
         
-        self.uploadPostImage(gambardonasi) { url in
+        self.uploadPostImage(gambardonasi,id: uid) { url in
             print(url)
             if url != nil {
                 print("url ga kosong")
                 guard let userProfile = UserService.currentUserProfile else { return }
+                
+//                var postRef = ref.childByAutoId()
+//                post1Ref.setValue(post1)
+//
+//                var postId = post1Ref.key
+                
                 let postRef = Database.database().reference().child("Post/\(uid)").childByAutoId()
                 let postObject = [
                     "author": [
@@ -229,13 +235,42 @@ class connector {
                         "deskripsibarang":deskripsiBarang,
                         "jumlahbarang":kuantitasBarang,
                         "postphotourl": url?.absoluteString,
-                    ],"timestamp": [".sv":"timestamp"]
+                    ],"idtransaction" : "0","timestamp": [".sv":"timestamp"]
                     ] as [String:Any]
                 
                 postRef.setValue(postObject, withCompletionBlock: { error, ref in
                     if error == nil {
                         print("sukses post donasi")
-                        completion(true)
+                        guard let postId = postRef.key else {return}
+                        print(postId)
+
+                        
+                        let databaseRef = Database.database().reference().child("Post/\(uid)/\(postId)")
+                        
+                        let idObject = [
+                            "idtransaction": postId] as [String:Any]
+                        
+                        databaseRef.updateChildValues(idObject) { error, ref in
+                            if error == nil {
+                                print("sukses masukin transaction id")
+                                completion(true)
+                            }else{
+                                print("error post transaction id donasi")
+                                completion(false)
+                            }
+                        }
+                        
+//                        postRef.setValue(idObject, withCompletionBlock: { ellol, ref in
+//                            if ellol == nil{
+//                                print("sukses masukin transaction id")
+//                                completion(true)
+//                            }else{
+//                                print("error post transaction id donasi")
+//                                completion(false)
+//                            }
+//
+//                        })
+                        
                     } else {
                         // Handle the error
                         print("error post donasi")
@@ -260,12 +295,12 @@ class connector {
         }
     }
     
-    func uploadPostImage(_ image:UIImage, completion: @escaping ((_ url:URL?)->())) {
+    func uploadPostImage(_ image:UIImage,id:String, completion: @escaping ((_ url:URL?)->())) {
             var ref: DatabaseReference!
     
             ref = Database.database().reference()
-            let uid = ref.child("Post/").childByAutoId().key
-            let storageRef = Storage.storage().reference().child("Post/\(uid)")
+            let uid = ref.child("Post/\(id)").childByAutoId().key
+            let storageRef = Storage.storage().reference().child("Post/\(id)/\(uid)")
     
             guard let imageData = image.jpegData(compressionQuality: 0.75)else { return }
     
@@ -376,7 +411,7 @@ class connector {
     // MARK: - Transaction (donation) Detail
     func transactionDetail(transactionID:String) -> Post{
         
-		let item = Post.init(id: transactionID, author: connector().donatorDetail(donatorID: "D1"), idkomunitas: "K1", logokomunitas: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, namakomunitas: "PT Kerja Sama Yuk ID", phonekomunitas: "+62 81808082838", postphotourl: URL(string:"https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg")!, namaitem: "Yogurt", deskripsi: "Segera di ambil, karena ini cepat basi", jumlahbarang: "1", alamat: "Jl. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: -6.2747551, longitude: 106.8602302, waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: 1, alasanbatal: "Sudah Basi")
+        let item = Post.init(id: transactionID, author: connector().donatorDetail(donatorID: "D1"), idkomunitas: "K1", logokomunitas: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, namakomunitas: "PT Kerja Sama Yuk ID", phonekomunitas: "+62 81808082838", postphotourl: URL(string:"https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg")!, namaitem: "Yogurt", deskripsi: "Segera di ambil, karena ini cepat basi", jumlahbarang: "1", alamat: "Jl. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: -6.2747551, longitude: 106.8602302, waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: 1, alasanbatal: "Sudah Basi", idtransaction: "lol")
 			
 			
 			
