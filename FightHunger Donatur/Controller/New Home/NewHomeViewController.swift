@@ -271,7 +271,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 //                loadImage(link: activityList[indexPath.row].postphotourl, object: cell.contentImage)
                 
                 ImageService.getImage(withURL: activityList[indexPath.row].postphotourl) { image, url in
-                    cell.contentImage.image = image
+					self.fadeInNewImage(previousImageView: cell.contentImage, newImage: image)
                     
                 }
                 
@@ -356,12 +356,12 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 	}
 	
-	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage) {
+	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
 		let nextImage = newImage
 		
 		if previousImageView.image == nil{
-			previousImageView.image = UIImage.init()
-			//previousImageView.image = newImage
+			//previousImageView.image = UIImage.init()
+			previousImageView.image = newImage
 		}else{
 			let tmpImageView = UIImageView(image: nextImage)
 			tmpImageView.contentMode = previousImageView.contentMode
