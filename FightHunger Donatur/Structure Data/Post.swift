@@ -15,6 +15,7 @@ class Post {
 	var logokomunitas: URL
 	var namakomunitas: String
 	var idkomunitas: String
+	var phonekomunitas:String
 	//var organisasi:OrganisasiProfile? // Organisasi
 	
 	var postphotourl:URL
@@ -39,7 +40,7 @@ class Post {
     var status:Int
 	var alasanbatal:String
 	
-	init(id:String, author:UserProfile, idkomunitas:String, logokomunitas: URL, namakomunitas: String , postphotourl:URL, namaitem:String, deskripsi:String, jumlahbarang:String, alamat:String, keteranganlokasi:String, latitude:Double, longitude:Double, waktuambil:Double, waktusampai:Double, namakurir:String, deskripsikurir:String, timestamp:Double, status:Int, alasanbatal:String) {
+	init(id:String, author:UserProfile, idkomunitas:String, logokomunitas: URL, namakomunitas: String, phonekomunitas:String , postphotourl:URL, namaitem:String, deskripsi:String, jumlahbarang:String, alamat:String, keteranganlokasi:String, latitude:Double, longitude:Double, waktuambil:Double, waktusampai:Double, namakurir:String, deskripsikurir:String, timestamp:Double, status:Int, alasanbatal:String) {
 		
 		self.id = id
 		self.author = author
@@ -47,6 +48,7 @@ class Post {
 		self.idkomunitas = idkomunitas
 		self.logokomunitas = logokomunitas
 		self.namakomunitas = namakomunitas
+		self.phonekomunitas = phonekomunitas
 		
 		self.postphotourl = postphotourl
 		
