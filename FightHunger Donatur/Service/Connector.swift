@@ -182,10 +182,18 @@ class connector {
         //guard let deskripsi = deskripsiBarang.text
                 let urlKomunitas = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/placeholder%20logo%20komunitas.png?alt=media&token=1ad83629-5d24-4f9b-83a8-444fbf47866b")
         guard let userProfile = UserService.currentUserProfile else { return }
-        guard let gambardonasi = fotodonasi as? UIImage else {return}
+        guard let foto = fotodonasi as? UIImage else {return}
+		guard let photo = foto.jpeg(.low) else {return}
+		guard let gambardonasi = UIImage.init(data: photo) else {return}
         let uid = userProfile.uid
-		
-		
+		print("lewat sini")
+		print(latitude)
+		print(longitude)
+		guard let lati = Double(latitude) else {print("Error Konversi latitude")
+			return}
+		guard let long = Double(longitude) else {print("Error konversi longtitude")
+			return}
+		print("Berhasil dan siap")
         
         self.uploadPostImage(gambardonasi) { url in
             print(url)
@@ -207,8 +215,8 @@ class connector {
                     ],"alamat": [
                         "keteranganlokasi":keteranganLokasi,
                        "namalokasi": lokasiBarang,
-                       "latitude":latitude,
-                       "longitude":longitude
+                       "latitude":lati,
+                       "longitude":long
                     ],"transaksi": [
                         "alasanbatal":"kosong",
                         "deskripsikurir": "kosong",

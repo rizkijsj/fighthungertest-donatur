@@ -59,13 +59,15 @@
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-7"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="jp7-0b-DRF" kind="show" animates="NO" id="Zst-zb-KVc"/>
+                                <action selector="toProfile:" destination="9Lr-h5-DQ5" id="cA6-KJ-kCI"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="donateButton" destination="JdN-J8-v6G" id="HMH-pz-Tlv"/>
                         <outlet property="tableView" destination="0xs-z0-Hux" id="ZBF-Lf-lcS"/>
+                        <segue destination="jp7-0b-DRF" kind="show" identifier="Profil" id="CSz-Fd-9Ml"/>
+                        <segue destination="fL7-n3-YWV" kind="presentation" identifier="Login" id="9r3-Xy-oG4"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0Y-5z-x1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -89,6 +91,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB7-TU-Vxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1606" y="-158"/>
+        </scene>
+        <!--LoginRegister-->
+        <scene sceneID="AK6-1m-uK4">
+            <objects>
+                <viewControllerPlaceholder storyboardName="LoginRegister" id="fL7-n3-YWV" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="eTb-JN-KyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1650" y="-13"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R0c-Jo-l3A">

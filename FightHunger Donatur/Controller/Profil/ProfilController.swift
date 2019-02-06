@@ -27,23 +27,6 @@ class ProfilController: UITableViewController {
         tableView.dataSource = self
  
     }
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        connector().verifyUserLoginState { (state) in
-            if state{
-                self.loadUserProfileData()
-                self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-            }else{
-                
-                self.performSegue(withIdentifier: "ProfileToLogin", sender: nil)
-                
-                
-            }
-        }
-        
-        
-    }
   
     @objc func dismissProfile(){
         

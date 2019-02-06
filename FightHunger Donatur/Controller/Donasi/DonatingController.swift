@@ -116,7 +116,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 
     var dataAlamat = "Lokasi"
     var kordinatPeta = [Double]()
-    
+	
+	
     var activityView:UIActivityIndicatorView!
     
     var takenPhoto:UIImage?
@@ -128,6 +129,9 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         alamat.text = vc.alamatLengkap
         print(vc.alamatLengkap)
         print(vc.kordinatAsli)
+		latitude = "\(vc.kordinatAsli[0])"
+		longitude = "\(vc.kordinatAsli[1])"
+		
     }
     
     
@@ -327,7 +331,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         
         connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganTambahanLokasi ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang) { (result) in
             if result{
-                self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
+                //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
+				self.dismiss(animated: true, completion: nil)
             }else{
                 self.resetForm()
             }

@@ -15,7 +15,7 @@
                 <viewControllerPlaceholder storyboardName="NewHome" referencedIdentifier="HomeDonatur" id="gu4-Up-Jbj" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTb-HQ-P9q" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6357" y="781"/>
+            <point key="canvasLocation" x="8211" y="726"/>
         </scene>
         <!--LoginRegister-->
         <scene sceneID="qBb-eB-drW">
@@ -36,9 +36,9 @@
         <!--Profil-->
         <scene sceneID="9cw-ae-Dgn">
             <objects>
-                <tableViewController id="qlw-we-uJF" customClass="ProfilController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="ProfileDonatur" useStoryboardIdentifierAsRestorationIdentifier="YES" id="qlw-we-uJF" customClass="ProfilController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="grouped" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="5" sectionFooterHeight="5" id="4Hl-Nq-Zuz">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="724"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <color key="sectionIndexBackgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -184,6 +184,7 @@
                             </connections>
                         </barButtonItem>
                     </navigationItem>
+                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
                     <connections>
                         <outlet property="emailLbl" destination="a0Y-Hb-kSH" id="3yp-dD-qee"/>
                         <outlet property="namaLbl" destination="IXl-SS-rhv" id="TFO-M9-QDs"/>
@@ -203,24 +204,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="W4n-Ja-G0K" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9772.7999999999993" y="1282.0197044334975"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="u2I-TA-EMt">
-            <objects>
-                <navigationController storyboardIdentifier="ProfileDonatur" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="anx-9z-F9V" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="az9-ce-FiO">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="qlw-we-uJF" kind="relationship" relationship="rootViewController" id="bNb-w6-6Ko"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="dGH-eb-OKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="5384.8000000000002" y="1193.3497536945813"/>
         </scene>
     </scenes>
     <resources>

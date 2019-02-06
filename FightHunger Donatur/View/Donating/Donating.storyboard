@@ -224,7 +224,6 @@
                         <outlet property="namaBarang" destination="tC5-9f-7PZ" id="5Yy-ey-yx8"/>
                         <outlet property="waktuPengambilan" destination="5YL-GD-4og" id="n4L-h5-g9g"/>
                         <segue destination="Qye-FF-Kdx" kind="show" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
-                        <segue destination="NF9-gH-61M" kind="show" identifier="DonasiToHome" id="ued-cH-GoR"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -239,14 +238,6 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1et-5f-pWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4345" y="1218"/>
-        </scene>
-        <!--HomeDonatur-->
-        <scene sceneID="F4L-EP-cqZ">
-            <objects>
-                <viewControllerPlaceholder storyboardName="NewHome" referencedIdentifier="HomeDonatur" id="NF9-gH-61M" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lYj-Rx-zTy" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3799" y="1372"/>
         </scene>
         <!--Location-->
         <scene sceneID="RT6-cy-kbA">

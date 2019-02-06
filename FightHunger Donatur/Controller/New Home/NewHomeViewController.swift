@@ -48,12 +48,21 @@ class NewHomeViewController: UIViewController {
             let uid = userProfile.uid
             self.observePost(id: uid)
             self.observeOrganisasi()
-            self.tableView.reloadData()
+			DispatchQueue.main.async {
+				//self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
+				// Update your data source here
+				//self.tableView.reloadData()
+				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+					//self.tableView.reloadData()
+					self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
+				}, completion: nil)
+				
+			}
             self.repeatedLoginAttempt.suspend()
         }
-        
+        /*
         print(posts)
-		DispatchQueue.global().asyncAfter(deadline: .now() + 5) {
+		DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
 			self.processOngoingDonation(rawData: self.activityListRaw) { (aPost) in
 				self.activityList = aPost
 				/*
@@ -76,6 +85,7 @@ class NewHomeViewController: UIViewController {
 				
 			}
 		}
+*/
 		
         repeatedLoginAttempt.resume()
 	}
@@ -102,6 +112,23 @@ class NewHomeViewController: UIViewController {
 		donateButton.layer.cornerRadius = donateButton.frame.height / 4
 		donateButton.layer.masksToBounds = true
 	}
+	
+	
+		
+	@IBAction func toProfile(_ sender: UIBarButtonItem) {
+		
+		connector().verifyUserLoginState { (state) in
+			if state{
+				self.performSegue(withIdentifier: "Profil", sender: nil)
+				
+			}else{
+				self.performSegue(withIdentifier: "Login", sender: nil)
+				
+			}
+		}
+	}
+	
+	
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         print(self.posts)
@@ -275,7 +302,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
                     
                 }
                 
-                loadImage(link: activityList[indexPath.row].logokomunitas, object: cell.contentOrganisationIcon)
+                //loadImage(link: activityList[indexPath.row].logokomunitas, object: cell.contentOrganisationIcon)
 				
 				cell.contentName.text = activityList[indexPath.row].namaitem
 				cell.contentStatus.text = updateDonationStatus(donationStage: activityList[indexPath.row].status)

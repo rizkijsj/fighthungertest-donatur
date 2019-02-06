@@ -399,14 +399,6 @@
             </objects>
             <point key="canvasLocation" x="1328.8" y="1639.6551724137933"/>
         </scene>
-        <!--ProfileDonatur-->
-        <scene sceneID="ygb-qg-heW">
-            <objects>
-                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileDonatur" id="CYR-bp-8RT" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="MVK-Wn-Utb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1891" y="1357"/>
-        </scene>
         <!--PostDonasi-->
         <scene sceneID="Fa1-IA-1nH">
             <objects>
