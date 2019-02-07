@@ -49,12 +49,7 @@ class LoginRegisterViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        if #available(iOS 11.0, *) {
-            labelTitle.font = getScaledFont(forFont: "Avenir-Heavy", textStyle: .largeTitle)
-        } else {
-            labelTitle.font = UIFont.init(name: "Avenir-Heavy", size: 34)
-            // Fallback on earlier versions
-        }
+       
        btnMasuk.layer.cornerRadius = 6.0
        btnDaftar.layer.cornerRadius = 6.0
        accessibility()
@@ -63,7 +58,10 @@ class LoginRegisterViewController: UIViewController {
     override func viewWillAppear(_ animated: Bool) {
         
         super.viewWillAppear(animated)
-        navigationController?.setNavigationBarHidden(true, animated: false)
+        
+        navigationController?.setNavigationBarHidden(false, animated: false)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
+        
     }
     
    
@@ -77,16 +75,16 @@ class LoginRegisterViewController: UIViewController {
     
     @IBOutlet weak var labelBody: UILabel!
     @IBOutlet weak var lblMariMulai: UILabel!
-    @IBOutlet weak var labelTitle: UILabel!
+ 
     
-    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var backBtn: UIBarButtonItem!
     
     func accessibility()
     {
         backBtn.isAccessibilityElement = true
         btnMasuk.isAccessibilityElement = true
         btnDaftar.isAccessibilityElement = true
-        labelTitle.isAccessibilityElement = true
+        
         labelBody.isAccessibilityElement = true
         lblMariMulai.isAccessibilityElement = true
         

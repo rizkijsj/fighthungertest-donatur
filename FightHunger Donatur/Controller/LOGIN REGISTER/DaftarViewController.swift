@@ -40,10 +40,10 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     
     func accessibility()
     {
-        backBtn.isAccessibilityElement = true
+        //backBtn.isAccessibilityElement = true
         labelTitle.isAccessibilityElement = true
-        backBtn.accessibilityTraits = UIAccessibilityTraits.button
-        backBtn.accessibilityLabel = "Back"
+        //backBtn.accessibilityTraits = UIAccessibilityTraits.button
+        //backBtn.accessibilityLabel = "Back"
         labelTitle.adjustsFontForContentSizeCategory = true
     }
     
