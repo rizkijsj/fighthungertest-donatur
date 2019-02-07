@@ -10,16 +10,13 @@ import UIKit
 import Firebase
 
 class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDelegate{
-
-    @IBAction func back(_ sender: UIBarButtonItem) {
-        
-        self.navigationController?.popViewController(animated: true)
-       
-    }
     
+    @IBAction func back(_ sender: UIButton) {
+        self.navigationController?.popViewController(animated: true)
+    }
+    @IBOutlet weak var backBtn: UIButton!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var lnjtBtn: UIButton!
-    @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var telpTxtField: CustomTextField!
     @IBOutlet weak var continueButton: UIButton!
     var phonenumber = ""
@@ -47,6 +44,20 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         errorMssg.isHidden = true
         
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+        
+//       back button
+        let buttonSize = CGFloat(16.0)
+        if #available(iOS 11.0, *){
+            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        }else{
+            var frame = backBtn.frame
+            frame.size.width = buttonSize
+            frame.size.height = buttonSize
+            backBtn.frame = frame
+        }
+        
+        
         
         
         //disable login button dan bikin activity progress yg muter-muter

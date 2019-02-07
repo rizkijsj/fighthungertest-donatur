@@ -47,6 +47,17 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         activityView.center = continueButton.center
         view.addSubview(activityView)
         
+//        back button
+        let buttonSize = CGFloat(16.0)
+        if #available(iOS 11.0, *){
+            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        }else{
+            var frame = backBtn.frame
+            frame.size.width = buttonSize
+            frame.size.height = buttonSize
+            backBtn.frame = frame
+        }
         
         
         //Change bg color
@@ -304,10 +315,13 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         self.becomeFirstResponder()
         
     }
-    @IBOutlet weak var backBtn: UIBarButtonItem!
-    @IBAction func `return`(_ sender: UIBarButtonItem) {
+    
+    
+    @IBAction func `return`(_ sender: UIButton) {
         self.navigationController?.popToRootViewController(animated: true)
     }
+    @IBOutlet weak var backBtn: UIButton!
+    
     
     func accessibility()
     {

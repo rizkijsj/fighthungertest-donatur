@@ -10,13 +10,12 @@ import UIKit
 import Firebase
 
 class DaftarViewController: UIViewController , UITextFieldDelegate{
+
     
-
-
-    @IBAction func backButton(_ sender: UIBarButtonItem) {
+    @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
-    
+    @IBOutlet weak var backBtn: UIButton!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -25,7 +24,7 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
     }
     
     @IBOutlet weak var labelTitle: UILabel!
-    @IBOutlet weak var backBtn: UIBarButtonItem!
+//    @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var errorMssg: UILabel!
     @IBOutlet weak var emailTxtField: CustomTextField!
     @IBOutlet weak var telpTxtField: CustomTextField!
@@ -59,6 +58,20 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         activityView.frame = CGRect(x: 0, y: 0, width: 50.0, height: 50.0)
         activityView.center = continueButton.center
         view.addSubview(activityView)
+        
+        
+        
+//        button back
+        let buttonSize = CGFloat(16.0)
+        if #available(iOS 11.0, *){
+            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        }else{
+            var frame = backBtn.frame
+            frame.size.width = buttonSize
+            frame.size.height = buttonSize
+            backBtn.frame = frame
+        }
         
         //delegate textfield
         emailTxtField.delegate = self as? UITextFieldDelegate
