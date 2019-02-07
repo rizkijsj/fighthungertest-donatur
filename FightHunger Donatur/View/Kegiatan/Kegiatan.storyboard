@@ -210,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="562" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8zL-mC-voO" id="hZI-sg-yWx">
-                                            <rect key="frame" x="0.0" y="0.0" width="286" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dCj-d9-ran">
@@ -605,13 +605,13 @@
                     <navigationItem key="navigationItem" title="Aktivitas" id="GH3-XL-kY9">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="EWX-Aa-woP">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="LS9-go-IGa">
-                                <rect key="frame" x="16" y="7" width="120" height="200"/>
+                                <rect key="frame" x="16" y="0.0" width="120" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrowback"/>
+                                <connections>
+                                    <action selector="backBtn:" destination="NP4-ck-NJT" eventType="touchUpInside" id="FHW-cg-saF"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="backBtn:" destination="NP4-ck-NJT" id="baf-dv-Dwv"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" translucent="NO" prompted="NO"/>
