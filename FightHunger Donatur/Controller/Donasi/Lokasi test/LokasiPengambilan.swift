@@ -46,8 +46,6 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 		peta.addSubview(setLokasi)
 		
 		let buttonSize = CGFloat(16.0)
-		print("\n\n\n\n\n\n\n\n\n\n")
-		print(buttonSize)
 		if #available(iOS 11.0, *){
 			bacBtnOutlet.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
 			bacBtnOutlet.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true

@@ -60,6 +60,9 @@ class NewHomeViewController: UIViewController {
 			}
             self.repeatedLoginAttempt.suspend()
         }
+		
+		let tapDonateButton = UITapGestureRecognizer.init(target: self, action: #selector(toDonate))
+		donateButton.addGestureRecognizer(tapDonateButton)
         /*
         print(posts)
 		DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
@@ -439,6 +442,14 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		}
 		
 	}
+	
+	@objc func toDonate(){
+		toDetail = false
+		selectedIndexPath = nil
+		performSegue(withIdentifier: "PostDonasi", sender: self)
+		print("Should segue to More Programs here")
+	}
+	
 	
 	@objc func toMoreProgram(){
 		toDetail = true
