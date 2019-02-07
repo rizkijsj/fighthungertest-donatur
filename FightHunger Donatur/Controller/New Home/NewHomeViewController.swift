@@ -119,7 +119,8 @@ class NewHomeViewController: UIViewController {
 	
 		
 	@IBAction func toProfile(_ sender: UIBarButtonItem) {
-		
+		selectedIndexPath = nil
+		toDetail = false
 		connector().verifyUserLoginState { (state) in
 			if state{
 				self.performSegue(withIdentifier: "Profil", sender: nil)
