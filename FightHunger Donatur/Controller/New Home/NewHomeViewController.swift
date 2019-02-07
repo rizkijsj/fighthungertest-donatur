@@ -470,7 +470,7 @@ extension NewHomeViewController{
     
     func observePost(id: String) {
         
-        let postsRef = Database.database().reference().child("Post/\(id)")
+        let postsRef = Database.database().reference().child("Post/")
         
         print(id)
         postsRef.observe(.value, with: { snapshot in
