@@ -14,7 +14,7 @@
         <scene sceneID="dK6-ME-FA8">
             <objects>
                 <tableViewController storyboardIdentifier="AktivitasVC" useStoryboardIdentifierAsRestorationIdentifier="YES" id="NP4-ck-NJT" customClass="KegiatanViewController" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Im0-bk-uDj">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" bounces="NO" bouncesZoom="NO" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Im0-bk-uDj">
                         <rect key="frame" x="0.0" y="0.0" width="320" height="416"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -151,10 +151,10 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="CPj-vZ-9sX">
-                                                    <rect key="frame" x="20" y="20" width="280" height="79.5"/>
+                                                    <rect key="frame" x="20" y="20" width="280" height="71.5"/>
                                                     <subviews>
                                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5q2-Xp-usb">
-                                                            <rect key="frame" x="65" y="0.0" width="150" height="50"/>
+                                                            <rect key="frame" x="77" y="0.0" width="126" height="42"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="5q2-Xp-usb" secondAttribute="height" multiplier="3:1" id="HJh-ks-w71"/>
                                                             </constraints>
@@ -164,7 +164,7 @@
                                                             </connections>
                                                         </button>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="756" verticalCompressionResistancePriority="755" text="Keterangan Status" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nfe-ZE-MzJ">
-                                                            <rect key="frame" x="91.5" y="66" width="97" height="13.5"/>
+                                                            <rect key="frame" x="91.5" y="58" width="97" height="13.5"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -175,7 +175,7 @@
                                             <constraints>
                                                 <constraint firstItem="CPj-vZ-9sX" firstAttribute="top" secondItem="Des-VT-oxW" secondAttribute="top" constant="20" symbolic="YES" id="F8t-Eg-ULQ"/>
                                                 <constraint firstItem="CPj-vZ-9sX" firstAttribute="leading" secondItem="Des-VT-oxW" secondAttribute="leading" constant="20" symbolic="YES" id="LKz-57-QMl"/>
-                                                <constraint firstAttribute="bottom" secondItem="CPj-vZ-9sX" secondAttribute="bottom" id="hLA-PZ-a7p"/>
+                                                <constraint firstAttribute="bottom" secondItem="CPj-vZ-9sX" secondAttribute="bottom" constant="8" id="hLA-PZ-a7p"/>
                                                 <constraint firstAttribute="trailing" secondItem="CPj-vZ-9sX" secondAttribute="trailing" constant="20" symbolic="YES" id="qgX-h9-rpr"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -210,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="562" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8zL-mC-voO" id="hZI-sg-yWx">
-                                            <rect key="frame" x="0.0" y="0.0" width="294" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="286" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dCj-d9-ran">
@@ -632,9 +632,9 @@
                         <outlet property="nomorTelponOrganisasi" destination="UuS-an-mW1" id="ve4-up-YUK"/>
                         <outlet property="organizationDetail" destination="8zL-mC-voO" id="hUw-gn-mRz"/>
                         <outlet property="stasus1" destination="UW6-zR-vhy" id="rPd-G3-l00"/>
-                        <outlet property="status2" destination="ow2-gI-H9a" id="bO2-Qo-ozV"/>
-                        <outlet property="status3" destination="7Np-o2-gzG" id="hJf-iw-1uA"/>
-                        <outlet property="status4" destination="F2h-xN-Aja" id="b05-0f-Ega"/>
+                        <outlet property="status2" destination="F2h-xN-Aja" id="hbH-hk-eNw"/>
+                        <outlet property="status3" destination="ow2-gI-H9a" id="R40-Th-1wG"/>
+                        <outlet property="status4" destination="7Np-o2-gzG" id="Eau-Hz-bMU"/>
                         <outlet property="waktuPengambilan" destination="kWF-8W-sY0" id="oGD-TX-BAR"/>
                         <segue destination="Xja-D8-UkC" kind="show" id="GTt-YR-P27"/>
                     </connections>

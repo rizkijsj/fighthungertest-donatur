@@ -43,26 +43,26 @@ class KegiatanViewController: UITableViewController {
 	
 	/*
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
-		if section == 0 {
-			return 3
-		}else if section ==  1 {
-			return 3
-		}else if section == 2{
-			return 3
-		}else if section == 3 {
-			return 6
-		}else if section == 4 {
-			return 1
-		}
-		
-		return 1
+	
+	if section == 0 {
+	return 3
+	}else if section ==  1 {
+	return 3
+	}else if section == 2{
+	return 3
+	}else if section == 3 {
+	return 6
+	}else if section == 4 {
+	return 1
+	}
+	
+	return 1
 	}
 	
 	override func numberOfSections(in tableView: UITableView) -> Int {
-		return 5
+	return 5
 	}
-*/
+	*/
 	/*
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 	return UITableViewCell.init()
@@ -76,6 +76,9 @@ class KegiatanViewController: UITableViewController {
 	var transactionID:String?
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		print("\n\n\n\n\n")
+		
 		
 		let buttonSize = CGFloat(16.0)
 		if #available(iOS 11.0, *){
@@ -95,6 +98,15 @@ class KegiatanViewController: UITableViewController {
 		
 		//        statusDonasi()
 		reloadObject()
+		
+		if let _ = passingObject {
+			print("Here")
+			guard let postID = transactionID, let userProfile = UserService.currentUserProfile else { return }
+			print("Now Dis")
+			let uid = userProfile.uid
+			observePost(userID: uid, transID: postID)
+		}
+		
 		//updateDonationDetails()
 	}
 	
@@ -182,7 +194,10 @@ class KegiatanViewController: UITableViewController {
 	}
 	
 	func statusInteractionUpdate(Status:Int){
-		
+		btnBatal.isEnabled = false
+		btnCallOrganisasi.isEnabled = false
+		btnKonfirmasi.isEnabled = false
+		btnBatal.setImage(UIImage.init(named: "Tombol abu"), for: .disabled)
 		if Status == 1 {
 			btnBatal.isEnabled = true
 			batalkanDonasi()
@@ -284,6 +299,11 @@ class KegiatanViewController: UITableViewController {
 	
 	func updateDonationStatus(donationStage:Int){
 		
+		stasus1.image = UIImage.init(named: "pin1b")
+		status2.image = UIImage.init(named: "pin2b")
+		status3.image = UIImage.init(named: "pin3b")
+		status4.image = UIImage.init(named: "pin4b")
+		
 		if donationStage == 0 {
 			print("Di Batalkan donatur")
 			namaOrganisasi.text = ""
@@ -339,5 +359,132 @@ class KegiatanViewController: UITableViewController {
 		
 	}
 	
+}
+
+extension KegiatanViewController{
+	
+	
+	
+	func observePost(userID: String, transID:String) {
+		
+		let postsRef = Database.database().reference().child("Post/\(userID)")
+		
+		print(userID)
+		print(transID)
+		postsRef.observe(.value, with: { snapshot in
+			//var tempIdProfile = String
+			
+			for child in snapshot.children {
+				if let childSnapshot = child as? DataSnapshot,
+					let dict = childSnapshot.value as? [String:Any],
+					
+					let author = dict["author"] as? [String:Any],
+					let uid = author["uid"] as? String,
+					let email = author["email"] as? String,
+					let name = author["username"] as? String,
+					let phnumber = author["phonenumber"] as? String,
+					
+					//					let organisasi = dict["komunitas"] as? [String:Any],
+					//					let orgID = organisasi["id"] as? String,
+					//					let orgName = organisasi["name"] as? String,
+					//					let orgDesc = organisasi["description"] as? String,
+					//					let orgLink = organisasi["link"] as? String,
+					//					let orgLogo = organisasi["logo"] as? String,
+					//					let orgEmail = organisasi["email"] as? String,
+					//					let orgPhone = organisasi["phone"] as? String,
+					//					let orgLocName = organisasi["locationname"] as? String,
+					//					let orgLocCoor = organisasi["locationcoor"] as? [String:Any],
+					//					let orgLati = orgLocCoor["latitude"] as? String,
+					//					let orgLong = orgLocCoor["longitude"] as? String,
+					
+					let komunitas = dict["komunitas"] as? [String:Any],
+					let id = komunitas["id"] as? String,
+					let logo = komunitas["logo"] as? String,
+					let namakomunitas = komunitas["name"] as? String,
+					let logourl = URL(string: logo),
+					let phonenumber = komunitas["phone"] as? String,
+					
+					
+					
+					let alamat = dict["alamat"] as? [String:Any],
+					let address = alamat["namalokasi"] as? String,
+					let keteranganlokasi = alamat["keteranganlokasi"] as? String,
+					let latitude = alamat["latitude"] as? Double,
+					let longitude = alamat["longitude"] as? Double,
+					
+					
+					
+					let transaksi = dict["transaksi"] as? [String:Any],
+					let namaKurir = transaksi["namakurir"] as? String,
+					let descKurir = transaksi["deskripsikurir"] as? String,
+					let status = transaksi["status"] as? Int,
+					let alasanbatal = transaksi["alasanbatal"] as? String,
+					let waktuambil = transaksi["waktuambil"] as? Double,
+					let waktusampai = transaksi["waktusampai"] as? Double,
+					
+					
+					let barang = dict["barang"] as? [String:Any],
+					let postphotourl = barang["postphotourl"] as? String,
+					let photourl = URL(string: postphotourl),
+					
+					let namaitem = barang["namabarang"] as? String,
+					let jumlah = barang["jumlahbarang"] as? String,
+					let deskripsi = barang["deskripsibarang"] as? String,
+					
+					
+					
+					
+					
+					
+					let transactionid = dict["idtransaction"] as? String,
+					let timestamp = dict["timestamp"] as? Double
+					
+				{
+					
+					
+					
+					let userProfile = UserProfile(uid: uid, email: email, phonenumber: phnumber, username: name)
+					//let orgProfile = OrganisasiProfile(orgId: orgID, orgPhone: orgPhone, orgEmail: orgEmail, orgName: orgName, orgDesc: orgDesc, orgLogo: orgLogo, orgLocName: orgLocName, latitude: orgLati, longitude: orgLong, orgLink: orgLink)
+					
+					
+					print("mamamia")
+					
+					
+					let post = Post(id: childSnapshot.key, author: userProfile, idkomunitas: id, logokomunitas: logourl, namakomunitas: namakomunitas, phonekomunitas: phonenumber, postphotourl: photourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal,idtransaction: transactionid)
+					
+					
+					
+					if post.idtransaksi == transID{
+						self.passingObject = post
+						DispatchQueue.main.async {
+							
+							UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+								
+								
+								self.reloadObject()
+								
+								
+								
+							}, completion: nil)
+							
+						}
+						
+					}
+					
+					
+					
+
+					
+				}else {
+					print("Error?")
+				}
+			}
+			print("berhasil ambil data post")
+			
+			
+			
+			
+		})
+	}
 }
 
