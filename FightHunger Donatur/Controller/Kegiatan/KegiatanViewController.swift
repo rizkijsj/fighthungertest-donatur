@@ -153,6 +153,16 @@ class KegiatanViewController: UITableViewController {
 		
 	}
 	
+	@IBAction func clickBtnBatalkan(_ sender: UIButton) {
+		cancelPickup { (result) in
+			if result{
+				print("sukses di Batalkan")
+				self.reloadObject()
+			}else{
+				print("gagal di Batalkan")
+			}
+		}
+	}
 	
 	func updateDonationDetails(){
 		
@@ -274,6 +284,26 @@ class KegiatanViewController: UITableViewController {
 		let databaseRef = Database.database().reference().child("Post/\(idtransaksi)/transaksi")
 		
 		let userObject = ["status": 4] as [String:Any]
+		
+		databaseRef.updateChildValues(userObject) { error, ref in
+			if error == nil{
+				print("sukses")
+				completion(true)
+			}else{
+				completion(false)
+			}
+		}
+	}
+	
+	func cancelPickup(completion: @escaping (Bool) -> Void){
+		guard let uid = Auth.auth().currentUser?.uid else { return }
+		
+		guard let idtransaksi = passingObject?.idtransaksi else {return}
+		
+		//        guard let alasanBatal = alasanBatalTextField.text else{return}
+		let databaseRef = Database.database().reference().child("Post/\(idtransaksi)/transaksi")
+		
+		let userObject = ["status": 0] as [String:Any]
 		
 		databaseRef.updateChildValues(userObject) { error, ref in
 			if error == nil{
