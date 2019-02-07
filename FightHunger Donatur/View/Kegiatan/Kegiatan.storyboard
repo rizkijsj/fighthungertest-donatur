@@ -210,7 +210,7 @@
                                         <rect key="frame" x="0.0" y="562" width="320" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="8zL-mC-voO" id="hZI-sg-yWx">
-                                            <rect key="frame" x="0.0" y="0.0" width="286" height="79.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="294" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="dCj-d9-ran">

@@ -206,7 +206,7 @@ class connector {
 //
 //                var postId = post1Ref.key
                 
-                let postRef = Database.database().reference().child("Post/\(uid)").childByAutoId()
+                let postRef = Database.database().reference().child("Post/").childByAutoId()
                 let postObject = [
                     "author": [
                         "uid": userProfile.uid,
@@ -245,7 +245,7 @@ class connector {
                         print(postId)
 
                         
-                        let databaseRef = Database.database().reference().child("Post/\(uid)/\(postId)")
+                        let databaseRef = Database.database().reference().child("Post/\(postId)")
                         
                         let idObject = [
                             "idtransaction": postId] as [String:Any]
