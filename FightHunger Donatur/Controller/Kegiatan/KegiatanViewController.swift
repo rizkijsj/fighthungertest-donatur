@@ -172,8 +172,12 @@ class KegiatanViewController: UITableViewController {
 			transactionID = statusObject.id
 			
 			//loadImage(link: statusObject.postphotourl)
-			ImageService.getImage(withURL: statusObject.postphotourl) { image, url in
+			ImageService.getImage(withURL: statusObject.postphotourl) { image, url, fromCache  in
+				if fromCache {
 				self.fotoDonasi.image = image
+				}else {
+					self.fadeInNewImage(previousImageView: self.fotoDonasi, newImage: image)
+				}
 				
 			}
 			
@@ -322,6 +326,32 @@ class KegiatanViewController: UITableViewController {
 			if let phoneURL = NSURL(string: "tel://\(nomorTelponOrganisasi.text!)"){
 				UIApplication.shared.open(phoneURL as URL)
 			}
+		}
+	}
+	
+	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
+		let nextImage = newImage
+		
+		if previousImageView.image == nil{
+			//previousImageView.image = UIImage.init()
+			previousImageView.image = newImage
+		}else{
+			let tmpImageView = UIImageView(image: nextImage)
+			tmpImageView.contentMode = previousImageView.contentMode
+			tmpImageView.frame = previousImageView.bounds
+			tmpImageView.alpha = 0.0
+			previousImageView.addSubview(tmpImageView)
+			
+			UIView.animate(withDuration: 1, animations: {
+				tmpImageView.alpha = 1.0
+			}, completion: {
+				finished in
+				previousImageView.image = nextImage
+				tmpImageView.image = nil
+				tmpImageView.removeFromSuperview()
+				tmpImageView.removeFromSuperview()
+				
+			})
 		}
 	}
 	

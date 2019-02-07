@@ -12,11 +12,11 @@ class NewHomeViewController: UIViewController {
 	
 	@IBOutlet weak var donateButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
-    
-    let repeatedLoginAttempt = RepeatingTimer(timeInterval: 5)
-    
-    var posts = [Post]()
-    var organisasi = [OrganisasiProfile]()
+	
+	let repeatedLoginAttempt = RepeatingTimer(timeInterval: 5)
+	
+	var posts = [Post]()
+	var organisasi = [OrganisasiProfile]()
 	// activity data should always referred to your data source, which it will be real time updated data
 	var activityData = [1]
 	var temporaryArrayData = ["asd", "bsdn", "kausrg", "asjdfyr"]
@@ -27,8 +27,8 @@ class NewHomeViewController: UIViewController {
 	
 	var activityListRaw = connector().transactionList()
 	var activityList:[Post] = []
-	var organizationList = connector().organizationList()
-	var programList = connector().programList()
+	var organizationList:[OrganisasiProfile] = []
+	var programList:[programObject] = []
 	
 	var selectedIndexPath:IndexPath?
 	var toDetail:Bool = false
@@ -36,18 +36,18 @@ class NewHomeViewController: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		// Set what needs to display within your view
-        
-        setupView()
-    UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        UserDefaults.standard.synchronize()
 		
-        repeatedLoginAttempt.eventHandler = {
-            guard let userProfile = UserService.currentUserProfile else {
-                print("Error")
-                return }
-            let uid = userProfile.uid
-            self.observePost(id: uid)
-            self.observeOrganisasi()
+		setupView()
+		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+		UserDefaults.standard.synchronize()
+		
+		repeatedLoginAttempt.eventHandler = {
+			guard let userProfile = UserService.currentUserProfile else {
+				print("Error")
+				return }
+			let uid = userProfile.uid
+			self.observePost(id: uid)
+			self.observeOrganisasi()
 			DispatchQueue.main.async {
 				//self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
 				// Update your data source here
@@ -58,52 +58,25 @@ class NewHomeViewController: UIViewController {
 				}, completion: nil)
 				
 			}
-            self.repeatedLoginAttempt.suspend()
-        }
+			self.repeatedLoginAttempt.suspend()
+		}
 		
 		let tapDonateButton = UITapGestureRecognizer.init(target: self, action: #selector(toDonate))
 		donateButton.addGestureRecognizer(tapDonateButton)
-        /*
-        print(posts)
-		DispatchQueue.global().asyncAfter(deadline: .now() + 1) {
-			self.processOngoingDonation(rawData: self.activityListRaw) { (aPost) in
-				self.activityList = aPost
-				/*
-				let transition = CATransition()
-				transition.type = CATransitionType.push
-				transition.timingFunction = CAMediaTimingFunction(name: CAMediaTimingFunctionName.easeInEaseOut)
-				transition.fillMode = CAMediaTimingFillMode.forwards
-				transition.duration = 0.5
-				transition.subtype = CATransitionSubtype.fromBottom
-*/
-				DispatchQueue.main.async {
-					//self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
-					// Update your data source here
-					//self.tableView.reloadData()
-					UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
-						self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
-					}, completion: nil)
-					
-				}
-				
-			}
-		}
-*/
-		
-        repeatedLoginAttempt.resume()
+		repeatedLoginAttempt.resume()
 	}
-    
-
+	
+	
 	override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
-        
-        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-        }
-        
-        //observePosts()
-        self.tableView.reloadData()
-    }
+		super.viewWillAppear(animated)
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
+		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+		}
+		
+		//observePosts()
+		self.tableView.reloadData()
+	}
 	
 	func setupView(){
 		// Register all required cell that have to display in UITableView
@@ -117,7 +90,7 @@ class NewHomeViewController: UIViewController {
 	}
 	
 	
-		
+	
 	@IBAction func toProfile(_ sender: UIBarButtonItem) {
 		selectedIndexPath = nil
 		toDetail = false
@@ -135,7 +108,7 @@ class NewHomeViewController: UIViewController {
 	
 	
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        print(self.posts)
+		print(self.posts)
 		if toDetail {
 			
 		}else{
@@ -181,22 +154,22 @@ class NewHomeViewController: UIViewController {
 extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		// Consider to use section to separate the content based on design objective, "Activity" section, "New Activity" Section, "Partner" Section
-
+		
 		return 3
 		
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-
-			switch section {
-			case 0:
-				return activityList.count
-			case 1:
-				return programList.count
-			case 2:
-				return organizationList.count
-			default:
-				return 0
-			}
+		
+		switch section {
+		case 0:
+			return activityList.count
+		case 1:
+			return programList.count
+		case 2:
+			return organizationList.count
+		default:
+			return 0
+		}
 		
 	}
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
@@ -217,7 +190,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		let seeMore = UILabel(frame: CGRect(x: -16, y: 0, width: self.view.frame.width, height: 44))
 		seeMore.textColor = .red
 		seeMore.textAlignment = .right
-		seeMore.text = "Lihat Semua"
+		//seeMore.text = "Lihat Semua"
 		seeMore.isUserInteractionEnabled = true
 		seeMore.font = UIFont.preferredFont(forTextStyle: .caption1)
 		
@@ -250,7 +223,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		if indexPath.section == 0{
 			selectedIndexPath = indexPath
 			print("Somewhere in Activity with \(activityList[indexPath.row].namaitem)")
-            self.performSegue(withIdentifier: "keAktivitas", sender: nil)
+			self.performSegue(withIdentifier: "keAktivitas", sender: nil)
 		}else if indexPath.section == 1 {
 			selectedIndexPath = indexPath
 			print("Somewhere in Program with \(programList[indexPath.row].name)")
@@ -263,23 +236,23 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		
-
-			switch indexPath.section {
-			case 0:
-				return 160
-			case 1:
-				return 352
-			case 2:
-				return 96
-			default:
-				return 0
-			}
+		
+		switch indexPath.section {
+		case 0:
+			return 160
+		case 1:
+			return 352
+		case 2:
+			return 96
+		default:
+			return 0
+		}
 		
 		
 	}
 	
 	func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-		return 8
+		return 0
 	}
 	func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
 		return ""
@@ -294,72 +267,88 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		dateFormat.dateFormat = "MMMM dd yyyy"
 		timeFormat.dateFormat = "HH:mm"
 		
-			switch indexPath.section {
-			case 0:
-				let cell = (tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as? SectionOneHomeCell)!
-				
-				
-				
-//                loadImage(link: activityList[indexPath.row].postphotourl, object: cell.contentImage)
-                
-                ImageService.getImage(withURL: activityList[indexPath.row].postphotourl) { image, url in
+		switch indexPath.section {
+		case 0:
+			let cell = (tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as? SectionOneHomeCell)!
+			
+			cell.contentName.text = activityList[indexPath.row].namaitem
+			cell.contentStatus.text = updateDonationStatus(donationStage: activityList[indexPath.row].status)
+			cell.contentExpiredDate.text = activityList[indexPath.row].deskripsi
+			cell.contentActivityTime.text = timeFormat.string(from: Date(timeIntervalSince1970: activityList[indexPath.row].waktuambil))
+			cell.contentImage.image = UIImage.init(color: .lightGray)
+			ImageService.getImage(withURL: activityList[indexPath.row].postphotourl) { image, url, fromCache in
+				if fromCache {
+					cell.contentImage.image = image
+				} else {
 					self.fadeInNewImage(previousImageView: cell.contentImage, newImage: image)
-                    
-                }
-                
-                //loadImage(link: activityList[indexPath.row].logokomunitas, object: cell.contentOrganisationIcon)
+				}
+			}
+			
+			if activityList[indexPath.row].status == 2 || activityList[indexPath.row].status == 3 || activityList[indexPath.row].status == 4{
 				
-				cell.contentName.text = activityList[indexPath.row].namaitem
-				cell.contentStatus.text = updateDonationStatus(donationStage: activityList[indexPath.row].status)
-				cell.contentExpiredDate.text = activityList[indexPath.row].deskripsi
-				
-				
-				cell.contentActivityTime.text = timeFormat.string(from: Date(timeIntervalSince1970: activityList[indexPath.row].waktuambil))
-				
-				if activityList[indexPath.row].status == 2 || activityList[indexPath.row].status == 3 || activityList[indexPath.row].status == 4{
-
-						
-						loadImage(link: activityList[indexPath.row].logokomunitas, object: cell.contentOrganisationIcon)
-						cell.contentOrganisationName.text = activityList[indexPath.row].namakomunitas
-					
-				}else {
-					cell.contentOrganisationName.text = ""
-					cell.contentOrganisationIcon.image = nil
+				cell.contentOrganisationName.text = activityList[indexPath.row].namakomunitas
+				cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
+				ImageService.getImage(withURL: activityList[indexPath.row].logokomunitas) { image, url, fromCache in
+					if fromCache {
+						cell.contentOrganisationIcon.image = image
+					} else {
+						self.fadeInNewImage(previousImageView: cell.contentOrganisationIcon, newImage: image)
+					}
 				}
 				
-				//cell.set(post: posts[indexPath.row])
-				
-				return cell
-			case 1:
-				let cell = (tableView.dequeueReusableCell(withIdentifier: "newActivityCellID", for: indexPath) as? SectionTwoHomeCell)!
-				
-				loadImage(link: URL(string: programList[indexPath.row].imagesLink)!, object: cell.contentImage)
-				
-
-				loadImage(link: URL(string:programList[indexPath.row].imagesLink)!, object: cell.contentOrganisationIcon)
-					cell.contentOrganisationName.text = programList[indexPath.row].name
-				
-				
-				cell.contentActivityDate.text = programList[indexPath.row].time
-				cell.contentTitle.text = programList[indexPath.row].name
-				cell.contentDesc.text = programList[indexPath.row].description
-				
-				
-				return cell
-			case 2:
-				let cell = (tableView.dequeueReusableCell(withIdentifier: "partnerCellID", for: indexPath) as? SectionThreeHomeCell)!
-				
-				loadImage(link: organizationList[indexPath.row].logo, object: cell.contentImage)
-				
-				cell.contentName.text = organizationList[indexPath.row].name
-				cell.contentAddress.text = organizationList[indexPath.row].locationName
-				
-				return cell
-			default:
-				let cell = (tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as? SectionOneHomeCell)!
-				
-				return cell
+			}else {
+				cell.contentOrganisationName.text = ""
+				cell.contentOrganisationIcon.image = nil
 			}
+			
+			//cell.set(post: posts[indexPath.row])
+			
+			return cell
+		case 1:
+			let cell = (tableView.dequeueReusableCell(withIdentifier: "newActivityCellID", for: indexPath) as? SectionTwoHomeCell)!
+
+			cell.contentOrganisationName.text = programList[indexPath.row].name
+			cell.contentImage.image = UIImage.init(color: .lightGray)
+			ImageService.getImage(withURL: URL.init(string: programList[indexPath.row].imagesLink)! ) { image, url, fromCache in
+				if fromCache {
+					cell.contentImage.image = image
+				} else {
+					self.fadeInNewImage(previousImageView: cell.contentImage, newImage: image)
+				}
+			}
+			
+			cell.contentActivityDate.text = programList[indexPath.row].time
+			cell.contentTitle.text = programList[indexPath.row].name
+			cell.contentDesc.text = programList[indexPath.row].description
+			cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
+			ImageService.getImage(withURL: URL.init(string: programList[indexPath.row].imagesLink)! ) { image, url, fromCache in
+				if fromCache {
+					cell.contentOrganisationIcon.image = image
+				} else {
+					self.fadeInNewImage(previousImageView: cell.contentOrganisationIcon, newImage: image)
+				}
+			}
+			
+			return cell
+		case 2:
+			let cell = (tableView.dequeueReusableCell(withIdentifier: "partnerCellID", for: indexPath) as? SectionThreeHomeCell)!
+			
+			cell.contentName.text = organizationList[indexPath.row].name
+			cell.contentAddress.text = organizationList[indexPath.row].locationName
+			cell.contentImage.image = UIImage.init(color: .lightGray)
+			ImageService.getImage(withURL: organizationList[indexPath.row].logo) { image, url, fromCache in
+				if fromCache {
+					cell.contentImage.image = image
+				} else {
+					self.fadeInNewImage(previousImageView: cell.contentImage, newImage: image)
+				}
+			}
+			return cell
+		default:
+			let cell = (tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as? SectionOneHomeCell)!
+			
+			return cell
+		}
 		
 		
 		
@@ -416,7 +405,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func loadImage(link:URL, object: UIImageView){
 		DispatchQueue.global(qos: .userInitiated).async {
-			ImageService.getImage(withURL: link) { image, url in
+			ImageService.getImage(withURL: link) { image, url, fromCache in
 				guard let imageFile = image else {return}
 				DispatchQueue.main.async {
 					self.fadeInNewImage(previousImageView: object, newImage: imageFile)
@@ -465,166 +454,171 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 }
 
 extension NewHomeViewController{
-    
-    
-    
-    func observePost(id: String) {
-        
-        let postsRef = Database.database().reference().child("Post/")
-        
-        print(id)
-        postsRef.observe(.value, with: { snapshot in
-            
-            var tempPosts = [Post]()
-            //var tempIdProfile = String
+	
+	
+	
+	func observePost(id: String) {
+		
+		let postsRef = Database.database().reference().child("Post/")
+		
+		print(id)
+		postsRef.observe(.value, with: { snapshot in
 			
-            for child in snapshot.children {
-                if let childSnapshot = child as? DataSnapshot,
-                    let dict = childSnapshot.value as? [String:Any],
+			var tempPosts = [Post]()
+			//var tempIdProfile = String
+			
+			for child in snapshot.children {
+				if let childSnapshot = child as? DataSnapshot,
+					let dict = childSnapshot.value as? [String:Any],
 					
-                    let author = dict["author"] as? [String:Any],
-                    let uid = author["uid"] as? String,
-                    let email = author["email"] as? String,
-                    let name = author["username"] as? String,
-                    let phnumber = author["phonenumber"] as? String,
+					let author = dict["author"] as? [String:Any],
+					let uid = author["uid"] as? String,
+					let email = author["email"] as? String,
+					let name = author["username"] as? String,
+					let phnumber = author["phonenumber"] as? String,
 					
-//					let organisasi = dict["komunitas"] as? [String:Any],
-//					let orgID = organisasi["id"] as? String,
-//					let orgName = organisasi["name"] as? String,
-//					let orgDesc = organisasi["description"] as? String,
-//					let orgLink = organisasi["link"] as? String,
-//					let orgLogo = organisasi["logo"] as? String,
-//					let orgEmail = organisasi["email"] as? String,
-//					let orgPhone = organisasi["phone"] as? String,
-//					let orgLocName = organisasi["locationname"] as? String,
-//					let orgLocCoor = organisasi["locationcoor"] as? [String:Any],
-//					let orgLati = orgLocCoor["latitude"] as? String,
-//					let orgLong = orgLocCoor["longitude"] as? String,
+					//					let organisasi = dict["komunitas"] as? [String:Any],
+					//					let orgID = organisasi["id"] as? String,
+					//					let orgName = organisasi["name"] as? String,
+					//					let orgDesc = organisasi["description"] as? String,
+					//					let orgLink = organisasi["link"] as? String,
+					//					let orgLogo = organisasi["logo"] as? String,
+					//					let orgEmail = organisasi["email"] as? String,
+					//					let orgPhone = organisasi["phone"] as? String,
+					//					let orgLocName = organisasi["locationname"] as? String,
+					//					let orgLocCoor = organisasi["locationcoor"] as? [String:Any],
+					//					let orgLati = orgLocCoor["latitude"] as? String,
+					//					let orgLong = orgLocCoor["longitude"] as? String,
 					
-                    let komunitas = dict["komunitas"] as? [String:Any],
-                    let id = komunitas["id"] as? String,
-                    let logo = komunitas["logo"] as? String,
-                    let namakomunitas = komunitas["name"] as? String,
-                    let logourl = URL(string: logo),
-                    let phonenumber = komunitas["phone"] as? String,
-                    
-                    
-                    
-                    let alamat = dict["alamat"] as? [String:Any],
-                    let address = alamat["namalokasi"] as? String,
-                    let keteranganlokasi = alamat["keteranganlokasi"] as? String,
-                    let latitude = alamat["latitude"] as? Double,
-                    let longitude = alamat["longitude"] as? Double,
-                    
-                    
-                    
-                    let transaksi = dict["transaksi"] as? [String:Any],
-                    let namaKurir = transaksi["namakurir"] as? String,
-                    let descKurir = transaksi["deskripsikurir"] as? String,
-                    let status = transaksi["status"] as? Int,
-                    let alasanbatal = transaksi["alasanbatal"] as? String,
-                    let waktuambil = transaksi["waktuambil"] as? Double,
-                    let waktusampai = transaksi["waktusampai"] as? Double,
-                    
-                    
-                    let barang = dict["barang"] as? [String:Any],
-                    let postphotourl = barang["postphotourl"] as? String,
-                    let photourl = URL(string: postphotourl),
-                    
-                    let namaitem = barang["namabarang"] as? String,
-                    let jumlah = barang["jumlahbarang"] as? String,
-                    let deskripsi = barang["deskripsibarang"] as? String,
-                    
-                    
+					let komunitas = dict["komunitas"] as? [String:Any],
+					let id = komunitas["id"] as? String,
+					let logo = komunitas["logo"] as? String,
+					let namakomunitas = komunitas["name"] as? String,
+					let logourl = URL(string: logo),
+					let phonenumber = komunitas["phone"] as? String,
+					
+					
+					
+					let alamat = dict["alamat"] as? [String:Any],
+					let address = alamat["namalokasi"] as? String,
+					let keteranganlokasi = alamat["keteranganlokasi"] as? String,
+					let latitude = alamat["latitude"] as? Double,
+					let longitude = alamat["longitude"] as? Double,
+					
+					
+					
+					let transaksi = dict["transaksi"] as? [String:Any],
+					let namaKurir = transaksi["namakurir"] as? String,
+					let descKurir = transaksi["deskripsikurir"] as? String,
+					let status = transaksi["status"] as? Int,
+					let alasanbatal = transaksi["alasanbatal"] as? String,
+					let waktuambil = transaksi["waktuambil"] as? Double,
+					let waktusampai = transaksi["waktusampai"] as? Double,
+					
+					
+					let barang = dict["barang"] as? [String:Any],
+					let postphotourl = barang["postphotourl"] as? String,
+					let photourl = URL(string: postphotourl),
+					
+					let namaitem = barang["namabarang"] as? String,
+					let jumlah = barang["jumlahbarang"] as? String,
+					let deskripsi = barang["deskripsibarang"] as? String,
+					
+					
 					
 					
 					
 					
 					let transactionid = dict["idtransaction"] as? String,
-                    let timestamp = dict["timestamp"] as? Double
+					let timestamp = dict["timestamp"] as? Double
 					
-					{
+				{
 					
 					
 					
-                    let userProfile = UserProfile(uid: uid, email: email, phonenumber: phnumber, username: name)
+					let userProfile = UserProfile(uid: uid, email: email, phonenumber: phnumber, username: name)
 					//let orgProfile = OrganisasiProfile(orgId: orgID, orgPhone: orgPhone, orgEmail: orgEmail, orgName: orgName, orgDesc: orgDesc, orgLogo: orgLogo, orgLocName: orgLocName, latitude: orgLati, longitude: orgLong, orgLink: orgLink)
 					
 					
-                    print("mamamia")
+					print("mamamia")
 					
 					
-                        let post = Post(id: childSnapshot.key, author: userProfile, idkomunitas: id, logokomunitas: logourl, namakomunitas: namakomunitas, phonekomunitas: phonenumber, postphotourl: photourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal,idtransaction: transactionid)
+					let post = Post(id: childSnapshot.key, author: userProfile, idkomunitas: id, logokomunitas: logourl, namakomunitas: namakomunitas, phonekomunitas: phonenumber, postphotourl: photourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal,idtransaction: transactionid)
 					
 					
-                    
-                    if userProfile.uid == Auth.auth().currentUser?.uid
-                    {
-                        tempPosts.append(post)
-                        
-                    }
-                }
-            }
-            print("berhasil ambil data post")
+					
+					if userProfile.uid == Auth.auth().currentUser?.uid
+					{
+						tempPosts.append(post)
+						
+					}
+				}
+			}
+			print("berhasil ambil data post")
 			
 			
 			DispatchQueue.main.async {
 				
-				self.activityList = tempPosts
-				//self.tableView.reloadData()
+				self.processOngoingDonation(rawData: tempPosts, completion: { (post) in
+					self.activityList = post
+				})
 				
 				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
 					self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
 				}, completion: nil)
 				
 			}
-            
-        })
-    }
-    
-    func observeOrganisasi() {
-        
-        //        guard let userProfile = UserService.currentUserProfile else { return }
-        //        let uid = userProfile.uid
-        
-        let orgRef = Database.database().reference().child("users/komunitas")
-        
-        
-        orgRef.observe(.value, with: { snapshot in
 			
-            var tempOrganisasi = [OrganisasiProfile]()
-            //var tempIdProfile = String
-            print("nelis")
-            for child in snapshot.children {
-                if let childSnapshot = child as? DataSnapshot,
-                    let dict = childSnapshot.value as? [String:Any],
-                    let locationcoor = dict["locationcoor"] as? [String:Any],
-                    let latitude = locationcoor["latitude"] as? String,
-                    let longitude = locationcoor["longitude"] as? String,
-                    //                    let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(([longitude] as NSString).doubleValue), longitude: Double(([latitude] as NSString).doubleValue)),
-                    let logo = dict["logo"] as? String,
-                    let logourl = URL(string: logo),
-                    let address = dict["locationname"] as? String,
-                    let name = dict["name"] as? String,
-                    let phonenumber = dict["phone"] as? String,
-                    let link = dict["link"] as? String,
-                    let linkwebsite = URL(string: link),
-                    let deskripsi = dict["description"] as? String,
-                    let email = dict["email"] as? String,
-                    let id = dict["id"] as? String{
-					print("mumumia")
-                    let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
+		})
+	}
+	
+	func observeOrganisasi() {
+		
+		//        guard let userProfile = UserService.currentUserProfile else { return }
+		//        let uid = userProfile.uid
+		
+		let orgRef = Database.database().reference().child("users/komunitas")
+		
+		
+		orgRef.observe(.value, with: { snapshot in
+			
+			var tempOrganisasi = [OrganisasiProfile]()
+			//var tempIdProfile = String
+			print("Check12")
+			for child in snapshot.children {
+				print(child)
+				if let childSnapshot = child as? DataSnapshot,
+					let dict = childSnapshot.value as? [String:Any],
 					
-                    
-                    tempOrganisasi.append(organisasi)
-                    print(tempOrganisasi)
-                    //                    if userProfile.uid == Auth.auth().currentUser?.uid
-                    //                    {
-                    //                        tempOrganisasi.append(post)
-                    //
-                    //                    }
-                }
-            }
+					let locationcoor = dict["locationcoor"] as? [String:Any],
+					let latitude = locationcoor["latitude"] as? String,
+					let longitude = locationcoor["longitude"] as? String,
+					let address = dict["locationname"] as? String,
+					//                    let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(([longitude] as NSString).doubleValue), longitude: Double(([latitude] as NSString).doubleValue)),
+					let logo = dict["logo"] as? String,
+					let logourl = URL(string: logo),
+					
+					let link = dict["link"] as? String,
+					let linkwebsite = URL(string: link),
+					
+					let name = dict["name"] as? String,
+					let phonenumber = dict["phone"] as? String,
+					let deskripsi = dict["description"] as? String,
+					let email = dict["email"] as? String,
+					let id = dict["id"] as? String{
+					print("mumumia")
+					let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
+					
+					
+					tempOrganisasi.append(organisasi)
+					print(tempOrganisasi)
+					//                    if userProfile.uid == Auth.auth().currentUser?.uid
+					//                    {
+					//                        tempOrganisasi.append(post)
+					//
+					//                    }
+				}else {print("Error?")}
+			}
 			
 			DispatchQueue.main.async {
 				
@@ -638,9 +632,9 @@ extension NewHomeViewController{
 				
 			}
 			
-            
-        })
-
-    }
-    
+			
+		})
+		
+	}
+	
 }
