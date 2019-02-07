@@ -40,10 +40,10 @@
                                 </constraints>
                             </view>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jkT-1z-FYg">
-                                <rect key="frame" x="309" y="576" width="50" height="50"/>
+                                <rect key="frame" x="303" y="570" width="56" height="56"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="jkT-1z-FYg" secondAttribute="height" multiplier="1:1" id="Lcd-FX-vdV"/>
-                                    <constraint firstAttribute="height" constant="50" id="xYK-r1-yfm"/>
+                                    <constraint firstAttribute="height" constant="56" id="xYK-r1-yfm"/>
                                 </constraints>
                                 <state key="normal" backgroundImage="Current Location"/>
                                 <connections>
@@ -89,7 +89,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Lokasi" id="u5U-4E-ico">
                         <barButtonItem key="leftBarButtonItem" style="plain" id="HbI-ez-2qn">
-                            <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Ua-Z4-lXO">
+                            <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Ua-Z4-lXO">
                                 <rect key="frame" x="16" y="0.0" width="120" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="arrowback"/>
