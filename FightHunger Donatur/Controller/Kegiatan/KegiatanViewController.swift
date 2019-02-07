@@ -41,6 +41,12 @@ class KegiatanViewController: UITableViewController {
 	
 	@IBOutlet weak var bacBtnOutlet: UIButton!
 	
+	@IBOutlet weak var status1Lbl: UILabel!
+	@IBOutlet weak var status2Lbl: UILabel!
+	@IBOutlet weak var status3Lbl: UILabel!
+	@IBOutlet weak var status4Lbl: UILabel!
+	
+	
 	/*
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 	
@@ -79,6 +85,11 @@ class KegiatanViewController: UITableViewController {
 		
 		print("\n\n\n\n\n")
 		
+		
+		status1Lbl.text = "Mencari\nKurir"
+		status2Lbl.text = "Sedang\nDijemput"
+		status3Lbl.text = "Sedang\nDiantar"
+		status4Lbl.text = "Sampai\nOrganisasi"
 		
 		let buttonSize = CGFloat(16.0)
 		if #available(iOS 11.0, *){
@@ -260,8 +271,7 @@ class KegiatanViewController: UITableViewController {
 		guard let idtransaksi = passingObject?.idtransaksi else {return}
 		
 		//        guard let alasanBatal = alasanBatalTextField.text else{return}
-		
-		let databaseRef = Database.database().reference().child("Post/\(uid)/\(idtransaksi)/transaksi")
+		let databaseRef = Database.database().reference().child("Post/\(idtransaksi)/transaksi")
 		
 		let userObject = ["status": 4] as [String:Any]
 		
@@ -367,7 +377,7 @@ extension KegiatanViewController{
 	
 	func observePost(userID: String, transID:String) {
 		
-		let postsRef = Database.database().reference().child("Post/\(userID)")
+		let postsRef = Database.database().reference().child("Post/")
 		
 		print(userID)
 		print(transID)
@@ -453,8 +463,8 @@ extension KegiatanViewController{
 					let post = Post(id: childSnapshot.key, author: userProfile, idkomunitas: id, logokomunitas: logourl, namakomunitas: namakomunitas, phonekomunitas: phonenumber, postphotourl: photourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal,idtransaction: transactionid)
 					
 					
-					
 					if post.idtransaksi == transID{
+						print("Ketemu")
 						self.passingObject = post
 						DispatchQueue.main.async {
 							
@@ -469,17 +479,19 @@ extension KegiatanViewController{
 							
 						}
 						
+					} else {
+						print("Error")
 					}
 					
 					
 					
 
-					
+					print("berhasil ambil data post")
 				}else {
 					print("Error?")
 				}
 			}
-			print("berhasil ambil data post")
+			
 			
 			
 			
