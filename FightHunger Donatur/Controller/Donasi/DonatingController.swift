@@ -268,6 +268,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     @objc func textFieldChanged(_ target:UITextField)
     {
+        print("kepanggil")
         let nama = namaBarang.text
         let deskripsi = deskripsiBarang.text
         let keteranganLokasi = keteranganBarang.text

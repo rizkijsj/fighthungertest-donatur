@@ -22,7 +22,7 @@ class ProfilController: UITableViewController {
     }
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        loadUserProfileData()
         tableView.delegate = self
         tableView.dataSource = self
  
@@ -76,7 +76,7 @@ class ProfilController: UITableViewController {
     }
 
     func loadUserProfileData(){
-        guard let userProfile = UserService.currentUserProfile else { return }
+        guard let userProfile = UserService.currentUserProfile else { print("error lagi bro");return }
         emailLbl.text = userProfile.email
         namaLbl.text =  userProfile.username
         noHpLbl.text = userProfile.phonenumber

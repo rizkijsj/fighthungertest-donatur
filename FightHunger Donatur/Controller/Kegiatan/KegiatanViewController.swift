@@ -8,6 +8,7 @@
 
 import UIKit
 import CoreLocation
+import Firebase
 
 class KegiatanViewController: UITableViewController {
     
@@ -83,8 +84,26 @@ class KegiatanViewController: UITableViewController {
         organizationDetail.gestureRecognizers = [tap]
         
         //        statusDonasi()
-        reloadObject()
+        //reloadObject()
+        updateDonationDetails()
     }
+    
+    
+    
+    @IBAction func konfirmasiAct(_ sender: Any) {
+        konfirmasiPickup { (result) in
+            if result{
+                print("sukses di konfirmasi")
+                self.reloadObject()
+            }else{
+                print("gagal di konfirmasi")
+            }
+        }
+    }
+    
+    
+    
+    
     
  @objc  func openOrganisation() {
         performSegue(withIdentifier: "toOrganization", sender: self)
@@ -108,12 +127,16 @@ class KegiatanViewController: UITableViewController {
     func updateDonationDetails(){
         
         if let statusObject = passingObject{
-			
+			print("lala")
             print(statusObject.status)
             transactionID = statusObject.id
             statusInteractionUpdate(Status: statusObject.status)
             
-            loadImage(link: statusObject.postphotourl)
+            //loadImage(link: statusObject.postphotourl)
+            ImageService.getImage(withURL: statusObject.postphotourl) { image, url in
+                self.fotoDonasi.image = image
+                
+            }
             updateDonationStatus(donationStage: statusObject.status)
 			
 			
@@ -126,8 +149,9 @@ class KegiatanViewController: UITableViewController {
             
             namaKurir.text = statusObject.namakurir
             deskripsiKurir.text = statusObject.deskripsikurir
-            
+        
             namaDonasi.text = statusObject.namaitem
+            print(statusObject.namaitem)
             deskripsiDonasi.text = statusObject.deskripsi
             jumlahDonasi.text = "\(statusObject.jumlahbarang) Item"
 
@@ -141,9 +165,9 @@ class KegiatanViewController: UITableViewController {
             
             
             waktuPengambilan.text = "\(dateFormat.string(from: Date(timeIntervalSince1970: statusObject.waktuambil))), \(timeFormat.string(from: Date(timeIntervalSince1970: statusObject.waktuambil)))"
-            
-            
-            
+        
+        
+        
         }else{
             print("Failed to load details")
         }
@@ -183,6 +207,46 @@ class KegiatanViewController: UITableViewController {
     
     func batalkanDonasi(){
 //        push donasi
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+
+        guard let idtransaksi = passingObject?.idtransaksi else{return}
+
+//        guard let alasanBatal = alasanBatalTextField.text else{return}
+        
+//        let databaseRef = Database.database().reference().child("Post/\(uid)/\(idtransaksi)/transaksi")
+//
+//        let userObject = [
+//            "alasanbatal": alasanbatal,"status": status] as [String:Any]
+//
+//        databaseRef.updateChildValues(userObject) { error, ref in
+//            if error == nil{
+//                print("sukses")
+//               // completion(true)
+//            }else{
+//
+//            }
+//        }
+    }
+    
+    func konfirmasiPickup(completion: @escaping (Bool) -> Void){
+        guard let uid = Auth.auth().currentUser?.uid else { return }
+        
+        guard let idtransaksi = passingObject?.idtransaksi else {return}
+        
+        //        guard let alasanBatal = alasanBatalTextField.text else{return}
+        
+                let databaseRef = Database.database().reference().child("Post/\(uid)/\(idtransaksi)/transaksi")
+        
+                let userObject = ["status": 4] as [String:Any]
+        
+                databaseRef.updateChildValues(userObject) { error, ref in
+                    if error == nil{
+                        print("sukses")
+                       completion(true)
+                    }else{
+                        completion(false)
+                    }
+                }
     }
     
     func callOrganisasi(){

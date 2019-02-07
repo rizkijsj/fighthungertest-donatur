@@ -246,6 +246,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		if indexPath.section == 0{
 			selectedIndexPath = indexPath
 			print("Somewhere in Activity with \(activityList[indexPath.row].namaitem)")
+            self.performSegue(withIdentifier: "keAktivitas", sender: nil)
 		}else if indexPath.section == 1 {
 			selectedIndexPath = indexPath
 			print("Somewhere in Program with \(programList[indexPath.row].name)")
@@ -527,7 +528,7 @@ extension NewHomeViewController{
 					
 					
 					
-					
+					let transactionid = dict["idtransaction"] as? String,
                     let timestamp = dict["timestamp"] as? Double
 					
 					{
@@ -537,13 +538,11 @@ extension NewHomeViewController{
                     let userProfile = UserProfile(uid: uid, email: email, phonenumber: phnumber, username: name)
 					//let orgProfile = OrganisasiProfile(orgId: orgID, orgPhone: orgPhone, orgEmail: orgEmail, orgName: orgName, orgDesc: orgDesc, orgLogo: orgLogo, orgLocName: orgLocName, latitude: orgLati, longitude: orgLong, orgLink: orgLink)
 					
-					//let post = Post(id: childSnapshot.key, author: userProfile, organisasi: orgProfile, postphotourl: postphotourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal)
-                    
-                    //let post = Post(id: childSnapshot.key, author: userProfile, namaitem: namaitem, alamat: address, keteranganlokasi: keteranganlokasi, deskripsi: deskripsi, postphotourl: posturl, waktuambil: pickdate, jumlahbarang: jumlah, timestamp: timestamp, status: status, latitude: latitude, longitude: longitude)
-                    print("mamamia")
-					//let post = Post(id: childSnapshot.key, author: userProfile, organisasi: logourl, postphotourl: logourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: namakomunitas, namakurir: id, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal)
 					
-						let post = Post(id: childSnapshot.key, author: userProfile, idkomunitas: id, logokomunitas: logourl, namakomunitas: namakomunitas, phonekomunitas: phonenumber, postphotourl: photourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal)
+                    print("mamamia")
+					
+					
+                        let post = Post(id: childSnapshot.key, author: userProfile, idkomunitas: id, logokomunitas: logourl, namakomunitas: namakomunitas, phonekomunitas: phonenumber, postphotourl: photourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal,idtransaction: transactionid)
 					
 					
                     
