@@ -53,6 +53,18 @@ class LoginRegisterViewController: UIViewController {
        btnMasuk.layer.cornerRadius = 6.0
        btnDaftar.layer.cornerRadius = 6.0
        accessibility()
+        
+        let buttonSize = CGFloat(16.0)
+        if #available(iOS 11.0, *){
+            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+        }else{
+            var frame = backBtn.frame
+            frame.size.width = buttonSize
+            frame.size.height = buttonSize
+            backBtn.frame = frame
+        }
+        
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -64,9 +76,10 @@ class LoginRegisterViewController: UIViewController {
         
     }
     
-   
 
-    @IBAction func backButton(_ sender: UIBarButtonItem) {
+    
+    
+    @IBAction func backButton(_ sender: UIButton) {
         self.navigationController?.popViewController(animated: true)
     }
     @IBOutlet weak var btnMasuk: UIButton!
@@ -77,7 +90,7 @@ class LoginRegisterViewController: UIViewController {
     @IBOutlet weak var lblMariMulai: UILabel!
  
     
-    @IBOutlet weak var backBtn: UIBarButtonItem!
+    @IBOutlet weak var backBtn: UIButton!
     
     func accessibility()
     {

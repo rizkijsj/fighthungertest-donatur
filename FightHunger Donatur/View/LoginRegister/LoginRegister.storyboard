@@ -77,16 +77,19 @@
                         <viewLayoutGuide key="safeArea" id="R3X-k8-CgA"/>
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="4WA-s9-OiH">
-                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="UWo-uf-Ua0">
-                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="backButton:" destination="VaB-LE-eif" id="Rzw-T3-08o"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="Sew-aC-ZGT">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8wn-ur-BGg">
+                                <rect key="frame" x="16" y="0.0" width="174" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrowback"/>
+                                <connections>
+                                    <action selector="backButton:" destination="VaB-LE-eif" eventType="touchUpInside" id="1TG-vD-JTw"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backBtn" destination="UWo-uf-Ua0" id="bLD-af-r0u"/>
+                        <outlet property="backBtn" destination="8wn-ur-BGg" id="TfJ-2C-4MJ"/>
                         <outlet property="btnDaftar" destination="oSO-RP-Ovj" id="aTt-FO-GPc"/>
                         <outlet property="btnMasuk" destination="YuU-4z-R7W" id="Szv-re-GGo"/>
                         <outlet property="labelBody" destination="iaX-5J-nJk" id="2fk-LS-3fk"/>
@@ -163,17 +166,19 @@
                         <viewLayoutGuide key="safeArea" id="9WB-Fw-tXW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="xIm-BI-XvK">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="BVm-Zo-czw">
-                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
-                            <inset key="largeContentSizeImageInsets" minX="-9" minY="0.0" maxX="0.0" maxY="0.0"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="back:" destination="XiE-iL-Epf" id="bQ7-sk-7do"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="eae-I6-u3z">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ShE-vp-gRY">
+                                <rect key="frame" x="16" y="0.0" width="174" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrowback"/>
+                                <connections>
+                                    <action selector="back:" destination="XiE-iL-Epf" eventType="touchUpInside" id="Ut1-oB-Fvm"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backBtn" destination="BVm-Zo-czw" id="Kwy-rl-tLV"/>
+                        <outlet property="backBtn" destination="ShE-vp-gRY" id="eqH-8d-BdT"/>
                         <outlet property="continueButton" destination="rhE-xp-uqR" id="i5A-dk-C2S"/>
                         <outlet property="errorMssg" destination="bKl-tH-icU" id="7yc-FT-9CO"/>
                         <outlet property="labelTitle" destination="Jr4-VO-TRi" id="Zmj-E1-tmh"/>
@@ -210,13 +215,16 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Masukkan kode verifikasi yang telah dikirimkan via SMS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thg-rl-vyI">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan kode verifikasi yang telah dikirimkan via SMS" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Thg-rl-vyI">
                                 <rect key="frame" x="16" y="142" width="327" height="48"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="48" id="VlD-Yb-0Lz"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iOB-D2-doX">
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="iOB-D2-doX">
                                 <rect key="frame" x="15" y="240" width="351" height="70"/>
                                 <subviews>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ucS-uc-d3x">
@@ -321,7 +329,7 @@
                                     <action selector="lanjutBtn:" destination="vMY-4Z-iyk" eventType="touchUpInside" id="35Z-Js-kWh"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-B3-BSJ">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dOG-B3-BSJ">
                                 <rect key="frame" x="211" y="329" width="137" height="27"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <state key="normal" title=" Kirim ulang">
@@ -335,10 +343,11 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="GqK-Pd-l6e" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="16" id="08G-yE-pFt"/>
-                            <constraint firstItem="CEl-cI-FBl" firstAttribute="bottom" secondItem="GqK-Pd-l6e" secondAttribute="bottom" constant="32" id="2OT-zc-hvk"/>
                             <constraint firstAttribute="trailingMargin" secondItem="Thg-rl-vyI" secondAttribute="trailing" constant="16" id="69F-vI-XgQ"/>
+                            <constraint firstItem="CEl-cI-FBl" firstAttribute="bottom" secondItem="GqK-Pd-l6e" secondAttribute="bottom" constant="53" id="DdS-ND-DsG"/>
+                            <constraint firstItem="Thg-rl-vyI" firstAttribute="top" secondItem="CEl-cI-FBl" secondAttribute="top" constant="54" id="OFR-nV-KBg"/>
                             <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="GqK-Pd-l6e" secondAttribute="trailing" constant="16" id="OrH-ok-uxg"/>
-                            <constraint firstItem="CEl-cI-FBl" firstAttribute="bottom" secondItem="GqK-Pd-l6e" secondAttribute="bottom" constant="53" id="cUP-gH-5Rs"/>
+                            <constraint firstItem="iOB-D2-doX" firstAttribute="top" secondItem="Thg-rl-vyI" secondAttribute="bottom" constant="50" id="Q8q-YL-POC"/>
                             <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="dOG-B3-BSJ" secondAttribute="trailing" constant="27" id="jnB-VB-e8n"/>
                             <constraint firstItem="CEl-cI-FBl" firstAttribute="trailing" secondItem="iOB-D2-doX" secondAttribute="trailing" constant="9" id="kfU-jd-gsq"/>
                             <constraint firstItem="iOB-D2-doX" firstAttribute="leading" secondItem="CEl-cI-FBl" secondAttribute="leading" constant="15" id="pTK-Zf-DbJ"/>
@@ -349,16 +358,19 @@
                         <viewLayoutGuide key="safeArea" id="CEl-cI-FBl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="vJz-iT-g9r">
-                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="wdO-6l-nXn">
-                            <inset key="imageInsets" minX="-45" minY="0.0" maxX="0.0" maxY="-12"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="return:" destination="vMY-4Z-iyk" id="G1z-To-jlm"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="ToL-gi-NP7">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6V6-hv-QfM">
+                                <rect key="frame" x="16" y="0.0" width="174" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrowback"/>
+                                <connections>
+                                    <action selector="return:" destination="vMY-4Z-iyk" eventType="touchUpInside" id="JWg-hp-IH6"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backBtn" destination="wdO-6l-nXn" id="phz-LZ-8Q9"/>
+                        <outlet property="backBtn" destination="6V6-hv-QfM" id="xZ8-UM-ukt"/>
                         <outlet property="continueButton" destination="GqK-Pd-l6e" id="Fyh-36-G8P"/>
                         <outlet property="labelTitle" destination="Thg-rl-vyI" id="Uf9-55-Aaa"/>
                         <outlet property="otpTxt1" destination="ucS-uc-d3x" id="9oc-Ri-g9w"/>
@@ -383,7 +395,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rlF-Te-pnN">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rlF-Te-pnN">
                                 <rect key="frame" x="16" y="180.33333333333337" width="343" height="195"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nama" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NWn-Jl-5bC">
@@ -393,7 +405,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cth: abcde" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Ymp-Op-FWN" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="28.999999999999993" width="343" height="21"/>
+                                        <rect key="frame" x="0.0" y="29" width="343" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -405,33 +417,33 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cth: 0812127357xx" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="WfT-Zd-2ph" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="87" width="343" height="21"/>
+                                        <rect key="frame" x="0.0" y="86.999999999999972" width="343" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" keyboardType="phonePad"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Email" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IdN-Jc-fF6">
-                                        <rect key="frame" x="0.0" y="116" width="343" height="21"/>
+                                        <rect key="frame" x="0.0" y="115.99999999999997" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" red="0.60784313725490191" green="0.60784313725490191" blue="0.60784313725490191" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="cth: abcd@example.com" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Qi3-UV-feW" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="145" width="343" height="21"/>
+                                        <rect key="frame" x="0.0" y="144.99999999999997" width="343" height="21"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                         <textInputTraits key="textInputTraits" keyboardType="emailAddress"/>
                                     </textField>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8z8-Mk-4Vp">
-                                        <rect key="frame" x="0.0" y="174" width="343" height="21"/>
+                                        <rect key="frame" x="0.0" y="173.99999999999997" width="343" height="21"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <color key="textColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                 </subviews>
                             </stackView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Masukkan data diri Anda dibawah ini:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJm-7X-3w7">
-                                <rect key="frame" x="16" y="128" width="343" height="20.333333333333314"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan data diri Anda dibawah ini:" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hJm-7X-3w7">
+                                <rect key="frame" x="16" y="127.99999999999999" width="343" height="20.333333333333329"/>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -458,21 +470,25 @@
                             <constraint firstItem="rlF-Te-pnN" firstAttribute="top" secondItem="hJm-7X-3w7" secondAttribute="bottom" constant="32" id="AIc-0u-21H"/>
                             <constraint firstItem="rlF-Te-pnN" firstAttribute="leading" secondItem="NXT-HM-hGg" secondAttribute="leading" constant="16" id="NnI-Yl-pno"/>
                             <constraint firstItem="hJm-7X-3w7" firstAttribute="leading" secondItem="NXT-HM-hGg" secondAttribute="leading" constant="16" id="j8W-GW-SMp"/>
+                            <constraint firstItem="hJm-7X-3w7" firstAttribute="top" secondItem="NXT-HM-hGg" secondAttribute="top" constant="40" id="vcE-H6-Hmc"/>
                             <constraint firstItem="NXT-HM-hGg" firstAttribute="trailing" secondItem="rlF-Te-pnN" secondAttribute="trailing" constant="16" id="w3s-Kn-W5U"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="NXT-HM-hGg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Daftar" id="QPM-OJ-iD2">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="pxB-L3-ViJ">
-                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                            <connections>
-                                <action selector="backButton:" destination="da5-Bk-tOG" id="4FB-4W-zAe"/>
-                            </connections>
+                        <barButtonItem key="leftBarButtonItem" style="plain" id="EMa-u7-bg4">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aYe-ZP-inY">
+                                <rect key="frame" x="16" y="0.0" width="174" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Button" image="arrowback"/>
+                                <connections>
+                                    <action selector="backButton:" destination="da5-Bk-tOG" eventType="touchUpInside" id="arR-53-rqf"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backBtn" destination="pxB-L3-ViJ" id="Cws-kO-krp"/>
+                        <outlet property="backBtn" destination="aYe-ZP-inY" id="4Wz-kU-Um5"/>
                         <outlet property="continueButton" destination="JjT-Fc-sfJ" id="JTg-6r-Ivc"/>
                         <outlet property="emailTxtField" destination="Qi3-UV-feW" id="f0t-EO-gO4"/>
                         <outlet property="errorMssg" destination="8z8-Mk-4Vp" id="GCp-WT-nIR"/>
