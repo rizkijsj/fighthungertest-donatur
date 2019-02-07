@@ -43,7 +43,9 @@ class KegiatanViewController: UITableViewController {
 	
 	@IBOutlet weak var organizationDetail: UITableViewCell!
 	
+	@IBOutlet weak var bacBtnOutlet: UIButton!
 	
+	/*
 	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
 		
 		if section == 0 {
@@ -64,6 +66,7 @@ class KegiatanViewController: UITableViewController {
 	override func numberOfSections(in tableView: UITableView) -> Int {
 		return 5
 	}
+*/
 	/*
 	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
 	return UITableViewCell.init()
@@ -77,6 +80,17 @@ class KegiatanViewController: UITableViewController {
 	var transactionID:String?
 	override func viewDidLoad() {
 		super.viewDidLoad()
+		
+		let buttonSize = CGFloat(16.0)
+		if #available(iOS 11.0, *){
+			bacBtnOutlet.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+			bacBtnOutlet.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+		}else{
+			var frame = bacBtnOutlet.frame
+			frame.size.width = buttonSize
+			frame.size.height = buttonSize
+			bacBtnOutlet.frame = frame
+		}
 		
 		
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(openOrganisation))
@@ -110,8 +124,7 @@ class KegiatanViewController: UITableViewController {
 	}
 	
 	func reloadObject(){
-		if let transID = transactionID {
-			passingObject = connector().transactionDetail(transactionID: transID)
+		if let _ = passingObject {
 			updateDonationDetails()
 		}else{
 			dismiss(animated: true, completion: nil)
@@ -226,6 +239,9 @@ class KegiatanViewController: UITableViewController {
 		//            }
 		//        }
 	}
+	@IBAction func backBtn(_ sender: Any) {
+		self.navigationController?.popToRootViewController(animated: true)
+	}
 	
 	func konfirmasiPickup(completion: @escaping (Bool) -> Void){
 		guard let uid = Auth.auth().currentUser?.uid else { return }
@@ -307,7 +323,7 @@ class KegiatanViewController: UITableViewController {
 			print("Sedang diantar")
 			stasus1.image = UIImage.init(named: "pin1a")
 			status2.image = UIImage.init(named: "pin2a")
-			status3.image = UIImage.init(named: "pin2a")
+			status3.image = UIImage.init(named: "pin3a")
 			btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
 		} else if donationStage == 5 {
 			print("Sudah sampai organisasi")
