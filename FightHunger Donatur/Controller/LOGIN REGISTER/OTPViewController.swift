@@ -48,16 +48,16 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         view.addSubview(activityView)
         
 //        back button
-        let buttonSize = CGFloat(16.0)
-        if #available(iOS 11.0, *){
-            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
-            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
-        }else{
-            var frame = backBtn.frame
-            frame.size.width = buttonSize
-            frame.size.height = buttonSize
-            backBtn.frame = frame
-        }
+//        let buttonSize = CGFloat(16.0)
+//        if #available(iOS 11.0, *){
+////            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+////            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+//        }else{
+////            var frame = backBtn.frame
+////            frame.size.width = buttonSize
+////            frame.size.height = buttonSize
+////            backBtn.frame = frame
+//        }
         
         
         //Change bg color
@@ -87,18 +87,20 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt6.delegate = self as? UITextFieldDelegate
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
-        otpTxt1.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
-        otpTxt2.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
-        otpTxt3.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
-        otpTxt4.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
-        otpTxt5.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
+        otpTxt1.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt2.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt3.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt4.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        otpTxt5.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         otpTxt6.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
         
         //add done button above keyboard
         var toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+        var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action:
+            
+            #selector(doneClicked))
         
         var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
@@ -317,10 +319,10 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     }
     
     
-    @IBAction func `return`(_ sender: UIButton) {
+    @IBAction func `return`(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var backBtn: UIBarButtonItem!
     
     
     func accessibility()

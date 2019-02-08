@@ -11,10 +11,10 @@ import Firebase
 
 class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDelegate{
     
-    @IBAction func back(_ sender: UIButton) {
+    @IBAction func back(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var lnjtBtn: UIButton!
     @IBOutlet weak var telpTxtField: CustomTextField!
@@ -46,16 +46,16 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
 //       back button
-        let buttonSize = CGFloat(16.0)
-        if #available(iOS 11.0, *){
-            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
-            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
-        }else{
-            var frame = backBtn.frame
-            frame.size.width = buttonSize
-            frame.size.height = buttonSize
-            backBtn.frame = frame
-        }
+//        let buttonSize = CGFloat(16.0)
+//        if #available(iOS 11.0, *){
+////            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+////            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+//        }else{
+////            var frame = backBtn.frame
+////            frame.size.width = buttonSize
+////            frame.size.height = buttonSize
+////            backBtn.frame = frame
+//        }
         
         
         
@@ -92,7 +92,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         labelTitle.adjustsFontForContentSizeCategory = true
     }
     
-    
+
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)

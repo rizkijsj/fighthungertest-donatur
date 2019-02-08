@@ -17,17 +17,6 @@ class LoginRegisterViewController: UIViewController {
     
     func getScaledFont(forFont name: String, textStyle: UIFont.TextStyle) -> UIFont {
         
-        /// Uncomment the code below to check all the available fonts and have them printed in the console to double check the font name with existing fonts 😉
-        
-        /*for family: String in UIFont.familyNames
-         {
-         print("\(family)")
-         for names: String in UIFont.fontNames(forFamilyName: family)
-         {
-         print("== \(names)")
-         }
-         }*/
-        
         let userFont =  UIFontDescriptor.preferredFontDescriptor(withTextStyle: textStyle)
         let pointSize = userFont.pointSize
         guard let customFont = UIFont(name: name, size: pointSize) else {
@@ -54,16 +43,16 @@ class LoginRegisterViewController: UIViewController {
        btnDaftar.layer.cornerRadius = 6.0
        accessibility()
         
-        let buttonSize = CGFloat(16.0)
-        if #available(iOS 11.0, *){
-            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
-            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
-        }else{
-            var frame = backBtn.frame
-            frame.size.width = buttonSize
-            frame.size.height = buttonSize
-            backBtn.frame = frame
-        }
+//        let buttonSize = CGFloat(16.0)
+//        if #available(iOS 11.0, *){
+////            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+////            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+//        }else{
+////            var frame = backBtn.frame
+////            frame.size.width = buttonSize
+////            frame.size.height = buttonSize
+////            backBtn.frame = frame
+//        }
         
     }
     
@@ -90,7 +79,7 @@ class LoginRegisterViewController: UIViewController {
     @IBOutlet weak var lblMariMulai: UILabel!
  
     
-    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var backBtn: UIBarButtonItem!
     
     func accessibility()
     {

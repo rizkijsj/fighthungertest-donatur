@@ -81,4 +81,10 @@ class ProfilController: UITableViewController {
         namaLbl.text =  userProfile.username
         noHpLbl.text = userProfile.phonenumber
     }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        navigationController?.setNavigationBarHidden(false, animated: false)
+    }
 }
