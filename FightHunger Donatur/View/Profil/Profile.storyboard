@@ -45,7 +45,7 @@
                         <sections>
                             <tableViewSection id="1Ow-bC-Uka">
                                 <cells>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" rowHeight="211" id="z4O-72-kiY">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="211" id="z4O-72-kiY">
                                         <rect key="frame" x="0.0" y="35" width="414" height="211"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="z4O-72-kiY" id="zoe-h7-JeX">
@@ -134,7 +134,7 @@
                                                         <color key="titleColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
                                                     <connections>
-                                                        <segue destination="Px6-PA-hSR" kind="show" identifier="" id="KjC-og-1be"/>
+                                                        <segue destination="Px6-PA-hSR" kind="show" identifier="toUbahProfile" id="KjC-og-1be"/>
                                                     </connections>
                                                 </button>
                                             </subviews>
@@ -208,10 +208,6 @@
                                                     <state key="normal" title="Keluar">
                                                         <color key="titleColor" red="0.75537753105163574" green="0.157878577709198" blue="0.1646779477596283" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
-                                                    <connections>
-                                                        <action selector="keluarBtn:" destination="qlw-we-uJF" eventType="touchUpInside" id="rhj-aH-QFc"/>
-                                                        <action selector="signOutHandlerAct:" destination="qlw-we-uJF" eventType="touchUpInside" id="Td5-lJ-vlc"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -242,8 +238,12 @@
                         <outlet property="emailLbl" destination="a0Y-Hb-kSH" id="3yp-dD-qee"/>
                         <outlet property="namaLbl" destination="IXl-SS-rhv" id="TFO-M9-QDs"/>
                         <outlet property="noHpLbl" destination="7Ba-VN-Kdh" id="xCC-7j-bo5"/>
+<<<<<<< HEAD
                         <segue destination="gu4-Up-Jbj" kind="showDetail" identifier="GoToHome" id="haY-mh-gnM"/>
+=======
+>>>>>>> Juli
                         <segue destination="K4C-u4-4OA" kind="show" identifier="ProfileToLogin" id="n5E-eA-kSv"/>
+                        <segue destination="gu4-Up-Jbj" kind="show" identifier="GoToHome" id="Pnu-vC-QO2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4if-sM-RbY" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -35,28 +35,7 @@ class ProfilController: UITableViewController {
     @IBAction func clickedOnArrowBack(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    @IBAction func signOutHandlerAct(_ sender: Any) {
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            self.performSegue(withIdentifier: "GoToHome", sender: nil)
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
-    
-    @IBAction func keluarBtn(_ sender: Any) {
-        
-        let firebaseAuth = Auth.auth()
-        do {
-            try firebaseAuth.signOut()
-            self.performSegue(withIdentifier: "GoToHome", sender: nil)
-        } catch let signOutError as NSError {
-            print ("Error signing out: %@", signOutError)
-        }
-    }
-    
+ 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -72,6 +51,28 @@ class ProfilController: UITableViewController {
         }else
        {
             return 1
+        }
+    }
+    
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        
+        if indexPath.section == 0
+        {
+            if indexPath.row == 1
+            {
+                performSegue(withIdentifier: "toUbahProfile", sender: self)
+            }
+        }
+        
+        if indexPath.section == 2
+        {
+            let firebaseAuth = Auth.auth()
+            do {
+                try firebaseAuth.signOut()
+                self.performSegue(withIdentifier: "GoToHome", sender: nil)
+            } catch let signOutError as NSError {
+                print ("Error signing out: %@", signOutError)
+            }
         }
     }
 

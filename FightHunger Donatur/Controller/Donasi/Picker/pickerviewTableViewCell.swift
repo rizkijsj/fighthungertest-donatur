@@ -9,12 +9,12 @@
 import UIKit
 
 class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
     }
     
-   
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     
@@ -27,8 +27,13 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        selectedNumber = String(cobaNumber[row])
+      
+        
+        selectedNumber = String(cobaNumber[picker.selectedRow(inComponent: 0)])
+       // selectedNumber = String(cobaNumber[row])
         textKuantitas.text = selectedNumber
+
+       
     }
     
    
@@ -41,16 +46,15 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
    
     @IBOutlet weak var textKuantitas: CustomTextField!
    
-    func createPicker()
-    {
-        let picker = UIPickerView()
-        picker.delegate = self
-        textKuantitas.inputView = picker
-    }
+   let picker = UIPickerView()
 
     override func awakeFromNib() {
         
-        createPicker()
+       
+        picker.delegate = self
+        picker.dataSource = self
+        textKuantitas.inputView = picker
+       //picker.selectedRow(inComponent: 0)+1
         
         //add done button
         var toolbar = UIToolbar()
@@ -64,10 +68,18 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
       
         textKuantitas.inputAccessoryView = toolbar
         
+        textKuantitas.addTarget(self, action: #selector(textFieldChange), for: .editingDidEndOnExit)
+        
+    }
+    
+    @objc func textFieldChange(target: CustomTextField)
+    {
+        print("hey")
     }
     
     @objc func doneClicked()
     {
-        contentView.endEditing(true)
+       textKuantitas.text = "\(picker.selectedRow(inComponent: 0)+1)"
+        textKuantitas.endEditing(true)
     }
 }
