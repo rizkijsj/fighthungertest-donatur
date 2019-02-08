@@ -59,6 +59,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as! SectionOneHomeCell
 		
 		cell.contentStatus.isHidden = true
+		cell.contentImage.image = UIImage.init(color: .lightGray)
 		
 		ImageService.getImage(withURL: dataPost[indexPath.row].postphotourl) { image, url, fromCache  in
 			if fromCache {
@@ -74,6 +75,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		
 		cell.contentOrganisationName.text = ""
 		if dataPost[indexPath.row].status == 5 || dataPost[indexPath.row].status == 6 {
+			cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 			ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url, fromCache in
 				
 				if fromCache {
@@ -86,6 +88,8 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 			//cell.fotoOrgn.image = fotoOrganisasi[indexPath.row]
 			
 			cell.contentOrganisationName.text = dataPost[indexPath.row].namakomunitas
+		}else {
+			cell.contentOrganisationName.text = ""
 		}
 		let dateFormat = DateFormatter()
 		dateFormat.locale = Locale.init(identifier: "Id")
@@ -103,6 +107,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
     override func viewDidLoad() {
         super.viewDidLoad()
 		tableView.register(UINib(nibName: "SectionOneHomeCell", bundle: nil), forCellReuseIdentifier: "activityCellID")
+		self.dataPost.reverse()
 		
         tableView.delegate = self
         tableView.dataSource = self
@@ -229,10 +234,11 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
             DispatchQueue.main.async {
                 
                 self.dataPost = tempPosts
+				self.dataPost.reverse()
                 //self.tableView.reloadData()
                 
                 UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
-                    self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
+                    self.tableView.reloadData()
                 }, completion: nil)
                 
             }

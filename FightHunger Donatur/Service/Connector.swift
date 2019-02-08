@@ -370,8 +370,96 @@ class connector {
 	func donationUpdateDeliveryFail(transactionID:String) -> Bool{
 		return false
 	}
-	func donationCancel(transactionID:String,reason:String) -> Bool{
-		return true
+	func donationCancel(transactionID:String,Reason:String,data: Post,completion: @escaping (Bool) -> Void){
+		//guard let uid = Auth.auth().currentUser?.uid else { return }
+		
+		// guard let idtransaksi = idtransaksi else {return}
+		
+		
+		let idtransaksi = data.idtransaksi
+		let userid = data.author.uid
+		//        guard let alasanBatal = alasanBatalTextField.text else{return}
+		
+		let databaseTransaksiRef = Database.database().reference().child("Post/\(idtransaksi)/transaksi")
+		let databaseDeadPost = Database.database().reference().child("DeadPost/\(userid)/").childByAutoId()
+		let databasePostRef = Database.database().reference().child("Post/\(idtransaksi)")
+		let transaksiObject = ["status": 0] as [String:Any]
+		
+		let postObject = [
+			"author": [
+				"uid": data.author.uid,
+				"email": data.author.email,
+				"phonenumber":data.author.phonenumber,
+				"username": data.author.username
+			],"komunitas": [
+				"id": "-",
+				"logo": "-",
+				"name":"-",
+				"phone": "-"
+			],"alamat": [
+				"keteranganlokasi":data.keteranganlokasi,
+				"namalokasi": data.keteranganlokasi,
+				"latitude":data.latitude,
+				"longitude":data.longitude
+			],"transaksi": [
+				"alasanbatal":Reason,
+				"deskripsikurir": "-",
+				"namakurir":"-",
+				"status": 6,
+				"waktuambil": data.waktuambil,
+				"waktusampai": 0
+			],"barang": [
+				"namabarang": data.namaitem,
+				"deskripsibarang":data.deskripsi,
+				"jumlahbarang":data.jumlahbarang,
+				"postphotourl": data.postphotourl.absoluteString,
+			],"idtransaction" : data.idtransaksi,"timestamp": data.timestamp
+			] as [String:Any]
+		
+		databaseTransaksiRef.updateChildValues(transaksiObject) { error, ref in
+			if error == nil{
+				databaseDeadPost.setValue(postObject, withCompletionBlock: { error, ref in
+					if error == nil {
+						print("sukses post deadpost")
+						guard let postId = databaseDeadPost.key else {return}
+						print(postId)
+						
+						
+						let databaseRef = Database.database().reference().child("DeadPost/\(userid)/\(postId)")
+						
+						let idObject = [
+							"idtransaction": postId] as [String:Any]
+						
+						databaseRef.updateChildValues(idObject) { error, ref in
+							if error == nil {
+								print("sukses masukin transaction id")
+								databasePostRef.setValue(nil){ error, ref in
+									if error == nil {
+										print("sukses hapus data")
+										completion(true)
+									}else{
+										print("gagal hapus data")
+										completion(false)
+									}
+								}
+							}else{
+								print("error post transaction id donasi")
+								completion(false)
+							}
+						}
+						
+					} else {
+						// Handle the error
+						print("error post dead post")
+						completion(false)
+						//  self.resetForm()
+					}})
+				
+			}else{
+				
+			}
+		}
+		
 	}
 	
     // MARK: - Program Detail

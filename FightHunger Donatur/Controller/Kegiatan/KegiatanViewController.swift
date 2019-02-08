@@ -154,6 +154,8 @@ class KegiatanViewController: UITableViewController {
 	}
 	
 	@IBAction func clickBtnBatalkan(_ sender: UIButton) {
+		batalkanDonasi()
+		/*
 		cancelPickup { (result) in
 			if result{
 				print("sukses di Batalkan")
@@ -162,6 +164,7 @@ class KegiatanViewController: UITableViewController {
 				print("gagal di Batalkan")
 			}
 		}
+		*/
 	}
 	
 	func updateDonationDetails(){
@@ -225,25 +228,20 @@ class KegiatanViewController: UITableViewController {
 		btnBatal.setImage(UIImage.init(named: "Tombol abu"), for: .disabled)
 		if Status == 1 {
 			btnBatal.isEnabled = true
-			batalkanDonasi()
 			print("Menunggu konfirmasi")
 		}else if Status == 2{
 			btnBatal.isEnabled = true
-			batalkanDonasi()
 			btnCallOrganisasi.isEnabled = true
-			callOrganisasi()
 			print("organisasi mencari Kurir")
 		}else if Status == 3{
 			btnKonfirmasi.isEnabled = true
 			btnCallOrganisasi.isEnabled = true
-			callOrganisasi()
 			if btnKonfirmasi.isTouchInside {
 				//                push notif ke organisasi
 			}
 			print("sedang di jemput")
 		}else if Status == 4{
 			btnCallOrganisasi.isEnabled = true
-			callOrganisasi()
 			print("sedang di antar")
 		}else{
 			print("hmmmm")
@@ -258,22 +256,15 @@ class KegiatanViewController: UITableViewController {
 		guard let uid = Auth.auth().currentUser?.uid else { return }
 		
 		guard let idtransaksi = passingObject?.idtransaksi else{return}
+		guard let postData = passingObject else {return}
 		
-		//        guard let alasanBatal = alasanBatalTextField.text else{return}
-		
-		//        let databaseRef = Database.database().reference().child("Post/\(uid)/\(idtransaksi)/transaksi")
-		//
-		//        let userObject = [
-		//            "alasanbatal": alasanbatal,"status": status] as [String:Any]
-		//
-		//        databaseRef.updateChildValues(userObject) { error, ref in
-		//            if error == nil{
-		//                print("sukses")
-		//               // completion(true)
-		//            }else{
-		//
-		//            }
-		//        }
+		connector().donationCancel(transactionID: idtransaksi, Reason: "Donatur membatalkan donasi", data: postData) { (successCancel) in
+			if successCancel{
+				self.navigationController?.popViewController(animated: true)
+			}else {
+				print("Gagal Membatalkan")
+			}
+		}
 	}
 	@IBAction func backBtn(_ sender: Any) {
 		self.navigationController?.popToRootViewController(animated: true)
@@ -288,26 +279,6 @@ class KegiatanViewController: UITableViewController {
 		let databaseRef = Database.database().reference().child("Post/\(idtransaksi)/transaksi")
 		
 		let userObject = ["status": 4] as [String:Any]
-		
-		databaseRef.updateChildValues(userObject) { error, ref in
-			if error == nil{
-				print("sukses")
-				completion(true)
-			}else{
-				completion(false)
-			}
-		}
-	}
-	
-	func cancelPickup(completion: @escaping (Bool) -> Void){
-		guard let uid = Auth.auth().currentUser?.uid else { return }
-		
-		guard let idtransaksi = passingObject?.idtransaksi else {return}
-		
-		//        guard let alasanBatal = alasanBatalTextField.text else{return}
-		let databaseRef = Database.database().reference().child("Post/\(idtransaksi)/transaksi")
-		
-		let userObject = ["status": 0] as [String:Any]
 		
 		databaseRef.updateChildValues(userObject) { error, ref in
 			if error == nil{
