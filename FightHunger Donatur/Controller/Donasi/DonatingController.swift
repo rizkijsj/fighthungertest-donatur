@@ -228,6 +228,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		  self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)]
 		
 		createPicker()
+    
         
         //guard let userProfile = UserService.currentUserProfile else { return }
         if let availableImage = takenPhoto {

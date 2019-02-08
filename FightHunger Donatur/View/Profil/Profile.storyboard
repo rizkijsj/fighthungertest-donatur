@@ -242,7 +242,7 @@
                         <outlet property="emailLbl" destination="a0Y-Hb-kSH" id="3yp-dD-qee"/>
                         <outlet property="namaLbl" destination="IXl-SS-rhv" id="TFO-M9-QDs"/>
                         <outlet property="noHpLbl" destination="7Ba-VN-Kdh" id="xCC-7j-bo5"/>
-                        <segue destination="gu4-Up-Jbj" kind="show" identifier="GoToHome" id="haY-mh-gnM"/>
+                        <segue destination="gu4-Up-Jbj" kind="showDetail" identifier="GoToHome" id="haY-mh-gnM"/>
                         <segue destination="K4C-u4-4OA" kind="show" identifier="ProfileToLogin" id="n5E-eA-kSv"/>
                     </connections>
                 </tableViewController>

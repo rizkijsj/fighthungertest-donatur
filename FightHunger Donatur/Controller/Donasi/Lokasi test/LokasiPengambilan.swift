@@ -21,9 +21,10 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 	@IBOutlet weak var setLokasi: UIButton!
 	@IBOutlet weak var searchOutlet: UIBarButtonItem!
 	
-	@IBOutlet weak var bacBtnOutlet: UIBarButtonItem!
-	@IBAction func backBtn(_ sender: UIBarButtonItem) {
-		self.navigationController?.popToRootViewController(animated: true)
+	@IBOutlet weak var bacBtnOutlet: UIButton!
+	@IBAction func backBtn(_ sender: Any) {
+		//self.navigationController?.popToRootViewController(animated: true)
+		self.dismiss(animated: true, completion: nil)
 	}
 	//    unwindsegue dan pasing data
 	var alamatLengkap = ""
