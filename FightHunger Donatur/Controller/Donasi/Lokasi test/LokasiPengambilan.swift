@@ -35,7 +35,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 	
 	var lokasiSebelumnya: CLLocation?
 	let locationManager = CLLocationManager()
-	let regionInMeters: Double = 0.0005
+	let regionInMeters: Double = 1000
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
