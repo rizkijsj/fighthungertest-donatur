@@ -476,7 +476,7 @@ class connector {
     // MARK: - Organizarion Detail
     func organizationDetail(organizationID:String) -> OrganisasiProfile {
         
-		let item = OrganisasiProfile.init(orgId: organizationID, orgPhone: "+62 81808082838", orgEmail: "organisasi@organization.com", orgName: "PT Lawan Lapar Bersama Solusindo", orgDesc: "Melawan Kelaparan di dunia  dan menuntaskan kelaparan yang akan muncul", orgLogo: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, orgLocName: "Jl. Moh. Husni Thamrin Kota Tangerang Selatan Banten", latitude: "-6.2753768", longitude: "106.7216066", orgLink: URL(string:"google.com")!)
+		let item = OrganisasiProfile.init(orgId: organizationID, orgPhone: "+62 81808082838", orgEmail: "organisasi@organization.com", orgName: "PT Lawan Lapar Bersama Solusindo", orgDesc: "Melawan Kelaparan di dunia  dan menuntaskan kelaparan yang akan muncul", orgLogo: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, orgLocName: "Jl. Moh. Husni Thamrin Kota Tangerang Selatan Banten", latitude: -6.2753768, longitude: 106.7216066, orgLink: URL(string:"google.com")!)
 		
 		//UserProfile.init(uid: organizationID, email: "organisasi@organization.com", phonenumber: "+62 818081828238", username: "organisasi")
         

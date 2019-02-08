@@ -87,10 +87,10 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         if lokasiOrganisasi.isTouchInside{
 			
 			guard let orgObject = organisasiObject else {return}
-			guard let latiDeg = Double(orgObject.latitude), let longDeg = Double(orgObject.longitude) else {return}
+			//guard let latiDeg = Double(orgObject.latitude), let longDeg = Double(orgObject.longitude) else {return}
 			
 			let regionDistance:CLLocationDistance = 1000
-            let coordinates = CLLocationCoordinate2D.init(latitude: latiDeg, longitude: longDeg)
+            let coordinates = CLLocationCoordinate2D.init(latitude: orgObject.latitude, longitude: orgObject.longitude)
 			
 			//organisasiObject?.email
 			let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
