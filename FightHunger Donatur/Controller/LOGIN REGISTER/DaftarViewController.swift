@@ -109,7 +109,7 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         
         
         //syaratnya
-        let formFilled = phonenumber != nil && phonenumber != "" && email != nil && email != "" && email?.contains("@") == true && email?.contains(".com") == true && nama != nil && nama != ""
+        let formFilled = phonenumber != nil && phonenumber != "" && email != nil && email != "" && isValidEmail(emailID: email ?? "") == true && nama != nil && nama != ""
         
         //testing
         print(phonenumber.count)
@@ -142,7 +142,11 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         }
         
     }
-    
+	func isValidEmail(emailID:String) -> Bool {
+		let emailRegEx = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+		let emailTest = NSPredicate(format:"SELF MATCHES %@", emailRegEx)
+		return emailTest.evaluate(with: emailID)
+	}
     
     
     @IBAction func btnLanjut(_ sender: Any) {
