@@ -27,11 +27,11 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-       
-            selectedNumber = String(cobaNumber[row])
-            textKuantitas.text = selectedNumber
-         
       
+        
+        selectedNumber = String(cobaNumber[picker.selectedRow(inComponent: 0)])
+       // selectedNumber = String(cobaNumber[row])
+        textKuantitas.text = selectedNumber
 
        
     }
@@ -46,18 +46,15 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
    
     @IBOutlet weak var textKuantitas: CustomTextField!
    
-    func createPicker()
-    {
-        let picker = UIPickerView()
-        picker.delegate = self
-        textKuantitas.inputView = picker
-        picker.selectRow(0, inComponent: 0, animated: true)
-    
-    }
+   let picker = UIPickerView()
 
     override func awakeFromNib() {
         
-        createPicker()
+       
+        picker.delegate = self
+        picker.dataSource = self
+        textKuantitas.inputView = picker
+       //picker.selectedRow(inComponent: 0)+1
         
         //add done button
         var toolbar = UIToolbar()
@@ -82,7 +79,7 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
     
     @objc func doneClicked()
     {
-
-        textKuantitas.endEditing(true);
+       textKuantitas.text = "\(picker.selectedRow(inComponent: 0)+1)"
+        textKuantitas.endEditing(true)
     }
 }
