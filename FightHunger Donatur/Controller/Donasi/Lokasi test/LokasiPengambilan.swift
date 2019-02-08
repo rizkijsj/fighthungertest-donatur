@@ -36,7 +36,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 	
 	var lokasiSebelumnya: CLLocation?
 	let locationManager = CLLocationManager()
-	let regionInMeters: Double = 0.0005
+	let regionInMeters: Double = 1000
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -269,6 +269,7 @@ extension LokasiPengambilan: MKMapViewDelegate{
 				return
 			}
 			
+            let namaTempat = placemark.name ?? ""
 			let noJalan = placemark.subThoroughfare ?? ""
 			let jalan = placemark.thoroughfare ?? ""
 			let kelurahan = placemark.subLocality ?? ""
@@ -281,7 +282,7 @@ extension LokasiPengambilan: MKMapViewDelegate{
 			print("ini alamat lengkap : \(String(describing: placemarks))")
 			
 			DispatchQueue.main.async {
-				self.alamat.text = "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+				self.alamat.text = "\(namaTempat)" + " " + "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
 				
 				self.alamatLengkap = self.alamat.text!
 			}
