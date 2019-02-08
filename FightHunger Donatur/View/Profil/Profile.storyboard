@@ -238,12 +238,8 @@
                         <outlet property="emailLbl" destination="a0Y-Hb-kSH" id="3yp-dD-qee"/>
                         <outlet property="namaLbl" destination="IXl-SS-rhv" id="TFO-M9-QDs"/>
                         <outlet property="noHpLbl" destination="7Ba-VN-Kdh" id="xCC-7j-bo5"/>
-<<<<<<< HEAD
-                        <segue destination="gu4-Up-Jbj" kind="showDetail" identifier="GoToHome" id="haY-mh-gnM"/>
-=======
->>>>>>> Juli
                         <segue destination="K4C-u4-4OA" kind="show" identifier="ProfileToLogin" id="n5E-eA-kSv"/>
-                        <segue destination="gu4-Up-Jbj" kind="show" identifier="GoToHome" id="Pnu-vC-QO2"/>
+                        <segue destination="gu4-Up-Jbj" kind="showDetail" identifier="GoToHome" id="Pnu-vC-QO2"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4if-sM-RbY" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -12,7 +12,7 @@ import Firebase
 class OTPViewController: UIViewController , UITextFieldDelegate{
 
 
-    
+    @IBOutlet var textFieldsOutletCollection: [UITextField]!
     @IBOutlet weak var labelTitle: UILabel!
     @IBOutlet weak var otpTxt6: UITextField!
     @IBOutlet weak var otpTxt5: UITextField!
@@ -27,9 +27,15 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     var tempTampungTerima = [String]()
     var activityView:UIActivityIndicatorView!
 	var successLogin:Bool = false
-    
+	var textFieldsIndexes:[UITextField:Int] = [:]
+	
     override func viewDidLoad() {
         super.viewDidLoad()
+		
+		for index in 0 ..< textFieldsOutletCollection.count {
+			textFieldsIndexes[textFieldsOutletCollection[index]] = index
+		}
+		
         accessibility()
         continueButton.layer.cornerRadius = 6.0
         self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
@@ -54,40 +60,40 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 //        }
         
         
-        //Change bg color
+//        //Change bg color
          otpTxt1.backgroundColor = UIColor.clear
          otpTxt2.backgroundColor = UIColor.clear
          otpTxt3.backgroundColor = UIColor.clear
          otpTxt4.backgroundColor = UIColor.clear
          otpTxt5.backgroundColor = UIColor.clear
          otpTxt6.backgroundColor = UIColor.clear
-        
-        //otpTxt1.becomeFirstResponder()
-        
-        //add border
+//
+//        //otpTxt1.becomeFirstResponder()
+//        
+//        //add border
         addBottomBorder(textField: otpTxt1)
         addBottomBorder(textField: otpTxt2)
         addBottomBorder(textField: otpTxt3)
         addBottomBorder(textField: otpTxt4)
         addBottomBorder(textField: otpTxt5)
         addBottomBorder(textField: otpTxt6)
-        
-        //uitextfield delegate
-        otpTxt1.delegate = self as? UITextFieldDelegate
-        otpTxt2.delegate = self as? UITextFieldDelegate
-        otpTxt3.delegate = self as? UITextFieldDelegate
-        otpTxt4.delegate = self as? UITextFieldDelegate
-        otpTxt5.delegate = self as? UITextFieldDelegate
-        otpTxt6.delegate = self as? UITextFieldDelegate
-        
-        //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
-        otpTxt1.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt2.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt3.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt4.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt5.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt6.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        
+//
+//        //uitextfield delegate
+        otpTxt1.delegate = self
+        otpTxt2.delegate = self
+        otpTxt3.delegate = self
+        otpTxt4.delegate = self
+        otpTxt5.delegate = self
+        otpTxt6.delegate = self
+//
+//        //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
+//        otpTxt1.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+//        otpTxt2.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+//        otpTxt3.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+//        otpTxt4.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+//        otpTxt5.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+//        otpTxt6.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+		
         //add done button above keyboard
         var toolbar = UIToolbar()
         toolbar.sizeToFit()
@@ -107,6 +113,41 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt5.inputAccessoryView = toolbar
         otpTxt6.inputAccessoryView = toolbar
     }
+	
+	enum Direction { case left, right }
+	
+	func setNextResponder(_ index:Int?, direction:Direction) {
+		
+		guard let index = index else { return }
+		
+		if direction == .left {
+			index == 0 ?
+				(_ = textFieldsOutletCollection.first?.resignFirstResponder()) :
+				(_ = textFieldsOutletCollection[(index - 1)].becomeFirstResponder())
+		} else {
+			index == textFieldsOutletCollection.count - 1 ?
+				(_ = textFieldsOutletCollection.last?.resignFirstResponder()) :
+				(_ = textFieldsOutletCollection[(index + 1)].becomeFirstResponder())
+		}
+		
+	}
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		
+		
+		if range.length == 0 {
+			setNextResponder(textFieldsIndexes[textField], direction: .right)
+			textField.text = string
+			textFieldChanged(textField)
+			return true
+		} else if range.length == 1 {
+			setNextResponder(textFieldsIndexes[textField], direction: .left)
+			textField.text = ""
+			textFieldChanged(textField)
+			return false
+		}
+		return false
+	}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
@@ -170,23 +211,14 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
                 }
             }
         }
-        
-        
-        
-        
-        
-        
-        
-        
-        
-        
     }
-    
+	
+
     
         
     
 
-    
+    /*
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         
         if ((textField.text?.count)! < 1) && (string.count > 0)
@@ -267,7 +299,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         
         return true
     }
-    
+    */
     func addBottomBorder(textField: UITextField)
     {
         let layer = CALayer()

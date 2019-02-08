@@ -278,7 +278,7 @@
                         <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="X2J-u8-Xtu"/>
                         <outlet property="namaBarang" destination="tC5-9f-7PZ" id="5Yy-ey-yx8"/>
                         <outlet property="waktuPengambilan" destination="5YL-GD-4og" id="n4L-h5-g9g"/>
-                        <segue destination="Qye-FF-Kdx" kind="presentation" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
+                        <segue destination="Qye-FF-Kdx" kind="show" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
                         <segue destination="zu9-Xr-40N" kind="show" identifier="DonasiToMap" id="9D9-Vz-n5s"/>
                     </connections>
                 </tableViewController>

@@ -343,6 +343,12 @@
                         <outlet property="otpTxt4" destination="nxj-ut-yas" id="OFN-9a-SJp"/>
                         <outlet property="otpTxt5" destination="Xbc-F4-UVt" id="djn-0s-SWq"/>
                         <outlet property="otpTxt6" destination="f1V-JK-N0q" id="rjf-J9-nOl"/>
+                        <outletCollection property="textFieldsOutletCollection" destination="ucS-uc-d3x" collectionClass="NSMutableArray" id="gcH-Nz-sTa"/>
+                        <outletCollection property="textFieldsOutletCollection" destination="egw-Et-akI" collectionClass="NSMutableArray" id="Kbd-w6-d0T"/>
+                        <outletCollection property="textFieldsOutletCollection" destination="n3t-cs-R8X" collectionClass="NSMutableArray" id="5uV-LC-kpY"/>
+                        <outletCollection property="textFieldsOutletCollection" destination="nxj-ut-yas" collectionClass="NSMutableArray" id="H3f-sU-0lp"/>
+                        <outletCollection property="textFieldsOutletCollection" destination="Xbc-F4-UVt" collectionClass="NSMutableArray" id="OWa-aj-iTf"/>
+                        <outletCollection property="textFieldsOutletCollection" destination="f1V-JK-N0q" collectionClass="NSMutableArray" id="tZZ-pc-ip5"/>
                         <segue destination="4Uf-c8-Iv4" kind="unwind" unwindAction="unwindFromOTPSuccess:" id="aBu-g5-tL2"/>
                     </connections>
                 </viewController>
