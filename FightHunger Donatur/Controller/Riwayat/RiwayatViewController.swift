@@ -54,23 +54,40 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "riwayatcell", for: indexPath) as! RiwayatTableViewCell
         
-        ImageService.getImage(withURL: dataPost[indexPath.row].postphotourl) { image, url in
+		ImageService.getImage(withURL: dataPost[indexPath.row].postphotourl) { image, url, fromCache  in
+			if fromCache {
+				cell.fotoDonasi.image = image
+			}else {
             self.fadeInNewImage(previousImageView: cell.fotoDonasi, newImage: image)
-
+			}
         }
         
         //cell.fotoDonasi.image = dataPost[indexPath.row].
         cell.namaDonasi.text = dataPost[indexPath.row].namaitem
 
-        ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url in
-            self.fadeInNewImage(previousImageView: cell.fotoOrgn, newImage: image)
+		if dataPost[indexPath.row].status == 6{
+			ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url, fromCache in
+				
+				if fromCache {
+					cell.fotoDonasi.image = image
+				}else {
+				self.fadeInNewImage(previousImageView: cell.fotoOrgn, newImage: image)
+				}
+			}
 
-        }
-
-        //cell.fotoOrgn.image = fotoOrganisasi[indexPath.row]
-        cell.keteranganDonasi.text = dataPost[indexPath.row].deskripsi
-        cell.namaOrgn.text = dataPost[indexPath.row].namakomunitas
-        cell.keteranganWkt.text = dataPost[indexPath.row].waktuambil as? String
+			//cell.fotoOrgn.image = fotoOrganisasi[indexPath.row]
+			cell.keteranganDonasi.text = dataPost[indexPath.row].deskripsi
+			cell.namaOrgn.text = dataPost[indexPath.row].namakomunitas
+		}
+		let dateFormat = DateFormatter()
+		dateFormat.locale = Locale.init(identifier: "Id")
+		dateFormat.dateFormat = "MMMM dd yyyy, HH:mm"
+		
+		if dataPost[indexPath.row].status == 5 {
+        cell.keteranganWkt.text = dateFormat.string(from: Date(timeIntervalSince1970: dataPost[indexPath.row].waktuambil))
+		} else{
+			cell.keteranganWkt.text = "Di batalkan"
+		}
         return cell
     }
     
