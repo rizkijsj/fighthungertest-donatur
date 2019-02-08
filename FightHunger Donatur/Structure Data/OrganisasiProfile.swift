@@ -18,11 +18,11 @@ class OrganisasiProfile {
     var logo:URL
     var locationName:String
     //var locationCoor:CLLocationCoordinate2D
-    var latitude: String
-    var longitude: String
+    var latitude: Double
+    var longitude: Double
     var link:URL
     
-    init(orgId:String,orgPhone:String,orgEmail:String,orgName:String,orgDesc:String,orgLogo:URL,orgLocName:String,latitude: String,longitude: String,orgLink:URL) {
+    init(orgId:String,orgPhone:String,orgEmail:String,orgName:String,orgDesc:String,orgLogo:URL,orgLocName:String,latitude: Double,longitude: Double,orgLink:URL) {
         
         self.id = orgId
         self.phone = orgPhone

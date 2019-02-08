@@ -584,15 +584,15 @@ extension NewHomeViewController{
 			
 			var tempOrganisasi = [OrganisasiProfile]()
 			//var tempIdProfile = String
-			print("Check12")
+			//print("Check12")
 			for child in snapshot.children {
 				print(child)
 				if let childSnapshot = child as? DataSnapshot,
 					let dict = childSnapshot.value as? [String:Any],
 					
 					let locationcoor = dict["locationcoor"] as? [String:Any],
-					let latitude = locationcoor["latitude"] as? String,
-					let longitude = locationcoor["longitude"] as? String,
+					let latitude = locationcoor["latitude"] as? Double,
+					let longitude = locationcoor["longitude"] as? Double,
 					let address = dict["locationname"] as? String,
 					//                    let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(([longitude] as NSString).doubleValue), longitude: Double(([latitude] as NSString).doubleValue)),
 					let logo = dict["logo"] as? String,
@@ -606,7 +606,7 @@ extension NewHomeViewController{
 					let deskripsi = dict["description"] as? String,
 					let email = dict["email"] as? String,
 					let id = dict["id"] as? String{
-					print("mumumia")
+					print("nelis ndud ndud")
 					let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
 					
 					
