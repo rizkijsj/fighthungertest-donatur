@@ -128,6 +128,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		
 		waktuPengambilan.text = "\(dateFormat.string(from: picker.date))"
 		waktuPengambilan.endEditing(true)
+        textFieldChanged(waktuPengambilan)
 	}
     
     
@@ -224,7 +225,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		
+		  self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)]
 		
 		createPicker()
         
@@ -282,6 +283,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         loadPostData()
+      
     }
     
     @objc func textFieldChanged(_ target:UITextField)
@@ -308,7 +310,6 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         {
             setContinueButton(enabled: false)
         }
-        deskripsiBarang.delegate = self
       
     }
     
@@ -394,7 +395,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         guard let latitudeBarang = latitude as? String else {return}
         guard let longitudeBarang = longitude as? String else {return}
         
-        
+        activityView.startAnimating()
         connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganTambahanLokasi ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang) { (result) in
             if result{
                 //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)

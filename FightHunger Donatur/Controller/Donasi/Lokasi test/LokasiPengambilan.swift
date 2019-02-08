@@ -21,8 +21,8 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 	@IBOutlet weak var setLokasi: UIButton!
 	@IBOutlet weak var searchOutlet: UIBarButtonItem!
 	
-	@IBOutlet weak var bacBtnOutlet: UIButton!
-	@IBAction func backBtn(_ sender: Any) {
+	@IBOutlet weak var bacBtnOutlet: UIBarButtonItem!
+	@IBAction func backBtn(_ sender: UIBarButtonItem) {
 		self.navigationController?.popToRootViewController(animated: true)
 	}
 	//    unwindsegue dan pasing data
@@ -45,16 +45,16 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 		peta.addSubview(titikAwal)
 		peta.addSubview(setLokasi)
 		
-		let buttonSize = CGFloat(16.0)
-		if #available(iOS 11.0, *){
-			bacBtnOutlet.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
-			bacBtnOutlet.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
-		}else{
-			var frame = bacBtnOutlet.frame
-			frame.size.width = buttonSize
-			frame.size.height = buttonSize
-			bacBtnOutlet.frame = frame
-		}
+//        let buttonSize = CGFloat(16.0)
+//        if #available(iOS 11.0, *){
+//            bacBtnOutlet.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+//            bacBtnOutlet.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+//        }else{
+//            var frame = bacBtnOutlet.frame
+//            frame.size.width = buttonSize
+//            frame.size.height = buttonSize
+//            bacBtnOutlet.frame = frame
+//        }
 		
 		let center = getCenterLocation(for: peta)
 		let geoCoder = CLGeocoder()

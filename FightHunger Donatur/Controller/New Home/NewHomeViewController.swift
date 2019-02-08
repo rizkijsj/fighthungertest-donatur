@@ -154,7 +154,7 @@ class NewHomeViewController: UIViewController {
 				filteredData.append(post)
 			}
 		}
-		
+        filteredData.sort(by: {$0.timestamp > $1.timestamp})
 		completion(filteredData)
 	}
 }

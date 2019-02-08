@@ -88,15 +88,12 @@
                         <viewLayoutGuide key="safeArea" id="o1n-hv-onG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Lokasi" id="u5U-4E-ico">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="HbI-ez-2qn">
-                            <button key="customView" opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFit" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="2Ua-Z4-lXO">
-                                <rect key="frame" x="16" y="0.0" width="120" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" image="arrowback"/>
-                                <connections>
-                                    <action selector="backBtn:" destination="dfe-hM-wgt" eventType="touchUpInside" id="Fe2-DO-U2S"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="pHf-gm-RSR">
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backBtn:" destination="dfe-hM-wgt" id="UV3-OM-eBl"/>
+                            </connections>
                         </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" systemItem="search" id="jfE-GE-Dn7">
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -108,7 +105,7 @@
                     <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
                     <connections>
                         <outlet property="alamat" destination="HUc-FC-Czl" id="otH-Gl-wT8"/>
-                        <outlet property="bacBtnOutlet" destination="2Ua-Z4-lXO" id="qK3-Qv-GYa"/>
+                        <outlet property="bacBtnOutlet" destination="pHf-gm-RSR" id="CMY-OK-v37"/>
                         <outlet property="peta" destination="XQE-GQ-TmY" id="hHR-g5-59K"/>
                         <outlet property="pinPoint" destination="TQO-QW-uly" id="xeC-d9-spA"/>
                         <outlet property="searchOutlet" destination="jfE-GE-Dn7" id="sAa-CT-cC2"/>
