@@ -47,36 +47,12 @@ class KegiatanViewController: UITableViewController {
 	@IBOutlet weak var status4Lbl: UILabel!
 	
 	
-	/*
-	override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-	
-	if section == 0 {
-	return 3
-	}else if section ==  1 {
-	return 3
-	}else if section == 2{
-	return 3
-	}else if section == 3 {
-	return 6
-	}else if section == 4 {
-	return 1
-	}
-	
-	return 1
-	}
-	
-	override func numberOfSections(in tableView: UITableView) -> Int {
-	return 5
-	}
-	*/
-	/*
-	override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-	return UITableViewCell.init()
-	}
-	*/
-	//    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-	//
-	//    }
+    override func viewWillAppear(_ animated: Bool) {
+        
+       super.viewWillAppear(true)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        
+    }
 	
 	var passingObject:Post?
 	var transactionID:String?

@@ -53,7 +53,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomor telfon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hkY-li-nIG">
-                                                    <rect key="frame" x="20" y="72" width="363" height="20"/>
+                                                    <rect key="frame" x="20" y="76" width="363" height="20"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <color key="textColor" red="0.84705882349999995" green="0.84705882349999995" blue="0.84705882349999995" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
@@ -76,7 +76,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label nomor telfon" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Ba-VN-Kdh">
-                                                    <rect key="frame" x="20" y="100" width="363" height="20"/>
+                                                    <rect key="frame" x="20" y="104" width="363" height="20"/>
                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
@@ -97,12 +97,12 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="7Ba-VN-Kdh" firstAttribute="leading" secondItem="zoe-h7-JeX" secondAttribute="leadingMargin" id="7k4-hp-49M"/>
-                                                <constraint firstItem="hkY-li-nIG" firstAttribute="top" secondItem="0rP-ev-Zyz" secondAttribute="bottom" constant="36" id="AFk-RQ-d50"/>
+                                                <constraint firstItem="hkY-li-nIG" firstAttribute="top" secondItem="0rP-ev-Zyz" secondAttribute="bottom" constant="40" id="AFk-RQ-d50"/>
                                                 <constraint firstItem="a0Y-Hb-kSH" firstAttribute="leading" secondItem="zoe-h7-JeX" secondAttribute="leadingMargin" id="BOs-Js-f78"/>
-                                                <constraint firstItem="7Ba-VN-Kdh" firstAttribute="top" secondItem="IXl-SS-rhv" secondAttribute="bottom" constant="33" id="Keg-cF-Dsr"/>
+                                                <constraint firstItem="7Ba-VN-Kdh" firstAttribute="top" secondItem="IXl-SS-rhv" secondAttribute="bottom" constant="37" id="Keg-cF-Dsr"/>
                                                 <constraint firstItem="3VV-Ae-bvx" firstAttribute="leading" secondItem="zoe-h7-JeX" secondAttribute="leadingMargin" id="Map-kI-Wpp"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="3VV-Ae-bvx" secondAttribute="trailing" constant="11" id="WvD-2A-M02"/>
-                                                <constraint firstItem="3VV-Ae-bvx" firstAttribute="top" secondItem="7Ba-VN-Kdh" secondAttribute="bottom" constant="15" id="bwq-Qs-Nbo"/>
+                                                <constraint firstItem="3VV-Ae-bvx" firstAttribute="top" secondItem="7Ba-VN-Kdh" secondAttribute="bottom" constant="11" id="bwq-Qs-Nbo"/>
                                                 <constraint firstItem="IXl-SS-rhv" firstAttribute="leading" secondItem="zoe-h7-JeX" secondAttribute="leadingMargin" id="cps-FQ-sDX"/>
                                                 <constraint firstItem="0rP-ev-Zyz" firstAttribute="top" secondItem="zoe-h7-JeX" secondAttribute="topMargin" constant="-5" id="eUz-D1-ieS"/>
                                                 <constraint firstAttribute="trailingMargin" secondItem="hkY-li-nIG" secondAttribute="trailing" constant="11" id="ihr-qT-i5k"/>
