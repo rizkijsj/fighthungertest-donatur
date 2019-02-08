@@ -7,9 +7,10 @@
 //
 
 import UIKit
+import Firebase
 
 class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
-    
+    var dataPost = [Post]()
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBAction func backBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -46,19 +47,30 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        return fotoDonasi.count
+        return dataPost.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "riwayatcell", for: indexPath) as! RiwayatTableViewCell
         
-        cell.fotoDonasi.image = fotoDonasi[indexPath.row]
-        cell.namaDonasi.text = namaDonasi[indexPath.row]
-        cell.fotoOrgn.image = fotoOrganisasi[indexPath.row]
-        cell.keteranganDonasi.text = keteranganDonasi[indexPath.row]
-        cell.namaOrgn.text = namaOrganisasi[indexPath.row]
-        cell.keteranganWkt.text = keteranganWkt[indexPath.row]
+        ImageService.getImage(withURL: dataPost[indexPath.row].postphotourl) { image, url in
+            self.fadeInNewImage(previousImageView: cell.fotoDonasi, newImage: image)
+
+        }
+        
+        //cell.fotoDonasi.image = dataPost[indexPath.row].
+        cell.namaDonasi.text = dataPost[indexPath.row].namaitem
+
+        ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url in
+            self.fadeInNewImage(previousImageView: cell.fotoOrgn, newImage: image)
+
+        }
+
+        //cell.fotoOrgn.image = fotoOrganisasi[indexPath.row]
+        cell.keteranganDonasi.text = dataPost[indexPath.row].deskripsi
+        cell.namaOrgn.text = dataPost[indexPath.row].namakomunitas
+        cell.keteranganWkt.text = dataPost[indexPath.row].waktuambil as? String
         return cell
     }
     
@@ -67,6 +79,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        observePost()
       
     }
     
@@ -85,4 +98,144 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
     }
    
 
+    func observePost() {
+        
+        guard let userProfile = UserService.currentUserProfile else { return }
+
+        let uid = userProfile.uid
+        let postsRef = Database.database().reference().child("DeadPost/\(uid)")
+        
+        postsRef.observe(.value, with: { snapshot in
+            
+            var tempPosts = [Post]()
+            //var tempIdProfile = String
+            
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String:Any],
+                    
+                    let author = dict["author"] as? [String:Any],
+                    let uid = author["uid"] as? String,
+                    let email = author["email"] as? String,
+                    let name = author["username"] as? String,
+                    let phnumber = author["phonenumber"] as? String,
+                    
+                    //                    let organisasi = dict["komunitas"] as? [String:Any],
+                    //                    let orgID = organisasi["id"] as? String,
+                    //                    let orgName = organisasi["name"] as? String,
+                    //                    let orgDesc = organisasi["description"] as? String,
+                    //                    let orgLink = organisasi["link"] as? String,
+                    //                    let orgLogo = organisasi["logo"] as? String,
+                    //                    let orgEmail = organisasi["email"] as? String,
+                    //                    let orgPhone = organisasi["phone"] as? String,
+                    //                    let orgLocName = organisasi["locationname"] as? String,
+                    //                    let orgLocCoor = organisasi["locationcoor"] as? [String:Any],
+                    //                    let orgLati = orgLocCoor["latitude"] as? String,
+                    //                    let orgLong = orgLocCoor["longitude"] as? String,
+                    
+                    let komunitas = dict["komunitas"] as? [String:Any],
+                    let id = komunitas["id"] as? String,
+                    let logo = komunitas["logo"] as? String,
+                    let namakomunitas = komunitas["name"] as? String,
+                    let logourl = URL(string: logo),
+                    let phonenumber = komunitas["phone"] as? String,
+                    
+                    
+                    
+                    let alamat = dict["alamat"] as? [String:Any],
+                    let address = alamat["namalokasi"] as? String,
+                    let keteranganlokasi = alamat["keteranganlokasi"] as? String,
+                    let latitude = alamat["latitude"] as? Double,
+                    let longitude = alamat["longitude"] as? Double,
+                    
+                    
+                    
+                    let transaksi = dict["transaksi"] as? [String:Any],
+                    let namaKurir = transaksi["namakurir"] as? String,
+                    let descKurir = transaksi["deskripsikurir"] as? String,
+                    let status = transaksi["status"] as? Int,
+                    let alasanbatal = transaksi["alasanbatal"] as? String,
+                    let waktuambil = transaksi["waktuambil"] as? Double,
+                    let waktusampai = transaksi["waktusampai"] as? Double,
+                    
+                    
+                    let barang = dict["barang"] as? [String:Any],
+                    let postphotourl = barang["postphotourl"] as? String,
+                    let photourl = URL(string: postphotourl),
+                    
+                    let namaitem = barang["namabarang"] as? String,
+                    let jumlah = barang["jumlahbarang"] as? String,
+                    let deskripsi = barang["deskripsibarang"] as? String,
+                    
+                    
+                    
+                    
+                    
+                    
+                    let transactionid = dict["idtransaction"] as? String,
+                    let timestamp = dict["timestamp"] as? Double
+                    
+                {
+                    
+                    
+                    
+                    let userProfile = UserProfile(uid: uid, email: email, phonenumber: phnumber, username: name)
+                    //let orgProfile = OrganisasiProfile(orgId: orgID, orgPhone: orgPhone, orgEmail: orgEmail, orgName: orgName, orgDesc: orgDesc, orgLogo: orgLogo, orgLocName: orgLocName, latitude: orgLati, longitude: orgLong, orgLink: orgLink)
+                    
+                    
+                    print("kukikakuke")
+                    print(namaitem)
+                    
+                    let post = Post(id: childSnapshot.key, author: userProfile, idkomunitas: id, logokomunitas: logourl, namakomunitas: namakomunitas, phonekomunitas: phonenumber, postphotourl: photourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal,idtransaction: transactionid)
+                    
+                    
+                    
+                    
+                        tempPosts.append(post)
+                        
+                    
+                }
+            }
+            print("berhasil ambil data post")
+            
+            
+            DispatchQueue.main.async {
+                
+                self.dataPost = tempPosts
+                //self.tableView.reloadData()
+                
+                UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+                    self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
+                }, completion: nil)
+                
+            }
+            
+        })
+    }
+    
+    func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
+        let nextImage = newImage
+        
+        if previousImageView.image == nil{
+            //previousImageView.image = UIImage.init()
+            previousImageView.image = newImage
+        }else{
+            let tmpImageView = UIImageView(image: nextImage)
+            tmpImageView.contentMode = previousImageView.contentMode
+            tmpImageView.frame = previousImageView.bounds
+            tmpImageView.alpha = 0.0
+            previousImageView.addSubview(tmpImageView)
+            
+            UIView.animate(withDuration: 1, animations: {
+                tmpImageView.alpha = 1.0
+            }, completion: {
+                finished in
+                previousImageView.image = nextImage
+                tmpImageView.image = nil
+                tmpImageView.removeFromSuperview()
+                tmpImageView.removeFromSuperview()
+                
+            })
+        }
+    }
 }
