@@ -41,7 +41,7 @@ class NewHomeViewController: UIViewController {
 		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
 		UserDefaults.standard.synchronize()
 		
-		self.observeOrganisasi()
+		//self.observeOrganisasi()
 		
 		repeatedLoginAttempt.eventHandler = {
 			guard let userProfile = UserService.currentUserProfile else {
@@ -132,7 +132,7 @@ class NewHomeViewController: UIViewController {
 				organizationVC.organisasiObject = organizationList[nextIndexPath.row]
 			}
 		}
-		
+		/*
 		if segue.identifier == "Login" {
 			let navigation: UINavigationController = segue.destination as! UINavigationController
 			
@@ -141,6 +141,7 @@ class NewHomeViewController: UIViewController {
 			//if you need send something to destnation View Controller
 			//vc.delegate = self
 		}
+		*/
 		
 	}
 	
@@ -168,7 +169,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		// Consider to use section to separate the content based on design objective, "Activity" section, "New Activity" Section, "Partner" Section
 		
-		return 3
+		return 1
 		
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {

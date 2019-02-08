@@ -50,11 +50,21 @@ class KegiatanViewController: UITableViewController {
         
        super.viewWillAppear(true)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+		
+		repeatingChecker.resume()
         
     }
 	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewWillDisappear(true)
+		
+		repeatingChecker.suspend()
+	}
+	
 	var passingObject:Post?
 	var transactionID:String?
+	var repeatingChecker = RepeatingTimer.init(timeInterval: 5)
+	
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
@@ -78,9 +88,9 @@ class KegiatanViewController: UITableViewController {
 		}
 		*/
 		
-		let tap = UITapGestureRecognizer.init(target: self, action: #selector(openOrganisation))
+		//let tap = UITapGestureRecognizer.init(target: self, action: #selector(openOrganisation))
 		
-		organizationDetail.gestureRecognizers = [tap]
+		//organizationDetail.gestureRecognizers = [tap]
 		
 		//        statusDonasi()
 		reloadObject()
@@ -165,7 +175,7 @@ class KegiatanViewController: UITableViewController {
 			
 			namaOrganisasi.text = statusObject.namakomunitas
 			nomorTelponOrganisasi.text = statusObject.idkomunitas
-			
+			alamatPengambilan.text = statusObject.alamat
 			
 			
 			
@@ -185,9 +195,11 @@ class KegiatanViewController: UITableViewController {
 			timeFormat.dateFormat = "HH:mm"
 			
 			
-			
+			if statusObject.status != 5{
 			waktuPengambilan.text = "\(dateFormat.string(from: Date(timeIntervalSince1970: statusObject.waktuambil))), \(timeFormat.string(from: Date(timeIntervalSince1970: statusObject.waktuambil)))"
-			
+			}else {
+				waktuPengambilan.text = "\(dateFormat.string(from: Date(timeIntervalSince1970: statusObject.waktuambil))), \(timeFormat.string(from: Date(timeIntervalSince1970: statusObject.waktuambil))) - \(timeFormat.string(from: Date(timeIntervalSince1970: statusObject.waktusampai)))"
+			}
 			
 			
 			statusInteractionUpdate(Status: statusObject.status)
@@ -471,7 +483,7 @@ extension KegiatanViewController{
 					
 					
 					if post.idtransaksi == transID{
-						print("Ketemu")
+						print("Ketemu untuk Active")
 						self.passingObject = post
 						DispatchQueue.main.async {
 							
@@ -487,15 +499,13 @@ extension KegiatanViewController{
 						}
 						
 					} else {
-						print("Error")
+						print("Gagal mencari di sini, Maka mari cari di Dead yang ini")
+						
 					}
-					
-					
-					
-
-					print("berhasil ambil data post")
+				
 				}else {
-					print("Error?")
+					print("Error?.... Post Ga ketemu")
+					
 				}
 			}
 			
@@ -515,7 +525,7 @@ extension KegiatanViewController{
         
         postsRef.observe(.value, with: { snapshot in
             
-            var tempPost:Post?
+            //var tempPost:Post?
             //var tempIdProfile = String
             
             for child in snapshot.children {
@@ -589,36 +599,34 @@ extension KegiatanViewController{
                     
                     let userProfile = UserProfile(uid: uid, email: email, phonenumber: phnumber, username: name)
                     //let orgProfile = OrganisasiProfile(orgId: orgID, orgPhone: orgPhone, orgEmail: orgEmail, orgName: orgName, orgDesc: orgDesc, orgLogo: orgLogo, orgLocName: orgLocName, latitude: orgLati, longitude: orgLong, orgLink: orgLink)
-                    
+					
                     
                     print("kukikakuke")
-                    print(namaitem)
                     
                     let post = Post(id: childSnapshot.key, author: userProfile, idkomunitas: id, logokomunitas: logourl, namakomunitas: namakomunitas, phonekomunitas: phonenumber, postphotourl: photourl, namaitem: namaitem, deskripsi: deskripsi, jumlahbarang: jumlah, alamat: address, keteranganlokasi: keteranganlokasi, latitude: latitude, longitude: longitude, waktuambil: waktuambil, waktusampai: waktusampai, namakurir: namaKurir, deskripsikurir: descKurir, timestamp: timestamp, status: status, alasanbatal: alasanbatal,idtransaction: transactionid)
                     
-                    
-                    
-                    if post.id == transID{
-                        tempPost = post
+					
+					print("\n\n\n\n")
+					print(post.idtransaksi == transID)
+					print(post.idtransaksi)
+					print(transID)
+                    if post.idtransaksi == transID{
+                        //tempPost = post
+						DispatchQueue.main.async {
+							print("Ketemu untuk passive")
+							self.passingObject = post
+							self.transactionID = post.idtransaksi
+
+							UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+								self.reloadObject()
+							}, completion: nil)
+							
+						}
                     }
                     
-                    
-                }
+				} else {print("Something is up Here") }
             }
-            print("berhasil ambil data post")\
-            
-            
-            DispatchQueue.main.async {
-                
-                guard let postData = tempPost else{return}
-                self.passingObject = postData
-                //self.tableView.reloadData()
-                
-                UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
-                    self.tableView.reloadData()
-                }, completion: nil)
-                
-            }
+			
             
         })
     }

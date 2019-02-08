@@ -298,7 +298,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         let fotobarang = imgDonasi.image
         let waktuAmbil = waktuPengambilan.text
         
-        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && textFieldLength >= 1 && textFieldLength <= 120 && keteranganLokasi != "" && keteranganLokasi != nil && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil
+        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && textFieldLength >= 1 && textFieldLength <= 120 && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil
         
         print(formFilled)
         
@@ -389,15 +389,15 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         let pickUpTime = picker.date.timeIntervalSince1970
         guard let fotobarang = imgDonasi.image else { return }
         guard let deskripsi = deskripsiBarang.text else { return }
-
-        guard let keteranganTambahanLokasi = keteranganBarang.text else {return}
+		
+        //guard let keteranganTambahanLokasi = keteranganBarang.text else {return}
         guard let jumlahBarang = kuantitasBarang.text else {return}
         
         guard let latitudeBarang = latitude as? String else {return}
         guard let longitudeBarang = longitude as? String else {return}
         
         activityView.startAnimating()
-        connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganTambahanLokasi ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang) { (result) in
+        connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganBarang.text ?? "-" ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang) { (result) in
             if result{
                 //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
 				self.dismiss(animated: true, completion: nil)
