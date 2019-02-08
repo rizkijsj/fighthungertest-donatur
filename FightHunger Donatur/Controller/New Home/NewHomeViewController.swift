@@ -76,6 +76,11 @@ class NewHomeViewController: UIViewController {
 		self.tableView.reloadData()
 	}
 	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewDidDisappear(animated)
+		self.navigationController?.isNavigationBarHidden = false
+	}
+	
 	func setupView(){
 		// Register all required cell that have to display in UITableView
 		tableView.register(UINib(nibName: "SectionOneHomeCell", bundle: nil), forCellReuseIdentifier: "activityCellID")
