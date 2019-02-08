@@ -39,7 +39,6 @@ class KegiatanViewController: UITableViewController {
 	
 	@IBOutlet weak var organizationDetail: UITableViewCell!
 	
-	@IBOutlet weak var bacBtnOutlet: UIButton!
 	
 	@IBOutlet weak var status1Lbl: UILabel!
 	@IBOutlet weak var status2Lbl: UILabel!
@@ -66,7 +65,7 @@ class KegiatanViewController: UITableViewController {
 		status2Lbl.text = "Sedang\nDijemput"
 		status3Lbl.text = "Sedang\nDiantar"
 		status4Lbl.text = "Sampai\nOrganisasi"
-		
+		/*
 		let buttonSize = CGFloat(16.0)
 		if #available(iOS 11.0, *){
 			bacBtnOutlet.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
@@ -77,7 +76,7 @@ class KegiatanViewController: UITableViewController {
 			frame.size.height = buttonSize
 			bacBtnOutlet.frame = frame
 		}
-		
+		*/
 		
 		let tap = UITapGestureRecognizer.init(target: self, action: #selector(openOrganisation))
 		
@@ -242,7 +241,7 @@ class KegiatanViewController: UITableViewController {
 			}
 		}
 	}
-	@IBAction func backBtn(_ sender: Any) {
+	@IBAction func backBtn(_ sender: UIBarButtonItem) {
 		self.navigationController?.popToRootViewController(animated: true)
 	}
 	

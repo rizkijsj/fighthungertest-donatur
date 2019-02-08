@@ -158,6 +158,24 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		longitude = "\(vc.kordinatAsli[1])"
 		
     }
+	
+	@IBAction func unwindFromOTPSuccess(_ sender:UIStoryboardSegue){
+		let vc = sender.source as! OTPViewController
+		
+		if vc.successLogin {
+			connector().verifyUserLoginState { (state) in
+				if state{
+					self.handlePosting()
+				}else{
+					
+					self.sendDataToNextVC()
+					self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
+					
+					
+				}
+			}
+		}
+	}
     
     
     

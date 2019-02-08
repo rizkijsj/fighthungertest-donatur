@@ -33,6 +33,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     var userExistance: Bool!
     var tempTampungTerima = [String]()
     var activityView:UIActivityIndicatorView!
+	var successLogin:Bool = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -139,7 +140,17 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         if userExistance{
             connector().logIn(kodeotp: credential) { (result) in
                 if result{
-                    self.performSegue(withIdentifier: "LoginToHome", sender: nil)
+					if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+						let controllers = self.navigationController?.viewControllers
+						for vc in controllers! {
+							if vc is DonatingController {
+								_ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
+							}
+						}
+					}else {
+						self.navigationController?.popToRootViewController(animated: true)
+					}
+                    //self.performSegue(withIdentifier: "LoginToHome", sender: nil)
                 }
             }
         }else{
@@ -152,7 +163,14 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
                 if result{
                     print("sukses untuk sign up / login")
                     if status {
-                        self.performSegue(withIdentifier: "OTPToHome", sender: nil)
+						if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+							let data = DonatingController()
+							self.navigationController?.popToViewController(data, animated: true)
+						}else {
+							self.navigationController?.popToRootViewController(animated: true)
+						}
+						
+                        //self.performSegue(withIdentifier: "OTPToHome", sender: nil)
                     }
                 }else{
                     print("gagal sign in di vc")

@@ -11,7 +11,20 @@ import UIKit
 class LoginRegisterViewController: UIViewController {
 
     @IBAction func backToHome(_ sender: UIBarButtonItem) {
-        self.navigationController?.popViewController(animated: true)
+		if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+//			let data = DonatingController()
+//			print("lala")
+//			self.navigationController?.popToViewController(data!, animated: true)
+			
+			let controllers = self.navigationController?.viewControllers
+			for vc in controllers! {
+				if vc is DonatingController {
+					_ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
+				}
+			}
+		}else {
+			self.navigationController?.popToRootViewController(animated: true)
+		}
 //            performSegue(withIdentifier: "toNewHome", sender: self)
     }
     
@@ -37,11 +50,11 @@ class LoginRegisterViewController: UIViewController {
    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-       
        btnMasuk.layer.cornerRadius = 6.0
        btnDaftar.layer.cornerRadius = 6.0
        accessibility()
+
+		
         
 //        let buttonSize = CGFloat(16.0)
 //        if #available(iOS 11.0, *){
@@ -60,7 +73,7 @@ class LoginRegisterViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: false)
+        navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
         
     }
@@ -69,7 +82,7 @@ class LoginRegisterViewController: UIViewController {
     
     
     @IBAction func backButton(_ sender: UIButton) {
-        self.navigationController?.popViewController(animated: true)
+        self.dismiss(animated: true)
     }
     @IBOutlet weak var btnMasuk: UIButton!
     

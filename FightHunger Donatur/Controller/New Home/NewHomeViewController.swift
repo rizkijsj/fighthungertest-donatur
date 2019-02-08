@@ -41,13 +41,14 @@ class NewHomeViewController: UIViewController {
 		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
 		UserDefaults.standard.synchronize()
 		
+		self.observeOrganisasi()
+		
 		repeatedLoginAttempt.eventHandler = {
 			guard let userProfile = UserService.currentUserProfile else {
 				print("Error")
 				return }
 			let uid = userProfile.uid
 			self.observePost(id: uid)
-			self.observeOrganisasi()
 			DispatchQueue.main.async {
 				//self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
 				// Update your data source here
@@ -71,9 +72,6 @@ class NewHomeViewController: UIViewController {
 		super.viewWillAppear(animated)
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
 		
-		DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
-		}
-		
 		//observePosts()
 		self.tableView.reloadData()
 	}
@@ -96,10 +94,10 @@ class NewHomeViewController: UIViewController {
 		toDetail = false
 		connector().verifyUserLoginState { (state) in
 			if state{
-				self.performSegue(withIdentifier: "Profil", sender: nil)
+				self.performSegue(withIdentifier: "Profil", sender: self)
 				
 			}else{
-				self.performSegue(withIdentifier: "Login", sender: nil)
+				self.performSegue(withIdentifier: "Login", sender: self)
 				
 			}
 		}
@@ -129,6 +127,16 @@ class NewHomeViewController: UIViewController {
 				organizationVC.organisasiObject = organizationList[nextIndexPath.row]
 			}
 		}
+		
+		if segue.identifier == "Login" {
+			let navigation: UINavigationController = segue.destination as! UINavigationController
+			
+			var vc = LoginRegisterViewController.init()
+			vc = navigation.viewControllers[0] as! LoginRegisterViewController
+			//if you need send something to destnation View Controller
+			//vc.delegate = self
+		}
+		
 	}
 	
 	func processOngoingDonation(rawData:[Post],completion: @escaping ([Post]) -> Void){

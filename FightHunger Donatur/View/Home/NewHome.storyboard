@@ -66,7 +66,7 @@
                         <segue destination="jp7-0b-DRF" kind="show" identifier="Profil" id="CSz-Fd-9Ml"/>
                         <segue destination="fL7-n3-YWV" kind="show" identifier="Login" id="9r3-Xy-oG4"/>
                         <segue destination="vAa-Ur-EJs" kind="show" identifier="keAktivitas" id="HSw-Nw-UnV"/>
-                        <segue destination="30J-aI-EYq" kind="showDetail" identifier="PostDonasi" id="OhZ-ps-tbQ"/>
+                        <segue destination="30J-aI-EYq" kind="show" identifier="PostDonasi" id="OhZ-ps-tbQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0Y-5z-x1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
