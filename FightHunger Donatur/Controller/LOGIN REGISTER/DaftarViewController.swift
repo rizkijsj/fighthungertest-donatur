@@ -12,10 +12,10 @@ import Firebase
 class DaftarViewController: UIViewController , UITextFieldDelegate{
 
     
-    @IBAction func backButton(_ sender: UIButton) {
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
         self.navigationController?.popViewController(animated: true)
     }
-    @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var backBtn: UIBarButtonItem!
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         navigationController?.setNavigationBarHidden(false, animated: false)
@@ -62,16 +62,16 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         
         
 //        button back
-        let buttonSize = CGFloat(16.0)
-        if #available(iOS 11.0, *){
-            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
-            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
-        }else{
-            var frame = backBtn.frame
-            frame.size.width = buttonSize
-            frame.size.height = buttonSize
-            backBtn.frame = frame
-        }
+//        let buttonSize = CGFloat(16.0)
+//        if #available(iOS 11.0, *){
+//            backBtn.widthAnchor.constraint(equalToConstant: buttonSize).isActive = true
+//            backBtn.heightAnchor.constraint(equalToConstant: buttonSize).isActive = true
+//        }else{
+//            var frame = backBtn.frame
+//            frame.size.width = buttonSize
+//            frame.size.height = buttonSize
+//            backBtn.frame = frame
+//        }
         
         //delegate textfield
         emailTxtField.delegate = self as? UITextFieldDelegate

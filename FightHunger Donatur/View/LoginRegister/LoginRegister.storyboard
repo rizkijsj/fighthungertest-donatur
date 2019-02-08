@@ -77,19 +77,16 @@
                         <viewLayoutGuide key="safeArea" id="R3X-k8-CgA"/>
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="4WA-s9-OiH">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="Sew-aC-ZGT">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="8wn-ur-BGg">
-                                <rect key="frame" x="16" y="0.0" width="174" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="arrowback"/>
-                                <connections>
-                                    <action selector="backButton:" destination="VaB-LE-eif" eventType="touchUpInside" id="1TG-vD-JTw"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="hjp-aj-TlM">
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backToHome:" destination="VaB-LE-eif" id="JW9-hg-8aK"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backBtn" destination="8wn-ur-BGg" id="TfJ-2C-4MJ"/>
+                        <outlet property="backBtn" destination="hjp-aj-TlM" id="lkE-BF-f7o"/>
                         <outlet property="btnDaftar" destination="oSO-RP-Ovj" id="aTt-FO-GPc"/>
                         <outlet property="btnMasuk" destination="YuU-4z-R7W" id="Szv-re-GGo"/>
                         <outlet property="labelBody" destination="iaX-5J-nJk" id="2fk-LS-3fk"/>
@@ -117,7 +114,7 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Usk-R2-fWn">
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Usk-R2-fWn">
                                 <rect key="frame" x="16" y="223" width="343" height="178"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomor handphone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ej-Fa-tWW">
@@ -141,8 +138,11 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhE-xp-uqR">
-                                <rect key="frame" x="16" y="716" width="343" height="30"/>
+                                <rect key="frame" x="16" y="674" width="343" height="51"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="51" id="yLJ-Ja-1F4"/>
+                                </constraints>
                                 <state key="normal" title="Lanjut">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -154,31 +154,28 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="Jr4-VO-TRi" firstAttribute="leading" secondItem="Usk-R2-fWn" secondAttribute="leading" id="8rj-cB-LV2"/>
+                            <constraint firstItem="rhE-xp-uqR" firstAttribute="leading" secondItem="Usk-R2-fWn" secondAttribute="leading" id="94M-ie-wKm"/>
                             <constraint firstItem="Jr4-VO-TRi" firstAttribute="centerX" secondItem="Usk-R2-fWn" secondAttribute="centerX" id="AWo-XG-c7k"/>
-                            <constraint firstItem="Usk-R2-fWn" firstAttribute="top" secondItem="Jr4-VO-TRi" secondAttribute="bottom" constant="49" id="BXu-Xq-rjT"/>
+                            <constraint firstItem="Usk-R2-fWn" firstAttribute="top" secondItem="Jr4-VO-TRi" secondAttribute="bottom" constant="5" id="BXu-Xq-rjT"/>
                             <constraint firstItem="Jr4-VO-TRi" firstAttribute="top" secondItem="9WB-Fw-tXW" secondAttribute="top" constant="81" id="H17-7d-ter"/>
+                            <constraint firstItem="rhE-xp-uqR" firstAttribute="trailing" secondItem="Usk-R2-fWn" secondAttribute="trailing" id="M0f-9w-eaR"/>
                             <constraint firstItem="9WB-Fw-tXW" firstAttribute="trailing" secondItem="Jr4-VO-TRi" secondAttribute="trailing" constant="16" id="Peb-ZP-fex"/>
-                            <constraint firstItem="9WB-Fw-tXW" firstAttribute="bottom" secondItem="rhE-xp-uqR" secondAttribute="bottom" constant="32" id="SoT-u2-EQQ"/>
                             <constraint firstItem="Jr4-VO-TRi" firstAttribute="leading" secondItem="9WB-Fw-tXW" secondAttribute="leading" constant="16" id="YaP-V1-ZKi"/>
-                            <constraint firstItem="rhE-xp-uqR" firstAttribute="leading" secondItem="9WB-Fw-tXW" secondAttribute="leading" constant="16" id="gYh-cc-oiV"/>
-                            <constraint firstAttribute="trailing" secondItem="rhE-xp-uqR" secondAttribute="trailing" constant="16" id="rVz-Yg-wUO"/>
+                            <constraint firstItem="9WB-Fw-tXW" firstAttribute="bottom" secondItem="rhE-xp-uqR" secondAttribute="bottom" constant="53" id="hyK-5f-6kl"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9WB-Fw-tXW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="xIm-BI-XvK">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="eae-I6-u3z">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="ShE-vp-gRY">
-                                <rect key="frame" x="16" y="0.0" width="174" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="arrowback"/>
-                                <connections>
-                                    <action selector="back:" destination="XiE-iL-Epf" eventType="touchUpInside" id="Ut1-oB-Fvm"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="9PX-sL-eOI">
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="back:" destination="XiE-iL-Epf" id="K9R-Ge-MpU"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backBtn" destination="ShE-vp-gRY" id="eqH-8d-BdT"/>
+                        <outlet property="backBtn" destination="9PX-sL-eOI" id="x9P-GF-8wG"/>
                         <outlet property="continueButton" destination="rhE-xp-uqR" id="i5A-dk-C2S"/>
                         <outlet property="errorMssg" destination="bKl-tH-icU" id="7yc-FT-9CO"/>
                         <outlet property="labelTitle" destination="Jr4-VO-TRi" id="Zmj-E1-tmh"/>
@@ -358,19 +355,16 @@
                         <viewLayoutGuide key="safeArea" id="CEl-cI-FBl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="vJz-iT-g9r">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="ToL-gi-NP7">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="6V6-hv-QfM">
-                                <rect key="frame" x="16" y="0.0" width="174" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="arrowback"/>
-                                <connections>
-                                    <action selector="return:" destination="vMY-4Z-iyk" eventType="touchUpInside" id="JWg-hp-IH6"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="M0P-VX-DAK">
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="return:" destination="vMY-4Z-iyk" id="bV3-aQ-NeC"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backBtn" destination="6V6-hv-QfM" id="xZ8-UM-ukt"/>
+                        <outlet property="backBtn" destination="M0P-VX-DAK" id="CBj-J6-dKF"/>
                         <outlet property="continueButton" destination="GqK-Pd-l6e" id="Fyh-36-G8P"/>
                         <outlet property="labelTitle" destination="Thg-rl-vyI" id="Uf9-55-Aaa"/>
                         <outlet property="otpTxt1" destination="ucS-uc-d3x" id="9oc-Ri-g9w"/>
@@ -385,7 +379,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zal-mt-FQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9535.2000000000007" y="830.54187192118229"/>
+            <point key="canvasLocation" x="9498" y="760"/>
         </scene>
         <!--Daftar-->
         <scene sceneID="iO6-ve-G6C">
@@ -476,19 +470,17 @@
                         <viewLayoutGuide key="safeArea" id="NXT-HM-hGg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Daftar" id="QPM-OJ-iD2">
-                        <barButtonItem key="leftBarButtonItem" style="plain" id="EMa-u7-bg4">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" id="aYe-ZP-inY">
-                                <rect key="frame" x="16" y="0.0" width="174" height="44"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Button" image="arrowback"/>
-                                <connections>
-                                    <action selector="backButton:" destination="da5-Bk-tOG" eventType="touchUpInside" id="arR-53-rqf"/>
-                                </connections>
-                            </button>
+                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="ufI-g9-9UR">
+                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <inset key="largeContentSizeImageInsets" minX="0.0" minY="-10" maxX="0.0" maxY="0.0"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="backButton:" destination="da5-Bk-tOG" id="opo-co-gni"/>
+                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="backBtn" destination="aYe-ZP-inY" id="4Wz-kU-Um5"/>
+                        <outlet property="backBtn" destination="ufI-g9-9UR" id="NzS-0U-slE"/>
                         <outlet property="continueButton" destination="JjT-Fc-sfJ" id="JTg-6r-Ivc"/>
                         <outlet property="emailTxtField" destination="Qi3-UV-feW" id="f0t-EO-gO4"/>
                         <outlet property="errorMssg" destination="8z8-Mk-4Vp" id="GCp-WT-nIR"/>
@@ -525,6 +517,6 @@
         <image name="arrowback" width="120" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kQs-fF-YaO"/>
+        <segue reference="zhn-Ou-xFt"/>
     </inferredMetricsTieBreakers>
 </document>
