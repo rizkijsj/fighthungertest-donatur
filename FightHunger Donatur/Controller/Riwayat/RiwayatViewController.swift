@@ -49,44 +49,52 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         
         return dataPost.count
     }
+	
+	func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return 160
+	}
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "riwayatcell", for: indexPath) as! RiwayatTableViewCell
-        
+        let cell = tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as! SectionOneHomeCell
+		
+		cell.contentStatus.isHidden = true
+		
 		ImageService.getImage(withURL: dataPost[indexPath.row].postphotourl) { image, url, fromCache  in
 			if fromCache {
-				cell.fotoDonasi.image = image
+				cell.contentImage.image = image
 			}else {
-            self.fadeInNewImage(previousImageView: cell.fotoDonasi, newImage: image)
+            	self.fadeInNewImage(previousImageView: cell.contentImage, newImage: image)
 			}
         }
         
         //cell.fotoDonasi.image = dataPost[indexPath.row].
-        cell.namaDonasi.text = dataPost[indexPath.row].namaitem
-
-		if dataPost[indexPath.row].status == 6{
+        cell.contentName.text = dataPost[indexPath.row].namaitem
+		cell.contentExpiredDate.text = dataPost[indexPath.row].deskripsi
+		
+		cell.contentOrganisationName.text = ""
+		if dataPost[indexPath.row].status == 5 || dataPost[indexPath.row].status == 6 {
 			ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url, fromCache in
 				
 				if fromCache {
-					cell.fotoDonasi.image = image
+					cell.contentOrganisationIcon.image = image
 				}else {
-				self.fadeInNewImage(previousImageView: cell.fotoOrgn, newImage: image)
+					self.fadeInNewImage(previousImageView: cell.contentOrganisationIcon, newImage: image)
 				}
 			}
 
 			//cell.fotoOrgn.image = fotoOrganisasi[indexPath.row]
-			cell.keteranganDonasi.text = dataPost[indexPath.row].deskripsi
-			cell.namaOrgn.text = dataPost[indexPath.row].namakomunitas
+			
+			cell.contentOrganisationName.text = dataPost[indexPath.row].namakomunitas
 		}
 		let dateFormat = DateFormatter()
 		dateFormat.locale = Locale.init(identifier: "Id")
 		dateFormat.dateFormat = "MMMM dd yyyy, HH:mm"
 		
 		if dataPost[indexPath.row].status == 5 {
-        cell.keteranganWkt.text = dateFormat.string(from: Date(timeIntervalSince1970: dataPost[indexPath.row].waktuambil))
-		} else{
-			cell.keteranganWkt.text = "Di batalkan"
+        cell.contentActivityTime.text = dateFormat.string(from: Date(timeIntervalSince1970: dataPost[indexPath.row].waktuambil))
+		} else {
+			cell.contentActivityTime.text = "Dibatalkan"
 		}
         return cell
     }
@@ -94,6 +102,8 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 
     override func viewDidLoad() {
         super.viewDidLoad()
+		tableView.register(UINib(nibName: "SectionOneHomeCell", bundle: nil), forCellReuseIdentifier: "activityCellID")
+		
         tableView.delegate = self
         tableView.dataSource = self
         observePost()
