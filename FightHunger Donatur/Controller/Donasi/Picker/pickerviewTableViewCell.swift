@@ -9,12 +9,12 @@
 import UIKit
 
 class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate {
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
     }
     
-   
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     
@@ -27,8 +27,13 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-        selectedNumber = String(cobaNumber[row])
-        textKuantitas.text = selectedNumber
+       
+            selectedNumber = String(cobaNumber[row])
+            textKuantitas.text = selectedNumber
+         
+      
+
+       
     }
     
    
@@ -46,6 +51,8 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
         let picker = UIPickerView()
         picker.delegate = self
         textKuantitas.inputView = picker
+        picker.selectRow(0, inComponent: 0, animated: true)
+    
     }
 
     override func awakeFromNib() {
@@ -64,10 +71,18 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
       
         textKuantitas.inputAccessoryView = toolbar
         
+        textKuantitas.addTarget(self, action: #selector(textFieldChange), for: .editingDidEndOnExit)
+        
+    }
+    
+    @objc func textFieldChange(target: CustomTextField)
+    {
+        print("hey")
     }
     
     @objc func doneClicked()
     {
-        contentView.endEditing(true)
+
+        textKuantitas.endEditing(true);
     }
 }

@@ -11,13 +11,6 @@ import Firebase
 
 class OTPViewController: UIViewController , UITextFieldDelegate{
 
-    @IBAction func kirimUlang(_ sender: Any) {
-        
-        //Validation kirim ulang
-    
-    }
-    
-  
 
     
     @IBOutlet weak var labelTitle: UILabel!
@@ -93,7 +86,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         otpTxt3.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         otpTxt4.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         otpTxt5.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        otpTxt6.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEnd)
+        otpTxt6.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         //add done button above keyboard
         var toolbar = UIToolbar()
@@ -223,7 +216,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             }
             if textField == otpTxt6
             {
-                otpTxt6.becomeFirstResponder()
+                otpTxt6.resignFirstResponder()
             }
             
             //showing text
@@ -236,30 +229,30 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         {
             if textField == otpTxt2
             {
-                otpTxt1.becomeFirstResponder()
+                otpTxt1.resignFirstResponder()
             }
             
             if textField == otpTxt3
             {
-                otpTxt2.becomeFirstResponder()
+                otpTxt2.resignFirstResponder()
             }
             
             if textField == otpTxt4
             {
-                otpTxt3.becomeFirstResponder()
+                otpTxt3.resignFirstResponder()
             }
             
             if textField == otpTxt5
             {
-                otpTxt4.becomeFirstResponder()
+                otpTxt4.resignFirstResponder()
             }
             if textField == otpTxt6
             {
-                otpTxt5.becomeFirstResponder()
+                otpTxt5.resignFirstResponder()
             }
             if textField == otpTxt1
             {
-                otpTxt1.becomeFirstResponder()
+                otpTxt1.resignFirstResponder()
             }
             
             textField.text = ""
