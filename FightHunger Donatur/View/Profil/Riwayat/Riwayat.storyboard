@@ -145,11 +145,20 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="EhS-jU-Jzf" id="Gwg-tC-oEy"/>
+                        <segue destination="snk-uG-rv4" kind="show" identifier="toPastActivity" id="NeX-hw-FwO"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8g-lX-DkI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6311.594202898551" y="1183.9285714285713"/>
+        </scene>
+        <!--Kegiatan-->
+        <scene sceneID="A57-zu-r8A">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Kegiatan" id="snk-uG-rv4" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jwX-Ph-7jS" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7006" y="1064"/>
         </scene>
     </scenes>
     <resources>

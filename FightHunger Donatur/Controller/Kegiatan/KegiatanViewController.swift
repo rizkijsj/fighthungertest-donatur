@@ -255,7 +255,7 @@ class KegiatanViewController: UITableViewController {
 		}
 	}
 	@IBAction func backBtn(_ sender: UIBarButtonItem) {
-		self.navigationController?.popToRootViewController(animated: true)
+		self.navigationController?.popViewController(animated: true)
 	}
 	
 	func konfirmasiPickup(completion: @escaping (Bool) -> Void){

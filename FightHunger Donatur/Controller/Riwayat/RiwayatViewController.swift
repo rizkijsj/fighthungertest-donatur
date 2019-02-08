@@ -11,6 +11,8 @@ import Firebase
 
 class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     var dataPost = [Post]()
+	var selectedIndex = IndexPath()
+	
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBAction func backBtn(_ sender: Any) {
         self.navigationController?.popViewController(animated: true)
@@ -36,14 +38,14 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
             }, completion: nil)
         }
     }
-    
+    /*
     let fotoDonasi: [UIImage] = [UIImage(named: "foto")!, UIImage(named: "foto")!]
     let namaDonasi = ["Stroberi","Siomay"]
     let keteranganDonasi = ["Stoberi masih segar","Siomay baru dimasak tadi pagi dan tidak habis, terlalu banyak"]
     let fotoOrganisasi : [UIImage] = [UIImage(named: "foi")!, UIImage(named: "foi")!]
     let namaOrganisasi = ["Foodbank of Indonesia", "The Hunger Bank"]
     let keteranganWkt = ["23 Jan,08:24","24 Mei,18:34"]
-    
+    */
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
@@ -71,10 +73,10 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         
         //cell.fotoDonasi.image = dataPost[indexPath.row].
         cell.contentName.text = dataPost[indexPath.row].namaitem
-		cell.contentExpiredDate.text = dataPost[indexPath.row].deskripsi
+		//cell.contentExpiredDate.text = dataPost[indexPath.row].deskripsi
 		
 		cell.contentOrganisationName.text = ""
-		if dataPost[indexPath.row].status == 5 || dataPost[indexPath.row].status == 6 {
+		if dataPost[indexPath.row].status == 5{
 			cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 			ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url, fromCache in
 				
@@ -95,13 +97,26 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		dateFormat.locale = Locale.init(identifier: "Id")
 		dateFormat.dateFormat = "MMMM dd yyyy, HH:mm"
 		
+		cell.contentStatus.text = updateDonationStatus(donationStage: dataPost[indexPath.row].status)
+		cell.contentActivityTime.text = ""
 		if dataPost[indexPath.row].status == 5 {
-        cell.contentActivityTime.text = dateFormat.string(from: Date(timeIntervalSince1970: dataPost[indexPath.row].waktuambil))
-		} else {
-			cell.contentActivityTime.text = "Dibatalkan"
+			cell.contentExpiredDate.text = "Sampai pada tanggal dan waktu:\n\(dateFormat.string(from: Date(timeIntervalSince1970: dataPost[indexPath.row].waktusampai)))"
 		}
         return cell
     }
+	
+	func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+		selectedIndex = indexPath
+		performSegue(withIdentifier: "toPastActivity", sender: self)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "toPastActivity"{
+			let vc = segue.destination as! KegiatanViewController
+			vc.passingObject = dataPost[selectedIndex.row]
+			vc.transactionID = dataPost[selectedIndex.row].idtransaksi
+		}
+	}
     
 
     override func viewDidLoad() {
@@ -128,6 +143,21 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
+	
+	func updateDonationStatus(donationStage:Int) -> String{
+		
+		switch donationStage {
+		case 0:
+			return "Dibatalkan"
+		case 5:
+			return "Telah sampai"
+		case 6:
+			return "Dibatalkan"
+		default:
+			return ""
+		}
+		
+	}
    
 
     func observePost() {
