@@ -18,20 +18,25 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
     
     func pickerView(_ pickerView: UIPickerView, numberOfRowsInComponent component: Int) -> Int {
     
-        return cobaNumber.count
+        return cobaNumber.count + 1
     }
    
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return String(cobaNumber[row])
+		if row == 0 {
+			return ""
+		}
+        return String(cobaNumber[row-1])
     }
     
     func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
         
-      
+		if row != 0{
+			selectedNumber = String(cobaNumber[picker.selectedRow(inComponent: 0) - 1])
+			// selectedNumber = String(cobaNumber[row])
+			textKuantitas.text = selectedNumber
+		}
         
-        selectedNumber = String(cobaNumber[picker.selectedRow(inComponent: 0)])
-       // selectedNumber = String(cobaNumber[row])
-        textKuantitas.text = selectedNumber
+		
 
        
     }
@@ -79,7 +84,12 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
     
     @objc func doneClicked()
     {
-       textKuantitas.text = "\(picker.selectedRow(inComponent: 0)+1)"
-        textKuantitas.endEditing(true)
+		if picker.selectedRow(inComponent: 0) == 0 {
+			textKuantitas.text = ""
+		}else {
+       textKuantitas.text = "\(picker.selectedRow(inComponent: 0))"
+		}
+		textKuantitas.endEditing(true)
+		textFieldChange(target: textKuantitas)
     }
 }
