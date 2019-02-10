@@ -178,7 +178,7 @@
                                                             <constraints>
                                                                 <constraint firstAttribute="width" secondItem="sa6-Xy-Bj6" secondAttribute="height" multiplier="1:1" id="3GA-FW-Qg8"/>
                                                             </constraints>
-                                                            <state key="normal" backgroundImage="my_location"/>
+                                                            <state key="normal" backgroundImage="Lokasi"/>
                                                             <connections>
                                                                 <action selector="toMap:" destination="f4w-s9-JZp" eventType="touchUpInside" id="piq-HE-E42"/>
                                                             </connections>
@@ -332,8 +332,8 @@
     </scenes>
     <resources>
         <image name="Gambar template donatur" width="356" height="200"/>
+        <image name="Lokasi" width="200" height="200"/>
         <image name="kamera" width="587" height="200"/>
         <image name="library" width="587" height="200"/>
-        <image name="my_location" width="200" height="200"/>
     </resources>
 </document>
