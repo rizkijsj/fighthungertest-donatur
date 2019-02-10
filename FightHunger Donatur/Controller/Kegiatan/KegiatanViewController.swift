@@ -260,7 +260,7 @@ class KegiatanViewController: UITableViewController {
 	
 	func konfirmasiPickup(completion: @escaping (Bool) -> Void){
 		guard let uid = Auth.auth().currentUser?.uid else { return }
-		
+        guard let kegiatanObject = passingObject else {return}
 		guard let idtransaksi = passingObject?.idtransaksi else {return}
 		
 		//        guard let alasanBatal = alasanBatalTextField.text else{return}
@@ -271,7 +271,16 @@ class KegiatanViewController: UITableViewController {
 		databaseRef.updateChildValues(userObject) { error, ref in
 			if error == nil{
 				print("sukses")
-				completion(true)
+                connector().retrieveUserToken(id: kegiatanObject.idkomunitas, completion: { (token, result) in
+                    if result{
+                        print("masuk send notif")
+                        let sender = PushNotificationSender()
+                        sender.sendPushNotification(to: token, title: "Donasi diambil kurir", body: "Barang donasi sudah diambil oleh kurir")
+                        completion(true)
+                    }else{
+                        completion(false)
+                    }
+                })
 			}else{
 				completion(false)
 			}

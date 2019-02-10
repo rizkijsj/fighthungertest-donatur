@@ -13,7 +13,7 @@ class UserService {
     
     static var currentUserProfile:UserProfile?
     
-    static func observeUserProfile(_ uid:String, completion: @escaping ((_ userProfile:UserProfile?)->())) {
+    static func observeUserProfile(_ uid:String, completion: @escaping ((_ userProfile:UserProfile?,Bool)->())) {
         let userRef = Database.database().reference().child("users/donatur/profile/\(uid)")
         
         userRef.observe(.value, with: { snapshot in
@@ -25,9 +25,13 @@ class UserService {
                 let namaDonatur = dict["username"] as? String
             {
                 userProfile = UserProfile(uid: snapshot.key, email: email,phonenumber: phonenumber, username: namaDonatur)
+                
+                completion(userProfile, true)
+            }else{
+                completion(userProfile, false)
             }
             
-            completion(userProfile)
+            
         })
     }
     
