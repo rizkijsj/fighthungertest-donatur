@@ -164,11 +164,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-10-le8">
+                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q1d-La-vhn">
                                                     <rect key="frame" x="16" y="4" width="398" height="56"/>
                                                     <subviews>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r26-Oi-EoT" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="334" height="56"/>
+                                                            <rect key="frame" x="0.0" y="0.0" width="314" height="56"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                             <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
@@ -176,7 +176,9 @@
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Xy-Bj6">
                                                             <rect key="frame" x="342" y="0.0" width="56" height="56"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="sa6-Xy-Bj6" secondAttribute="height" multiplier="1:1" id="3GA-FW-Qg8"/>
+                                                                <constraint firstAttribute="width" secondItem="sa6-Xy-Bj6" secondAttribute="height" multiplier="1:1" id="hya-q5-3gv"/>
+                                                                <constraint firstAttribute="height" constant="32" id="kc0-x6-RkQ"/>
+                                                                <constraint firstAttribute="width" constant="32" id="vGS-1z-jtf"/>
                                                             </constraints>
                                                             <state key="normal" backgroundImage="Lokasi"/>
                                                             <connections>
@@ -185,15 +187,14 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="56" id="z7z-6T-gFb"/>
+                                                        <constraint firstAttribute="height" constant="56" id="6Lb-re-fG7"/>
+                                                        <constraint firstAttribute="width" constant="398" id="tMq-7I-1Xt"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="9Aw-10-le8" firstAttribute="leading" secondItem="UtD-0G-fbr" secondAttribute="leading" constant="16" id="6If-KF-5fX"/>
-                                                <constraint firstItem="9Aw-10-le8" firstAttribute="top" secondItem="UtD-0G-fbr" secondAttribute="top" constant="4" id="GFt-1y-IZA"/>
-                                                <constraint firstAttribute="bottom" secondItem="9Aw-10-le8" secondAttribute="bottom" id="Iab-wP-PhB"/>
-                                                <constraint firstAttribute="trailing" secondItem="9Aw-10-le8" secondAttribute="trailing" id="VNH-hs-hd5"/>
+                                                <constraint firstItem="Q1d-La-vhn" firstAttribute="leading" secondItem="UtD-0G-fbr" secondAttribute="leading" constant="16" id="4a1-kh-k8p"/>
+                                                <constraint firstAttribute="trailing" secondItem="Q1d-La-vhn" secondAttribute="trailing" constant="16" id="93e-i0-EXA"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -277,6 +278,7 @@
                         <outlet property="keteranganBarang" destination="CX7-LV-Fii" id="umx-cm-Vin"/>
                         <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="X2J-u8-Xtu"/>
                         <outlet property="namaBarang" destination="tC5-9f-7PZ" id="5Yy-ey-yx8"/>
+                        <outlet property="viewAlamat" destination="UtD-0G-fbr" id="ycB-Cl-G85"/>
                         <outlet property="waktuPengambilan" destination="5YL-GD-4og" id="n4L-h5-g9g"/>
                         <segue destination="Qye-FF-Kdx" kind="show" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
                         <segue destination="zu9-Xr-40N" kind="show" identifier="DonasiToMap" id="9D9-Vz-n5s"/>

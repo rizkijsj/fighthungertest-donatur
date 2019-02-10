@@ -72,6 +72,20 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     
     
+    @IBOutlet weak var viewAlamat: UIView!
+    private func alamatView(){
+        let warna = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
+        let border = CALayer()
+        let width = CGFloat(2.0)
+        border.borderColor = warna.cgColor
+        border.borderWidth = width
+        border.frame = CGRect(x: 0, y: viewAlamat.bounds.size.height - width, width: viewAlamat.bounds.size.width, height: viewAlamat.bounds.size.height)
+        viewAlamat.layer.addSublayer(border)
+        viewAlamat.layer.masksToBounds = true
+    }
+    
+    
+    
     //show keyboard
     func textFieldDidBeginEditing(_ textField: UITextField) {
         moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: true)
