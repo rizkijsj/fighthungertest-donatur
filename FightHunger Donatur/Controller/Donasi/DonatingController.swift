@@ -73,7 +73,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     
     @IBOutlet weak var viewAlamat: UIView!
-    private func alamatView(){
+    func alamatView(){
         let warna = UIColor(red: 216/255, green: 216/255, blue: 216/255, alpha: 1)
         let border = CALayer()
         let width = CGFloat(2.0)
@@ -242,7 +242,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		  self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)]
 		
 		createPicker()
-    
+        alamatView()
         
         //guard let userProfile = UserService.currentUserProfile else { return }
         if let availableImage = takenPhoto {

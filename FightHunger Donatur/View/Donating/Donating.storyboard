@@ -164,7 +164,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" ambiguous="YES" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q1d-La-vhn">
+                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="28" translatesAutoresizingMaskIntoConstraints="NO" id="Q1d-La-vhn">
                                                     <rect key="frame" x="16" y="4" width="398" height="56"/>
                                                     <subviews>
                                                         <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r26-Oi-EoT" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
@@ -176,9 +176,8 @@
                                                         <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Xy-Bj6">
                                                             <rect key="frame" x="342" y="0.0" width="56" height="56"/>
                                                             <constraints>
+                                                                <constraint firstAttribute="height" constant="56" id="bx6-N2-RzY"/>
                                                                 <constraint firstAttribute="width" secondItem="sa6-Xy-Bj6" secondAttribute="height" multiplier="1:1" id="hya-q5-3gv"/>
-                                                                <constraint firstAttribute="height" constant="32" id="kc0-x6-RkQ"/>
-                                                                <constraint firstAttribute="width" constant="32" id="vGS-1z-jtf"/>
                                                             </constraints>
                                                             <state key="normal" backgroundImage="Lokasi"/>
                                                             <connections>
@@ -187,14 +186,16 @@
                                                         </button>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="56" id="6Lb-re-fG7"/>
-                                                        <constraint firstAttribute="width" constant="398" id="tMq-7I-1Xt"/>
+                                                        <constraint firstAttribute="trailing" secondItem="sa6-Xy-Bj6" secondAttribute="trailing" id="lL0-TY-Heu"/>
+                                                        <constraint firstItem="sa6-Xy-Bj6" firstAttribute="centerY" secondItem="Q1d-La-vhn" secondAttribute="centerY" id="xnb-5o-Msp"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstItem="Q1d-La-vhn" firstAttribute="top" secondItem="UtD-0G-fbr" secondAttribute="top" constant="4" id="23j-bI-sn0"/>
                                                 <constraint firstItem="Q1d-La-vhn" firstAttribute="leading" secondItem="UtD-0G-fbr" secondAttribute="leading" constant="16" id="4a1-kh-k8p"/>
-                                                <constraint firstAttribute="trailing" secondItem="Q1d-La-vhn" secondAttribute="trailing" constant="16" id="93e-i0-EXA"/>
+                                                <constraint firstAttribute="trailing" secondItem="Q1d-La-vhn" secondAttribute="trailing" id="93e-i0-EXA"/>
+                                                <constraint firstAttribute="bottom" secondItem="Q1d-La-vhn" secondAttribute="bottom" id="eiU-Vb-eZQ"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
