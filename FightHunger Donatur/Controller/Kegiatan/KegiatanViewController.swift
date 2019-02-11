@@ -346,25 +346,26 @@ class KegiatanViewController: UITableViewController {
 			print("Di Batalkan donatur")
 			namaOrganisasi.text = ""
 			nomorTelponOrganisasi.text = ""
-			
+//            keteranganBtnKonfirmasi.text = "Menunggu konfirmasi"
 			namaKurir.text = ""
 			deskripsiKurir.text = ""
 		}else if donationStage == 1 {
 			print("Menunggu untuk di claim")
 			btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
-			
+			keteranganBtnKonfirmasi.text = "Menunggu untuk di klaim Organiasi"
 			namaOrganisasi.text = "Belom Ada"
 			nomorTelponOrganisasi.text = "Belom Ada"
-			
 			namaKurir.text = "Belum Ada"
 			deskripsiKurir.text = "Belum Ada"
 			
 		}else if donationStage == 2 {
-			print("Menunggu Menunggu Data Kurir")
+			print("Menunggu Data Kurir")
 			stasus1.image = UIImage.init(named: "pin1a")
 			btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
 			btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
-			
+            keteranganBtnKonfirmasi.text = "Menunggu data Kurir"
+//            namaOrganisasi.text = "\(organizationDetail.name)"
+//            nomorTelponOrganisasi.text = "Belom Ada"
 			namaKurir.text = "Belum Ada"
 			deskripsiKurir.text = "Belum Ada"
 		}else if donationStage == 3 {
@@ -373,18 +374,21 @@ class KegiatanViewController: UITableViewController {
 			status2.image = UIImage.init(named: "pin2a")
 			btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
 			btnKonfirmasi.setImage(UIImage(named: "konfirmasi aktif"), for: .normal)
+            keteranganBtnKonfirmasi.text = "Organisasi mengirim kurir ke tempat Donatur"
 		} else if donationStage == 4 {
 			print("Sedang diantar")
 			stasus1.image = UIImage.init(named: "pin1a")
 			status2.image = UIImage.init(named: "pin2a")
 			status3.image = UIImage.init(named: "pin3a")
 			btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
+            keteranganBtnKonfirmasi.text = "Kurir sedang mengantar donasi ke Organisasi"
 		} else if donationStage == 5 {
 			print("Sudah sampai organisasi")
 			stasus1.image = UIImage.init(named: "pin1a")
 			status2.image = UIImage.init(named: "pin2a")
 			status3.image = UIImage.init(named: "pin3a")
 			status4.image = UIImage.init(named: "pin4a")
+            keteranganBtnKonfirmasi.text = "Donasi sudah sampai di Organisasi"
 			
 		}else if donationStage == 6 {
 			print("Di Batalkan Organisasi")

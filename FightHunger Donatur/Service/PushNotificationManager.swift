@@ -50,6 +50,7 @@ class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCe
             databaseTokenRef.setValue(tokenObject) { error, ref in
                 if error == nil {
                     print("sukses masukin token id")
+                    print(token)
                     
                 }else{
                     print("error post transaction id donasi")

@@ -442,6 +442,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
             if result{
                 //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
 				self.dismiss(animated: true, completion: nil)
+                self.resetForm()
             }else{
                 self.resetForm()
             }

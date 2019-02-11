@@ -174,16 +174,16 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         if userExistance{
             connector().logIn(kodeotp: credential) { (result) in
                 if result{
-					if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
-						let controllers = self.navigationController?.viewControllers
-						for vc in controllers! {
-							if vc is DonatingController {
-								_ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
-							}
-						}
-					}else {
-						self.navigationController?.popToRootViewController(animated: true)
-					}
+                    if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+                        let controllers = self.navigationController?.viewControllers
+                        for vc in controllers! {
+                            if vc is DonatingController {
+                                _ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
+                            }
+                        }
+                    }else {
+                        self.navigationController?.popToRootViewController(animated: true)
+                    }
                     //self.performSegue(withIdentifier: "LoginToHome", sender: nil)
                 }
             }
@@ -197,13 +197,21 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
                 if result{
                     print("sukses untuk sign up / login")
                     if status {
-						if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
-							let data = DonatingController()
-							self.navigationController?.popToViewController(data, animated: true)
-						}else {
-							self.navigationController?.popToRootViewController(animated: true)
-						}
-						
+                        if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+                            /*
+                            let data = DonatingController()
+                            self.navigationController?.popToViewController(data, animated: true)
+                             */
+                            let controllers = self.navigationController?.viewControllers
+                            for vc in controllers! {
+                                if vc is DonatingController {
+                                    _ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
+                                }
+                            }
+                        }else {
+                            self.navigationController?.popToRootViewController(animated: true)
+                        }
+                        
                         //self.performSegue(withIdentifier: "OTPToHome", sender: nil)
                     }
                 }else{
@@ -212,7 +220,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             }
         }
     }
-	
+    
 
     
         
