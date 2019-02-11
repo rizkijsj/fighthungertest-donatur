@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="CFW-RA-Fch">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="VaB-LE-eif">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -48,7 +48,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="XiE-iL-Epf" kind="show" id="xWU-9O-SgD"/>
+                                            <segue destination="bJM-YL-tzm" kind="show" id="xWU-9O-SgD"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oSO-RP-Ovj">
@@ -58,7 +58,7 @@
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <connections>
-                                            <segue destination="da5-Bk-tOG" kind="show" id="5bS-LH-Uoe"/>
+                                            <segue destination="x6i-z8-k7T" kind="show" id="5bS-LH-Uoe"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -77,9 +77,9 @@
                         <viewLayoutGuide key="safeArea" id="R3X-k8-CgA"/>
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="4WA-s9-OiH">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="hjp-aj-TlM">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="hjp-aj-TlM">
                             <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="0.81568627449999997" green="0.0078431372550000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backToHome:" destination="VaB-LE-eif" id="JW9-hg-8aK"/>
                             </connections>
@@ -165,9 +165,9 @@
                         <viewLayoutGuide key="safeArea" id="9WB-Fw-tXW"/>
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="xIm-BI-XvK">
-                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="9PX-sL-eOI">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="9PX-sL-eOI">
                             <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="0.81568627449999997" green="0.0078431372550000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="back:" destination="XiE-iL-Epf" id="K9R-Ge-MpU"/>
                             </connections>
@@ -185,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UjY-A2-s8r" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8679.2000000000007" y="759.60591133004925"/>
+            <point key="canvasLocation" x="9621.6000000000004" y="759.60591133004925"/>
         </scene>
         <!--Masuk-->
         <scene sceneID="gJg-CD-gfX">
@@ -325,9 +325,9 @@
                         <viewLayoutGuide key="safeArea" id="CEl-cI-FBl"/>
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="vJz-iT-g9r">
-                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="M0P-VX-DAK">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="M0P-VX-DAK">
                             <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="0.81568627449999997" green="0.0078431372550000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="return:" destination="vMY-4Z-iyk" id="bV3-aQ-NeC"/>
                             </connections>
@@ -355,7 +355,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Zal-mt-FQV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="4Uf-c8-Iv4" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="9498" y="760"/>
+            <point key="canvasLocation" x="10439.200000000001" y="759.60591133004925"/>
         </scene>
         <!--Daftar-->
         <scene sceneID="iO6-ve-G6C">
@@ -446,10 +446,10 @@
                         <viewLayoutGuide key="safeArea" id="NXT-HM-hGg"/>
                     </view>
                     <navigationItem key="navigationItem" title="Daftar" id="QPM-OJ-iD2">
-                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="ufI-g9-9UR">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="ufI-g9-9UR">
                             <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="-10" maxX="0.0" maxY="0.0"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="0.81568627449999997" green="0.0078431372550000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backButton:" destination="da5-Bk-tOG" id="opo-co-gni"/>
                             </connections>
@@ -468,12 +468,12 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rrw-P4-80m" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7071.1999999999998" y="1534.729064039409"/>
+            <point key="canvasLocation" x="8013.6000000000004" y="1534.729064039409"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Nbe-79-LTS">
             <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="CFW-RA-Fch" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="LoginRegisterNav" automaticallyAdjustsScrollViewInsets="NO" id="CFW-RA-Fch" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kni-eo-BhD">
                         <rect key="frame" x="0.0" y="44" width="375" height="44"/>
@@ -488,11 +488,44 @@
             </objects>
             <point key="canvasLocation" x="6533.6000000000004" y="762.5615763546798"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="hOa-hU-oje">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="bJM-YL-tzm" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="hsk-Ss-FLf">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="XiE-iL-Epf" kind="relationship" relationship="rootViewController" id="kRW-xE-hLR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UMV-jb-XeR" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="8679.2000000000007" y="759.60591133004925"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="2CV-xI-6gE">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="x6i-z8-k7T" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ceq-0a-8pP">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="da5-Bk-tOG" kind="relationship" relationship="rootViewController" id="cgj-Sk-HEM"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="oqh-FJ-Mcf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="7071.1999999999998" y="1534.729064039409"/>
+        </scene>
     </scenes>
-    <resources>
-        <image name="arrowback" width="120" height="200"/>
-    </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="zhn-Ou-xFt"/>
+        <segue reference="kQs-fF-YaO"/>
     </inferredMetricsTieBreakers>
 </document>

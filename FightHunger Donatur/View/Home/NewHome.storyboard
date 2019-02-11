@@ -63,10 +63,10 @@
                     <connections>
                         <outlet property="donateButton" destination="JdN-J8-v6G" id="HMH-pz-Tlv"/>
                         <outlet property="tableView" destination="0xs-z0-Hux" id="ZBF-Lf-lcS"/>
-                        <segue destination="jp7-0b-DRF" kind="show" identifier="Profil" id="CSz-Fd-9Ml"/>
-                        <segue destination="fL7-n3-YWV" kind="show" identifier="Login" id="9r3-Xy-oG4"/>
-                        <segue destination="vAa-Ur-EJs" kind="show" identifier="keAktivitas" id="HSw-Nw-UnV"/>
-                        <segue destination="30J-aI-EYq" kind="show" identifier="PostDonasi" id="OhZ-ps-tbQ"/>
+                        <segue destination="jp7-0b-DRF" kind="presentation" identifier="Profil" id="CSz-Fd-9Ml"/>
+                        <segue destination="fL7-n3-YWV" kind="presentation" identifier="Login" id="9r3-Xy-oG4"/>
+                        <segue destination="vAa-Ur-EJs" kind="presentation" identifier="keAktivitas" id="HSw-Nw-UnV"/>
+                        <segue destination="30J-aI-EYq" kind="presentation" identifier="PostDonasi" id="OhZ-ps-tbQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0Y-5z-x1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -89,7 +89,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVZ-nJ-RUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1574" y="-293"/>
+            <point key="canvasLocation" x="2015" y="7"/>
         </scene>
         <!--ProfileDonatur-->
         <scene sceneID="niM-IS-dI8">
@@ -97,12 +97,12 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileDonatur" id="jp7-0b-DRF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB7-TU-Vxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="-158"/>
+            <point key="canvasLocation" x="1620" y="-182"/>
         </scene>
-        <!--LoginRegister-->
+        <!--LoginRegisterNav-->
         <scene sceneID="AK6-1m-uK4">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegister" id="fL7-n3-YWV" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegisterNav" id="fL7-n3-YWV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTb-JN-KyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1650" y="-13"/>

@@ -100,9 +100,9 @@
                         <viewLayoutGuide key="safeArea" id="o1n-hv-onG"/>
                     </view>
                     <navigationItem key="navigationItem" title="Lokasi" id="u5U-4E-ico">
-                        <barButtonItem key="leftBarButtonItem" image="arrowback" id="pHf-gm-RSR">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="pHf-gm-RSR">
                             <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="0.81568627449999997" green="0.0078431372550000003" blue="0.1058823529" alpha="1" colorSpace="calibratedRGB"/>
                             <connections>
                                 <action selector="backBtn:" destination="dfe-hM-wgt" id="UV3-OM-eBl"/>
                             </connections>
@@ -152,7 +152,6 @@
     <resources>
         <image name="Current Location" width="128" height="128"/>
         <image name="Set Lokasi" width="314" height="56"/>
-        <image name="arrowback" width="120" height="200"/>
         <image name="location_on" width="138" height="200"/>
     </resources>
 </document>
