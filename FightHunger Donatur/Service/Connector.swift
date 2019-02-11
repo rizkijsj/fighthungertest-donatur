@@ -338,6 +338,30 @@ class connector {
         }
     }
     
+    func retrieveUserToken(id:String,completion: @escaping (String,Bool) -> Void) {
+        print("koko",id)
+        let databaseTokenRef = Database.database().reference().child("users/fcmtoken/\(id)")
+        var tempTokenKey = ""
+        
+        
+        databaseTokenRef.observe(.value, with: { snapshot in
+            var userProfile:UserProfile?
+            //print(snapshot.value)
+            if let dict = snapshot.value as? [String:Any],
+                let tokenkey = dict["fcmToken"] as? String
+            {
+                
+                tempTokenKey = tokenkey
+                print(tokenkey)
+                completion(tempTokenKey,true)
+                
+            }else{
+                completion(tempTokenKey,false)
+                print("gagal ambil token")
+            }
+        })
+    }
+    
     
 	func SMSSucess(verificationCode:String) -> Bool{
 		// TODO:
@@ -436,8 +460,16 @@ class connector {
 								databasePostRef.setValue(nil){ error, ref in
 									if error == nil {
 										print("sukses hapus data")
-										completion(true)
-									}else{
+                                        self.retrieveUserToken(id: data.idkomunitas, completion: { (token, result) in
+                                            if result{
+                                                print("masuk send notif")
+                                                let sender = PushNotificationSender()
+                                                sender.sendPushNotification(to: token, title: "Order Dibatalkan", body: "Order dibatalkan oleh donatur")
+                                                completion(true)
+                                            }else{
+                                                completion(false)
+                                            }
+                                        })									}else{
 										print("gagal hapus data")
 										completion(false)
 									}

@@ -33,6 +33,8 @@
 		2BF68C4F21FEB2FA008C85CE /* SectionCollectionReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4E21FEB2FA008C85CE /* SectionCollectionReusableView.swift */; };
 		2F1C8A812205F70B00C57764 /* LoginRegister.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00913221FB7E0E00BC89AE /* LoginRegister.storyboard */; };
 		2F1C8A822205F74200C57764 /* OTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */; };
+		2F31EC0D22102B800073F3A5 /* PushNotificationSender.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31EC0C22102B7F0073F3A5 /* PushNotificationSender.swift */; };
+		2F31EC0F2210301E0073F3A5 /* PushNotificationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F31EC0E2210301E0073F3A5 /* PushNotificationManager.swift */; };
 		2F34F53822087F2B007FDA8C /* OrganisasiProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34F53722087F2B007FDA8C /* OrganisasiProfile.swift */; };
 		2F5D05FC21FED50900CDD125 /* Post.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FA21FED50900CDD125 /* Post.swift */; };
 		2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FB21FED50900CDD125 /* UserProfile.swift */; };
@@ -94,6 +96,8 @@
 		2BF68C4A21FEB11F008C85CE /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		2BF68C4C21FEB17C008C85CE /* HomeCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCollectionViewCell.swift; sourceTree = "<group>"; };
 		2BF68C4E21FEB2FA008C85CE /* SectionCollectionReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SectionCollectionReusableView.swift; sourceTree = "<group>"; };
+		2F31EC0C22102B7F0073F3A5 /* PushNotificationSender.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationSender.swift; sourceTree = "<group>"; };
+		2F31EC0E2210301E0073F3A5 /* PushNotificationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PushNotificationManager.swift; sourceTree = "<group>"; };
 		2F34F53722087F2B007FDA8C /* OrganisasiProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganisasiProfile.swift; sourceTree = "<group>"; };
 		2F5D05FA21FED50900CDD125 /* Post.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Post.swift; sourceTree = "<group>"; };
 		2F5D05FB21FED50900CDD125 /* UserProfile.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserProfile.swift; sourceTree = "<group>"; };
@@ -413,7 +417,9 @@
 			isa = PBXGroup;
 			children = (
 				2F5D05FF21FED51E00CDD125 /* ImageService.swift */,
+				2F31EC0E2210301E0073F3A5 /* PushNotificationManager.swift */,
 				2F5D05FE21FED51E00CDD125 /* UserService.swift */,
+				2F31EC0C22102B7F0073F3A5 /* PushNotificationSender.swift */,
 				FB00913621FB7E8A00BC89AE /* Connector.swift */,
 			);
 			path = Service;
@@ -554,7 +560,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 0;
+								enabled = 1;
 							};
 							com.apple.VPNLite = {
 								enabled = 0;
@@ -728,6 +734,7 @@
 				2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */,
 				2B8CD1FB22035BD500E5FFD2 /* KegiatanTerbaruController.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
+				2F31EC0D22102B800073F3A5 /* PushNotificationSender.swift in Sources */,
 				2B4836702201EE5D00B18E72 /* UbahprofilViewController.swift in Sources */,
 				FB0C42242203218A006BEC67 /* Organisasi.swift in Sources */,
 				2B4836662201B52B00B18E72 /* SectionTwoHomeCell.swift in Sources */,
@@ -737,6 +744,7 @@
 				2BF68C4F21FEB2FA008C85CE /* SectionCollectionReusableView.swift in Sources */,
 				2BF68C4B21FEB11F008C85CE /* HomeViewController.swift in Sources */,
 				FB7E75A1220084EB0072235D /* waktuPickerTableViewCell.swift in Sources */,
+				2F31EC0F2210301E0073F3A5 /* PushNotificationManager.swift in Sources */,
 				2F5D060021FED51E00CDD125 /* UserService.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
@@ -922,6 +930,7 @@
 			baseConfigurationReference = 725D660C2F57496AD30DF185 /* Pods-FightHunger Donatur.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29LM4FT5NH;
 				ENABLE_BITCODE = NO;
@@ -942,6 +951,7 @@
 			baseConfigurationReference = 5058FB356AA318B109E36153 /* Pods-FightHunger Donatur.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 29LM4FT5NH;
 				ENABLE_BITCODE = NO;

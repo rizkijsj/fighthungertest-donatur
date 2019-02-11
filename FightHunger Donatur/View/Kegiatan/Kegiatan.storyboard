@@ -194,7 +194,7 @@
                                         <rect key="frame" x="0.0" y="522" width="320" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zJu-L2-11f" id="RHH-pX-Cdq">
-                                            <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="320" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mitra Yang Mengambil" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lyu-Bq-hLf">
@@ -252,33 +252,46 @@
                                             <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="sfw-3s-pye">
+                                                <stackView opaque="NO" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sfw-3s-pye">
                                                     <rect key="frame" x="20" y="16" width="280" height="55.5"/>
                                                     <subviews>
-                                                        <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gCc-IM-YZ7">
-                                                            <rect key="frame" x="0.0" y="0.0" width="224.5" height="55.5"/>
+                                                        <stackView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="gCc-IM-YZ7">
+                                                            <rect key="frame" x="0.0" y="0.0" width="224" height="55.5"/>
                                                             <subviews>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Nomor Telephone" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="oCa-hc-Htf">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="224.5" height="24"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="224" height="24"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="nomor telphone organisasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UuS-an-mW1">
-                                                                    <rect key="frame" x="0.0" y="32" width="224.5" height="23.5"/>
+                                                                    <rect key="frame" x="0.0" y="32" width="224" height="23.5"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
                                                             </subviews>
                                                         </stackView>
-                                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDI-dl-j4K">
-                                                            <rect key="frame" x="224.5" y="0.0" width="55.5" height="55.5"/>
+                                                        <view contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="jTw-uM-Px5">
+                                                            <rect key="frame" x="224" y="0.0" width="56" height="55.5"/>
+                                                            <subviews>
+                                                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SDI-dl-j4K">
+                                                                    <rect key="frame" x="10.5" y="10.5" width="35" height="35"/>
+                                                                    <constraints>
+                                                                        <constraint firstAttribute="width" secondItem="SDI-dl-j4K" secondAttribute="height" multiplier="1:1" id="QeL-3C-3Wb"/>
+                                                                        <constraint firstAttribute="height" constant="35" id="r8e-e0-cO0"/>
+                                                                    </constraints>
+                                                                    <state key="normal" image="Telephone Inactive"/>
+                                                                </button>
+                                                            </subviews>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="width" secondItem="SDI-dl-j4K" secondAttribute="height" multiplier="1:1" id="QeL-3C-3Wb"/>
+                                                                <constraint firstItem="SDI-dl-j4K" firstAttribute="centerX" secondItem="jTw-uM-Px5" secondAttribute="centerX" id="1nb-hF-WpJ"/>
+                                                                <constraint firstAttribute="width" constant="56" id="6sk-vd-mHi"/>
+                                                                <constraint firstItem="SDI-dl-j4K" firstAttribute="centerY" secondItem="jTw-uM-Px5" secondAttribute="centerY" id="VSK-eM-xtE"/>
+                                                                <constraint firstAttribute="height" constant="56" id="zfi-nY-DEy"/>
                                                             </constraints>
-                                                            <state key="normal" image="Telephone Inactive"/>
-                                                        </button>
+                                                        </view>
                                                     </subviews>
                                                 </stackView>
                                             </subviews>

@@ -148,7 +148,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     
     //    buat passing data ke map
-   
+	
+	
     
     @IBOutlet weak var imgDonasi: UIImageView!
     @IBOutlet weak var continueButton: UIBarButtonItem!
