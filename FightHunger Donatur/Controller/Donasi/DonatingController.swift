@@ -17,7 +17,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 	@IBOutlet weak var keteranganBarang: CustomTextField!
     @IBOutlet weak var waktuPengambilan: CustomTextField!
 	
-	
+    @IBOutlet weak var alamatStack: UIStackView!
+    
 	
     
     var latitude = ""
@@ -79,9 +80,9 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         let width = CGFloat(2.0)
         border.borderColor = warna.cgColor
         border.borderWidth = width
-        border.frame = CGRect(x: 0, y: viewAlamat.bounds.size.height - width, width: viewAlamat.bounds.size.width, height: viewAlamat.bounds.size.height)
-        viewAlamat.layer.addSublayer(border)
-        viewAlamat.layer.masksToBounds = true
+        border.frame = CGRect(x: 0, y: alamatStack.bounds.size.height - width, width: alamatStack.bounds.size.width, height: alamatStack.bounds.size.height)
+        alamatStack.layer.addSublayer(border)
+        alamatStack.layer.masksToBounds = true
     }
     
     
