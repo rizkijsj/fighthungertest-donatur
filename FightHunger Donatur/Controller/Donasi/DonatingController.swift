@@ -168,9 +168,34 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     @IBOutlet weak var alamat: CustomTextField!
     @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){
         let vc = sender.source as! LokasiPengambilan
-        alamat.text = vc.alamatLengkap
-        print(vc.alamatLengkap)
-        print(vc.kordinatAsli)
+        if let placemark =  vc.selectedLocation {
+            
+            if vc.alamatLengkap != "" {
+                alamat.text = vc.alamatLengkap
+            } else {
+            
+            let namaTempat = placemark.name ?? ""
+            let noJalan = placemark.subThoroughfare ?? ""
+            let jalan = placemark.thoroughfare ?? ""
+            let kelurahan = placemark.subLocality ?? ""
+            let kecamatan = placemark.locality ?? ""
+            let kota = placemark.subAdministrativeArea ?? ""
+            let kodePost = placemark.postalCode ?? ""
+            let provinsi = placemark.administrativeArea ?? ""
+            let negara = placemark.country ?? ""
+            
+                DispatchQueue.main.async {
+                    self.alamat.text = "\(namaTempat)" + " " + "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+                }
+            }
+        }
+  
+        
+        
+        
+        //alamat.text = vc.alamatLengkap
+        //print(vc.alamatLengkap)
+        //print(vc.kordinatAsli)
 		latitude = "\(vc.kordinatAsli[0])"
 		longitude = "\(vc.kordinatAsli[1])"
 		

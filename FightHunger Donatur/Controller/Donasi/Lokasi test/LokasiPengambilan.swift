@@ -25,6 +25,8 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 	@IBAction func backBtn(_ sender: Any) {
 		//self.navigationController?.popToRootViewController(animated: true)
 		self.dismiss(animated: true, completion: nil)
+        selectedLocation = nil
+        alamatLengkap = ""
 	}
 	//    unwindsegue dan pasing data
 	var alamatLengkap = ""
@@ -37,6 +39,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 	var lokasiSebelumnya: CLLocation?
 	let locationManager = CLLocationManager()
 	let regionInMeters: Double = 1000
+    var selectedLocation:CLPlacemark?
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -79,6 +82,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 			guard let placemark = placemarks?.first else {
 				return
 			}
+            self.selectedLocation = placemark
 			
 			let noJalan = placemark.subThoroughfare ?? ""
 			let jalan = placemark.thoroughfare ?? ""
@@ -92,7 +96,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
 			print("\(String(describing: placemarks))")
 			
 			DispatchQueue.main.async {
-				self.alamat.text = "Lokasi anda:\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+				self.alamat.text = "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
 				
 				self.alamatLengkap = self.alamat.text!
 			}
@@ -268,7 +272,8 @@ extension LokasiPengambilan: MKMapViewDelegate{
 			guard let placemark = placemarks?.first else {
 				return
 			}
-			
+            self.selectedLocation = placemark
+            
             let namaTempat = placemark.name ?? ""
 			let noJalan = placemark.subThoroughfare ?? ""
 			let jalan = placemark.thoroughfare ?? ""

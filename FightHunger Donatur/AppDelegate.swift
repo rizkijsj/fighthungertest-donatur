@@ -22,71 +22,74 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
         
-        FirebaseApp.configure()
-
-        
-        
-//        if #available(iOS 10.0, *) {
-//            // For iOS 10 display notification (sent via APNS)
-//            UNUserNotificationCenter.current().delegate = self
-//
-//            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
-//            UNUserNotificationCenter.current().requestAuthorization(
-//                options: authOptions,
-//                completionHandler: {_, _ in })
-//        } else {
-//            let settings: UIUserNotificationSettings =
-//                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
-//            application.registerUserNotificationSettings(settings)
-//        }
-//        Messaging.messaging().delegate = self
-//        application.registerForRemoteNotifications()
-        
-        
-        
-        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
-            //let storyboard = UIStoryboard(name: "NewHome", bundle: nil)
+        DispatchQueue.main.async {
+            FirebaseApp.configure()
             
-            if user != nil{
+            
+            
+            //        if #available(iOS 10.0, *) {
+            //            // For iOS 10 display notification (sent via APNS)
+            //            UNUserNotificationCenter.current().delegate = self
+            //
+            //            let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
+            //            UNUserNotificationCenter.current().requestAuthorization(
+            //                options: authOptions,
+            //                completionHandler: {_, _ in })
+            //        } else {
+            //            let settings: UIUserNotificationSettings =
+            //                UIUserNotificationSettings(types: [.alert, .badge, .sound], categories: nil)
+            //            application.registerUserNotificationSettings(settings)
+            //        }
+            //        Messaging.messaging().delegate = self
+            //        application.registerForRemoteNotifications()
+            
+            
+            
+            let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+                //let storyboard = UIStoryboard(name: "NewHome", bundle: nil)
                 
-                self.loadUserProfile(id: user!.uid, completion: { (result) in
-                    if result{
-                        
-                    }else{
-                        
-                    }
-                })
+                if user != nil{
+                    
+                    self.loadUserProfile(id: user!.uid, completion: { (result) in
+                        if result{
+                            
+                        }else{
+                            
+                        }
+                    })
+                    
+                    let pushManager = PushNotificationManager(userID: user!.uid )
+                    pushManager.registerForPushNotifications()
+                    
+                    
+                    //                let sender = PushNotificationSender()
+                    //                sender.sendPushNotification(to: "token", title: "Notification title", body: "Notification body")
+                    
+                    
+                    
+                    //                let postRef = Database.database().reference().child("Post/\(user!.uid)")
+                    //                postRef.observe(.childChanged, with: { (snapshot) -> Void in
+                    //                    self.postLocalNotification(identifier: "data changed", title: "data changed", subtitle: "your order is changed", body: "hai", duration: 1)
+                    //                    print("database is changed")
+                    //                })
+                    //auto login
+                    //                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
+                    //                self.window?.rootViewController = controller
+                    //                self.window?.makeKeyAndVisible()
+                    
+                } else {
+                    
+                    UserService.currentUserProfile = nil
+                    //                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
+                    //                self.window?.rootViewController = controller
+                    //                self.window?.makeKeyAndVisible()
+                }
                 
-                let pushManager = PushNotificationManager(userID: user!.uid )
-                pushManager.registerForPushNotifications()
                 
-                
-//                let sender = PushNotificationSender()
-//                sender.sendPushNotification(to: "token", title: "Notification title", body: "Notification body")
-                
-                
-                
-//                let postRef = Database.database().reference().child("Post/\(user!.uid)")
-//                postRef.observe(.childChanged, with: { (snapshot) -> Void in
-//                    self.postLocalNotification(identifier: "data changed", title: "data changed", subtitle: "your order is changed", body: "hai", duration: 1)
-//                    print("database is changed")
-//                })
-                //auto login
-//                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
-//                self.window?.rootViewController = controller
-//                self.window?.makeKeyAndVisible()
-                
-            } else {
-                
-                UserService.currentUserProfile = nil
-//                let controller = storyboard.instantiateViewController(withIdentifier: "HomeDonatur") as! UINavigationController
-//                self.window?.rootViewController = controller
-//                self.window?.makeKeyAndVisible()
             }
-            
-            
         }
-        Thread.sleep(forTimeInterval: 3.0)
+        
+        //Thread.sleep(forTimeInterval: 3.0)
         return true
 	}
     
