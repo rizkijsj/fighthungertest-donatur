@@ -175,17 +175,23 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             connector().logIn(kodeotp: credential) { (result) in
                 if result{
                     if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+						self.dismiss(animated:true, completion: nil)
+						/*
                         let controllers = self.navigationController?.viewControllers
                         for vc in controllers! {
                             if vc is DonatingController {
                                 _ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
                             }
                         }
+						*/
                     }else {
-                        self.navigationController?.popToRootViewController(animated: true)
+						self.dismiss(animated:true, completion: nil)
+                        //self.navigationController?.popToRootViewController(animated: true)
                     }
                     //self.performSegue(withIdentifier: "LoginToHome", sender: nil)
-                }
+				}else {
+					self.dismiss(animated:true, completion: nil)
+				}
             }
         }else{
             guard let email = tempTampungTerima[0] as? String else { return }
@@ -198,24 +204,28 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
                     print("sukses untuk sign up / login")
                     if status {
                         if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+							self.dismiss(animated:true, completion: nil)
                             /*
                             let data = DonatingController()
                             self.navigationController?.popToViewController(data, animated: true)
-                             */
+
                             let controllers = self.navigationController?.viewControllers
                             for vc in controllers! {
                                 if vc is DonatingController {
                                     _ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
                                 }
                             }
+							*/
                         }else {
-                            self.navigationController?.popToRootViewController(animated: true)
+							self.dismiss(animated:true, completion: nil)
+                            //self.navigationController?.popToRootViewController(animated: true)
                         }
                         
                         //self.performSegue(withIdentifier: "OTPToHome", sender: nil)
                     }
                 }else{
                     print("gagal sign in di vc")
+					self.dismiss(animated:true, completion: nil)
                 }
             }
         }
@@ -329,8 +339,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         let formFilled = otp1 != nil && otp1 != "" && otp2 != nil && otp2 != "" && otp3 != nil && otp3 != "" && otp4 != nil && otp4 != "" && otp5 != nil && otp5 != "" && otp6 != nil && otp6 != ""
 
         print(formFilled)
-        if formFilled
-        {
+        if formFilled{
             setContinueButton(enabled: true)
         }
         

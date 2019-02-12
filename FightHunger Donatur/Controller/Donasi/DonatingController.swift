@@ -325,7 +325,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		
         self.navigationController?.setNavigationBarHidden(false, animated: false)
         loadPostData()
-      
+      //textFieldChanged(alamat)
     }
     
     @objc func textFieldChanged(_ target:UITextField)

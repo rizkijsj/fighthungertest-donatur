@@ -65,7 +65,7 @@
                         <outlet property="tableView" destination="0xs-z0-Hux" id="ZBF-Lf-lcS"/>
                         <segue destination="jp7-0b-DRF" kind="presentation" identifier="Profil" id="CSz-Fd-9Ml"/>
                         <segue destination="fL7-n3-YWV" kind="presentation" identifier="Login" id="9r3-Xy-oG4"/>
-                        <segue destination="vAa-Ur-EJs" kind="presentation" identifier="keAktivitas" id="HSw-Nw-UnV"/>
+                        <segue destination="vAa-Ur-EJs" kind="show" identifier="keAktivitas" id="HSw-Nw-UnV"/>
                         <segue destination="30J-aI-EYq" kind="presentation" identifier="PostDonasi" id="OhZ-ps-tbQ"/>
                     </connections>
                 </viewController>

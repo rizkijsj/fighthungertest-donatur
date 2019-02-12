@@ -132,7 +132,7 @@ class connector {
         
         logIn(kodeotp: kodeotp) { (result) in
             if result{
-                guard let uid = Auth.auth().currentUser?.uid else { return }
+				guard let uid = Auth.auth().currentUser?.uid else { completion(false); return }
                 
                 let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
                 let phoneNumberDatabaseRef = Database.database().reference().child("users/phonenumber/\(phonenumber)")
@@ -152,6 +152,7 @@ class connector {
                 completion(true)
                 print("sukses sign up")
             }else{
+				completion(result)
                 print("gagal sign up")
             }
         }
