@@ -204,18 +204,23 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 	@IBAction func unwindFromOTPSuccess(_ sender:UIStoryboardSegue){
 		let vc = sender.source as! OTPViewController
 		
+		print("\n\n\nDi sini\n\n\n")
 		if vc.successLogin {
+			print("Login Sucess")
 			connector().verifyUserLoginState { (state) in
 				if state{
+					print("Handling Post")
 					self.handlePosting()
 				}else{
-					
+					print("Failed Login Again")
 					self.sendDataToNextVC()
 					self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
 					
 					
 				}
 			}
+		}else {
+			print("Login Failed")
 		}
 	}
     

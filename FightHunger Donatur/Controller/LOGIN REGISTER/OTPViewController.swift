@@ -132,15 +132,29 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 		
 	}
 	
-	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+	func textFieldDidBeginEditing(_ textField: UITextField) {
 		
+		/*
+		The commented code shows Replaces empty textfield with an empty character
+		when deletion, the previous text will be deleted.
+		
+		If uncommented, the text will return to the previous
+		*/
+		
+		//if textField.text == nil || textField.text == "" {
+		textField.text = "\u{200B}"
+		//}
+	}
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		print("OTP Changed: \(string) + \(range.length) / \(range.description)")
 		
 		if range.length == 0 {
 			if string == "0" || string == "1" || string == "2" || string == "3" || string == "4" || string == "5" || string == "6" || string == "7" || string == "8" || string == "9" {
-			setNextResponder(textFieldsIndexes[textField], direction: .right)
-			textField.text = string
-			textFieldChanged(textField)
-			return true
+				setNextResponder(textFieldsIndexes[textField], direction: .right)
+				textField.text = string
+				textFieldChanged(textField)
+				return true
 			}else {
 				setNextResponder(textFieldsIndexes[textField], direction: .left)
 				textField.text = ""
@@ -155,15 +169,15 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 		}
 		return false
 	}
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        otpTxt1.becomeFirstResponder()
-//        self.navigationController?.navigationBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width , height: 80.0)
-       self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		otpTxt1.becomeFirstResponder()
+		//        self.navigationController?.navigationBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width , height: 80.0)
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+		navigationController?.setNavigationBarHidden(false, animated: false)
+	}
+	
     
     
    
