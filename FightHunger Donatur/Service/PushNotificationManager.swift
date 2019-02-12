@@ -17,6 +17,8 @@ class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCe
         self.userID = userID
         super.init()
     }
+	
+
 
     func registerForPushNotifications() {
         if #available(iOS 10.0, *) {

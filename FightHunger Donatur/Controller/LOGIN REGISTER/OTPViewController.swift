@@ -136,10 +136,17 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 		
 		
 		if range.length == 0 {
+			if string == "0" || string == "1" || string == "2" || string == "3" || string == "4" || string == "5" || string == "6" || string == "7" || string == "8" || string == "9" {
 			setNextResponder(textFieldsIndexes[textField], direction: .right)
 			textField.text = string
 			textFieldChanged(textField)
 			return true
+			}else {
+				setNextResponder(textFieldsIndexes[textField], direction: .left)
+				textField.text = ""
+				textFieldChanged(textField)
+				return false
+			}
 		} else if range.length == 1 {
 			setNextResponder(textFieldsIndexes[textField], direction: .left)
 			textField.text = ""
