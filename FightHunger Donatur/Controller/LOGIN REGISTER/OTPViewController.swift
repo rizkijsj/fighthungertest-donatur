@@ -196,10 +196,13 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             connector().logIn(kodeotp: credential) { (result) in
                 if result{
 					self.successLogin = true
-					print("Nope, Dismissed")
-					self.dismiss(animated:true, completion: nil)
-					print("Exit using Segue")
-					self.performSegue(withIdentifier: "completedOTP", sender: self)
+					if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+						print("Exit using Segue")
+						self.performSegue(withIdentifier: "completedOTP", sender: self)
+					}else {
+						print("Nope, Dismissed")
+						self.dismiss(animated:true, completion: nil)
+					}
 					
                     //self.performSegue(withIdentifier: "LoginToHome", sender: nil)
 				}else {
@@ -217,11 +220,13 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
                     print("sukses untuk sign up / login")
                     if status {
 						self.successLogin = true
-						print("Nope, Dismissed")
-						self.dismiss(animated:true, completion: nil)
-						print("Exit using Segue")
-						self.performSegue(withIdentifier: "completedOTP", sender: self)
-						
+						if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+							print("Exit using Segue")
+							self.performSegue(withIdentifier: "completedOTP", sender: self)
+						}else {
+							print("Nope, Dismissed")
+							self.dismiss(animated:true, completion: nil)
+						}
                         //self.performSegue(withIdentifier: "OTPToHome", sender: nil)
                     }
                 }else{
