@@ -195,20 +195,12 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         if userExistance{
             connector().logIn(kodeotp: credential) { (result) in
                 if result{
-                    if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
-						self.dismiss(animated:true, completion: nil)
-						/*
-                        let controllers = self.navigationController?.viewControllers
-                        for vc in controllers! {
-                            if vc is DonatingController {
-                                _ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
-                            }
-                        }
-						*/
-                    }else {
-						self.dismiss(animated:true, completion: nil)
-                        //self.navigationController?.popToRootViewController(animated: true)
-                    }
+					self.successLogin = true
+					print("Nope, Dismissed")
+					self.dismiss(animated:true, completion: nil)
+					print("Exit using Segue")
+					self.performSegue(withIdentifier: "completedOTP", sender: self)
+					
                     //self.performSegue(withIdentifier: "LoginToHome", sender: nil)
 				}else {
 					self.dismiss(animated:true, completion: nil)
@@ -224,24 +216,12 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
                 if result{
                     print("sukses untuk sign up / login")
                     if status {
-                        if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
-							self.dismiss(animated:true, completion: nil)
-                            /*
-                            let data = DonatingController()
-                            self.navigationController?.popToViewController(data, animated: true)
-
-                            let controllers = self.navigationController?.viewControllers
-                            for vc in controllers! {
-                                if vc is DonatingController {
-                                    _ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
-                                }
-                            }
-							*/
-                        }else {
-							self.dismiss(animated:true, completion: nil)
-                            //self.navigationController?.popToRootViewController(animated: true)
-                        }
-                        
+						self.successLogin = true
+						print("Nope, Dismissed")
+						self.dismiss(animated:true, completion: nil)
+						print("Exit using Segue")
+						self.performSegue(withIdentifier: "completedOTP", sender: self)
+						
                         //self.performSegue(withIdentifier: "OTPToHome", sender: nil)
                     }
                 }else{

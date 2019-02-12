@@ -149,8 +149,20 @@ class connector {
                 phoneNumberDatabaseRef.setValue(phoneNumberObject) { error, ref in
                     //completion(error == nil)
                 }
+				UserService.observeUserProfile(uid, completion: { (UserProfile, exist) in
+					if exist {
+						 print("sukses sign up")
+						completion(true)
+					}else {
+						print("ggl sign up")
+						completion(false)
+						
+					}
+				})
+				
+				print("\n\n\nForce sukses sign up\n\n")
                 completion(true)
-                print("sukses sign up")
+				
             }else{
 				completion(result)
                 print("gagal sign up")
@@ -182,10 +194,10 @@ class connector {
 //        let fotobarang = fotodonasi
         //guard let deskripsi = deskripsiBarang.text
                 let urlKomunitas = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/placeholder%20logo%20komunitas.png?alt=media&token=1ad83629-5d24-4f9b-83a8-444fbf47866b")
-        guard let userProfile = UserService.currentUserProfile else { return }
-        guard let foto = fotodonasi as? UIImage else {return}
-		guard let photo = foto.jpeg(.low) else {return}
-		guard let gambardonasi = UIImage.init(data: photo) else {return}
+		guard let userProfile = UserService.currentUserProfile else { completion(false); return }
+        guard let foto = fotodonasi as? UIImage else {completion(false); return}
+		guard let photo = foto.jpeg(.low) else {completion(false); return}
+		guard let gambardonasi = UIImage.init(data: photo) else {completion(false); return}
         let uid = userProfile.uid
 		print("lewat sini")
 		print(latitude)
@@ -200,7 +212,7 @@ class connector {
             print(url)
             if url != nil {
                 print("url ga kosong")
-                guard let userProfile = UserService.currentUserProfile else { return }
+                guard let userProfile = UserService.currentUserProfile else {completion(false); return }
                 
 //                var postRef = ref.childByAutoId()
 //                post1Ref.setValue(post1)
@@ -242,7 +254,7 @@ class connector {
                 postRef.setValue(postObject, withCompletionBlock: { error, ref in
                     if error == nil {
                         print("sukses post donasi")
-                        guard let postId = postRef.key else {return}
+                        guard let postId = postRef.key else {completion(false); return}
                         print(postId)
 
                         

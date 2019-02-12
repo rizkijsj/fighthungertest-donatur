@@ -167,6 +167,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     @IBOutlet weak var alamat: CustomTextField!
     @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){
+		print("Unwinded Here")
         let vc = sender.source as! LokasiPengambilan
         if let placemark =  vc.selectedLocation {
             
@@ -203,12 +204,12 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 	
 	@IBAction func unwindFromOTPSuccess(_ sender:UIStoryboardSegue){
 		let vc = sender.source as! OTPViewController
-		
 		print("\n\n\nDi sini\n\n\n")
 		if vc.successLogin {
 			print("Login Sucess")
 			connector().verifyUserLoginState { (state) in
 				if state{
+					
 					print("Handling Post")
 					self.handlePosting()
 				}else{
@@ -224,7 +225,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		}
 	}
     
-    
+	
     
     @IBAction func submitBtn(_ sender: Any) {
         setContinueButton(enabled: false)
@@ -444,11 +445,15 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         
         activityView.startAnimating()
         connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganBarang.text ?? "-" ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang) { (result) in
+			self.activityView.stopAnimating()
+			print("Rsults")
             if result{
+				print("Sukses nih DOnate")
                 //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
 				self.dismiss(animated: true, completion: nil)
                 self.resetForm()
             }else{
+				print("Wah ggl nih")
                 self.resetForm()
             }
         }
