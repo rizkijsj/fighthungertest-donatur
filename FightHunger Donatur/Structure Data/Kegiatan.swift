@@ -1,0 +1,41 @@
+//
+//  Kegiatan.swift
+//  FightHunger-Organisasi
+//
+//  Created by Rizki Adrian Saputra on 13/02/19.
+//  Copyright © 2019 FightHunger. All rights reserved.
+//
+
+import Foundation
+
+class Kegiatan {
+    var id:String
+    
+    var orgId:String
+    var orgName:String
+    
+    var programImage: URL
+    var programName: String
+    var programLocation: String
+    var programDate: String
+    var programInformation: String
+    
+    
+    init(id:String, orgId:String,orgName:String, programimage: URL, programname: String, programlocation: String, programdate: String, programinformation:String) {
+        
+        self.id = id
+        self.orgId = orgId
+        self.orgName = orgName
+        
+        self.programImage = programimage
+        self.programName = programname
+        self.programLocation = programlocation
+        self.programDate = programdate
+        self.programInformation = programinformation
+        
+       
+        
+    }
+    
+    
+}

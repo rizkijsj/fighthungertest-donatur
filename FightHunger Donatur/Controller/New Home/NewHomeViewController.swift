@@ -17,6 +17,9 @@ class NewHomeViewController: UIViewController {
 	
 	var posts = [Post]()
 	var organisasi = [OrganisasiProfile]()
+    var kegiatans = [Kegiatan]()
+    
+    var selectedKegiatanObject:Kegiatan?
 	// activity data should always referred to your data source, which it will be real time updated data
 	var activityData = [1]
 	var temporaryArrayData = ["asd", "bsdn", "kausrg", "asjdfyr"]
@@ -650,5 +653,64 @@ extension NewHomeViewController{
 		})
 		
 	}
+    
+    func observeKegiatan() {
+        
+        let postsRef = Database.database().reference().child("Kegiatan/")
+        
+        print("mama")
+        
+        
+        postsRef.observe(.value, with: { snapshot in
+            
+            var tempKegiatan = [Kegiatan]()
+            //var tempIdProfile = String
+            
+            for child in snapshot.children {
+                if let childSnapshot = child as? DataSnapshot,
+                    let dict = childSnapshot.value as? [String:Any],
+                    
+                    let author = dict["author"] as? [String:Any],
+                    let uid = author["uid"] as? String,
+                    let name = author["name"] as? String,
+                    
+                    let deskripsi = dict["deskripsikegiatan"] as? String,
+                    let lokasi = dict["lokasikegiatan"] as? String,
+                    let namakegiatan = dict["namakegiatan"] as? String,
+                    let waktu = dict["waktukegiatan"] as? String,
+                    let kegiatanid = dict["idkegiatan"] as? String,
+                    let photourl = dict["kegiatanphotourl"] as? String,
+                    let logourl = URL(string: photourl),
+                    let timestamp = dict["timestamp"] as? Double
+                    
+                {
+                    
+                    
+                    print("kakakia")
+                    
+                    
+                    let kegiatan = Kegiatan(id: kegiatanid, orgId: uid, orgName: name, programimage: logourl, programname: namakegiatan, programlocation: lokasi, programdate: waktu, programinformation: deskripsi)
+                    
+                    
+                        tempKegiatan.append(kegiatan)
+                        
+                    
+                    
+                    
+                }
+                else{
+                    print("ada yg salah")
+                }
+            }
+            print("berhasil ambil data post")
+            print(tempKegiatan)
+            
+            self.kegiatans = tempKegiatan
+            self.tableView.reloadData()
+            
+            
+            
+        })
+    }
 	
 }
