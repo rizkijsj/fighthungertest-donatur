@@ -25,6 +25,7 @@
 		2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */; };
 		2BB1013022013903003967CE /* DonatingController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BB1012F22013903003967CE /* DonatingController.swift */; };
 		2BB1013222018BF8003967CE /* UbahProfil.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2BB1013122018BF8003967CE /* UbahProfil.storyboard */; };
+		2BBD0D2C221384B200D54C88 /* MessageUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BBD0D2B221384B200D54C88 /* MessageUI.framework */; };
 		2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4121FD59D1008C85CE /* CustomTextField.swift */; };
 		2BF68C4421FD8A0E008C85CE /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */; };
 		2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2BF68C4721FE00B5008C85CE /* DaftarViewController.swift */; };
@@ -89,6 +90,7 @@
 		2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CaptureImageTableViewCell.swift; sourceTree = "<group>"; };
 		2BB1012F22013903003967CE /* DonatingController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DonatingController.swift; sourceTree = "<group>"; };
 		2BB1013122018BF8003967CE /* UbahProfil.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = UbahProfil.storyboard; sourceTree = "<group>"; };
+		2BBD0D2B221384B200D54C88 /* MessageUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MessageUI.framework; path = System/Library/Frameworks/MessageUI.framework; sourceTree = SDKROOT; };
 		2BF68C4121FD59D1008C85CE /* CustomTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomTextField.swift; sourceTree = "<group>"; };
 		2BF68C4321FD8A0E008C85CE /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		2BF68C4521FDE9BC008C85CE /* OTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OTPViewController.swift; sourceTree = "<group>"; };
@@ -154,6 +156,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2BBD0D2C221384B200D54C88 /* MessageUI.framework in Frameworks */,
 				B3E5087942F4962F692278D2 /* Pods_FightHunger_Donatur.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -260,6 +263,7 @@
 		7956A38613A68ED60CA12F1D /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				2BBD0D2B221384B200D54C88 /* MessageUI.framework */,
 				ADCBD1B2FAC76AE1947F3179 /* Pods_FightHunger_Donatur.framework */,
 				BC0CF35341B36E3E56B75B40 /* Pods_FightHunger_DonaturTests.framework */,
 			);
@@ -560,7 +564,7 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.VPNLite = {
 								enabled = 0;
@@ -930,9 +934,8 @@
 			baseConfigurationReference = 725D660C2F57496AD30DF185 /* Pods-FightHunger Donatur.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -951,9 +954,8 @@
 			baseConfigurationReference = 5058FB356AA318B109E36153 /* Pods-FightHunger Donatur.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (

@@ -9,8 +9,23 @@
 import UIKit
 import MapKit
 import CoreLocation
+import MessageUI
 
 class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+
+    @IBAction func chatButton(_ sender: Any) {
+        guard let tempPhonenumber = organisasiObject?.phone else {return}
+        let whatsapp = "whatsapp://send?phone=\(tempPhonenumber)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
+        print(whatsapp)
+        if let whatsappURL = whatsapp, let url = URL(string: whatsappURL) {
+            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        }
+    }
+    @IBAction func callButton(_ sender: Any) {
+        let urlPhone: NSURL = URL(string: "tel://081212735782")! as NSURL
+        UIApplication.shared.open(urlPhone as URL, options: [:], completionHandler: nil)
+        
+    }
 
     @IBOutlet weak var logoOrganisasi: UIImageView!
     @IBOutlet weak var namaOrganisasi: UILabel!
@@ -33,7 +48,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
                 loadImage(link: organisasi.logo)
                 namaOrganisasi.text = organisasi.name
                 alamatOrganisasi.text = organisasi.email
-                //btnAction()
+                btnAction()
                 keteranganOrganisasi.text = organisasi.description
                
                 organisasiProgramObject = connector().getOrganizationProgramList(organizationID: organisasi.id, limit: 3)
@@ -57,14 +72,33 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     
     @IBAction func clickedOnLocation(_ sender: UIButton) {
          print("Open Map")
+       
+            guard let orgObject = organisasiObject else {return}
+            //guard let latiDeg = Double(orgObject.latitude), let longDeg = Double(orgObject.longitude) else {return}
+
+            let regionDistance:CLLocationDistance = 1000
+            let coordinates = CLLocationCoordinate2D.init(latitude: orgObject.latitude, longitude: orgObject.longitude)
+
+            //organisasiObject?.email
+            let regionSpan = MKCoordinateRegion(center: coordinates, latitudinalMeters: regionDistance, longitudinalMeters: regionDistance)
+            let options = [
+                MKLaunchOptionsMapCenterKey: NSValue(mkCoordinate: regionSpan.center),
+                MKLaunchOptionsMapSpanKey: NSValue(mkCoordinateSpan: regionSpan.span)
+            ]
+            let placemark = MKPlacemark(coordinate: coordinates, addressDictionary: nil)
+            let mapItem = MKMapItem(placemark: placemark)
+            mapItem.name = organisasiObject?.name
+            mapItem.openInMaps(launchOptions: options)
+        
     }
     
     func btnAction(){
         if callOrganisasi.isTouchInside{
             
-            if let phoneURL = NSURL(string: "tel://\(String(describing: organisasiObject?.phone))"){
+            if let phoneURL = NSURL(string: "tel//:\(String(describing: organisasiObject?.phone))"){
                     UIApplication.shared.open(phoneURL as URL)
                         }
+      
                     }
         
         if chatOrganisasi.isTouchInside{
@@ -102,6 +136,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
             let mapItem = MKMapItem(placemark: placemark)
             mapItem.name = organisasiObject?.name
             mapItem.openInMaps(launchOptions: options)
+            
         }
         
     }
