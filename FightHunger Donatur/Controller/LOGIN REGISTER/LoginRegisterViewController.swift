@@ -10,6 +10,8 @@ import UIKit
 
 class LoginRegisterViewController: UIViewController {
 
+    @IBOutlet weak var bodyLabel: UILabel!
+    @IBOutlet weak var titleLabel: UILabel!
     @IBAction func backToHome(_ sender: UIBarButtonItem) {
 		if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
 //			let data = DonatingController()
@@ -53,7 +55,19 @@ class LoginRegisterViewController: UIViewController {
        btnMasuk.layer.cornerRadius = 6.0
        btnDaftar.layer.cornerRadius = 6.0
        accessibility()
-
+        
+        //profile.storyboard
+         if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+            titleLabel.text = "Lanjutkan donasi anda!"
+            bodyLabel.text =  "Data donasi anda akan tersimpan setelah masuk atau daftar"
+          
+            
+        }// donating.storyboard
+         else
+         {
+            titleLabel.text = "Mari kita berdonasi!"
+            bodyLabel.text =  "Apakah anda siap berpartisipasi mengurangi kelaparan ?"
+        }
 		
         
 //        let buttonSize = CGFloat(16.0)
