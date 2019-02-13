@@ -286,12 +286,16 @@ class connector {
     }
 
     func verifyUserLoginState(completion: @escaping (Bool) -> Void) {
-        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
-            if user != nil{
-                completion(true)
-            } else {
-               completion(false)
-            }
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            // ...
+            print("yes")
+            completion(true)
+        } else {
+            // No user is signed in.
+            // ...
+            print("no")
+            completion(false)
         }
     }
     

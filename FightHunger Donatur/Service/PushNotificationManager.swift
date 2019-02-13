@@ -71,8 +71,17 @@ class PushNotificationManager: NSObject, MessagingDelegate, UNUserNotificationCe
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String) {
         updateDatabasePushTokenIfNeeded()
     }
-
+    // called when user interacts with notification (app not running in foreground)
     func userNotificationCenter(_ center: UNUserNotificationCenter, didReceive response: UNNotificationResponse, withCompletionHandler completionHandler: @escaping () -> Void) {
         print(response)
+    }
+    
+    // called if app is running in foreground
+    func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent
+        notification: UNNotification, withCompletionHandler completionHandler:
+        @escaping (UNNotificationPresentationOptions) -> Void) {
+        
+        // show alert while app is running in foreground
+        return completionHandler(UNNotificationPresentationOptions.alert)
     }
 }
