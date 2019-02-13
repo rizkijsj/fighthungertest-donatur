@@ -159,14 +159,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="history" translatesAutoresizingMaskIntoConstraints="NO" id="JB8-jO-0CO">
-                                                    <rect key="frame" x="20" y="12.666666666666666" width="15" height="18.333333333333336"/>
+                                                    <rect key="frame" x="20" y="14.333333333333336" width="15" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="2Lx-Zh-BN7"/>
-                                                        <constraint firstAttribute="height" constant="18.329999999999998" id="vBt-Ee-SHS"/>
+                                                        <constraint firstAttribute="height" constant="15" id="vBt-Ee-SHS"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="259" verticalHuggingPriority="251" text="Riwayat donasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAY-Ie-J20">
-                                                    <rect key="frame" x="38" y="12.666666666666666" width="114" height="18.333333333333336"/>
+                                                    <rect key="frame" x="38" y="14.333333333333334" width="114" height="18.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="114" id="7Xh-Td-ymw"/>
                                                         <constraint firstAttribute="height" constant="18.329999999999998" id="9Bf-yH-DKo"/>
@@ -200,11 +200,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnd-zb-PUh">
-                                                    <rect key="frame" x="16" y="7.6666666666666661" width="43" height="28.333333333333336"/>
+                                                    <rect key="frame" x="16" y="7.6666666666666661" width="50" height="28.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28.5" id="opN-w7-Hcm"/>
-                                                        <constraint firstAttribute="width" constant="43" id="wXR-qs-uie"/>
+                                                        <constraint firstAttribute="width" constant="50" id="wXR-qs-uie"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="Keluar">
                                                         <color key="titleColor" red="0.75537753105163574" green="0.157878577709198" blue="0.1646779477596283" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
