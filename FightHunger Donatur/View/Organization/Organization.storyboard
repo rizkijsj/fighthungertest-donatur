@@ -93,8 +93,11 @@
                                                                         <constraint firstAttribute="width" secondItem="KdK-qq-mbs" secondAttribute="height" multiplier="1:1" id="eIB-ml-Ke7"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="Logo call"/>
+                                                                    <connections>
+                                                                        <action selector="callButton:" destination="9w1-0l-aAf" eventType="touchUpInside" id="CNg-1n-hX9"/>
+                                                                    </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telphone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8G-CA-n9t">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telephone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8G-CA-n9t">
                                                                     <rect key="frame" x="0.0" y="63.000000000000007" width="55" height="20.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
@@ -111,8 +114,11 @@
                                                                         <constraint firstAttribute="width" secondItem="dHn-Px-DTh" secondAttribute="height" multiplier="1:1" id="GtB-bS-vht"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="SMS"/>
+                                                                    <connections>
+                                                                        <action selector="chatButton:" destination="9w1-0l-aAf" eventType="touchUpInside" id="1oU-Fg-htn"/>
+                                                                    </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="SMS" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-Wv-zax">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-Wv-zax">
                                                                     <rect key="frame" x="0.0" y="63.000000000000007" width="55" height="20.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
