@@ -14,11 +14,18 @@ import MessageUI
 class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 
     @IBAction func chatButton(_ sender: Any) {
-        guard let tempPhonenumber = organisasiObject?.phone else {return}
-        let whatsapp = "whatsapp://send?phone=\(tempPhonenumber)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        print(whatsapp)
-        if let whatsappURL = whatsapp, let url = URL(string: whatsappURL) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        let phoneNumber =  "081212735782"
+        let appURL = NSURL(string: "https://api.whatsapp.com/send?phone=\(phoneNumber)")!
+        if UIApplication.shared.canOpenURL(appURL as URL) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(appURL as URL, options: [:], completionHandler: nil)
+            }
+            else {
+                UIApplication.shared.openURL(appURL as URL)
+            }
+        }
+        else {
+          print("lala")
         }
     }
     @IBAction func callButton(_ sender: Any) {

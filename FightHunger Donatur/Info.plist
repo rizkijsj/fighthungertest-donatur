@@ -45,6 +45,7 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>tel://\(cleanPhoneNumber)</string>
+		<string>whatsapp</string>
 	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Ini memungkinkan Anda membagikan foto dari perpustakaan Anda dan menyimpan foto ke Rol Kamera Anda untuk barang donasi</string>

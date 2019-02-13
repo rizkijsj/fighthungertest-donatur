@@ -159,14 +159,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="history" translatesAutoresizingMaskIntoConstraints="NO" id="JB8-jO-0CO">
-                                                    <rect key="frame" x="20" y="12.666666666666666" width="15" height="18.333333333333336"/>
+                                                    <rect key="frame" x="20" y="14.333333333333336" width="15" height="15"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="15" id="2Lx-Zh-BN7"/>
-                                                        <constraint firstAttribute="height" constant="18.329999999999998" id="vBt-Ee-SHS"/>
+                                                        <constraint firstAttribute="height" constant="15" id="vBt-Ee-SHS"/>
                                                     </constraints>
                                                 </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="259" verticalHuggingPriority="251" text="Riwayat donasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aAY-Ie-J20">
-                                                    <rect key="frame" x="38" y="12.666666666666666" width="114" height="18.333333333333336"/>
+                                                    <rect key="frame" x="38" y="14.333333333333334" width="114" height="18.333333333333329"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" constant="114" id="7Xh-Td-ymw"/>
                                                         <constraint firstAttribute="height" constant="18.329999999999998" id="9Bf-yH-DKo"/>
