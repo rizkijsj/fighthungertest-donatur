@@ -200,11 +200,12 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jnd-zb-PUh">
-                                                    <rect key="frame" x="16" y="7.6666666666666661" width="43" height="28.333333333333336"/>
+                                                    <rect key="frame" x="16" y="7.6666666666666661" width="50" height="28.333333333333336"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="28.5" id="opN-w7-Hcm"/>
-                                                        <constraint firstAttribute="width" constant="43" id="wXR-qs-uie"/>
+                                                        <constraint firstAttribute="width" constant="50" id="wXR-qs-uie"/>
                                                     </constraints>
+                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                     <state key="normal" title="Keluar">
                                                         <color key="titleColor" red="0.75537753105163574" green="0.157878577709198" blue="0.1646779477596283" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                                     </state>
