@@ -39,6 +39,7 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>tel://\(cleanPhoneNumber)</string>
+		<string>whatsapp</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
@@ -46,11 +47,6 @@
 	<string>Ini memungkinan Anda mengambil foto untuk barang donasi</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Lokasi diperlukan saat Anda akan melakukan donasi </string>
-	<key>LSApplicationQueriesSchemes</key>
-	<array>
-		<string>tel://\(cleanPhoneNumber)</string>
-		<string>whatsapp</string>
-	</array>
 	<key>NSPhotoLibraryUsageDescription</key>
 	<string>Ini memungkinkan Anda membagikan foto dari perpustakaan Anda dan menyimpan foto ke Rol Kamera Anda untuk barang donasi</string>
 	<key>UIBackgroundModes</key>

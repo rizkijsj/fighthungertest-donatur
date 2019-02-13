@@ -16,7 +16,11 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     //Initial organisasi object
     let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+6287776007230", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
     
-
+    @IBAction func clickWeb(_ sender: Any) {
+        let url = URL(string: "https://www.hackingwithswift.com")
+        UIApplication.shared.open(url!, options: [:])
+    }
+    
     @IBAction func chatButton(_ sender: Any) {
         //let phoneNumber =  "6281808082838"
         let appURL = NSURL(string: "https://api.whatsapp.com/send?phone=\(orgObject.phone.dropFirst())")!
@@ -87,10 +91,6 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     @IBAction func clickedOnLocation(_ sender: UIButton) {
          print("Open Map")
         
-       
-            //guard let orgObject = organisasiObject else {return}
-            //guard let latiDeg = Double(orgObject.latitude), let longDeg = Double(orgObject.longitude) else {return}
-
             let regionDistance:CLLocationDistance = 1000
             let coordinates = CLLocationCoordinate2D.init(latitude: orgObject.latitude, longitude: orgObject.longitude)
 
@@ -138,8 +138,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         if lokasiOrganisasi.isTouchInside{
 			
 			guard let orgObject = organisasiObject else {return}
-			//guard let latiDeg = Double(orgObject.latitude), let longDeg = Double(orgObject.longitude) else {return}
-			
+		
 			let regionDistance:CLLocationDistance = 1000
             let coordinates = CLLocationCoordinate2D.init(latitude: orgObject.latitude, longitude: orgObject.longitude)
 			
