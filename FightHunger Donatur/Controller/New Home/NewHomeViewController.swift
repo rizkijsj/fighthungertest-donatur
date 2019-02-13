@@ -12,6 +12,7 @@ class NewHomeViewController: UIViewController {
 	
 	@IBOutlet weak var donateButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
+	@IBOutlet weak var profileButtonOutlet: UIBarButtonItem!
 	
 	let repeatedLoginAttempt = RepeatingTimer(timeInterval: 5)
 	
@@ -44,23 +45,30 @@ class NewHomeViewController: UIViewController {
 		//self.observeOrganisasi()
 		
 		repeatedLoginAttempt.eventHandler = {
-			guard let userProfile = UserService.currentUserProfile else {
-				print("Error")
-				return }
-			let uid = userProfile.uid
-			self.observePost(id: uid)
-			DispatchQueue.main.async {
-				//self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
-				// Update your data source here
-				//self.tableView.reloadData()
-				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
-					//self.tableView.reloadData()
-					self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
-				}, completion: nil)
+			if let userProfile = UserService.currentUserProfile {
 				
-			}
-			self.repeatedLoginAttempt.suspend()
+				
+				let uid = userProfile.uid
+				self.observePost(id: uid)
+				DispatchQueue.main.async {
+					//self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
+					// Update your data source here
+					//self.tableView.reloadData()
+					self.profileButtonOutlet.image = UIImage.init(named: "profilBtn")!
+					self.profileButtonOutlet.title = ""
+					self.profileButtonOutlet.tintColor = .black
+					
+					UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+						//self.tableView.reloadData()
+						self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
+						
+					}, completion: nil)
+					
+				}
+				self.repeatedLoginAttempt.suspend()
+			} else {print("Error")}
 		}
+		
 		
 		let tapDonateButton = UITapGestureRecognizer.init(target: self, action: #selector(toDonate))
 		donateButton.addGestureRecognizer(tapDonateButton)

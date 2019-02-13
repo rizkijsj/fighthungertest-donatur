@@ -52,9 +52,9 @@
                         <viewLayoutGuide key="safeArea" id="1Dj-tO-iWW"/>
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="3wi-pR-LVa">
-                        <barButtonItem key="rightBarButtonItem" image="profilBtn" id="7Z1-u0-Rua">
+                        <barButtonItem key="rightBarButtonItem" title="Masuk" id="7Z1-u0-Rua">
                             <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-7"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <color key="tintColor" red="1" green="0.000832612335216254" blue="0.18144577741622925" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             <connections>
                                 <action selector="toProfile:" destination="9Lr-h5-DQ5" id="cA6-KJ-kCI"/>
                             </connections>
@@ -62,6 +62,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="donateButton" destination="JdN-J8-v6G" id="HMH-pz-Tlv"/>
+                        <outlet property="profileButtonOutlet" destination="7Z1-u0-Rua" id="1fs-7K-Jok"/>
                         <outlet property="tableView" destination="0xs-z0-Hux" id="ZBF-Lf-lcS"/>
                         <segue destination="jp7-0b-DRF" kind="show" identifier="Profil" id="CSz-Fd-9Ml"/>
                         <segue destination="fL7-n3-YWV" kind="presentation" identifier="Login" id="9r3-Xy-oG4"/>
@@ -129,7 +130,4 @@
             <point key="canvasLocation" x="85.599999999999994" y="100.49261083743843"/>
         </scene>
     </scenes>
-    <resources>
-        <image name="profilBtn" width="28" height="31"/>
-    </resources>
 </document>
