@@ -132,14 +132,35 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 		
 	}
 	
-	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+	func textFieldDidBeginEditing(_ textField: UITextField) {
 		
+		/*
+		The commented code shows Replaces empty textfield with an empty character
+		when deletion, the previous text will be deleted.
+		
+		If uncommented, the text will return to the previous
+		*/
+		
+		//if textField.text == nil || textField.text == "" {
+		textField.text = "\u{200B}"
+		//}
+	}
+	
+	func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+		print("OTP Changed: \(string) + \(range.length) / \(range.description)")
 		
 		if range.length == 0 {
-			setNextResponder(textFieldsIndexes[textField], direction: .right)
-			textField.text = string
-			textFieldChanged(textField)
-			return true
+			if string == "0" || string == "1" || string == "2" || string == "3" || string == "4" || string == "5" || string == "6" || string == "7" || string == "8" || string == "9" {
+				setNextResponder(textFieldsIndexes[textField], direction: .right)
+				textField.text = string
+				textFieldChanged(textField)
+				return true
+			}else {
+				setNextResponder(textFieldsIndexes[textField], direction: .left)
+				textField.text = ""
+				textFieldChanged(textField)
+				return false
+			}
 		} else if range.length == 1 {
 			setNextResponder(textFieldsIndexes[textField], direction: .left)
 			textField.text = ""
@@ -148,15 +169,15 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 		}
 		return false
 	}
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        otpTxt1.becomeFirstResponder()
-//        self.navigationController?.navigationBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width , height: 80.0)
-       self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-        navigationController?.setNavigationBarHidden(false, animated: false)
-    }
-    
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		otpTxt1.becomeFirstResponder()
+		//        self.navigationController?.navigationBar.frame = CGRect(x: 0.0, y: 0.0, width: self.view.frame.size.width , height: 80.0)
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+		navigationController?.setNavigationBarHidden(false, animated: false)
+	}
+	
     
     
    
@@ -174,18 +195,19 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         if userExistance{
             connector().logIn(kodeotp: credential) { (result) in
                 if result{
-                    if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
-                        let controllers = self.navigationController?.viewControllers
-                        for vc in controllers! {
-                            if vc is DonatingController {
-                                _ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
-                            }
-                        }
-                    }else {
-                        self.navigationController?.popToRootViewController(animated: true)
-                    }
+					self.successLogin = true
+					if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+						print("Exit using Segue")
+						self.performSegue(withIdentifier: "completedOTP", sender: self)
+					}else {
+						print("Nope, Dismissed")
+						self.dismiss(animated:true, completion: nil)
+					}
+					
                     //self.performSegue(withIdentifier: "LoginToHome", sender: nil)
-                }
+				}else {
+					self.dismiss(animated:true, completion: nil)
+				}
             }
         }else{
             guard let email = tempTampungTerima[0] as? String else { return }
@@ -197,25 +219,19 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
                 if result{
                     print("sukses untuk sign up / login")
                     if status {
-                        if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
-                            /*
-                            let data = DonatingController()
-                            self.navigationController?.popToViewController(data, animated: true)
-                             */
-                            let controllers = self.navigationController?.viewControllers
-                            for vc in controllers! {
-                                if vc is DonatingController {
-                                    _ = self.navigationController?.popToViewController(vc as! DonatingController, animated: true)
-                                }
-                            }
-                        }else {
-                            self.navigationController?.popToRootViewController(animated: true)
-                        }
-                        
+						self.successLogin = true
+						if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
+							print("Exit using Segue")
+							self.performSegue(withIdentifier: "completedOTP", sender: self)
+						}else {
+							print("Nope, Dismissed")
+							self.dismiss(animated:true, completion: nil)
+						}
                         //self.performSegue(withIdentifier: "OTPToHome", sender: nil)
                     }
                 }else{
                     print("gagal sign in di vc")
+					self.dismiss(animated:true, completion: nil)
                 }
             }
         }
@@ -329,8 +345,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
         let formFilled = otp1 != nil && otp1 != "" && otp2 != nil && otp2 != "" && otp3 != nil && otp3 != "" && otp4 != nil && otp4 != "" && otp5 != nil && otp5 != "" && otp6 != nil && otp6 != ""
 
         print(formFilled)
-        if formFilled
-        {
+        if formFilled{
             setContinueButton(enabled: true)
         }
         
@@ -371,7 +386,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
     
     @IBAction func `return`(_ sender: UIBarButtonItem) {
-        self.navigationController?.popToRootViewController(animated: true)
+//        self.navigationController?.popToRootViewController(animated: true)
+        self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var backBtn: UIBarButtonItem!
     

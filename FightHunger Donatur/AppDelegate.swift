@@ -14,10 +14,16 @@ import FirebaseAuth
 import UserNotifications
 
 @UIApplicationMain
-class AppDelegate: UIResponder, UIApplicationDelegate {
+class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterDelegate {
 
 	var window: UIWindow?
     //let gcmMessageIDKey = "gcm.message_id"
+
+	
+	func userNotificationCenter(_ center: UNUserNotificationCenter, willPresent notification: UNNotification, withCompletionHandler completionHandler: @escaping (UNNotificationPresentationOptions) -> Void)
+	{
+		completionHandler([.alert, .badge, .sound])
+	}
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
@@ -25,7 +31,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         DispatchQueue.main.async {
             FirebaseApp.configure()
             
-            
+            UNUserNotificationCenter.current().delegate = self
             
             //        if #available(iOS 10.0, *) {
             //            // For iOS 10 display notification (sent via APNS)
@@ -52,7 +58,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                     
                     self.loadUserProfile(id: user!.uid, completion: { (result) in
                         if result{
-                            
+							
                         }else{
                             
                         }

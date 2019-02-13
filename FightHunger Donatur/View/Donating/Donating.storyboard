@@ -292,19 +292,19 @@
                         <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="X2J-u8-Xtu"/>
                         <outlet property="namaBarang" destination="tC5-9f-7PZ" id="5Yy-ey-yx8"/>
                         <outlet property="waktuPengambilan" destination="5YL-GD-4og" id="n4L-h5-g9g"/>
-                        <segue destination="Qye-FF-Kdx" kind="show" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
-                        <segue destination="zu9-Xr-40N" kind="show" identifier="DonasiToMap" id="9D9-Vz-n5s"/>
+                        <segue destination="Qye-FF-Kdx" kind="presentation" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
+                        <segue destination="zu9-Xr-40N" kind="presentation" identifier="DonasiToMap" id="9D9-Vz-n5s"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3763.7681159420295" y="1902.4553571428571"/>
+            <point key="canvasLocation" x="3723" y="1560"/>
         </scene>
-        <!--LoginRegister-->
+        <!--LoginRegisterNav-->
         <scene sceneID="6Xe-2Q-kM4">
             <objects>
-                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegister" id="Qye-FF-Kdx" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegisterNav" id="Qye-FF-Kdx" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="1et-5f-pWf" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="4345" y="1218"/>

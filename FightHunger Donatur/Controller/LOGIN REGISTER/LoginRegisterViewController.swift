@@ -11,6 +11,7 @@ import UIKit
 class LoginRegisterViewController: UIViewController {
 
     @IBAction func backToHome(_ sender: UIBarButtonItem) {
+        /*
 		if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
 //			let data = DonatingController()
 //			print("lala")
@@ -26,6 +27,8 @@ class LoginRegisterViewController: UIViewController {
 			self.navigationController?.popToRootViewController(animated: true)
 		}
 //            performSegue(withIdentifier: "toNewHome", sender: self)
+ */
+        self.dismiss(animated: true, completion: nil)
     }
     
     func getScaledFont(forFont name: String, textStyle: UIFont.TextStyle) -> UIFont {
@@ -52,7 +55,7 @@ class LoginRegisterViewController: UIViewController {
         super.viewDidLoad()
        btnMasuk.layer.cornerRadius = 6.0
        btnDaftar.layer.cornerRadius = 6.0
-       accessibility()
+//       accessibility()
 
 		
         
@@ -73,7 +76,7 @@ class LoginRegisterViewController: UIViewController {
         
         super.viewWillAppear(animated)
         
-        navigationController?.setNavigationBarHidden(false, animated: true)
+//        navigationController?.setNavigationBarHidden(false, animated: true)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
         
     }
