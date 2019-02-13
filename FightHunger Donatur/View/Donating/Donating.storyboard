@@ -29,6 +29,7 @@
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" image="Gambar template donatur" translatesAutoresizingMaskIntoConstraints="NO" id="wwU-na-Baq">
                                                     <rect key="frame" x="0.0" y="0.0" width="414" height="233"/>
+                                                    <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="wwU-na-Baq" secondAttribute="height" multiplier="16:9" id="W74-6B-lFu"/>
                                                     </constraints>

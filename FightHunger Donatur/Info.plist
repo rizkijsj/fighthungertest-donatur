@@ -39,6 +39,7 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>tel://\(cleanPhoneNumber)</string>
+		<string>whatsapp</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

@@ -87,10 +87,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="backBtn" destination="hjp-aj-TlM" id="lkE-BF-f7o"/>
+                        <outlet property="bodyLabel" destination="iaX-5J-nJk" id="aWb-Yf-jZD"/>
                         <outlet property="btnDaftar" destination="oSO-RP-Ovj" id="aTt-FO-GPc"/>
                         <outlet property="btnMasuk" destination="YuU-4z-R7W" id="Szv-re-GGo"/>
                         <outlet property="labelBody" destination="iaX-5J-nJk" id="2fk-LS-3fk"/>
                         <outlet property="lblMariMulai" destination="Mhz-TD-6OO" id="L9J-Ss-lbv"/>
+                        <outlet property="titleLabel" destination="Mhz-TD-6OO" id="GsA-uG-Tmg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPG-dd-s0r" userLabel="First Responder" sceneMemberID="firstResponder"/>

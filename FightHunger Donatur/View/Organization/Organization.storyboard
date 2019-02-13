@@ -84,12 +84,12 @@
                                                     <rect key="frame" x="32" y="0.0" width="311" height="102.66666666666667"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="806-x5-HQ9">
-                                                            <rect key="frame" x="0.0" y="9.6666666666666643" width="55" height="83.333333333333343"/>
+                                                            <rect key="frame" x="0.0" y="12.333333333333336" width="50" height="78.333333333333314"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdK-qq-mbs">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                     <constraints>
-                                                                        <constraint firstAttribute="width" constant="55" id="SUZ-j1-GTZ"/>
+                                                                        <constraint firstAttribute="width" constant="50" id="SUZ-j1-GTZ"/>
                                                                         <constraint firstAttribute="width" secondItem="KdK-qq-mbs" secondAttribute="height" multiplier="1:1" id="eIB-ml-Ke7"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="Logo call"/>
@@ -98,7 +98,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telephone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8G-CA-n9t">
-                                                                    <rect key="frame" x="0.0" y="63.000000000000007" width="55" height="20.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="20.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -106,10 +106,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="76d-xc-6gs">
-                                                            <rect key="frame" x="85.333333333333329" y="9.6666666666666643" width="54.999999999999986" height="83.333333333333343"/>
+                                                            <rect key="frame" x="87" y="12.333333333333336" width="50" height="78.333333333333314"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHn-Px-DTh">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="dHn-Px-DTh" secondAttribute="height" multiplier="1:1" id="GtB-bS-vht"/>
                                                                     </constraints>
@@ -118,8 +118,8 @@
                                                                         <action selector="chatButton:" destination="9w1-0l-aAf" eventType="touchUpInside" id="1oU-Fg-htn"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="WA" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-Wv-zax">
-                                                                    <rect key="frame" x="0.0" y="63.000000000000007" width="55" height="20.333333333333336"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whatsapp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-Wv-zax">
+                                                                    <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="20.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -127,10 +127,10 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-Cv-jhf">
-                                                            <rect key="frame" x="170.66666666666666" y="9.6666666666666643" width="55" height="83.333333333333343"/>
+                                                            <rect key="frame" x="174" y="12.333333333333336" width="50" height="78.333333333333314"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iB-EP-ejd">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="8iB-EP-ejd" secondAttribute="height" multiplier="1:1" id="q7i-vK-BVv"/>
                                                                     </constraints>
@@ -140,7 +140,7 @@
                                                                     </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokasi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-RW-aY6">
-                                                                    <rect key="frame" x="0.0" y="63.000000000000007" width="55" height="20.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="20.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -148,17 +148,20 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OFD-da-XKk">
-                                                            <rect key="frame" x="256" y="9.6666666666666643" width="55" height="83.333333333333343"/>
+                                                            <rect key="frame" x="261" y="12.333333333333336" width="50" height="78.333333333333314"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kn-TD-Ign">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="55" height="55"/>
+                                                                    <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="7kn-TD-Ign" secondAttribute="height" multiplier="1:1" id="gwH-eF-xqA"/>
                                                                     </constraints>
                                                                     <state key="normal" title="Button" image="Website"/>
+                                                                    <connections>
+                                                                        <action selector="clickWeb:" destination="9w1-0l-aAf" eventType="touchUpInside" id="bWF-EI-MgG"/>
+                                                                    </connections>
                                                                 </button>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik8-OQ-hgp">
-                                                                    <rect key="frame" x="0.0" y="63.000000000000007" width="55" height="20.333333333333336"/>
+                                                                    <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="20.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>

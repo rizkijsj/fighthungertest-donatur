@@ -229,7 +229,9 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     @IBAction func submitBtn(_ sender: Any) {
         setContinueButton(enabled: false)
+		textFieldChanged(namaBarang)
         connector().verifyUserLoginState { (state) in
+			self.resetForm()
             if state{
                 self.handlePosting()
             }else{

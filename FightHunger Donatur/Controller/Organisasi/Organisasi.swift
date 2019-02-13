@@ -12,17 +12,32 @@ import CoreLocation
 import MessageUI
 
 class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
-
+    
+    //Initial organisasi object
+    let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+6287776007230", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
+    
+    @IBAction func clickWeb(_ sender: Any) {
+        let url = URL(string: "https://www.hackingwithswift.com")
+        UIApplication.shared.open(url!, options: [:])
+    }
+    
     @IBAction func chatButton(_ sender: Any) {
-        guard let tempPhonenumber = organisasiObject?.phone else {return}
-        let whatsapp = "whatsapp://send?phone=\(tempPhonenumber)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-        print(whatsapp)
-        if let whatsappURL = whatsapp, let url = URL(string: whatsappURL) {
-            UIApplication.shared.open(url, options: [:], completionHandler: nil)
+        //let phoneNumber =  "6281808082838"
+        let appURL = NSURL(string: "https://api.whatsapp.com/send?phone=\(orgObject.phone.dropFirst())")!
+        if UIApplication.shared.canOpenURL(appURL as URL) {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(appURL as URL, options: [:], completionHandler: nil)
+            }
+            else {
+                UIApplication.shared.openURL(appURL as URL)
+            }
+        }
+        else {
+          print("lala")
         }
     }
     @IBAction func callButton(_ sender: Any) {
-        let urlPhone: NSURL = URL(string: "tel://081212735782")! as NSURL
+        let urlPhone: NSURL = URL(string: "tel://\(orgObject.phone)")! as NSURL
         UIApplication.shared.open(urlPhone as URL, options: [:], completionHandler: nil)
         
     }
@@ -57,6 +72,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         }else {
             self.navigationController?.popViewController(animated: false)
         }
+        
     }
     
     func loadImage(link:URL){
@@ -70,12 +86,11 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         }
     }
     
+   
+    
     @IBAction func clickedOnLocation(_ sender: UIButton) {
          print("Open Map")
-       
-            guard let orgObject = organisasiObject else {return}
-            //guard let latiDeg = Double(orgObject.latitude), let longDeg = Double(orgObject.longitude) else {return}
-
+        
             let regionDistance:CLLocationDistance = 1000
             let coordinates = CLLocationCoordinate2D.init(latitude: orgObject.latitude, longitude: orgObject.longitude)
 
@@ -93,6 +108,8 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     }
     
     func btnAction(){
+        let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+62808082838", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
+        
         if callOrganisasi.isTouchInside{
             
             if let phoneURL = NSURL(string: "tel//:\(String(describing: organisasiObject?.phone))"){
@@ -121,8 +138,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         if lokasiOrganisasi.isTouchInside{
 			
 			guard let orgObject = organisasiObject else {return}
-			//guard let latiDeg = Double(orgObject.latitude), let longDeg = Double(orgObject.longitude) else {return}
-			
+		
 			let regionDistance:CLLocationDistance = 1000
             let coordinates = CLLocationCoordinate2D.init(latitude: orgObject.latitude, longitude: orgObject.longitude)
 			

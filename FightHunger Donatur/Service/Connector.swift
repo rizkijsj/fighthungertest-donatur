@@ -299,12 +299,16 @@ class connector {
     }
 
     func verifyUserLoginState(completion: @escaping (Bool) -> Void) {
-        let authListener = Auth.auth().addStateDidChangeListener { auth, user in
-            if user != nil{
-                completion(true)
-            } else {
-               completion(false)
-            }
+        if Auth.auth().currentUser != nil {
+            // User is signed in.
+            // ...
+            print("yes")
+            completion(true)
+        } else {
+            // No user is signed in.
+            // ...
+            print("no")
+            completion(false)
         }
     }
     
@@ -315,7 +319,7 @@ class connector {
             let uid = ref.child("Post/\(id)").childByAutoId().key
             let storageRef = Storage.storage().reference().child("Post/\(id)/\(uid)")
     
-            guard let imageData = image.jpegData(compressionQuality: 0.75)else { return }
+            guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }
     
     
             let metaData = StorageMetadata()
@@ -338,7 +342,7 @@ class connector {
         }
     
     func saveProfile(username:String,email:String, completion: @escaping ((_ success:Bool)->())) {
-        guard let uid = Auth.auth().currentUser?.uid else { return }
+        guard let uid = Auth.auth().currentUser?.uid else {completion(false); return }
         
         
         let databaseRef = Database.database().reference().child("users/donatur/profile/\(uid)")
