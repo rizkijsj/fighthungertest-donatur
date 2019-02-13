@@ -87,7 +87,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Nama donasi" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="tC5-9f-7PZ" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="4" width="394" height="56"/>
+                                                    <rect key="frame" x="20" y="4" width="374" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="LM9-wp-y8b"/>
                                                     </constraints>
@@ -97,7 +97,7 @@
                                                 </textField>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="trailing" secondItem="tC5-9f-7PZ" secondAttribute="trailing" id="A77-Ef-43S"/>
+                                                <constraint firstAttribute="trailing" secondItem="tC5-9f-7PZ" secondAttribute="trailing" constant="20" symbolic="YES" id="A77-Ef-43S"/>
                                                 <constraint firstItem="tC5-9f-7PZ" firstAttribute="leading" secondItem="I3i-MT-oBn" secondAttribute="leading" constant="20" symbolic="YES" id="Z2m-O7-tFB"/>
                                                 <constraint firstItem="tC5-9f-7PZ" firstAttribute="top" secondItem="I3i-MT-oBn" secondAttribute="top" constant="4" id="qLu-Mx-zLw"/>
                                                 <constraint firstAttribute="bottom" secondItem="tC5-9f-7PZ" secondAttribute="bottom" id="wEd-EG-AEO"/>
@@ -112,7 +112,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Deskripsi" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piT-uo-BYB" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="4" width="394" height="56"/>
+                                                    <rect key="frame" x="20" y="4" width="374" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="RF5-ya-FSu"/>
                                                     </constraints>
@@ -125,7 +125,7 @@
                                                 <constraint firstAttribute="bottom" secondItem="piT-uo-BYB" secondAttribute="bottom" id="4Xu-aQ-6EV"/>
                                                 <constraint firstItem="piT-uo-BYB" firstAttribute="leading" secondItem="bMr-sA-gaJ" secondAttribute="leading" constant="20" symbolic="YES" id="Ixz-Yg-iey"/>
                                                 <constraint firstItem="piT-uo-BYB" firstAttribute="top" secondItem="bMr-sA-gaJ" secondAttribute="top" constant="4" id="aXz-2R-M3M"/>
-                                                <constraint firstAttribute="trailing" secondItem="piT-uo-BYB" secondAttribute="trailing" id="lWL-dw-QA6"/>
+                                                <constraint firstAttribute="trailing" secondItem="piT-uo-BYB" secondAttribute="trailing" constant="20" symbolic="YES" id="lWL-dw-QA6"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -137,7 +137,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kuantitas" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfL-x6-g0J" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="4" width="394" height="56"/>
+                                                    <rect key="frame" x="20" y="4" width="374" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="lrZ-Kk-48B"/>
                                                     </constraints>
@@ -149,7 +149,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="bottom" secondItem="sfL-x6-g0J" secondAttribute="bottom" id="Jcd-sn-7Z5"/>
                                                 <constraint firstItem="sfL-x6-g0J" firstAttribute="leading" secondItem="IZG-gJ-gRy" secondAttribute="leading" constant="20" symbolic="YES" id="Wps-sk-gSo"/>
-                                                <constraint firstAttribute="trailing" secondItem="sfL-x6-g0J" secondAttribute="trailing" id="cAx-xW-5lf"/>
+                                                <constraint firstAttribute="trailing" secondItem="sfL-x6-g0J" secondAttribute="trailing" constant="20" symbolic="YES" id="cAx-xW-5lf"/>
                                                 <constraint firstItem="sfL-x6-g0J" firstAttribute="top" secondItem="IZG-gJ-gRy" secondAttribute="top" constant="4" id="rG7-oh-EqM"/>
                                             </constraints>
                                         </tableViewCellContentView>
@@ -164,17 +164,17 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-10-le8">
-                                                    <rect key="frame" x="20" y="4" width="394" height="56"/>
+                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-10-le8">
+                                                    <rect key="frame" x="20" y="4" width="374" height="56"/>
                                                     <subviews>
-                                                        <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="252" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="r26-Oi-EoT" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                            <rect key="frame" x="0.0" y="0.0" width="330" height="56"/>
+                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Alamat" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pZQ-9r-hBP" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                            <rect key="frame" x="0.0" y="0.0" width="318" height="56"/>
                                                             <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
+                                                            <textInputTraits key="textInputTraits"/>
                                                         </textField>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="CcD-ze-Hh5">
-                                                            <rect key="frame" x="338" y="0.0" width="56" height="56"/>
+                                                            <rect key="frame" x="318" y="0.0" width="56" height="56"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="249" verticalHuggingPriority="249" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="sa6-Xy-Bj6">
                                                                     <rect key="frame" x="10.5" y="10.5" width="35" height="35"/>
@@ -198,7 +198,7 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" constant="56" id="z7z-6T-gFb"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="z7z-6T-gFb"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -206,7 +206,7 @@
                                                 <constraint firstItem="9Aw-10-le8" firstAttribute="leading" secondItem="UtD-0G-fbr" secondAttribute="leading" constant="20" symbolic="YES" id="6If-KF-5fX"/>
                                                 <constraint firstItem="9Aw-10-le8" firstAttribute="top" secondItem="UtD-0G-fbr" secondAttribute="top" constant="4" id="GFt-1y-IZA"/>
                                                 <constraint firstAttribute="bottom" secondItem="9Aw-10-le8" secondAttribute="bottom" id="Iab-wP-PhB"/>
-                                                <constraint firstAttribute="trailing" secondItem="9Aw-10-le8" secondAttribute="trailing" id="VNH-hs-hd5"/>
+                                                <constraint firstAttribute="trailing" secondItem="9Aw-10-le8" secondAttribute="trailing" constant="20" symbolic="YES" id="VNH-hs-hd5"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -218,7 +218,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Keterangan tambahan lokasi (optional)" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="CX7-LV-Fii" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="4" width="394" height="56"/>
+                                                    <rect key="frame" x="20" y="4" width="374" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="tHl-lZ-YD8"/>
                                                     </constraints>
@@ -231,7 +231,7 @@
                                                 <constraint firstItem="CX7-LV-Fii" firstAttribute="leading" secondItem="IjZ-tB-GBh" secondAttribute="leading" constant="20" symbolic="YES" id="SrA-eS-0KY"/>
                                                 <constraint firstItem="CX7-LV-Fii" firstAttribute="top" secondItem="IjZ-tB-GBh" secondAttribute="top" constant="4" id="V1q-kO-KcI"/>
                                                 <constraint firstAttribute="bottom" secondItem="CX7-LV-Fii" secondAttribute="bottom" id="kmU-sv-bkF"/>
-                                                <constraint firstAttribute="trailing" secondItem="CX7-LV-Fii" secondAttribute="trailing" id="zJL-tp-VrR"/>
+                                                <constraint firstAttribute="trailing" secondItem="CX7-LV-Fii" secondAttribute="trailing" constant="20" symbolic="YES" id="zJL-tp-VrR"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -243,7 +243,7 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Waktu pengambilan" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5YL-GD-4og" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="4" width="394" height="56"/>
+                                                    <rect key="frame" x="20" y="4" width="374" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="5RZ-Hc-bVV"/>
                                                     </constraints>
@@ -254,7 +254,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="5YL-GD-4og" firstAttribute="leading" secondItem="K4n-I3-8xC" secondAttribute="leading" constant="20" symbolic="YES" id="6Mf-b9-Nef"/>
-                                                <constraint firstAttribute="trailing" secondItem="5YL-GD-4og" secondAttribute="trailing" id="Et2-Sf-6GM"/>
+                                                <constraint firstAttribute="trailing" secondItem="5YL-GD-4og" secondAttribute="trailing" constant="20" symbolic="YES" id="Et2-Sf-6GM"/>
                                                 <constraint firstItem="5YL-GD-4og" firstAttribute="top" secondItem="K4n-I3-8xC" secondAttribute="top" constant="4" id="cyk-oZ-8ZX"/>
                                                 <constraint firstAttribute="bottom" secondItem="5YL-GD-4og" secondAttribute="bottom" id="kSq-q3-4qg"/>
                                             </constraints>
@@ -283,7 +283,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="alamat" destination="r26-Oi-EoT" id="Gmd-ff-oM1"/>
+                        <outlet property="alamat" destination="pZQ-9r-hBP" id="4Af-Uf-DYe"/>
                         <outlet property="alamatStack" destination="9Aw-10-le8" id="NC8-iD-Vrm"/>
                         <outlet property="continueButton" destination="xgW-Ih-GwM" id="fmV-sv-Wrq"/>
                         <outlet property="deskripsiBarang" destination="piT-uo-BYB" id="RCA-sn-zsC"/>
@@ -291,6 +291,7 @@
                         <outlet property="keteranganBarang" destination="CX7-LV-Fii" id="umx-cm-Vin"/>
                         <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="X2J-u8-Xtu"/>
                         <outlet property="namaBarang" destination="tC5-9f-7PZ" id="5Yy-ey-yx8"/>
+                        <outlet property="viewAlamat" destination="CcD-ze-Hh5" id="1He-8G-aPD"/>
                         <outlet property="waktuPengambilan" destination="5YL-GD-4og" id="n4L-h5-g9g"/>
                         <segue destination="Qye-FF-Kdx" kind="presentation" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
                         <segue destination="zu9-Xr-40N" kind="presentation" identifier="DonasiToMap" id="9D9-Vz-n5s"/>
@@ -299,7 +300,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2Xm-47-wUT" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <exit id="0pU-vt-mi9" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="3723" y="1560"/>
+            <point key="canvasLocation" x="3721.739130434783" y="1559.5982142857142"/>
         </scene>
         <!--LoginRegisterNav-->
         <scene sceneID="6Xe-2Q-kM4">

@@ -198,7 +198,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 					self.successLogin = true
 					if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
 						print("Exit using Segue")
-						self.performSegue(withIdentifier: "completedOTP", sender: self)
+						self.dismiss(animated:true, completion: nil)
+						//self.performSegue(withIdentifier: "completedOTP", sender: self)
 					}else {
 						print("Nope, Dismissed")
 						self.dismiss(animated:true, completion: nil)
@@ -222,7 +223,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 						self.successLogin = true
 						if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
 							print("Exit using Segue")
-							self.performSegue(withIdentifier: "completedOTP", sender: self)
+							self.dismiss(animated:true, completion: nil)
+							//self.performSegue(withIdentifier: "completedOTP", sender: self)
 						}else {
 							print("Nope, Dismissed")
 							self.dismiss(animated:true, completion: nil)

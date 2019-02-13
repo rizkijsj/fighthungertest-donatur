@@ -54,6 +54,9 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		
 		
 		imgDonasi.isUserInteractionEnabled = true
+		
+		let tapAlamat = UITapGestureRecognizer(target: self, action: #selector(toMap(_:)))
+		self.alamatStack.addGestureRecognizer(tapAlamat)
 	}
 	
 	@objc func onClick(){
@@ -80,9 +83,22 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         let width = CGFloat(2.0)
         border.borderColor = warna.cgColor
         border.borderWidth = width
-        border.frame = CGRect(x: 0, y: alamatStack.bounds.size.height - width, width: alamatStack.bounds.size.width, height: alamatStack.bounds.size.height)
-        alamatStack.layer.addSublayer(border)
-        alamatStack.layer.masksToBounds = true
+		//print(alamatStack.bounds.size.width)
+        border.frame = CGRect(x: 0, y: alamat.bounds.size.height - width, width: alamat.bounds.size.width, height: alamat.bounds.size.height)
+        alamat.layer.addSublayer(border)
+		
+        alamat.layer.masksToBounds = true
+		
+		
+		let border2 = CALayer()
+		border2.borderColor = warna.cgColor
+		border2.borderWidth = width
+		//print(alamatStack.bounds.size.width)
+		border2.frame = CGRect(x: 0, y: viewAlamat.bounds.size.height - width, width: viewAlamat.bounds.size.width, height: viewAlamat.bounds.size.height)
+		viewAlamat.layer.addSublayer(border)
+		
+		viewAlamat.layer.masksToBounds = true
+		
     }
     
     
@@ -187,6 +203,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
             
                 DispatchQueue.main.async {
                     self.alamat.text = "\(namaTempat)" + " " + "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+					self.textFieldChanged(self.namaBarang)
                 }
             }
         }
@@ -199,30 +216,13 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         //print(vc.kordinatAsli)
 		latitude = "\(vc.kordinatAsli[0])"
 		longitude = "\(vc.kordinatAsli[1])"
+		textFieldChanged(namaBarang)
 		
     }
 	
 	@IBAction func unwindFromOTPSuccess(_ sender:UIStoryboardSegue){
-		let vc = sender.source as! OTPViewController
-		print("\n\n\nDi sini\n\n\n")
-		if vc.successLogin {
-			print("Login Sucess")
-			connector().verifyUserLoginState { (state) in
-				if state{
-					
-					print("Handling Post")
-					self.handlePosting()
-				}else{
-					print("Failed Login Again")
-					self.sendDataToNextVC()
-					self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
-					
-					
-				}
-			}
-		}else {
-			print("Login Failed")
-		}
+		textFieldChanged(namaBarang)
+		
 	}
     
 	
@@ -344,8 +344,9 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         let alamatBarang = alamat.text
         let fotobarang = imgDonasi.image
         let waktuAmbil = waktuPengambilan.text
+		let isImageAdded = imgDonasi.image?.isEqual(to: UIImage.init(named: "Gambar template donatur")!)
         
-        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && textFieldLength >= 1 && textFieldLength <= 120 && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil
+        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && textFieldLength >= 1 && textFieldLength <= 120 && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil && isImageAdded == false
         
         print(formFilled)
         
@@ -444,14 +445,15 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         guard let longitudeBarang = longitude as? String else {return}
         
         activityView.startAnimating()
+		self.tableView.isUserInteractionEnabled = false
         connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganBarang.text ?? "-" ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang) { (result) in
-			self.activityView.stopAnimating()
 			print("Rsults")
             if result{
 				print("Sukses nih DOnate")
                 //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
+				self.resetForm()
 				self.dismiss(animated: true, completion: nil)
-                self.resetForm()
+				
             }else{
 				print("Wah ggl nih")
                 self.resetForm()
@@ -511,7 +513,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     }
     
     func resetForm() {
-        
+        self.tableView.isUserInteractionEnabled = true
         //setContinueButton(enabled: true)
         activityView.stopAnimating()
         setContinueButton(enabled: true)
@@ -545,6 +547,7 @@ extension DonatingController: UIImagePickerControllerDelegate, UINavigationContr
         //gbrTemplate.isHidden = true
         // Set photoImageView to display the selected image.
         self.imgDonasi.image = selectedImage
+		textFieldChanged(namaBarang)
  
          //Dismiss the picker.
         dismiss(animated: true, completion: nil)
