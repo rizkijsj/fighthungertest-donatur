@@ -130,8 +130,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         UIView.commitAnimations()
     }
 	
-	func createPicker()
-	{
+	func createPicker(){
 		
 		picker.locale = Locale.init(identifier: "Id")
 		picker.datePickerMode = .time
@@ -231,11 +230,11 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         setContinueButton(enabled: false)
 		textFieldChanged(namaBarang)
         connector().verifyUserLoginState { (state) in
-			self.resetForm()
+			//self.resetForm()
             if state{
                 self.handlePosting()
             }else{
-				
+				self.resetForm()
                 self.sendDataToNextVC()
                 self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
                 
@@ -325,7 +324,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         
         tableView.delegate = self
         tableView.dataSource = self
-        continueButton.isEnabled = false
+        setContinueButton(enabled: false)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -352,13 +351,11 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         
         print(formFilled)
         
-        if formFilled
-        {
+        if formFilled{
             print("gas pak aji")
             setContinueButton(enabled: true)
 
-        }else
-        {
+        }else{
             setContinueButton(enabled: false)
         }
       
@@ -434,19 +431,20 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     @objc func handlePosting() {
 
-        guard let namaBarang = namaBarang.text else { return }
-        guard let namaLokasi = alamat.text else { return }
+		guard let namaBarang = namaBarang.text else { resetForm(); return }
+        guard let namaLokasi = alamat.text else {resetForm(); return }
         let pickUpTime = picker.date.timeIntervalSince1970
-        guard let fotobarang = imgDonasi.image else { return }
-        guard let deskripsi = deskripsiBarang.text else { return }
+        guard let fotobarang = imgDonasi.image else {resetForm(); return }
+        guard let deskripsi = deskripsiBarang.text else {resetForm(); return }
 		
         //guard let keteranganTambahanLokasi = keteranganBarang.text else {return}
-        guard let jumlahBarang = kuantitasBarang.text else {return}
+        guard let jumlahBarang = kuantitasBarang.text else {resetForm(); return}
         
-        guard let latitudeBarang = latitude as? String else {return}
-        guard let longitudeBarang = longitude as? String else {return}
+        guard let latitudeBarang = latitude as? String else {resetForm(); return}
+        guard let longitudeBarang = longitude as? String else {resetForm(); return}
         
         activityView.startAnimating()
+		setContinueButton(enabled: false)
 		self.tableView.isUserInteractionEnabled = false
         connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganBarang.text ?? "-" ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang) { (result) in
 			print("Rsults")
