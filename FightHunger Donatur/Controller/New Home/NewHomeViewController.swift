@@ -276,6 +276,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		}else if indexPath.section == 2 {
 			selectedIndexPath = indexPath
 			print("Somewhere in Organization with \(organizationList[indexPath.row].name)")
+			self.performSegue(withIdentifier: "toOrg", sender: self)
 		}
 		
 		

@@ -14,14 +14,17 @@ import MessageUI
 class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
     
     //Initial organisasi object
-    let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+6287776007230", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
+    //let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+6287776007230", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
     
     @IBAction func clickWeb(_ sender: Any) {
-        let url = URL(string: "https://www.hackingwithswift.com")
-        UIApplication.shared.open(url!, options: [:])
+		guard let orgObject = organisasiObject else {return}
+        let url = orgObject.link
+		UIApplication.shared.open(url, options: [:])
     }
     
     @IBAction func chatButton(_ sender: Any) {
+		
+		guard let orgObject = organisasiObject else {return}
         //let phoneNumber =  "6281808082838"
         let appURL = NSURL(string: "https://api.whatsapp.com/send?phone=\(orgObject.phone.dropFirst())")!
         if UIApplication.shared.canOpenURL(appURL as URL) {
@@ -37,6 +40,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         }
     }
     @IBAction func callButton(_ sender: Any) {
+		guard let orgObject = organisasiObject else {return}
         let urlPhone: NSURL = URL(string: "tel://\(orgObject.phone)")! as NSURL
         UIApplication.shared.open(urlPhone as URL, options: [:], completionHandler: nil)
         
@@ -60,13 +64,22 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         
         if let organisasi = organisasiObject
              {
-                loadImage(link: organisasi.logo)
                 namaOrganisasi.text = organisasi.name
-                alamatOrganisasi.text = organisasi.email
+                alamatOrganisasi.text = organisasi.locationName
                 btnAction()
                 keteranganOrganisasi.text = organisasi.description
                
-                organisasiProgramObject = connector().getOrganizationProgramList(organizationID: organisasi.id, limit: 3)
+                //organisasiProgramObject = connector().getOrganizationProgramList(organizationID: organisasi.id, limit: 3)
+				
+				logoOrganisasi.image = UIImage.init(color: .lightGray)
+				
+				ImageService.getImage(withURL: organisasi.logo) { image, url, fromCache in
+					if fromCache {
+						self.logoOrganisasi.image = image
+					} else {
+						self.fadeInNewImage(previousImageView: self.logoOrganisasi, newImage: image)
+					}
+				}
             
                 self.tableView.reloadData()
         }else {
@@ -74,6 +87,32 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         }
         
     }
+	
+	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
+		let nextImage = newImage
+		
+		if previousImageView.image == nil{
+			//previousImageView.image = UIImage.init()
+			previousImageView.image = newImage
+		}else{
+			let tmpImageView = UIImageView(image: nextImage)
+			tmpImageView.contentMode = previousImageView.contentMode
+			tmpImageView.frame = previousImageView.bounds
+			tmpImageView.alpha = 0.0
+			previousImageView.addSubview(tmpImageView)
+			
+			UIView.animate(withDuration: 1, animations: {
+				tmpImageView.alpha = 1.0
+			}, completion: {
+				finished in
+				previousImageView.image = nextImage
+				tmpImageView.image = nil
+				tmpImageView.removeFromSuperview()
+				tmpImageView.removeFromSuperview()
+				
+			})
+		}
+	}
     
     func loadImage(link:URL){
         DispatchQueue.global(qos: .userInitiated).async {
@@ -98,6 +137,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     
     @IBAction func clickedOnLocation(_ sender: UIButton) {
          print("Open Map")
+		guard let orgObject = organisasiObject else {return}
         
             let regionDistance:CLLocationDistance = 1000
             let coordinates = CLLocationCoordinate2D.init(latitude: orgObject.latitude, longitude: orgObject.longitude)
@@ -116,7 +156,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     }
     
     func btnAction(){
-        let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+62808082838", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
+        //let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+62808082838", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
         
         if callOrganisasi.isTouchInside{
             
@@ -166,8 +206,9 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
-        return 4
+        return 3
     }
+	
     
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
