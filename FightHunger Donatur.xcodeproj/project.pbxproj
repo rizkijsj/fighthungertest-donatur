@@ -42,6 +42,7 @@
 		2F5D060021FED51E00CDD125 /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FE21FED51E00CDD125 /* UserService.swift */; };
 		2F5D060121FED51E00CDD125 /* ImageService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F5D05FF21FED51E00CDD125 /* ImageService.swift */; };
 		2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5D060221FED5DD00CDD125 /* GoogleService-Info.plist */; };
+		2FE8A3D62214ABBC00FA21E6 /* Kegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE8A3D52214ABBB00FA21E6 /* Kegiatan.swift */; };
 		638BCFFFCA995D8D729A24CB /* Pods_FightHunger_DonaturTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0CF35341B36E3E56B75B40 /* Pods_FightHunger_DonaturTests.framework */; };
 		911453E622041D3E0074C0FC /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911453E422041D3E0074C0FC /* ExtUIImage.swift */; };
 		911453E722041D3E0074C0FC /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911453E522041D3E0074C0FC /* RepeatingTimer.swift */; };
@@ -107,6 +108,7 @@
 		2F5D05FF21FED51E00CDD125 /* ImageService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageService.swift; sourceTree = "<group>"; };
 		2F5D060221FED5DD00CDD125 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		2F5D060421FED60200CDD125 /* FightHunger Donatur.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = "FightHunger Donatur.entitlements"; sourceTree = "<group>"; };
+		2FE8A3D52214ABBB00FA21E6 /* Kegiatan.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Kegiatan.swift; sourceTree = "<group>"; };
 		5058FB356AA318B109E36153 /* Pods-FightHunger Donatur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.release.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.release.xcconfig"; sourceTree = "<group>"; };
 		725D660C2F57496AD30DF185 /* Pods-FightHunger Donatur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.debug.xcconfig"; sourceTree = "<group>"; };
 		7B45E3B8DBF765C33B65E959 /* Pods-FightHunger DonaturTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.debug.xcconfig"; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				2F5D05FA21FED50900CDD125 /* Post.swift */,
 				2F5D05FB21FED50900CDD125 /* UserProfile.swift */,
 				2F34F53722087F2B007FDA8C /* OrganisasiProfile.swift */,
+				2FE8A3D52214ABBB00FA21E6 /* Kegiatan.swift */,
 			);
 			path = "Structure Data";
 			sourceTree = "<group>";
@@ -738,6 +741,7 @@
 				2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */,
 				2B8CD1FB22035BD500E5FFD2 /* KegiatanTerbaruController.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
+				2FE8A3D62214ABBC00FA21E6 /* Kegiatan.swift in Sources */,
 				2F31EC0D22102B800073F3A5 /* PushNotificationSender.swift in Sources */,
 				2B4836702201EE5D00B18E72 /* UbahprofilViewController.swift in Sources */,
 				FB0C42242203218A006BEC67 /* Organisasi.swift in Sources */,
