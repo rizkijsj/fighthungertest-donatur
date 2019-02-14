@@ -133,6 +133,10 @@
                         </connections>
                     </tableView>
                     <connections>
+                        <outlet property="imageProgram" destination="pds-jU-G1y" id="10Q-kr-5qk"/>
+                        <outlet property="imgOrganisasi" destination="kfN-Q6-Ael" id="CNd-eo-tGe"/>
+                        <outlet property="isiKegiatan" destination="dgQ-kn-vDc" id="gZL-dE-qE2"/>
+                        <outlet property="titleKegiatan" destination="EtU-i4-3M8" id="Y0h-WQ-KYF"/>
                         <segue destination="2zx-X9-Onz" kind="presentation" id="ofv-4w-OLq"/>
                     </connections>
                 </tableViewController>

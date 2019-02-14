@@ -14,20 +14,96 @@ class KegiatanTerbaruController: UITableViewController {
     @IBOutlet weak var isiKegiatan: UILabel!
     @IBOutlet weak var titleKegiatan: UILabel!
     @IBOutlet weak var imgOrganisasi: UIImageView!
-
+	@IBOutlet weak var imageProgram: UIImageView!
+	@IBOutlet weak var namaLokasiProgram: UILabel!
+	@IBOutlet weak var waktuProgram: UILabel!
+	
     @IBOutlet weak var btnDonasi: UIButton!
+	
+	var passingObject: programObject?
+
     override func viewDidLoad() {
         super.viewDidLoad()
-
       
-        tableView.delegate = self
-        tableView.dataSource = self
-        btnDonasi.layer.cornerRadius = 6.0
-        
+        self.tableView.delegate = self
+        self.tableView.dataSource = self
+       // btnDonasi.layer.cornerRadius = 6.0
+		
+		reloadObject()
 		
     }
+	
+	func reloadObject(){
+		if let _ = passingObject {
+			loadProgramDetails()
+		}else {
+			self.navigationController?.popViewController(animated: true)
+		}
+	}
+	
+	func loadProgramDetails(){
+		guard let progObject = passingObject else {return}
+		
+		imageProgram.image = UIImage.init(color: .lightGray)
+		ImageService.getImage(withURL: URL.init(string: progObject.imagesLink)!) { (image, url, fromCache) in
+			if fromCache {
+				self.imageProgram.image = image
+			}else {
+				self.fadeInNewImage(previousImageView: self.imageProgram, newImage: image)
+			}
+		}
+		
+		imgOrganisasi.image = UIImage.init(color: .lightGray)
+		ImageService.getImage(withURL: URL.init(string: "https://pbs.twimg.com/profile_images/785897969237102592/4T3xAHRj_400x400.jpg" )! ) { image, url, fromCache in
+			if fromCache {
+				self.imgOrganisasi.image = image
+			} else {
+				self.fadeInNewImage(previousImageView: self.imgOrganisasi, newImage: image)
+			}
+		}
+		
+		titleKegiatan.text = progObject.name
+		isiKegiatan.text = progObject.description
+		namaLokasiProgram.text = progObject.locationName
+		waktuProgram.text = progObject.time
+		
+		
+		
+	}
+	
+	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
+		let nextImage = newImage
+		
+		if previousImageView.image == nil{
+			//previousImageView.image = UIImage.init()
+			previousImageView.image = newImage
+		}else{
+			let tmpImageView = UIImageView(image: nextImage)
+			tmpImageView.contentMode = previousImageView.contentMode
+			tmpImageView.frame = previousImageView.bounds
+			tmpImageView.alpha = 0.0
+			previousImageView.addSubview(tmpImageView)
+			
+			UIView.animate(withDuration: 1, animations: {
+				tmpImageView.alpha = 1.0
+			}, completion: {
+				finished in
+				previousImageView.image = nextImage
+				tmpImageView.image = nil
+				tmpImageView.removeFromSuperview()
+				tmpImageView.removeFromSuperview()
+				
+			})
+		}
+	}
 
-
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
+	}
+	
+	override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
+	}
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)

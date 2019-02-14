@@ -68,6 +68,7 @@
                         <segue destination="fL7-n3-YWV" kind="presentation" identifier="Login" id="9r3-Xy-oG4"/>
                         <segue destination="vAa-Ur-EJs" kind="show" identifier="keAktivitas" id="HSw-Nw-UnV"/>
                         <segue destination="30J-aI-EYq" kind="presentation" identifier="PostDonasi" id="OhZ-ps-tbQ"/>
+                        <segue destination="a44-S9-9Sh" kind="show" identifier="toProgram" id="vGh-Eu-Jgf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0Y-5z-x1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -81,6 +82,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCf-rq-Ljw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1606" y="189"/>
+        </scene>
+        <!--KegiatanTerbaru-->
+        <scene sceneID="7Nv-4Z-PfS">
+            <objects>
+                <viewControllerPlaceholder storyboardName="KegiatanTerbaru" id="a44-S9-9Sh" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ReM-aK-KH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2014" y="132"/>
         </scene>
         <!--PostDonasi-->
         <scene sceneID="wg1-S5-cM7">

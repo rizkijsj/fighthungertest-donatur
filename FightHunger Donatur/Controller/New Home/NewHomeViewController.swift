@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import CoreLocation
 import Firebase
 class NewHomeViewController: UIViewController {
 	
@@ -68,6 +69,11 @@ class NewHomeViewController: UIViewController {
 				self.repeatedLoginAttempt.suspend()
 			} else {print("Error")}
 		}
+		
+		programList.append(programObject.init(proId: "123", orgID: "123", proName: "Aksi anti kelaparan balita", proLocName: "Jalan Melati timur, Jakarta Barat", proLocCoor: CLLocationCoordinate2D.init(latitude: 106, longitude: -5) , proTime: "30 Februari 2019", proDesc: "Memberikan pelajaran kepada calon orang tua tentang gizi yang di butuhkan oleh balita untuk tumbuh sehat", proImageLink: "https://media.beritagar.id/2018-07/d40a43d6130bc0eb4269f1e383f9c27d.jpg"))
+	
+		programList.append(programObject.init(proId: "321", orgID: "321", proName: "Penyaluran sumbangan untuk gempa", proLocName: "Jalan H. Mamot, Jakarta Utara", proLocCoor: CLLocationCoordinate2D.init(latitude: 106, longitude: -5) , proTime: "30 Februari 2019", proDesc: "Memberikan pelajaran kepada calon orang tua tentang gizi yang di butuhkan oleh balita untuk tumbuh sehat", proImageLink: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Korban-tewas-gempa-ekuador-lebih-650-orang-232427-1.jpg"))
+		
 		
 		
 		let tapDonateButton = UITapGestureRecognizer.init(target: self, action: #selector(toDonate))
@@ -133,8 +139,8 @@ class NewHomeViewController: UIViewController {
 				/// MARK: - TODO
 				/// Does program controller does not exist
 				
-				//let programVC = segue.destination as! KegiatanViewController
-				//programVC = programList[nextIndexPath.row]
+				let programVC = segue.destination as! KegiatanTerbaruController
+				programVC.passingObject = programList[nextIndexPath.row]
 			}else if nextIndexPath.section == 2{
 				let organizationVC = segue.destination as! Organisasi
 				organizationVC.organisasiObject = organizationList[nextIndexPath.row]
@@ -177,7 +183,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	func numberOfSections(in tableView: UITableView) -> Int {
 		// Consider to use section to separate the content based on design objective, "Activity" section, "New Activity" Section, "Partner" Section
 		
-		return 1
+		return 3
 		
 	}
 	func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -245,10 +251,11 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		if indexPath.section == 0{
 			selectedIndexPath = indexPath
 			print("Somewhere in Activity with \(activityList[indexPath.row].namaitem)")
-			self.performSegue(withIdentifier: "keAktivitas", sender: nil)
+			self.performSegue(withIdentifier: "keAktivitas", sender: self)
 		}else if indexPath.section == 1 {
 			selectedIndexPath = indexPath
 			print("Somewhere in Program with \(programList[indexPath.row].name)")
+			self.performSegue(withIdentifier: "toProgram", sender: self)
 		}else if indexPath.section == 2 {
 			selectedIndexPath = indexPath
 			print("Somewhere in Organization with \(organizationList[indexPath.row].name)")
@@ -329,9 +336,9 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		case 1:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "newActivityCellID", for: indexPath) as? SectionTwoHomeCell)!
 
-			cell.contentOrganisationName.text = programList[indexPath.row].name
+			cell.contentOrganisationName.text = "PT Indah Bersama"
 			cell.contentImage.image = UIImage.init(color: .lightGray)
-			ImageService.getImage(withURL: URL.init(string: programList[indexPath.row].imagesLink)! ) { image, url, fromCache in
+			ImageService.getImage(withURL: URL.init(string: programList[indexPath.row].imagesLink)!) { image, url, fromCache in
 				if fromCache {
 					cell.contentImage.image = image
 				} else {
@@ -343,7 +350,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			cell.contentTitle.text = programList[indexPath.row].name
 			cell.contentDesc.text = programList[indexPath.row].description
 			cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
-			ImageService.getImage(withURL: URL.init(string: programList[indexPath.row].imagesLink)! ) { image, url, fromCache in
+			ImageService.getImage(withURL: URL.init(string: "https://pbs.twimg.com/profile_images/785897969237102592/4T3xAHRj_400x400.jpg" )! ) { image, url, fromCache in
 				if fromCache {
 					cell.contentOrganisationIcon.image = image
 				} else {

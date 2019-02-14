@@ -701,7 +701,7 @@ class donatorObject{
         
     }
 }
-
+*/
 class organizationObject{
     var id:String
     var phone:String
@@ -727,7 +727,7 @@ class organizationObject{
         
     }
 }
-*/
+
 class programObject{
     var id:String
     var organizationID:String
