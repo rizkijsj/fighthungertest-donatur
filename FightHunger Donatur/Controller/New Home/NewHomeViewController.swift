@@ -19,7 +19,7 @@ class NewHomeViewController: UIViewController {
 	
 	var posts = [Post]()
 	var organisasi = [OrganisasiProfile]()
-    var kegiatans = [Kegiatan]()
+    //var kegiatans = [Kegiatan]()
     
     var selectedKegiatanObject:Kegiatan?
 	// activity data should always referred to your data source, which it will be real time updated data
@@ -33,7 +33,7 @@ class NewHomeViewController: UIViewController {
 	var activityListRaw = connector().transactionList()
 	var activityList:[Post] = []
 	var organizationList:[OrganisasiProfile] = []
-	var programList:[programObject] = []
+	var programList:[Kegiatan] = []
 	
 	var selectedIndexPath:IndexPath?
 	var toDetail:Bool = false
@@ -46,7 +46,7 @@ class NewHomeViewController: UIViewController {
 		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
 		UserDefaults.standard.synchronize()
 		
-		//self.observeOrganisasi()
+		
 		
 		repeatedLoginAttempt.eventHandler = {
 			if let userProfile = UserService.currentUserProfile {
@@ -72,16 +72,26 @@ class NewHomeViewController: UIViewController {
 				self.repeatedLoginAttempt.suspend()
 			} else {print("Error")}
 		}
-		
+		/*
 		programList.append(programObject.init(proId: "123", orgID: "123", proName: "Aksi anti kelaparan balita", proLocName: "Jalan Melati timur, Jakarta Barat", proLocCoor: CLLocationCoordinate2D.init(latitude: 106, longitude: -5) , proTime: "30 Februari 2019", proDesc: "Memberikan pelajaran kepada calon orang tua tentang gizi yang di butuhkan oleh balita untuk tumbuh sehat", proImageLink: "https://media.beritagar.id/2018-07/d40a43d6130bc0eb4269f1e383f9c27d.jpg"))
 	
-		programList.append(programObject.init(proId: "321", orgID: "321", proName: "Penyaluran sumbangan untuk gempa", proLocName: "Jalan H. Mamot, Jakarta Utara", proLocCoor: CLLocationCoordinate2D.init(latitude: 106, longitude: -5) , proTime: "30 Februari 2019", proDesc: "Memberikan pelajaran kepada calon orang tua tentang gizi yang di butuhkan oleh balita untuk tumbuh sehat", proImageLink: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Korban-tewas-gempa-ekuador-lebih-650-orang-232427-1.jpg"))
-		
+		programList.append(programObject.init(proId: "321", orgID: "321", proName: "Penyaluran sumbangan untuk gempa", proLocName: "Jalan H. Mamot, Jakarta Utara", proLocCoor: CLLocationCoordinate2D.init(latitude: 106, longitude: -5) , proTime: "30 Februari 2019", proDesc: "Gempa yang terjadi bulan ini masih terasa dampaknya. Maka untuk membantu korban gempa dengan menyalurkan sembako yang terkumpul atas nama organisasi kami. ", proImageLink: "https://upload.wikimedia.org/wikipedia/commons/a/ae/Korban-tewas-gempa-ekuador-lebih-650-orang-232427-1.jpg"))
+		*/
 		
 		
 		let tapDonateButton = UITapGestureRecognizer.init(target: self, action: #selector(toDonate))
 		donateButton.addGestureRecognizer(tapDonateButton)
 		repeatedLoginAttempt.resume()
+		
+		
+		DispatchQueue.main.async {
+			print("Observing Organisasi")
+			self.observeOrganisasi()
+			
+			print("Observing Kegiatan")
+			self.observeKegiatan()
+		}
+		
 	}
 	
 	
@@ -257,7 +267,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			self.performSegue(withIdentifier: "keAktivitas", sender: self)
 		}else if indexPath.section == 1 {
 			selectedIndexPath = indexPath
-			print("Somewhere in Program with \(programList[indexPath.row].name)")
+			print("Somewhere in Program with \(programList[indexPath.row].programName)")
 			self.performSegue(withIdentifier: "toProgram", sender: self)
 		}else if indexPath.section == 2 {
 			selectedIndexPath = indexPath
@@ -339,9 +349,9 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		case 1:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "newActivityCellID", for: indexPath) as? SectionTwoHomeCell)!
 
-			cell.contentOrganisationName.text = "PT Indah Bersama"
+			
 			cell.contentImage.image = UIImage.init(color: .lightGray)
-			ImageService.getImage(withURL: URL.init(string: programList[indexPath.row].imagesLink)!) { image, url, fromCache in
+			ImageService.getImage(withURL: programList[indexPath.row].programImage) { image, url, fromCache in
 				if fromCache {
 					cell.contentImage.image = image
 				} else {
@@ -349,17 +359,32 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 				}
 			}
 			
-			cell.contentActivityDate.text = programList[indexPath.row].time
-			cell.contentTitle.text = programList[indexPath.row].name
-			cell.contentDesc.text = programList[indexPath.row].description
+			cell.contentActivityDate.text = programList[indexPath.row].programDate
+			cell.contentTitle.text = programList[indexPath.row].programName
+			cell.contentDesc.text = programList[indexPath.row].programInformation
+			
+			cell.contentOrganisationName.text = programList[indexPath.row].orgName
+			
 			cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
-			ImageService.getImage(withURL: URL.init(string: "https://pbs.twimg.com/profile_images/785897969237102592/4T3xAHRj_400x400.jpg" )! ) { image, url, fromCache in
-				if fromCache {
-					cell.contentOrganisationIcon.image = image
-				} else {
-					self.fadeInNewImage(previousImageView: cell.contentOrganisationIcon, newImage: image)
+			
+			DispatchQueue.main.async {
+				self.organizationList.forEach { (orgProfile) in
+					if orgProfile.id == self.programList[indexPath.row].orgId {
+						
+						ImageService.getImage(withURL: orgProfile.logo ) { image, url, fromCache in
+							if fromCache {
+								cell.contentOrganisationIcon.image = image
+							} else {
+								self.fadeInNewImage(previousImageView: cell.contentOrganisationIcon, newImage: image)
+							}
+							return
+						}
+					}
 				}
 			}
+			
+			
+			
 			
 			return cell
 		case 2:
@@ -717,13 +742,20 @@ extension NewHomeViewController{
                     print("ada yg salah")
                 }
             }
-            print("berhasil ambil data post")
-            print(tempKegiatan)
             
-            self.kegiatans = tempKegiatan
-            self.tableView.reloadData()
-            
-            
+			DispatchQueue.main.async {
+				
+				print("berhasil ambil data organisasi")
+				print(tempKegiatan)
+				self.programList = tempKegiatan
+				//self.kegiatans = tempKegiatan
+				self.tableView.reloadData()
+				
+				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+					self.tableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
+				}, completion: nil)
+				
+			}
             
         })
     }

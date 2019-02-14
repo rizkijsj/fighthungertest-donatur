@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Firebase
 
 class KegiatanTerbaruController: UITableViewController {
 
@@ -20,7 +21,8 @@ class KegiatanTerbaruController: UITableViewController {
 	
     @IBOutlet weak var btnDonasi: UIButton!
 	
-	var passingObject: programObject?
+	var passingObject: Kegiatan?
+	var organisationObject: OrganisasiProfile?
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -30,7 +32,7 @@ class KegiatanTerbaruController: UITableViewController {
        // btnDonasi.layer.cornerRadius = 6.0
 		
 		reloadObject()
-		
+		observeOrganisasi()
     }
 	
 	func reloadObject(){
@@ -45,7 +47,7 @@ class KegiatanTerbaruController: UITableViewController {
 		guard let progObject = passingObject else {return}
 		
 		imageProgram.image = UIImage.init(color: .lightGray)
-		ImageService.getImage(withURL: URL.init(string: progObject.imagesLink)!) { (image, url, fromCache) in
+		ImageService.getImage(withURL: progObject.programImage) { (image, url, fromCache) in
 			if fromCache {
 				self.imageProgram.image = image
 			}else {
@@ -53,19 +55,24 @@ class KegiatanTerbaruController: UITableViewController {
 			}
 		}
 		
-		imgOrganisasi.image = UIImage.init(color: .lightGray)
-		ImageService.getImage(withURL: URL.init(string: "https://pbs.twimg.com/profile_images/785897969237102592/4T3xAHRj_400x400.jpg" )! ) { image, url, fromCache in
-			if fromCache {
-				self.imgOrganisasi.image = image
-			} else {
-				self.fadeInNewImage(previousImageView: self.imgOrganisasi, newImage: image)
+			titleKegiatan.text = progObject.programName
+			isiKegiatan.text = progObject.programInformation
+			namaLokasiProgram.text = progObject.programLocation
+			waktuProgram.text = progObject.programDate
+		
+		if let orgObject = organisationObject {
+		
+			imgOrganisasi.image = UIImage.init(color: .lightGray)
+			ImageService.getImage(withURL: orgObject.logo ) { image, url, fromCache in
+				if fromCache {
+					self.imgOrganisasi.image = image
+				} else {
+					self.fadeInNewImage(previousImageView: self.imgOrganisasi, newImage: image)
+				}
 			}
 		}
 		
-		titleKegiatan.text = progObject.name
-		isiKegiatan.text = progObject.description
-		namaLokasiProgram.text = progObject.locationName
-		waktuProgram.text = progObject.time
+		
 		
 		
 		
@@ -107,8 +114,83 @@ class KegiatanTerbaruController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        //self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
+	
+	override func viewDidDisappear(_ animated: Bool) {
+		super.viewWillDisappear(true)
+		
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
+	}
+	
+	
+	func observeOrganisasi() {
+		
+		//        guard let userProfile = UserService.currentUserProfile else { return }
+		//        let uid = userProfile.uid
+		guard let progObject = passingObject else {return}
+		
+		let orgRef = Database.database().reference().child("users/komunitas")
+		var tempOrganisasi:OrganisasiProfile?
+		
+		orgRef.observe(.value, with: { snapshot in
+			
+			
+			//var tempIdProfile = String
+			//print("Check12")
+			for child in snapshot.children {
+				print(child)
+				if let childSnapshot = child as? DataSnapshot,
+					let dict = childSnapshot.value as? [String:Any],
+					
+					let locationcoor = dict["locationcoor"] as? [String:Any],
+					let latitude = locationcoor["latitude"] as? Double,
+					let longitude = locationcoor["longitude"] as? Double,
+					let address = dict["locationname"] as? String,
+					//                    let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(([longitude] as NSString).doubleValue), longitude: Double(([latitude] as NSString).doubleValue)),
+					let logo = dict["logo"] as? String,
+					let logourl = URL(string: logo),
+					
+					let link = dict["link"] as? String,
+					let linkwebsite = URL(string: link),
+					
+					let name = dict["name"] as? String,
+					let phonenumber = dict["phone"] as? String,
+					let deskripsi = dict["description"] as? String,
+					let email = dict["email"] as? String,
+					let id = dict["id"] as? String{
+					print("nelis ndud ndud")
+					let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
+					
+					
+					
+					if organisasi.id == progObject.orgId {
+						tempOrganisasi = organisasi
+					}
+					//                    if userProfile.uid == Auth.auth().currentUser?.uid
+					//                    {
+					//                        tempOrganisasi.append(post)
+					//
+					//                    }
+				}else {print("Error?")}
+			}
+			
+			DispatchQueue.main.async {
+				guard let tempOrg = tempOrganisasi else {return}
+				print("berhasil ambil data organisasi")
+				self.organisationObject = tempOrg
+				//self.tableView.reloadData()
+				
+				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+					self.reloadObject()
+				}, completion: nil)
+				
+			}
+			
+			
+		})
+		
+	}
 	
 
 }
