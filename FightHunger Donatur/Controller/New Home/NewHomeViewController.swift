@@ -46,6 +46,9 @@ class NewHomeViewController: UIViewController {
 		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
 		UserDefaults.standard.synchronize()
 		
+		self.profileButtonOutlet.image = UIImage.init(named: "profilBtn")!
+		self.profileButtonOutlet.title = ""
+		self.profileButtonOutlet.tintColor = .black
 		
 		
 		repeatedLoginAttempt.eventHandler = {
@@ -58,9 +61,10 @@ class NewHomeViewController: UIViewController {
 					//self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
 					// Update your data source here
 					//self.tableView.reloadData()
-					self.profileButtonOutlet.image = UIImage.init(named: "profilBtn")!
-					self.profileButtonOutlet.title = ""
-					self.profileButtonOutlet.tintColor = .black
+					
+//					self.profileButtonOutlet.image = UIImage.init(named: "profilBtn")!
+//					self.profileButtonOutlet.title = ""
+//					self.profileButtonOutlet.tintColor = .black
 					
 					UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
 						//self.tableView.reloadData()
