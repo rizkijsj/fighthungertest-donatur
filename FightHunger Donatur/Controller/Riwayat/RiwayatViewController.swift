@@ -12,6 +12,7 @@ import Firebase
 class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     var dataPost = [Post]()
 	var selectedIndex = IndexPath()
+	var passingOrgObject = [OrganisasiProfile]()
 	
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBAction func backBtn(_ sender: Any) {
@@ -64,6 +65,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		cell.contentImage.image = UIImage.init(color: .lightGray)
 		
 		ImageService.getImage(withURL: dataPost[indexPath.row].postphotourl) { image, url, fromCache  in
+			cell.contentImage.image = UIImage.init(color: .lightGray)
 			if fromCache {
 				cell.contentImage.image = image
 			}else {
@@ -76,10 +78,11 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		//cell.contentExpiredDate.text = dataPost[indexPath.row].deskripsi
 		
 		cell.contentOrganisationName.text = ""
+		cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 		if dataPost[indexPath.row].status == 5{
 			cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 			ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url, fromCache in
-				
+				cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 				if fromCache {
 					cell.contentOrganisationIcon.image = image
 				}else {

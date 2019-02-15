@@ -282,6 +282,9 @@
                                                                         <constraint firstAttribute="height" constant="35" id="r8e-e0-cO0"/>
                                                                     </constraints>
                                                                     <state key="normal" image="Telephone Inactive"/>
+                                                                    <connections>
+                                                                        <action selector="callButton:" destination="NP4-ck-NJT" eventType="touchUpInside" id="XRr-Fm-TdL"/>
+                                                                    </connections>
                                                                 </button>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -311,7 +314,7 @@
                                         <rect key="frame" x="0.0" y="770" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r63-VJ-qaz" id="Rah-NB-1F4">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Data Kurir" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="llb-KF-EDE">
@@ -333,7 +336,7 @@
                                         <rect key="frame" x="0.0" y="830" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="fvI-ck-02Z" id="NI0-9s-Tza">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="tRK-Jr-GAZ">
@@ -366,7 +369,7 @@
                                         <rect key="frame" x="0.0" y="910" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="vQw-VB-iYx" id="V4j-dK-YmZ">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="eAa-ZP-4zs">
@@ -403,7 +406,7 @@
                                         <rect key="frame" x="0.0" y="1018" width="375" height="60"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="Bx0-dv-cai" id="RQ3-n5-7ec">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="59.666666666666664"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Detail Donasi" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="IS8-4z-cXZ">
@@ -425,7 +428,7 @@
                                         <rect key="frame" x="0.0" y="1078" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="K7h-D8-xcB" id="m2B-m4-nqW">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="FUs-sO-vZw">
@@ -458,7 +461,7 @@
                                         <rect key="frame" x="0.0" y="1158" width="375" height="80"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="zMi-Qw-6FL" id="31q-LC-wcI">
-                                            <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="375" height="79.666666666666671"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="pdP-9R-dcZ">
@@ -658,7 +661,7 @@
                         <outlet property="status4" destination="7Np-o2-gzG" id="Eau-Hz-bMU"/>
                         <outlet property="status4Lbl" destination="6NY-TG-qCm" id="JZ7-Zn-8BK"/>
                         <outlet property="waktuPengambilan" destination="kWF-8W-sY0" id="oGD-TX-BAR"/>
-                        <segue destination="Xja-D8-UkC" kind="show" id="GTt-YR-P27"/>
+                        <segue destination="Xja-D8-UkC" kind="show" identifier="toOrganization" id="GTt-YR-P27"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Mus-Co-Tcv" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -679,9 +682,9 @@
         <image name="Tombol abu" width="1372" height="200"/>
         <image name="arrowback" width="120" height="200"/>
         <image name="konfirmasi" width="587" height="200"/>
-        <image name="pin1b" width="76" height="76"/>
-        <image name="pin2b" width="80" height="80"/>
-        <image name="pin3b" width="80" height="80"/>
-        <image name="pin4b" width="80" height="80"/>
+        <image name="pin1b" width="200" height="200"/>
+        <image name="pin2b" width="200" height="200"/>
+        <image name="pin3b" width="200" height="200"/>
+        <image name="pin4b" width="200" height="200"/>
     </resources>
 </document>

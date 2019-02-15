@@ -14,7 +14,8 @@ class ProfilController: UITableViewController {
     @IBOutlet weak var namaLbl: UILabel!
     @IBOutlet weak var noHpLbl: UILabel!
     @IBOutlet weak var emailLbl: UILabel!
-    
+	
+	var passingOrgObject = [OrganisasiProfile]()
     
     @IBAction func cancelBtn(_ sender: UIBarButtonItem) {
         self.navigationController?.popToRootViewController(animated: true)
