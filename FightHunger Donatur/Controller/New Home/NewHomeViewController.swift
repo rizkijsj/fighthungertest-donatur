@@ -42,6 +42,10 @@ class NewHomeViewController: UIViewController {
 		super.viewDidLoad()
 		// Set what needs to display within your view
 		
+		self.tableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0)
+		
+		self.navigationController?.hidesBarsOnSwipe = true
+		
 		setupView()
 		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
 		UserDefaults.standard.synchronize()
@@ -119,7 +123,7 @@ class NewHomeViewController: UIViewController {
 		tableView.register(UINib(nibName: "SectionThreeHomeCell", bundle: nil), forCellReuseIdentifier: "partnerCellID")
 		
 		// Set the donate button corner radius to comply design requirement
-		donateButton.layer.cornerRadius = donateButton.frame.height / 4
+		donateButton.layer.cornerRadius = donateButton.frame.height / 8
 		donateButton.layer.masksToBounds = true
 	}
 	
@@ -422,6 +426,8 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	}
 	
 	
+	
+	
 	//hide navbar when scrolling
 	func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
 		
@@ -441,6 +447,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			}, completion: nil)
 		}
 	}
+	
 	
 	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
 		let nextImage = newImage

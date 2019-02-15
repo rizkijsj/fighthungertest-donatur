@@ -18,6 +18,15 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
+                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="9Lr-h5-DQ5" id="NNb-aj-bC3"/>
+                                    <outlet property="delegate" destination="9Lr-h5-DQ5" id="niG-2u-yxt"/>
+                                </connections>
+                            </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdN-J8-v6G">
                                 <rect key="frame" x="16" y="104" width="343" height="48"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -29,23 +38,14 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                             </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
-                                <rect key="frame" x="0.0" y="160" width="375" height="618"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <connections>
-                                    <outlet property="dataSource" destination="9Lr-h5-DQ5" id="NNb-aj-bC3"/>
-                                    <outlet property="delegate" destination="9Lr-h5-DQ5" id="niG-2u-yxt"/>
-                                </connections>
-                            </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0xs-z0-Hux" firstAttribute="top" secondItem="JdN-J8-v6G" secondAttribute="bottom" constant="8" id="0i1-Nc-sa1"/>
+                            <constraint firstItem="0xs-z0-Hux" firstAttribute="top" secondItem="1Dj-tO-iWW" secondAttribute="top" id="0i1-Nc-sa1"/>
                             <constraint firstItem="1Dj-tO-iWW" firstAttribute="trailing" secondItem="0xs-z0-Hux" secondAttribute="trailing" id="1L0-x6-XVe"/>
                             <constraint firstItem="0xs-z0-Hux" firstAttribute="leading" secondItem="1Dj-tO-iWW" secondAttribute="leading" id="Vli-gf-v8n"/>
                             <constraint firstItem="1Dj-tO-iWW" firstAttribute="trailing" secondItem="JdN-J8-v6G" secondAttribute="trailing" constant="16" id="cMk-D2-hMK"/>
-                            <constraint firstItem="1Dj-tO-iWW" firstAttribute="bottom" secondItem="0xs-z0-Hux" secondAttribute="bottom" id="fLY-Dn-sfS"/>
+                            <constraint firstAttribute="bottom" secondItem="0xs-z0-Hux" secondAttribute="bottom" id="fLY-Dn-sfS"/>
                             <constraint firstItem="JdN-J8-v6G" firstAttribute="leading" secondItem="1Dj-tO-iWW" secondAttribute="leading" constant="16" id="gR1-kV-ZwC"/>
                             <constraint firstItem="JdN-J8-v6G" firstAttribute="top" secondItem="1Dj-tO-iWW" secondAttribute="top" constant="16" id="m7v-YA-oeN"/>
                         </constraints>
