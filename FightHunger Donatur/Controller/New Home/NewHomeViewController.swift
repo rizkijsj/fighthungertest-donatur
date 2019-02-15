@@ -298,7 +298,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		case 1:
 			return 376
 		case 2:
-			return 96
+			return 136
 		default:
 			return 0
 		}
@@ -428,6 +428,18 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		case 2:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "partnerCellID", for: indexPath) as? SectionThreeHomeCell)!
+	
+			cell.organizationCellCard.backgroundColor = .white
+			cell.organizationCellCard.layer.cornerRadius = cell.organizationCellCard.frame.height / 16
+			//cell.sectionItemCard.clipsToBounds = true
+			cell.organizationCellCard.layer.applySketchShadow(
+				color: .lightGray,
+				alpha: 0.5,
+				x: 0,
+				y: 1,
+				blur: 4,
+				spread: 0
+			)
 			
 			cell.contentName.text = organizationList[indexPath.row].name
 			cell.contentAddress.text = organizationList[indexPath.row].locationName

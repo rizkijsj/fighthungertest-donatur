@@ -14,7 +14,8 @@ class SectionThreeHomeCell: UITableViewCell {
     @IBOutlet weak var contentName: UILabel!
     @IBOutlet weak var contentAddress: UILabel!
     
-    override func awakeFromNib() {
+	@IBOutlet weak var organizationCellCard: UIView!
+	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
