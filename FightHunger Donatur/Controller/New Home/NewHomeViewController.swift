@@ -42,7 +42,7 @@ class NewHomeViewController: UIViewController {
 		super.viewDidLoad()
 		// Set what needs to display within your view
 		
-		self.tableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0)
+		//self.tableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0)
 		
 		self.navigationController?.hidesBarsOnSwipe = true
 		

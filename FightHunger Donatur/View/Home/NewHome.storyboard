@@ -18,9 +18,9 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="grouped" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="18" sectionFooterHeight="18" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
-                                <rect key="frame" x="0.0" y="88" width="375" height="724"/>
-                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
+                                <rect key="frame" x="0.0" y="160" width="375" height="652"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9Lr-h5-DQ5" id="NNb-aj-bC3"/>
@@ -41,7 +41,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="0xs-z0-Hux" firstAttribute="top" secondItem="1Dj-tO-iWW" secondAttribute="top" id="0i1-Nc-sa1"/>
+                            <constraint firstItem="0xs-z0-Hux" firstAttribute="top" secondItem="JdN-J8-v6G" secondAttribute="bottom" constant="8" id="0i1-Nc-sa1"/>
                             <constraint firstItem="1Dj-tO-iWW" firstAttribute="trailing" secondItem="0xs-z0-Hux" secondAttribute="trailing" id="1L0-x6-XVe"/>
                             <constraint firstItem="0xs-z0-Hux" firstAttribute="leading" secondItem="1Dj-tO-iWW" secondAttribute="leading" id="Vli-gf-v8n"/>
                             <constraint firstItem="1Dj-tO-iWW" firstAttribute="trailing" secondItem="JdN-J8-v6G" secondAttribute="trailing" constant="16" id="cMk-D2-hMK"/>
