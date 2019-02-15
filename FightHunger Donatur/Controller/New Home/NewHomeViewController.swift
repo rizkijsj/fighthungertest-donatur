@@ -296,7 +296,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		case 0:
 			return 192
 		case 1:
-			return 352
+			return 376
 		case 2:
 			return 96
 		default:
@@ -375,6 +375,18 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		case 1:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "newActivityCellID", for: indexPath) as? SectionTwoHomeCell)!
+			
+			cell.programCellCard.backgroundColor = .white
+			cell.programCellCard.layer.cornerRadius = cell.programCellCard.frame.height / 16
+			//cell.sectionItemCard.clipsToBounds = true
+			cell.programCellCard.layer.applySketchShadow(
+				color: .lightGray,
+				alpha: 0.5,
+				x: 0,
+				y: 1,
+				blur: 4,
+				spread: 0
+			)
 
 			
 			cell.contentImage.image = UIImage.init(color: .lightGray)

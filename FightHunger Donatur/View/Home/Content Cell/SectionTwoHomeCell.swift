@@ -17,7 +17,8 @@ class SectionTwoHomeCell: UITableViewCell {
     @IBOutlet weak var contentOrganisationName: UILabel!
     @IBOutlet weak var contentActivityDate: UILabel!
     
-    override func awakeFromNib() {
+	@IBOutlet weak var programCellCard: UIView!
+	override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
