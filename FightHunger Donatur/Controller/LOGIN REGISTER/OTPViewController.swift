@@ -388,8 +388,8 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
     
     
     @IBAction func `return`(_ sender: UIBarButtonItem) {
-//        self.navigationController?.popToRootViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+       self.navigationController?.popToRootViewController(animated: true)
+        //self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var backBtn: UIBarButtonItem!
     

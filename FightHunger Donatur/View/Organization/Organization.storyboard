@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="9w1-0l-aAf">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Fxs-we-8gB">
     <device id="retina5_9" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -9,7 +9,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Organisasi-->
+        <!--Mitra kami-->
         <scene sceneID="En1-HO-xZ7">
             <objects>
                 <tableViewController id="9w1-0l-aAf" customClass="Organisasi" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
@@ -140,7 +140,7 @@
                                                                         <action selector="clickedOnLocation:" destination="9w1-0l-aAf" eventType="touchUpInside" id="HuH-OL-1En"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokasi" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-RW-aY6">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamat FOI" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-RW-aY6">
                                                                     <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="20.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
@@ -161,7 +161,7 @@
                                                                         <action selector="clickWeb:" destination="9w1-0l-aAf" eventType="touchUpInside" id="bWF-EI-MgG"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Website" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik8-OQ-hgp">
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik8-OQ-hgp">
                                                                     <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="20.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                                     <nil key="textColor"/>
@@ -313,7 +313,7 @@
                                         <rect key="frame" x="0.0" y="726" width="375" height="106"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="gCA-Ax-asc" id="74g-a6-Tq6">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="105.66666666666667"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="349" height="105.66666666666667"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillProportionally" translatesAutoresizingMaskIntoConstraints="NO" id="0XY-Ed-yZ0">
@@ -350,6 +350,9 @@
                             <outlet property="delegate" destination="9w1-0l-aAf" id="YEu-Ds-3ZP"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Mitra kami" id="IgT-Un-zLN">
+                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="2i0-Aj-kou"/>
+                    </navigationItem>
                     <connections>
                         <outlet property="alamatOrganisasi" destination="1kR-ji-Eyq" id="Xbt-1r-kGn"/>
                         <outlet property="callOrganisasi" destination="KdK-qq-mbs" id="7lm-sy-6Ii"/>
@@ -363,6 +366,24 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="U4h-1a-vut" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
+            <point key="canvasLocation" x="2903.1999999999998" y="790.64039408866995"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="Eec-sv-rwo">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="Fxs-we-8gB" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qe5-u2-8jy">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="9w1-0l-aAf" kind="relationship" relationship="rootViewController" id="Rxp-cU-CSr"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="S0f-Bc-8oT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
             <point key="canvasLocation" x="1960.8" y="790.64039408866995"/>
         </scene>
     </scenes>
@@ -371,5 +392,6 @@
         <image name="Lokasi" width="200" height="200"/>
         <image name="SMS" width="200" height="200"/>
         <image name="Website" width="200" height="200"/>
+        <image name="arrowback" width="120" height="200"/>
     </resources>
 </document>

@@ -12,8 +12,8 @@ import Firebase
 class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDelegate{
     
     @IBAction func back(_ sender: UIBarButtonItem) {
-//        self.navigationController?.popViewController(animated: true)
-        self.dismiss(animated: true, completion: nil)
+       self.navigationController?.popViewController(animated: true)
+        //self.dismiss(animated: true, completion: nil)
     }
     @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var labelTitle: UILabel!

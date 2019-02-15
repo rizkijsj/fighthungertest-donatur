@@ -13,7 +13,7 @@ class LoginRegisterViewController: UIViewController {
     @IBOutlet weak var bodyLabel: UILabel!
     @IBOutlet weak var titleLabel: UILabel!
     @IBAction func backToHome(_ sender: UIBarButtonItem) {
-        /*
+        
 		if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
 //			let data = DonatingController()
 //			print("lala")
@@ -27,10 +27,11 @@ class LoginRegisterViewController: UIViewController {
 			}
 		}else {
 			self.navigationController?.popToRootViewController(animated: true)
+//                     performSegue(withIdentifier: "toNewHome", sender: self)
 		}
-//            performSegue(withIdentifier: "toNewHome", sender: self)
- */
-        self.dismiss(animated: true, completion: nil)
+
+
+        //self.dismiss(animated: true, completion: nil)
     }
     
     func getScaledFont(forFont name: String, textStyle: UIFont.TextStyle) -> UIFont {
@@ -59,13 +60,13 @@ class LoginRegisterViewController: UIViewController {
        btnDaftar.layer.cornerRadius = 6.0
        accessibility()
         
-        //profile.storyboard
+        //donating.storyboard
          if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
             titleLabel.text = "Lanjutkan donasi anda!"
             bodyLabel.text =  "Data donasi anda akan tersimpan setelah masuk atau daftar"
           
             
-        }// donating.storyboard
+        }// profile.storyboard
          else
          {
             titleLabel.text = "Mari kita berdonasi!"
