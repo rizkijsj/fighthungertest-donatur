@@ -39,6 +39,9 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
           print("lala")
         }
     }
+    
+   
+    
     @IBAction func callButton(_ sender: Any) {
 		guard let orgObject = organisasiObject else {return}
         let urlPhone: NSURL = URL(string: "tel://\(orgObject.phone)")! as NSURL

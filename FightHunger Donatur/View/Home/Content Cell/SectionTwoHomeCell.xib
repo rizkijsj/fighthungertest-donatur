@@ -25,7 +25,7 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Xba-0e-epu">
                                 <rect key="frame" x="0.0" y="0.0" width="280" height="249.5"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foto" translatesAutoresizingMaskIntoConstraints="NO" id="csc-KJ-eYW">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="foto" translatesAutoresizingMaskIntoConstraints="NO" id="csc-KJ-eYW">
                                         <rect key="frame" x="0.0" y="0.0" width="280" height="157.5"/>
                                         <constraints>
                                             <constraint firstAttribute="width" secondItem="csc-KJ-eYW" secondAttribute="height" multiplier="16:9" id="UJv-0y-Huq"/>

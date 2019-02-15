@@ -29,7 +29,7 @@ class KegiatanTerbaruController: UITableViewController {
       
         self.tableView.delegate = self
         self.tableView.dataSource = self
-       // btnDonasi.layer.cornerRadius = 6.0
+        btnDonasi.layer.cornerRadius = 6.0
 		
 		reloadObject()
 		observeOrganisasi()
@@ -42,8 +42,17 @@ class KegiatanTerbaruController: UITableViewController {
 			self.navigationController?.popViewController(animated: true)
 		}
 	}
+    
+    
 	
-	func loadProgramDetails(){
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        
+        self.navigationController?.popToRootViewController(animated: true)
+    }
+    
+    
+    
+    func loadProgramDetails(){
 		guard let progObject = passingObject else {return}
 		
 		imageProgram.image = UIImage.init(color: .lightGray)
@@ -114,7 +123,7 @@ class KegiatanTerbaruController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
-        //self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 	
 	override func viewDidDisappear(_ animated: Bool) {

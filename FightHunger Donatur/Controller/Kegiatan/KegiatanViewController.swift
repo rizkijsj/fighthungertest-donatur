@@ -67,6 +67,7 @@ class KegiatanViewController: UITableViewController {
 		
 		print("\n\n\n\n\n")
 		
+        keteranganBtnKonfirmasi.font = UIFont.boldSystemFont(ofSize: 14.0)
 		
 		status1Lbl.text = "Mencari\nKurir"
 		status2Lbl.text = "Sedang\nDijemput"
