@@ -115,6 +115,14 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		performSegue(withIdentifier: "toPastActivity", sender: self)
 	}
 	
+    func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
+        if editingStyle == UITableViewCell.EditingStyle.delete
+        {
+            dataPost.remove(at: indexPath.row)
+            tableView.reloadData()
+        }
+    }
 	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
 		if segue.identifier == "toPastActivity"{
 			let vc = segue.destination as! KegiatanViewController

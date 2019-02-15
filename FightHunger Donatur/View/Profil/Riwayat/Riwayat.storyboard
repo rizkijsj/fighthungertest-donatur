@@ -144,6 +144,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="backButton" destination="hBo-mO-dql" id="gSF-w0-XJM"/>
                         <outlet property="tableView" destination="EhS-jU-Jzf" id="Gwg-tC-oEy"/>
                         <segue destination="snk-uG-rv4" kind="show" identifier="toPastActivity" id="NeX-hw-FwO"/>
                     </connections>
