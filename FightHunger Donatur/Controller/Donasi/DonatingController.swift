@@ -133,7 +133,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 	func createPicker(){
 		
 		picker.locale = Locale.init(identifier: "Id")
-		picker.datePickerMode = .time
+		picker.datePickerMode = .dateAndTime
 		
 		var toolbar = UIToolbar()
 		toolbar.sizeToFit()
@@ -152,11 +152,17 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 	
 	@objc func doneClicked(){
 		let dateFormat = DateFormatter()
-		dateFormat.dateStyle = .none
-		dateFormat.timeStyle = .short
+        let timeFormat = DateFormatter()
+		dateFormat.dateStyle = .medium
+        dateFormat.timeStyle = .none
+		timeFormat.timeStyle = .short
+        timeFormat.dateStyle = .none
 		dateFormat.locale = Locale.init(identifier: "Id")
-		
-		waktuPengambilan.text = "\(dateFormat.string(from: picker.date))"
+		timeFormat.locale = Locale.init(identifier: "Id")
+        
+        
+        waktuPengambilan.text = "Tanggal: \(dateFormat.string(from: picker.date)) | Waktu: \(timeFormat.string(from: picker.date))"
+		//waktuPengambilan.text = "\(dateFormat.string(from: picker.date))"
 		waktuPengambilan.endEditing(true)
         textFieldChanged(waktuPengambilan)
 	}
@@ -384,7 +390,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 				print(tempPostData?[5])
 				if let dateText = tempPostData?[5]{
 					let dateFormat = DateFormatter()
-					dateFormat.dateStyle = .none
+					dateFormat.dateStyle = .medium
 					dateFormat.timeStyle = .short
 					dateFormat.locale = Locale.init(identifier: "Id")
 					

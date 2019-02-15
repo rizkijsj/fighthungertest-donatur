@@ -41,11 +41,14 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     }
     @IBAction func callButton(_ sender: Any) {
 		guard let orgObject = organisasiObject else {return}
-        let urlPhone: NSURL = URL(string: "tel://Telfon Foodbank Of Indonesia\(orgObject.phone)")! as NSURL
+        let urlPhone: NSURL = URL(string: "tel://\(orgObject.phone)")! as NSURL
         UIApplication.shared.open(urlPhone as URL, options: [:], completionHandler: nil)
         
     }
 
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
+        self.navigationController?.popToRootViewController(animated: true)
+    }
     @IBOutlet weak var logoOrganisasi: UIImageView!
     @IBOutlet weak var namaOrganisasi: UILabel!
     @IBOutlet weak var alamatOrganisasi: UILabel!
@@ -56,7 +59,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     @IBOutlet weak var keteranganOrganisasi: UILabel!
     
     var organisasiObject : OrganisasiProfile?
-    var organisasiProgramObject: [programObject] = []
+  //  var organisasiProgramObject: [programObject] = []
     //var organisasiID : String?
     
     override func viewDidLoad() {
@@ -86,6 +89,10 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
             self.navigationController?.popViewController(animated: false)
         }
         
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 	
 	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
@@ -218,14 +225,11 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
             return 1
         } else if section == 2 {
             return 1
-        } else if section == 3 {
-            if organisasiProgramObject.count > 0 {
-                return organisasiProgramObject.count + 1
-            }else {
+        } else {
                 return 0
             }
             
-        }
+        
         return 0
     }
     

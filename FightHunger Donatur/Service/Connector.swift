@@ -510,7 +510,7 @@ class connector {
 		}
 		
 	}
-	
+	/*
     // MARK: - Program Detail
     func programDetail(programID:String) -> programObject {
         
@@ -624,7 +624,7 @@ class connector {
 }
 
 
-
+*/
 // MARK: - Sample Classes
 // TODO: Remove the sample classes into proper class
 /*
@@ -701,7 +701,7 @@ class donatorObject{
         
     }
 }
-*/
+
 class organizationObject{
     var id:String
     var phone:String
@@ -748,5 +748,6 @@ class programObject{
         description = proDesc
         imagesLink = proImageLink
     }
-    
+    */
 }
+

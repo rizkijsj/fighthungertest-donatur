@@ -101,7 +101,7 @@ class LoginRegisterViewController: UIViewController {
 
     
     
-    @IBAction func backButton(_ sender: UIButton) {
+    @IBAction func backButton(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
     @IBOutlet weak var btnMasuk: UIButton!

@@ -81,7 +81,7 @@
                             <inset key="imageInsets" minX="-20" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <action selector="backToHome:" destination="VaB-LE-eif" id="JW9-hg-8aK"/>
+                                <action selector="backButton:" destination="VaB-LE-eif" id="OcB-ub-UTh"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -495,6 +495,6 @@
         <image name="arrowback" width="120" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kQs-fF-YaO"/>
+        <segue reference="zhn-Ou-xFt"/>
     </inferredMetricsTieBreakers>
 </document>

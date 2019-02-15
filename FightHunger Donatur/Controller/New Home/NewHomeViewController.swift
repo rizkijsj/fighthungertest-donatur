@@ -30,7 +30,7 @@ class NewHomeViewController: UIViewController {
 	// partner data should always referred to your data source, which it will be real time updated data
 	var partnerData = [1,2,3]
 	
-	var activityListRaw = connector().transactionList()
+	//var activityListRaw = connector().transactionList()
 	var activityList:[Post] = []
 	var organizationList:[OrganisasiProfile] = []
 	var programList:[Kegiatan] = []
