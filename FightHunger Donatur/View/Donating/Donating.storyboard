@@ -270,7 +270,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Donasi" id="drG-lB-9mc">
-                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="kAr-9R-MdI">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="kAr-9R-MdI">
                             <color key="tintColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             <connections>
                                 <action selector="cancelBtn:" destination="f4w-s9-JZp" id="fyg-wT-uCE"/>
@@ -349,7 +349,7 @@
     <resources>
         <image name="Gambar template donatur" width="356" height="200"/>
         <image name="Lokasi" width="200" height="200"/>
-        <image name="kamera" width="587" height="200"/>
-        <image name="library" width="587" height="200"/>
+        <image name="kamera" width="652" height="200"/>
+        <image name="library" width="652" height="200"/>
     </resources>
 </document>

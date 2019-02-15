@@ -234,6 +234,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
             if state{
                 self.handlePosting()
             }else{
+//                self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)]
 				self.resetForm()
                 self.sendDataToNextVC()
                 self.performSegue(withIdentifier: "DonasiToLogin", sender: nil)
@@ -273,7 +274,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		  self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.font: UIFont.systemFont(ofSize: 14, weight: UIFont.Weight.bold)]
+		 
 		
 		createPicker()
         alamatView()
@@ -328,9 +329,10 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     }
     
     override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-		
+       
         self.navigationController?.setNavigationBarHidden(false, animated: false)
+        super.viewWillAppear(animated)
+          continueButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)], for: .normal)
         loadPostData()
       //textFieldChanged(alamat)
     }

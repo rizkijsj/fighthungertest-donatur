@@ -10,14 +10,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Storyboard Reference-->
-        <scene sceneID="840-K0-tXY">
-            <objects>
-                <viewControllerPlaceholder id="jlB-hj-kkg" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LTn-AQ-8gb" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="7228" y="342"/>
-        </scene>
         <!--LoginRegister-->
         <scene sceneID="Nnl-pv-MzP">
             <objects>
@@ -85,7 +77,7 @@
                         <viewLayoutGuide key="safeArea" id="R3X-k8-CgA"/>
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="4WA-s9-OiH">
-                        <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="hjp-aj-TlM">
+                        <barButtonItem key="leftBarButtonItem" title="Cancel" id="hjp-aj-TlM">
                             <inset key="imageInsets" minX="-20" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -101,7 +93,6 @@
                         <outlet property="labelBody" destination="iaX-5J-nJk" id="2fk-LS-3fk"/>
                         <outlet property="lblMariMulai" destination="Mhz-TD-6OO" id="L9J-Ss-lbv"/>
                         <outlet property="titleLabel" destination="Mhz-TD-6OO" id="GsA-uG-Tmg"/>
-                        <segue destination="jlB-hj-kkg" kind="show" id="swF-OH-ny1"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gPG-dd-s0r" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -484,7 +475,6 @@
         <!--Navigation Controller-->
         <scene sceneID="Nbe-79-LTS">
             <objects>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="qkK-93-2hV" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <navigationController storyboardIdentifier="LoginRegisterNav" automaticallyAdjustsScrollViewInsets="NO" id="CFW-RA-Fch" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="kni-eo-BhD">
@@ -496,6 +486,7 @@
                         <segue destination="VaB-LE-eif" kind="relationship" relationship="rootViewController" id="t15-PV-ngf"/>
                     </connections>
                 </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="qkK-93-2hV" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="6533.6000000000004" y="762.5615763546798"/>
         </scene>

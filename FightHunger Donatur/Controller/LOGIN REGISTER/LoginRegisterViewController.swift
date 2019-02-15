@@ -26,12 +26,14 @@ class LoginRegisterViewController: UIViewController {
 				}
 			}
 		}else {
-			self.navigationController?.popToRootViewController(animated: true)
-//                     performSegue(withIdentifier: "toNewHome", sender: self)
+          
+//            self.navigationController?.popToRootViewController(animated: true)
+//                   performSegue(withIdentifier: "toNewHome", sender: self)
+             self.dismiss(animated: true, completion: nil)
 		}
 
 
-        //self.dismiss(animated: true, completion: nil)
+       
     }
     
     func getScaledFont(forFont name: String, textStyle: UIFont.TextStyle) -> UIFont {
