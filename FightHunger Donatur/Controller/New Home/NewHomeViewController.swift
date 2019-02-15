@@ -294,7 +294,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		switch indexPath.section {
 		case 0:
-			return 160
+			return 192
 		case 1:
 			return 352
 		case 2:
@@ -325,6 +325,20 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		switch indexPath.section {
 		case 0:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as? SectionOneHomeCell)!
+			
+			cell.sectionItemCard.backgroundColor = .white
+			cell.sectionItemCard.layer.cornerRadius = cell.sectionItemCard.frame.height / 16
+			//cell.sectionItemCard.clipsToBounds = true
+			cell.sectionItemCard.layer.applySketchShadow(
+				color: .lightGray,
+				alpha: 0.5,
+				x: 0,
+				y: 1,
+				blur: 4,
+				spread: 0
+			)
+			
+			
 			
 			cell.contentName.text = activityList[indexPath.row].namaitem
 			cell.contentStatus.text = updateDonationStatus(donationStage: activityList[indexPath.row].status)

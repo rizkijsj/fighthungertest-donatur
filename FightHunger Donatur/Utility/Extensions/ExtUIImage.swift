@@ -9,6 +9,46 @@
 import Foundation
 import UIKit
 
+extension UIView {
+	
+	func setCardView(view : UIView){
+		
+		view.layer.cornerRadius = 5.0
+		view.layer.borderColor  =  UIColor.clear.cgColor
+		view.layer.borderWidth = 5.0
+		view.layer.shadowOpacity = 0.5
+		view.layer.shadowColor =  UIColor.lightGray.cgColor
+		view.layer.shadowRadius = 5.0
+		view.layer.shadowOffset = CGSize(width:5, height: 5)
+		view.layer.masksToBounds = true
+		
+	}
+}
+
+extension CALayer {
+	func applySketchShadow(
+		color: UIColor = .black,
+		alpha: Float = 0.5,
+		x: CGFloat = 0,
+		y: CGFloat = 2,
+		blur: CGFloat = 4,
+		spread: CGFloat = 0)
+	{
+		shadowColor = color.cgColor
+		shadowOpacity = alpha
+		shadowOffset = CGSize(width: x, height: y)
+		shadowRadius = blur / 2.0
+		if spread == 0 {
+			shadowPath = nil
+		} else {
+			let dx = -spread
+			let rect = bounds.insetBy(dx: dx, dy: dx)
+			shadowPath = UIBezierPath(rect: rect).cgPath
+		}
+	}
+}
+
+
 
 extension UIImage {
 	

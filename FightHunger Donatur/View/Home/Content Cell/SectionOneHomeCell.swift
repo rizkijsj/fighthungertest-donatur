@@ -17,7 +17,8 @@ class SectionOneHomeCell: UITableViewCell {
     @IBOutlet weak var contentOrganisationName: UILabel!
     @IBOutlet weak var contentOrganisationIcon: UIImageView!
     @IBOutlet weak var contentActivityTime: UILabel!
-    
+	@IBOutlet weak var sectionItemCard: UIView!
+	
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
