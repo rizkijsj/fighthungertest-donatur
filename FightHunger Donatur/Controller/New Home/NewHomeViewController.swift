@@ -106,7 +106,7 @@ class NewHomeViewController: UIViewController {
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
-		
+		self.navigationController?.hidesBarsOnSwipe = true
 		//observePosts()
 		self.tableView.reloadData()
 	}
@@ -114,6 +114,7 @@ class NewHomeViewController: UIViewController {
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewDidDisappear(animated)
 		self.navigationController?.isNavigationBarHidden = false
+		self.navigationController?.hidesBarsOnSwipe = false
 	}
 	
 	func setupView(){
@@ -235,7 +236,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		let label = UILabel(frame: CGRect(x: 16, y: 0, width: 200, height: 44))
 		label.textColor = .black
 		label.textAlignment = .left
-		label.font = UIFont.preferredFont(forTextStyle: .title3)
+		label.font = UIFont.preferredFont(forTextStyle: .headline)
 		headerView.addSubview(label)
 		
 		//let seeMore = UILabel(frame: CGRect(x: 10, y: 0, width: 200, height: 44))
