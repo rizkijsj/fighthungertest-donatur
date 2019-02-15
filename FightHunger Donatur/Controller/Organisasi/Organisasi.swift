@@ -41,7 +41,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     }
     @IBAction func callButton(_ sender: Any) {
 		guard let orgObject = organisasiObject else {return}
-        let urlPhone: NSURL = URL(string: "tel://Telfon Foodbank Of Indonesia\(orgObject.phone)")! as NSURL
+        let urlPhone: NSURL = URL(string: "tel://x Foodbank Of Indonesia\(orgObject.phone)")! as NSURL
         UIApplication.shared.open(urlPhone as URL, options: [:], completionHandler: nil)
         
     }

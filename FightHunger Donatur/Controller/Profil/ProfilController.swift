@@ -28,6 +28,13 @@ class ProfilController: UITableViewController {
         tableView.dataSource = self
  
     }
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "toRIwayat" {
+			let vc = segue.destination as! RiwayatViewController
+			vc.passingOrgObject = passingOrgObject
+		}
+	}
   
     @objc func dismissProfile(){
         
