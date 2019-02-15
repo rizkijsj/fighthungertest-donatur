@@ -65,7 +65,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 			self.btnKamera(self)
 		}))
 		
-		alert.addAction(UIAlertAction(title: "Library Foto", style: .default, handler: { _ in
+		alert.addAction(UIAlertAction(title: "Galeri Foto", style: .default, handler: { _ in
 			self.btnLibraryFoto(self)
 		}))
 		

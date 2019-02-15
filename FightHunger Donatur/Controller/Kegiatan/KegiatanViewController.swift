@@ -51,19 +51,16 @@ class KegiatanViewController: UITableViewController {
        super.viewWillAppear(true)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
 		
-		repeatingChecker.resume()
         
     }
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
-		
-		repeatingChecker.suspend()
 	}
 	
 	var passingObject:Post?
+	var passingOrgObject = [OrganisasiProfile]()
 	var transactionID:String?
-	var repeatingChecker = RepeatingTimer.init(timeInterval: 5)
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
@@ -75,6 +72,10 @@ class KegiatanViewController: UITableViewController {
 		status2Lbl.text = "Sedang\nDijemput"
 		status3Lbl.text = "Sedang\nDiantar"
 		status4Lbl.text = "Sampai\nOrganisasi"
+		
+		let toOrganisasiTap = UITapGestureRecognizer(target: self, action: #selector(openOrganisation))
+		organizationDetail.gestureRecognizers = [toOrganisasiTap]
+		
 		/*
 		let buttonSize = CGFloat(16.0)
 		if #available(iOS 11.0, *){
@@ -107,6 +108,21 @@ class KegiatanViewController: UITableViewController {
 		//updateDonationDetails()
 	}
 	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		if segue.identifier == "toOrganization" {
+			let organizationVC = segue.destination as! Organisasi
+			guard let postData = passingObject else {return}
+			
+			passingOrgObject.forEach { (orgProf) in
+				if orgProf.id == postData.idkomunitas{
+					organizationVC.organisasiObject = orgProf
+					return
+				}
+			}
+			
+		}
+	}
+	
 	
 	
 	@IBAction func konfirmasiAct(_ sender: Any) {
@@ -125,11 +141,15 @@ class KegiatanViewController: UITableViewController {
 	
 	
 	@objc  func openOrganisation() {
-		performSegue(withIdentifier: "toOrganization", sender: self)
+		if let postData = passingObject {
+			if postData.status > 1 && postData.status < 6{
+				performSegue(withIdentifier: "toOrganization", sender: self)
+			}
+		}
 	}
 	
 	func reloadObject(){
-		if let _ = passingObject {
+		if let _ = passingObject, passingOrgObject.count > 0 {
 			updateDonationDetails()
 		}else{
 			dismiss(animated: true, completion: nil)
@@ -153,6 +173,14 @@ class KegiatanViewController: UITableViewController {
 		*/
 	}
 	
+	@IBAction func callButton(_ sender: Any) {
+		guard let orgObject = passingObject else {return}
+		
+		        let urlPhone: NSURL = URL(string: "tel://\(orgObject.phonekomunitas)")! as NSURL
+		UIApplication.shared.open(urlPhone as URL, options: [:], completionHandler: nil)
+		
+	}
+	
 	func updateDonationDetails(){
 		
 		if let statusObject = passingObject{
@@ -174,7 +202,7 @@ class KegiatanViewController: UITableViewController {
 			
 			
 			namaOrganisasi.text = statusObject.namakomunitas
-			nomorTelponOrganisasi.text = statusObject.idkomunitas
+			nomorTelponOrganisasi.text = statusObject.phonekomunitas
 			alamatPengambilan.text = statusObject.alamat
 			
 			
@@ -353,8 +381,8 @@ class KegiatanViewController: UITableViewController {
 			print("Menunggu untuk di claim")
 			btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
 			keteranganBtnKonfirmasi.text = "Menunggu untuk di klaim Organiasi"
-			namaOrganisasi.text = "Belom Ada"
-			nomorTelponOrganisasi.text = "Belom Ada"
+			namaOrganisasi.text = "Belum Ada"
+			nomorTelponOrganisasi.text = "Belum Ada"
 			namaKurir.text = "Belum Ada"
 			deskripsiKurir.text = "Belum Ada"
 			
@@ -363,6 +391,7 @@ class KegiatanViewController: UITableViewController {
 			stasus1.image = UIImage.init(named: "pin1a")
 			btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
 			btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
+			organizationDetail.accessoryType = .disclosureIndicator
             keteranganBtnKonfirmasi.text = "Menunggu data Kurir"
 //            namaOrganisasi.text = "\(organizationDetail.name)"
 //            nomorTelponOrganisasi.text = "Belom Ada"

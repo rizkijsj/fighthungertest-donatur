@@ -152,10 +152,8 @@ class NewHomeViewController: UIViewController {
 				let activityVC = segue.destination as! KegiatanViewController
 				activityVC.passingObject = activityList[nextIndexPath.row]
 				activityVC.transactionID = activityList[nextIndexPath.row].id
+				activityVC.passingOrgObject = organizationList
 			}else if nextIndexPath.section == 1{
-				/// MARK: - TODO
-				/// Does program controller does not exist
-				
 				let programVC = segue.destination as! KegiatanTerbaruController
 				programVC.passingObject = programList[nextIndexPath.row]
 			}else if nextIndexPath.section == 2{
@@ -163,6 +161,11 @@ class NewHomeViewController: UIViewController {
 				organizationVC.organisasiObject = organizationList[nextIndexPath.row]
 			}
 		}
+		if segue.identifier == "Profil" {
+			let vc = segue.destination as! ProfilController
+			vc.passingOrgObject = organizationList
+		}
+		
 		/*
 		if segue.identifier == "Login" {
 			let navigation: UINavigationController = segue.destination as! UINavigationController

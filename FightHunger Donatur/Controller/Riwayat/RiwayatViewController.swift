@@ -12,6 +12,7 @@ import Firebase
 class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     var dataPost = [Post]()
 	var selectedIndex = IndexPath()
+	var passingOrgObject = [OrganisasiProfile]()
 	
     @IBOutlet weak var backButton: UIBarButtonItem!
     @IBAction func backBtn(_ sender: Any) {
@@ -64,6 +65,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		cell.contentImage.image = UIImage.init(color: .lightGray)
 		
 		ImageService.getImage(withURL: dataPost[indexPath.row].postphotourl) { image, url, fromCache  in
+			cell.contentImage.image = UIImage.init(color: .lightGray)
 			if fromCache {
 				cell.contentImage.image = image
 			}else {
@@ -76,10 +78,11 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		//cell.contentExpiredDate.text = dataPost[indexPath.row].deskripsi
 		
 		cell.contentOrganisationName.text = ""
+		cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 		if dataPost[indexPath.row].status == 5{
 			cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 			ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url, fromCache in
-				
+				cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 				if fromCache {
 					cell.contentOrganisationIcon.image = image
 				}else {
@@ -117,6 +120,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 			let vc = segue.destination as! KegiatanViewController
 			vc.passingObject = dataPost[selectedIndex.row]
 			vc.transactionID = dataPost[selectedIndex.row].idtransaksi
+			vc.passingOrgObject = passingOrgObject
 		}
 	}
     
@@ -129,6 +133,10 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         tableView.delegate = self
         tableView.dataSource = self
         observePost()
+		
+		if passingOrgObject.count < 1{
+			observeOrganisasi()
+		}
       
     }
     
@@ -160,7 +168,67 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		}
 		
 	}
-   
+	
+	func observeOrganisasi() {
+		
+		//        guard let userProfile = UserService.currentUserProfile else { return }
+		//        let uid = userProfile.uid
+		
+		let orgRef = Database.database().reference().child("users/komunitas")
+		
+		
+		orgRef.observe(.value, with: { snapshot in
+			
+			var tempOrganisasi = [OrganisasiProfile]()
+			//var tempIdProfile = String
+			//print("Check12")
+			for child in snapshot.children {
+				print(child)
+				if let childSnapshot = child as? DataSnapshot,
+					let dict = childSnapshot.value as? [String:Any],
+					
+					let locationcoor = dict["locationcoor"] as? [String:Any],
+					let latitude = locationcoor["latitude"] as? Double,
+					let longitude = locationcoor["longitude"] as? Double,
+					let address = dict["locationname"] as? String,
+					//                    let location:CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: Double(([longitude] as NSString).doubleValue), longitude: Double(([latitude] as NSString).doubleValue)),
+					let logo = dict["logo"] as? String,
+					let logourl = URL(string: logo),
+					
+					let link = dict["link"] as? String,
+					let linkwebsite = URL(string: link),
+					
+					let name = dict["name"] as? String,
+					let phonenumber = dict["phone"] as? String,
+					let deskripsi = dict["description"] as? String,
+					let email = dict["email"] as? String,
+					let id = dict["id"] as? String{
+					print("nelis ndud ndud")
+					let organisasi = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
+					
+					
+					tempOrganisasi.append(organisasi)
+					print(tempOrganisasi)
+					//                    if userProfile.uid == Auth.auth().currentUser?.uid
+					//                    {
+					//                        tempOrganisasi.append(post)
+					//
+					//                    }
+				}else {print("Error?")}
+			}
+			
+			DispatchQueue.main.async {
+				
+				print("berhasil ambil data organisasi")
+				self.passingOrgObject = tempOrganisasi
+				//self.tableView.reloadData()
+				
+			}
+			
+			
+		})
+		
+	}
 
     func observePost() {
         

@@ -185,7 +185,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="G2t-dD-fqk" kind="show" id="r3l-hv-Lt2"/>
+                                            <segue destination="G2t-dD-fqk" kind="show" identifier="toRIwayat" id="r3l-hv-Lt2"/>
                                         </connections>
                                     </tableViewCell>
                                 </cells>

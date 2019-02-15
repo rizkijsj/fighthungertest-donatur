@@ -161,7 +161,10 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
             mapItem.openInMaps(launchOptions: options)
         
     }
-    
+	@IBAction func clickedReturn(_ sender: UIBarButtonItem) {
+		self.navigationController?.popViewController(animated: true)
+	}
+	
     func btnAction(){
         //let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+62808082838", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
         
