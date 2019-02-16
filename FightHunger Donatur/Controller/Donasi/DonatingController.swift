@@ -136,6 +136,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		
 		picker.locale = Locale.init(identifier: "Id")
 		picker.datePickerMode = .dateAndTime
+		picker.minimumDate = Date().addingTimeInterval(7200)
+		picker.setDate(Date().addingTimeInterval(7200), animated: false)
 		
 		var toolbar = UIToolbar()
 		toolbar.sizeToFit()

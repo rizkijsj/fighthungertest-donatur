@@ -43,6 +43,7 @@ class NewHomeViewController: UIViewController {
 		// Set what needs to display within your view
 		
 		//self.tableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0)
+//		self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
 		
 		self.navigationController?.hidesBarsOnSwipe = true
 		
@@ -472,16 +473,17 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		
 		if(velocity.y>0) {
 			//Code will work without the animation block.I am using animation block incase if you want to set any delay to it.
-			UIView.animate(withDuration: 2.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+			UIView.animate(withDuration: 0.2, delay: 0, options: UIView.AnimationOptions(), animations: {
 				self.navigationController?.setNavigationBarHidden(true, animated: true)
-				
+				self.donateButton.updateConstraintsIfNeeded()
+				self.view.layoutIfNeeded()
 				//print("Hide")
 			}, completion: nil)
-			
 		} else {
-			UIView.animate(withDuration: 2.5, delay: 0, options: UIView.AnimationOptions(), animations: {
+			UIView.animate(withDuration: 0.2, delay: 0, options: UIView.AnimationOptions(), animations: {
 				self.navigationController?.setNavigationBarHidden(false, animated: true)
-				
+				self.donateButton.updateConstraintsIfNeeded()
+				self.view.layoutIfNeeded()
 				//print("Unhide")
 			}, completion: nil)
 		}
