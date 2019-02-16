@@ -85,7 +85,7 @@
                                                     <rect key="frame" x="20" y="20" width="335" height="81.666666666666671"/>
                                                     <subviews>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="806-x5-HQ9">
-                                                            <rect key="frame" x="0.0" y="0.0" width="50" height="81.666666666666671"/>
+                                                            <rect key="frame" x="0.0" y="5.3333333333333357" width="50" height="71.333333333333314"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KdK-qq-mbs">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -98,8 +98,8 @@
                                                                         <action selector="callButton:" destination="9w1-0l-aAf" eventType="touchUpInside" id="CNg-1n-hX9"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telephone" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8G-CA-n9t">
-                                                                    <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="23.666666666666664"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Telephone" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H8G-CA-n9t">
+                                                                    <rect key="frame" x="0.0" y="58.000000000000007" width="50" height="13.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -107,7 +107,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="76d-xc-6gs">
-                                                            <rect key="frame" x="95" y="0.0" width="50" height="81.666666666666671"/>
+                                                            <rect key="frame" x="95" y="5.3333333333333357" width="50" height="71.333333333333314"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="dHn-Px-DTh">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -119,8 +119,8 @@
                                                                         <action selector="chatButton:" destination="9w1-0l-aAf" eventType="touchUpInside" id="1oU-Fg-htn"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whatsapp" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-Wv-zax">
-                                                                    <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="23.666666666666664"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Whatsapp" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wWj-Wv-zax">
+                                                                    <rect key="frame" x="0.0" y="58.000000000000007" width="50" height="13.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -128,7 +128,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="rQ4-Cv-jhf">
-                                                            <rect key="frame" x="190" y="0.0" width="50" height="81.666666666666671"/>
+                                                            <rect key="frame" x="190" y="5.3333333333333357" width="50" height="71.333333333333314"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8iB-EP-ejd">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -140,8 +140,8 @@
                                                                         <action selector="clickedOnLocation:" destination="9w1-0l-aAf" eventType="touchUpInside" id="HuH-OL-1En"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokasi Mitra" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-RW-aY6">
-                                                                    <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="23.666666666666664"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Lokasi Mitra" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="eqt-RW-aY6">
+                                                                    <rect key="frame" x="0.0" y="58.000000000000007" width="50" height="13.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>
@@ -149,7 +149,7 @@
                                                             </subviews>
                                                         </stackView>
                                                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="OFD-da-XKk">
-                                                            <rect key="frame" x="285" y="0.0" width="50" height="81.666666666666671"/>
+                                                            <rect key="frame" x="285" y="5.3333333333333357" width="50" height="71.333333333333314"/>
                                                             <subviews>
                                                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="7kn-TD-Ign">
                                                                     <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
@@ -161,8 +161,8 @@
                                                                         <action selector="clickWeb:" destination="9w1-0l-aAf" eventType="touchUpInside" id="bWF-EI-MgG"/>
                                                                     </connections>
                                                                 </button>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik8-OQ-hgp">
-                                                                    <rect key="frame" x="0.0" y="57.999999999999993" width="50" height="23.666666666666664"/>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Instagram" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Ik8-OQ-hgp">
+                                                                    <rect key="frame" x="0.0" y="58.000000000000007" width="50" height="13.333333333333336"/>
                                                                     <fontDescription key="fontDescription" style="UICTFontTextStyleCaption2"/>
                                                                     <nil key="textColor"/>
                                                                     <nil key="highlightedColor"/>

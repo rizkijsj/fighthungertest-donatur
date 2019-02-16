@@ -31,8 +31,10 @@ class KegiatanTerbaruController: UITableViewController {
       
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        btnDonasi.layer.cornerRadius = 6.0
-		
+        btnDonasi.layer.cornerRadius = 8.0
+        imgOrganisasi.layer.cornerRadius = 8.0
+        imgOrganisasi.layer.borderColor = UIColor.black.cgColor
+        imgOrganisasi.layer.borderWidth = 1.0
 		reloadObject()
 		observeOrganisasi()
         //Tap Gesture
