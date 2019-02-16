@@ -25,6 +25,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     var longitude = ""
 	let picker = UIDatePicker()
 	
+	var selectedOrganization:OrganisasiProfile?
+	
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         namaBarang.resignFirstResponder()
@@ -280,7 +282,12 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-		 
+		print("\n\n\n\n\n\n")
+		if let selectedOrg = selectedOrganization{
+			print(selectedOrg.name)
+			print(selectedOrg.id)
+		}
+		print("\nIs there something?\n\n\n")
 		
 		createPicker()
         alamatView()

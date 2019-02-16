@@ -148,9 +148,6 @@
                                                     <state key="normal" title="Donasi sekarang">
                                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     </state>
-                                                    <connections>
-                                                        <segue destination="iHg-lN-pJm" kind="presentation" id="zP2-Fr-Xcz"/>
-                                                    </connections>
                                                 </button>
                                             </subviews>
                                             <constraints>
@@ -188,6 +185,7 @@
                         <outlet property="namaLokasiProgram" destination="4Y0-6c-EaL" id="OCI-IN-FuV"/>
                         <outlet property="titleKegiatan" destination="3Xn-jp-Uf3" id="mqQ-oc-JTu"/>
                         <outlet property="waktuProgram" destination="Z9x-8u-rTB" id="h9S-9N-CEw"/>
+                        <segue destination="iHg-lN-pJm" kind="presentation" identifier="toDonate" id="gpt-a5-ErD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ya8-IM-vug" userLabel="First Responder" sceneMemberID="firstResponder"/>

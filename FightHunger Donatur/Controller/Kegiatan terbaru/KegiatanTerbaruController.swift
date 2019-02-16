@@ -29,11 +29,32 @@ class KegiatanTerbaruController: UITableViewController {
       
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        btnDonasi.layer.cornerRadius = 6.0
+        btnDonasi.layer.cornerRadius = btnDonasi.frame.height / 8
 		
 		reloadObject()
 		observeOrganisasi()
+		
+		let tapBtnDonate = UITapGestureRecognizer(target: self, action: #selector(toDonationPage))
+		btnDonasi.addGestureRecognizer(tapBtnDonate)
     }
+	
+	@objc func toDonationPage(){
+		performSegue(withIdentifier: "toDonate", sender: self)
+	}
+	
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		//print("\n\n\n\nPreparing\n\n\n")
+		if segue.identifier == "toDonate" {
+			//print("I ma go here")
+			let navbar = segue.destination as! UINavigationController
+			let vc = navbar.topViewController as! DonatingController
+			guard let orgObj = organisationObject else {return}
+			//print("there")
+			vc.selectedOrganization = orgObj
+			//print("Done")
+		}
+	}
 	
 	func reloadObject(){
 		if let _ = passingObject {
