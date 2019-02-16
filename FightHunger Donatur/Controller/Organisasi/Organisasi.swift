@@ -68,6 +68,15 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
         
+        //make image organization rounded
+        self.logoOrganisasi.layer.cornerRadius = 10.0
+        self.logoOrganisasi.layer.shadowColor = UIColor.gray.cgColor
+        self.logoOrganisasi.layer.shadowOffset = CGSize(width: 0, height: 1.0)
+        self.logoOrganisasi.layer.shadowRadius = 2.0
+        self.logoOrganisasi.layer.shadowOpacity = 0.4
+        self.logoOrganisasi.layer.masksToBounds = false
+        logoOrganisasi.layer.shadowPath = UIBezierPath(rect: logoOrganisasi.bounds).cgPath
+        
         if let organisasi = organisasiObject
              {
                 namaOrganisasi.text = organisasi.name

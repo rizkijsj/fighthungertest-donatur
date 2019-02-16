@@ -31,10 +31,15 @@ class KegiatanTerbaruController: UITableViewController {
       
         self.tableView.delegate = self
         self.tableView.dataSource = self
-        btnDonasi.layer.cornerRadius = 8.0
-        imgOrganisasi.layer.cornerRadius = 8.0
-        imgOrganisasi.layer.borderColor = UIColor.black.cgColor
-        imgOrganisasi.layer.borderWidth = 1.0
+        self.btnDonasi.layer.cornerRadius = 8.0
+        self.imgOrganisasi.layer.cornerRadius = 8.0
+        self.imgOrganisasi.layer.shadowColor = UIColor.gray.cgColor
+        self.imgOrganisasi.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        self.imgOrganisasi.layer.shadowRadius = 2.0
+        self.imgOrganisasi.layer.shadowOpacity = 0.4
+        self.imgOrganisasi.layer.masksToBounds = false
+        imgOrganisasi.layer.shadowPath = UIBezierPath(rect: imgOrganisasi.bounds).cgPath
+       
 		reloadObject()
 		observeOrganisasi()
         //Tap Gesture
