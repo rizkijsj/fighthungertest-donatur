@@ -11,6 +11,7 @@ import Firebase
 
 class KegiatanTerbaruController: UITableViewController {
 
+   
     @IBOutlet weak var backBtn: UIBarButtonItem!
     @IBOutlet weak var isiKegiatan: UILabel!
     @IBOutlet weak var titleKegiatan: UILabel!
@@ -23,6 +24,7 @@ class KegiatanTerbaruController: UITableViewController {
 	
 	var passingObject: Kegiatan?
 	var organisationObject: OrganisasiProfile?
+ 
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,6 +35,15 @@ class KegiatanTerbaruController: UITableViewController {
 		
 		reloadObject()
 		observeOrganisasi()
+        //Tap Gesture
+        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.onTap))
+        imgOrganisasi.isUserInteractionEnabled = true
+        imgOrganisasi.addGestureRecognizer(tapGesture)
+        
+        //Tap Gesture Program
+        let tapProgram = UITapGestureRecognizer(target: self, action: #selector(self.onTapProgram))
+        imageProgram.isUserInteractionEnabled = true
+        imageProgram.addGestureRecognizer(tapProgram)
     }
 	
 	func reloadObject(){
@@ -41,9 +52,41 @@ class KegiatanTerbaruController: UITableViewController {
 		}else {
 			self.navigationController?.popViewController(animated: true)
 		}
+        
+       
 	}
     
+    @objc func onTapProgram()
+    {
+       guard let progObject = passingObject else {return}
+        ImageService.getImage(withURL: progObject.programImage) { (image, url, fromCache) in
+            if fromCache {
+                self.imageProgram.image = image
+            }else {
+                self.fadeInNewImage(previousImageView: self.imageProgram, newImage: image)
+            }
+        }
+        
+        let passingimg = imageProgram.image
+        
+        
+        let nextVC = self.storyboard!.instantiateViewController(withIdentifier: "Next") as! PopUpVC
+        nextVC.imageimg = passingimg!
+      
+        self.present(nextVC, animated: true, completion: nil)
+        print("testk")
+    }
     
+    @objc func onTap()
+    {
+       
+        func prepare(for segue: UIStoryboardSegue, sender: Any?)
+        {
+                let organizationVC = segue.destination as! Organisasi
+                organizationVC.organisasiObject = organisationObject
+                self.performSegue(withIdentifier: "ToOrganization", sender: self)
+        }
+    }
 	
     @IBAction func backButton(_ sender: UIBarButtonItem) {
         
@@ -55,15 +98,15 @@ class KegiatanTerbaruController: UITableViewController {
     func loadProgramDetails(){
 		guard let progObject = passingObject else {return}
 		
-		imageProgram.image = UIImage.init(color: .lightGray)
-		ImageService.getImage(withURL: progObject.programImage) { (image, url, fromCache) in
-			if fromCache {
-				self.imageProgram.image = image
-			}else {
-				self.fadeInNewImage(previousImageView: self.imageProgram, newImage: image)
-			}
-		}
-		
+        imageProgram.image = UIImage.init(color: .lightGray)
+        ImageService.getImage(withURL: progObject.programImage) { (image, url, fromCache) in
+            if fromCache {
+                self.imageProgram.image = image
+            }else {
+                self.fadeInNewImage(previousImageView: self.imageProgram, newImage: image)
+            }
+        }
+        
 			titleKegiatan.text = progObject.programName
 			isiKegiatan.text = progObject.programInformation
 			namaLokasiProgram.text = progObject.programLocation
@@ -80,13 +123,11 @@ class KegiatanTerbaruController: UITableViewController {
 				}
 			}
 		}
-		
-		
-		
-		
-		
-	}
 	
+	}
+
+   
+    
 	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
 		let nextImage = newImage
 		

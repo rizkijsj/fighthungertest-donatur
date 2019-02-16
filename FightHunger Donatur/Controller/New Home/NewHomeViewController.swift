@@ -168,6 +168,7 @@ class NewHomeViewController: UIViewController {
 		if segue.identifier == "Profil" {
 			let vc = segue.destination as! ProfilController
 			vc.passingOrgObject = organizationList
+            
 		}
 		
 		/*
