@@ -19,6 +19,7 @@
 		2B4836702201EE5D00B18E72 /* UbahprofilViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48366F2201EE5D00B18E72 /* UbahprofilViewController.swift */; };
 		2B4836792202B89700B18E72 /* RiwayatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4836782202B89700B18E72 /* RiwayatViewController.swift */; };
 		2B48367C2202B93E00B18E72 /* RiwayatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */; };
+		2B63962B2217B21300D859A3 /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B63962A2217B21300D859A3 /* PopUpVC.swift */; };
 		2B8CD1EE2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8CD1ED2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard */; };
 		2B8CD1F2220301F300E5FFD2 /* ProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CD1F1220301F300E5FFD2 /* ProfilController.swift */; };
 		2B8CD1FB22035BD500E5FFD2 /* KegiatanTerbaruController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CD1FA22035BD500E5FFD2 /* KegiatanTerbaruController.swift */; };
@@ -85,6 +86,7 @@
 		2B48366F2201EE5D00B18E72 /* UbahprofilViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UbahprofilViewController.swift; sourceTree = "<group>"; };
 		2B4836782202B89700B18E72 /* RiwayatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatViewController.swift; sourceTree = "<group>"; };
 		2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTableViewCell.swift; sourceTree = "<group>"; };
+		2B63962A2217B21300D859A3 /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
 		2B8CD1ED2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KegiatanTerbaru.storyboard; sourceTree = "<group>"; };
 		2B8CD1F1220301F300E5FFD2 /* ProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilController.swift; sourceTree = "<group>"; };
 		2B8CD1FA22035BD500E5FFD2 /* KegiatanTerbaruController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KegiatanTerbaruController.swift; sourceTree = "<group>"; };
@@ -186,7 +188,6 @@
 				9292707AE5B9B7B2FEA78B9B /* Pods-FightHunger DonaturTests.debug.xcconfig */,
 				E0C9220CF52D7EC9E3C0FCF0 /* Pods-FightHunger DonaturTests.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -310,6 +311,7 @@
 			isa = PBXGroup;
 			children = (
 				917F79CD22006EA100A85296 /* KegiatanViewController.swift */,
+				2B63962A2217B21300D859A3 /* PopUpVC.swift */,
 			);
 			path = Kegiatan;
 			sourceTree = "<group>";
@@ -763,6 +765,7 @@
 				2B4836702201EE5D00B18E72 /* UbahprofilViewController.swift in Sources */,
 				FB0C42242203218A006BEC67 /* Organisasi.swift in Sources */,
 				2B4836662201B52B00B18E72 /* SectionTwoHomeCell.swift in Sources */,
+				2B63962B2217B21300D859A3 /* PopUpVC.swift in Sources */,
 				2F34F53822087F2B007FDA8C /* OrganisasiProfile.swift in Sources */,
 				2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */,
 				2BF68C4221FD59D1008C85CE /* CustomTextField.swift in Sources */,

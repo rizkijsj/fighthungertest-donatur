@@ -6,6 +6,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,7 +28,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UK6-wm-wMm">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UK6-wm-wMm">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                                     <constraints>
                                                         <constraint firstAttribute="width" secondItem="UK6-wm-wMm" secondAttribute="height" multiplier="16:9" id="dUf-u1-JEn"/>
@@ -52,7 +53,7 @@
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qlb-VI-wwj">
                                                     <rect key="frame" x="16" y="16" width="343" height="208"/>
                                                     <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZl-GN-vhD">
+                                                        <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZl-GN-vhD">
                                                             <rect key="frame" x="121.66666666666666" y="0.0" width="100" height="100"/>
                                                             <constraints>
                                                                 <constraint firstAttribute="width" constant="100" id="UnS-95-j0k"/>
@@ -95,7 +96,7 @@
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9x-8u-rTB">
                                                             <rect key="frame" x="149" y="22" width="37.333333333333343" height="18"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
-                                                            <nil key="textColor"/>
+                                                            <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
@@ -185,12 +186,59 @@
                         <outlet property="namaLokasiProgram" destination="4Y0-6c-EaL" id="OCI-IN-FuV"/>
                         <outlet property="titleKegiatan" destination="3Xn-jp-Uf3" id="mqQ-oc-JTu"/>
                         <outlet property="waktuProgram" destination="Z9x-8u-rTB" id="h9S-9N-CEw"/>
-                        <segue destination="iHg-lN-pJm" kind="presentation" identifier="toDonate" id="gpt-a5-ErD"/>
+                        <segue destination="hFM-B7-U8r" kind="showDetail" identifier="ToOrganization" id="hPv-9R-Try"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ya8-IM-vug" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="8298.3999999999996" y="1524.384236453202"/>
+            <point key="canvasLocation" x="9240.7999999999993" y="1524.384236453202"/>
+        </scene>
+        <!--Organization-->
+        <scene sceneID="8bc-eQ-CUo">
+            <objects>
+                <viewControllerPlaceholder storyboardName="Organization" id="hFM-B7-U8r" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="zad-yg-ex7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="9821" y="1380"/>
+        </scene>
+        <!--Pop UpVC-->
+        <scene sceneID="sXd-st-shj">
+            <objects>
+                <viewController storyboardIdentifier="Next" id="0ex-Mb-J2q" customClass="PopUpVC" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="a2s-p3-Ntu">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bCk-Hu-XBc">
+                                <rect key="frame" x="5" y="44" width="365" height="734"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCm-se-xIb">
+                                <rect key="frame" x="20" y="44" width="40" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Tutup">
+                                    <color key="titleColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
+                                <connections>
+                                    <action selector="closeBtn:" destination="0ex-Mb-J2q" eventType="touchUpInside" id="ELv-4t-oFZ"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="XOn-mW-8Kn" firstAttribute="trailing" secondItem="bCk-Hu-XBc" secondAttribute="trailing" constant="5" id="BJI-NS-jZn"/>
+                            <constraint firstItem="bCk-Hu-XBc" firstAttribute="leading" secondItem="XOn-mW-8Kn" secondAttribute="leading" constant="5" id="Bhh-2F-3VU"/>
+                            <constraint firstItem="bCk-Hu-XBc" firstAttribute="top" secondItem="XOn-mW-8Kn" secondAttribute="top" id="cwV-A9-Em7"/>
+                            <constraint firstItem="XOn-mW-8Kn" firstAttribute="bottom" secondItem="bCk-Hu-XBc" secondAttribute="bottom" id="lGq-5C-4CE"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="XOn-mW-8Kn"/>
+                    </view>
+                    <connections>
+                        <outlet property="imageView" destination="bCk-Hu-XBc" id="UUo-qa-F8X"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dzQ-In-bqf" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="10589.6" y="1510.344827586207"/>
         </scene>
         <!--PostDonasi-->
         <scene sceneID="xEX-vT-kGG">
@@ -198,7 +246,7 @@
                 <viewControllerPlaceholder storyboardName="Donating" referencedIdentifier="PostDonasi" id="iHg-lN-pJm" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xxj-jN-Ruc" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="9183.2000000000007" y="1607.8817733990149"/>
+            <point key="canvasLocation" x="10125.6" y="1607.8817733990149"/>
         </scene>
     </scenes>
     <resources>

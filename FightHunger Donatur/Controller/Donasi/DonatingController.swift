@@ -165,12 +165,15 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		dateFormat.locale = Locale.init(identifier: "Id")
 		timeFormat.locale = Locale.init(identifier: "Id")
         
-        
+       
+      
         waktuPengambilan.text = "Tanggal: \(dateFormat.string(from: picker.date)) | Waktu: \(timeFormat.string(from: picker.date))"
-		//waktuPengambilan.text = "\(dateFormat.string(from: picker.date))"
+		
 		waktuPengambilan.endEditing(true)
         textFieldChanged(waktuPengambilan)
 	}
+    
+    
     
     
     //    buat passing data ke map
@@ -408,6 +411,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 					
 					picker.date = Date(timeIntervalSince1970: Double(dateText)!)
 					waktuPengambilan.text = "\(dateFormat.string(from: picker.date))"
+                    
+                    
 				}
                 latitude = tempPostData![6]
                 longitude = tempPostData![7]
