@@ -235,7 +235,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         guard let userProfile = UserService.currentUserProfile else { return }
 
         let uid = userProfile.uid
-        let postsRef = Database.database().reference().child("DeadPost/\(uid)")
+        let postsRef = Database.database().reference().child("Riwayat/User/\(uid)")
         
         postsRef.observe(.value, with: { snapshot in
             

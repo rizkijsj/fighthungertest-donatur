@@ -214,12 +214,10 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             guard let email = tempTampungTerima[0] as? String else { return }
             guard let username = tempTampungTerima[1] as? String else { return }
             guard let phonenumber = tempTampungTerima[2] as? String else { return }
-            let status = defaults.bool(forKey: "ngepostDonasi")
             
             connector().signUp(email: email, nama: username, phonenumber: phonenumber, kodeotp: credential) { (result) in
                 if result{
                     print("sukses untuk sign up / login")
-                    if status {
 						self.successLogin = true
 						if let _ = UserDefaults.standard.object(forKey: "tempPostData") as? [String]{
 							print("Exit using Segue")
@@ -231,10 +229,6 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 						}
                         //self.performSegue(withIdentifier: "OTPToHome", sender: nil)
                     }
-                }else{
-                    print("gagal sign in di vc")
-					self.dismiss(animated:true, completion: nil)
-                }
             }
         }
     }

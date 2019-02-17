@@ -29,7 +29,9 @@
         <!--UbahProfil-->
         <scene sceneID="mUi-Q0-ewH">
             <objects>
-                <viewControllerPlaceholder storyboardName="UbahProfil" referencedIdentifier="UbahProfil" id="Px6-PA-hSR" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="UbahProfil" referencedIdentifier="UbahProfil" id="Px6-PA-hSR" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="y4r-AO-7SV"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z67-fm-BTj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="9661.6000000000004" y="868.9655172413793"/>
@@ -230,6 +232,7 @@
                         <outlet property="noHpLbl" destination="7Ba-VN-Kdh" id="xCC-7j-bo5"/>
                         <segue destination="K4C-u4-4OA" kind="show" identifier="ProfileToLogin" id="n5E-eA-kSv"/>
                         <segue destination="gu4-Up-Jbj" kind="showDetail" identifier="GoToHome" id="Pnu-vC-QO2"/>
+                        <segue destination="Px6-PA-hSR" kind="push" identifier="toUbahProfile" id="xUj-uD-y3N"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4if-sM-RbY" userLabel="First Responder" sceneMemberID="firstResponder"/>

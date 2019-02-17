@@ -19,7 +19,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 	
     @IBOutlet weak var alamatStack: UIStackView!
     
-	
+    var passingOrganisasi:OrganisasiProfile?
+
     
     var latitude = ""
     var longitude = ""
@@ -382,6 +383,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     func loadPostData(){
         
         let tempPostData = defaults.object(forKey: "tempPostData") as? [String]
+        let idOrgData = defaults.object(forKey: "idOrgKegiatan") as? String
+        
         if  tempPostData != nil{
             print(tempPostData)
             let imgTemp = loadImageFromDiskWith(fileName: "tempPostImage")
@@ -417,6 +420,15 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
                 print("Foto tidak ditemukan")
             }
         
+        if idOrgData != nil{
+            observeOrgProfile(idOrgData!) { (dataOrgan, result) in
+                if result{
+                    self.passingOrganisasi = dataOrgan
+                }else{
+                    print("error fetch data komunitas")
+                }
+            }
+        }
 }
     
 
@@ -448,6 +460,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     
     @objc func handlePosting() {
 
+        
+       
 		guard let namaBarang = namaBarang.text else { resetForm(); return }
         guard let namaLokasi = alamat.text else {resetForm(); return }
         let pickUpTime = picker.date.timeIntervalSince1970
@@ -459,23 +473,47 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         
         guard let latitudeBarang = latitude as? String else {resetForm(); return}
         guard let longitudeBarang = longitude as? String else {resetForm(); return}
-        
+        let idOrgData = defaults.object(forKey: "idOrgKegiatan") as? String
+
         activityView.startAnimating()
 		setContinueButton(enabled: false)
 		self.tableView.isUserInteractionEnabled = false
-        connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganBarang.text ?? "-" ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang) { (result) in
-			print("Rsults")
-            if result{
-				print("Sukses nih DOnate")
-                //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
-				self.resetForm()
-				self.dismiss(animated: true, completion: nil)
-				
-            }else{
-				print("Wah ggl nih")
-                self.resetForm()
+        if idOrgData != nil {
+            guard let orgObject = passingOrganisasi else {print("error")
+                return}
+            connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganBarang.text ?? "-" ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang,organ: orgObject) { (result) in
+                print("Rsults")
+                if result{
+                    print("Sukses nih DOnate")
+                    //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
+                    self.resetForm()
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }else{
+                    print("Wah ggl nih")
+                    self.resetForm()
+                }
+            }
+        }else{
+            let urlKomunitas = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/placeholder%20logo%20komunitas.png?alt=media&token=1ad83629-5d24-4f9b-83a8-444fbf47866b")
+
+            let orgKosong = OrganisasiProfile(orgId: "-", orgPhone: "-", orgEmail: "-", orgName: "-", orgDesc: "-", orgLogo: urlKomunitas!, orgLocName: "-", latitude: 0.0  , longitude: 0.0 , orgLink: urlKomunitas!)
+            
+            connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganBarang.text ?? "-" ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang,organ: orgKosong) { (result) in
+                print("Rsults")
+                if result{
+                    print("Sukses nih DOnate")
+                    //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
+                    self.resetForm()
+                    self.dismiss(animated: true, completion: nil)
+                    
+                }else{
+                    print("Wah ggl nih")
+                    self.resetForm()
+                }
             }
         }
+        
     }
     
     func sendDataToNextVC(){
@@ -497,7 +535,6 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         let tempPostData = [namaBarang,namaLokasi,deskripsi,keteranganTambahanLokasi,jumlahBarang,waktuAmbil,tempLatitude,tempLongitude]
         
         defaults.set(tempPostData, forKey: "tempPostData")
-        defaults.set(true, forKey: "ngepostDonasi")
         saveImageLocally(imageName: "tempPostImage", image: fotobarang)
         
         
@@ -627,6 +664,38 @@ extension DonatingController: UIImagePickerControllerDelegate, UINavigationContr
 //
 //
 //    }
+    
+    func observeOrgProfile(_ uid:String, completion: @escaping ((_ organProfile:OrganisasiProfile?,Bool)->())) {
+        let userRef = Database.database().reference().child("users/komunitas/\(uid)")
+        
+        userRef.observe(.value, with: { snapshot in
+            var orgProfile:OrganisasiProfile?
+            //print(snapshot.value)
+            if let dict = snapshot.value as? [String:Any],
+                let locationcoor = dict["locationcoor"] as? [String:Any],
+                let latitude = locationcoor["latitude"] as? Double,
+                let longitude = locationcoor["longitude"] as? Double,
+                let logo = dict["logo"] as? String,
+                let logourl = URL(string: logo),
+                let address = dict["locationname"] as? String,
+                let name = dict["name"] as? String,
+                let phonenumber = dict["phone"] as? String,
+                let link = dict["link"] as? String,
+                let linkwebsite = URL(string: link),
+                let deskripsi = dict["description"] as? String,
+                let email = dict["email"] as? String,
+                let id = dict["id"] as? String
+            {
+                orgProfile = OrganisasiProfile(orgId: id, orgPhone: phonenumber, orgEmail: email, orgName: name, orgDesc: deskripsi, orgLogo: logourl, orgLocName: address, latitude: latitude, longitude: longitude, orgLink: linkwebsite)
+                completion(orgProfile,true)
+            }else{
+                completion(orgProfile,false)
+                print("data komunitas tidak ada")
+            }
+            
+            
+        })
+    }
 
 }
     
