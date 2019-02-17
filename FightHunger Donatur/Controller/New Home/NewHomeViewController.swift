@@ -347,7 +347,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			
 			let descriptions = activityList[indexPath.row].deskripsi.split(separator: "|")
 			
-			cell.contentExpiredDate.text = "\(descriptions[2].dropFirst(2))"
+			cell.contentExpiredDate.text = "\(descriptions[2].dropFirst(1))"
 			cell.contentActivityTime.text = timeFormat.string(from: Date(timeIntervalSince1970: activityList[indexPath.row].waktuambil))
 			cell.contentImage.image = UIImage.init(color: .lightGray)
 			ImageService.getImage(withURL: activityList[indexPath.row].postphotourl) { image, url, fromCache in

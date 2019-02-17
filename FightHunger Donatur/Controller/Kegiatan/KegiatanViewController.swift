@@ -221,7 +221,10 @@ class KegiatanViewController: UITableViewController {
 			
 			namaDonasi.text = statusObject.namaitem
 			print(statusObject.namaitem)
-			deskripsiDonasi.text = statusObject.deskripsi
+			
+			let descriptions = statusObject.deskripsi.split(separator: "|")
+			
+			deskripsiDonasi.text = "\(descriptions[0]) | \(descriptions[1].dropLast())\(descriptions[2])"
 			jumlahDonasi.text = statusObject.jumlahbarang
 			
 			let dateFormat = DateFormatter()
