@@ -23,10 +23,13 @@ class KegiatanTerbaruController: UITableViewController {
 	
 	var passingObject: Kegiatan?
 	var organisationObject: OrganisasiProfile?
+    let defaults = UserDefaults.standard
 
     override func viewDidLoad() {
         super.viewDidLoad()
       
+        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+        UserDefaults.standard.synchronize()
         self.tableView.delegate = self
         self.tableView.dataSource = self
         btnDonasi.layer.cornerRadius = btnDonasi.frame.height / 8
@@ -49,9 +52,10 @@ class KegiatanTerbaruController: UITableViewController {
 			//print("I ma go here")
 			let navbar = segue.destination as! UINavigationController
 			let vc = navbar.topViewController as! DonatingController
-			guard let orgObj = organisationObject else {return}
+            sendOrgDataToDonate()
+			//guard let orgObj = organisationObject else {return}
 			//print("there")
-			vc.selectedOrganization = orgObj
+			//vc.selectedOrganization = orgObj
 			//print("Done")
 		}
 	}
@@ -133,6 +137,14 @@ class KegiatanTerbaruController: UITableViewController {
 			})
 		}
 	}
+    
+    func sendOrgDataToDonate(){
+        guard let orgObject = organisationObject else {return}
+        let orgDataKegiatan = orgObject.id
+        defaults.set(orgDataKegiatan, forKey: "idOrgKegiatan")
+    }
+    
+    
 
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableView.automaticDimension

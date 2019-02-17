@@ -127,8 +127,7 @@ class connector {
 	
     func signUp(email:String, nama:String, phonenumber:String,kodeotp:PhoneAuthCredential, completion: @escaping (Bool) -> Void){
 		// TODO:
-//        let url = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/profiledefault.jpg?alt=media&token=8234e660-a04d-4e54-abe3-e615c74ff91f")
-        //var result = false
+
         
         logIn(kodeotp: kodeotp) { (result) in
             if result{
@@ -169,31 +168,19 @@ class connector {
             }
         }
         
-//                Auth.auth().signIn(with: kodeotp) { (user, error) in
-//                    if error != nil && user != nil{
-//                        print("error: \(String(describing: error?.localizedDescription))")
-//                        //result = false
-//                        completion(false)
-//                    }else{
-//
-//
-//                }
-    
-        
         
         
 	}
     
 	
 	// MARK: - Post Donation
-    func postDonate(namaBarang: String,lokasiBarang : String,keteranganLokasi: String,fotodonasi: UIImage,deskripsiBarang : String,kuantitasBarang: String,waktuAmbil : Double,latitude: String,longitude: String,completion: @escaping (Bool) -> Void) {
+    func postDonate(namaBarang: String,lokasiBarang : String,keteranganLokasi: String,fotodonasi: UIImage,deskripsiBarang : String,kuantitasBarang: String,waktuAmbil : Double,latitude: String,longitude: String,organ:OrganisasiProfile,completion: @escaping (Bool) -> Void) {
         print("masuk post donate")
 //        let namaBarang = nama
 //        let namaLokasi = lokasi
         //guard let pickUpTime = waktuPengambilan.text else { return }
 //        let fotobarang = fotodonasi
         //guard let deskripsi = deskripsiBarang.text
-                let urlKomunitas = URL(string:"https://firebasestorage.googleapis.com/v0/b/fight-hunger.appspot.com/o/placeholder%20logo%20komunitas.png?alt=media&token=1ad83629-5d24-4f9b-83a8-444fbf47866b")
 		guard let userProfile = UserService.currentUserProfile else { completion(false); return }
         guard let foto = fotodonasi as? UIImage else {completion(false); return}
 		guard let photo = foto.jpeg(.low) else {completion(false); return}
@@ -214,12 +201,16 @@ class connector {
                 print("url ga kosong")
                 guard let userProfile = UserService.currentUserProfile else {completion(false); return }
                 
-//                var postRef = ref.childByAutoId()
-//                post1Ref.setValue(post1)
-//
-//                var postId = post1Ref.key
+                var status = 1
                 
-                let postRef = Database.database().reference().child("Post/").childByAutoId()
+                if organ.id != "-" {
+                    status = 2
+                }
+
+                
+                let postRef = Database.database().reference().child("PublicPost/").childByAutoId()
+                
+
                 let postObject = [
                     "author": [
                         "uid": userProfile.uid,
@@ -227,10 +218,10 @@ class connector {
                         "phonenumber":userProfile.phonenumber,
                         "username": userProfile.username
                     ],"komunitas": [
-                        "id": "0",
-                        "logo": urlKomunitas?.absoluteString,
-                        "name":"Searching",
-                        "phone": "0"
+                        "id": organ.id,
+                        "logo": organ.logo.absoluteString,
+                        "name": organ.name,
+                        "phone": organ.phone
                     ],"alamat": [
                         "keteranganlokasi":keteranganLokasi,
                        "namalokasi": lokasiBarang,
@@ -240,7 +231,7 @@ class connector {
                         "alasanbatal":"kosong",
                         "deskripsikurir": "kosong",
                         "namakurir":"kosong",
-                        "status": 1,
+                        "status": status,
                         "waktuambil": waktuAmbil,
                         "waktusampai": 0
                     ],"barang": [
@@ -251,6 +242,8 @@ class connector {
                     ],"idtransaction" : "0","timestamp": [".sv":"timestamp"]
                     ] as [String:Any]
                 
+                
+                
                 postRef.setValue(postObject, withCompletionBlock: { error, ref in
                     if error == nil {
                         print("sukses post donasi")
@@ -258,7 +251,7 @@ class connector {
                         print(postId)
 
                         
-                        let databaseRef = Database.database().reference().child("Post/\(postId)")
+                        let databaseRef = Database.database().reference().child("PublicPost/\(postId)")
                         
                         let idObject = [
                             "idtransaction": postId] as [String:Any]
@@ -266,23 +259,35 @@ class connector {
                         databaseRef.updateChildValues(idObject) { error, ref in
                             if error == nil {
                                 print("sukses masukin transaction id")
-                                completion(true)
+                                let postUserRef = Database.database().reference().child("UsersPost/\(uid)/\(postId)")
+                                postUserRef.setValue(postObject, withCompletionBlock: { (error, ref) in
+                                    if error == nil{
+                                        print("sukses post donasi")
+                                        
+                                        let userRef = Database.database().reference().child("UsersPost/\(uid)/\(postId)/")
+                                        
+                                        let objectId = [
+                                            "idtransaction": postId] as [String:Any]
+                                        
+                                        userRef.updateChildValues(objectId, withCompletionBlock: { (error, ref) in
+                                            if error == nil {
+                                                print("sukses masukin transaction id")
+                                                completion(true)
+                                            }else{
+                                                completion(false)
+                                            }
+                                        })
+                                        
+                                    }else{
+                                        completion(false)
+                                    }
+                                })
                             }else{
                                 print("error post transaction id donasi")
                                 completion(false)
                             }
                         }
                         
-//                        postRef.setValue(idObject, withCompletionBlock: { ellol, ref in
-//                            if ellol == nil{
-//                                print("sukses masukin transaction id")
-//                                completion(true)
-//                            }else{
-//                                print("error post transaction id donasi")
-//                                completion(false)
-//                            }
-//
-//                        })
                         
                     } else {
                         // Handle the error
@@ -316,8 +321,8 @@ class connector {
             var ref: DatabaseReference!
     
             ref = Database.database().reference()
-            let uid = ref.child("Post/\(id)").childByAutoId().key
-            let storageRef = Storage.storage().reference().child("Post/\(id)/\(uid)")
+            let uid = ref.child("PublicPost/\(id)").childByAutoId().key
+            let storageRef = Storage.storage().reference().child("PublicPost/\(id)/\(uid)")
     
             guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }
     
@@ -420,10 +425,10 @@ class connector {
 		let idtransaksi = data.idtransaksi
 		let userid = data.author.uid
 		//        guard let alasanBatal = alasanBatalTextField.text else{return}
-		
-		let databaseTransaksiRef = Database.database().reference().child("Post/\(idtransaksi)/transaksi")
-		let databaseDeadPost = Database.database().reference().child("DeadPost/\(userid)/").childByAutoId()
-		let databasePostRef = Database.database().reference().child("Post/\(idtransaksi)")
+        let postUserRef = Database.database().reference().child("UsersPost/\(userid)/\(idtransaksi)")
+		let databaseTransaksiRef = Database.database().reference().child("PublicPost/\(idtransaksi)/transaksi")
+		let databaseDeadPost = Database.database().reference().child("Riwayat/User/\(userid)/").childByAutoId()
+		let databasePostRef = Database.database().reference().child("PublicPost/\(idtransaksi)")
 		let transaksiObject = ["status": 0] as [String:Any]
 		
 		let postObject = [
@@ -466,7 +471,7 @@ class connector {
 						print(postId)
 						
 						
-						let databaseRef = Database.database().reference().child("DeadPost/\(userid)/\(postId)")
+						let databaseRef = Database.database().reference().child("Riwayat/User/\(userid)/\(postId)")
 						
 						let idObject = [
 							"idtransaction": postId] as [String:Any]
@@ -477,16 +482,23 @@ class connector {
 								databasePostRef.setValue(nil){ error, ref in
 									if error == nil {
 										print("sukses hapus data")
-                                        self.retrieveUserToken(id: data.idkomunitas, completion: { (token, result) in
-                                            if result{
-                                                print("masuk send notif")
-                                                let sender = PushNotificationSender()
-                                                sender.sendPushNotification(to: token, title: "Order Dibatalkan", body: "Order dibatalkan oleh donatur")
-                                                completion(true)
-                                            }else{
+                                        postUserRef.setValue(nil){ error, ref in
+                                            if error == nil {
+                                                print("sukses hapus data")
+                                                self.retrieveUserToken(id: data.idkomunitas, completion: { (token, result) in
+                                                    if result{
+                                                        print("masuk send notif")
+                                                        let sender = PushNotificationSender()
+                                                        sender.sendPushNotification(to: token, title: "Order Dibatalkan", body: "Order dibatalkan oleh donatur")
+                                                        completion(true)
+                                                    }else{
+                                                        completion(false)
+                                                    }
+                                                })                                    }else{
+                                                print("gagal hapus data")
                                                 completion(false)
                                             }
-                                        })									}else{
+                                        }}else{
 										print("gagal hapus data")
 										completion(false)
 									}
@@ -510,244 +522,6 @@ class connector {
 		}
 		
 	}
-	/*
-    // MARK: - Program Detail
-    func programDetail(programID:String) -> programObject {
-        
-        let item:programObject = programObject.init(proId: programID, orgID: "!", proName: "1", proLocName: "1", proLocCoor: CLLocationCoordinate2D.init(latitude: CLLocationDegrees.init(exactly: 1)!, longitude: CLLocationDegrees.init(exactly: 1)!), proTime:
-            "NOW", proDesc: "1 adalah anga yang indah. ini adalah sesuatu yang PERTAMA! lebih awal lagi dari semua angka, mungkin 0. TAPI 0 itu tidak NYATA! KITA HARUS BILANG 1! Satu! SATU! jangan pernah memilih yang 0. Pililah yang pasti hanya SATU! atau pilih yang bisa berdua. 2 itu ada;ah angka indah. 2 bisa membawa diri dan pasangan satu lagi. mungkin 3 kalo di hitung yang sebelah. Bersiaplah memilih yang akan sukses", proImageLink: "https://upload.wikimedia.org/wikipedia/commons/0/09/Ayam_Pelung.jpg")
-        
-        
-        
-        return item
-    }
-    
-    // MARK: - Organizarion Detail
-    func organizationDetail(organizationID:String) -> OrganisasiProfile {
-        
-		let item = OrganisasiProfile.init(orgId: organizationID, orgPhone: "+62 81808082838", orgEmail: "organisasi@organization.com", orgName: "PT Lawan Lapar Bersama Solusindo", orgDesc: "Melawan Kelaparan di dunia  dan menuntaskan kelaparan yang akan muncul", orgLogo: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, orgLocName: "Jl. Moh. Husni Thamrin Kota Tangerang Selatan Banten", latitude: -6.2753768, longitude: 106.7216066, orgLink: URL(string:"google.com")!)
-		
-		//UserProfile.init(uid: organizationID, email: "organisasi@organization.com", phonenumber: "+62 818081828238", username: "organisasi")
-        
-        
-        
-        return item
-    }
-    
-    // MARK: - Donator Detail
-    func donatorDetail(donatorID:String) -> UserProfile {
-        
-        //let item:donatorObject = donatorObject.init(donId: donatorID, donPhone: "#", donEmail: "3@4.com", donName: "3", donPro: "https://upload.wikimedia.org/wikipedia/commons/b/bf/Bucephala-albeola-010.jpg")
-		
-		let item = UserProfile.init(uid: donatorID, email: "donatur@donator.com", phonenumber: "+62 81808082838", username: "donasi")
-        
-        
-        return item
-    }
-    
-    // MARK: - Transaction (donation) Detail
-    func transactionDetail(transactionID:String) -> Post{
-        
-        let item = Post.init(id: transactionID, author: connector().donatorDetail(donatorID: "D1"), idkomunitas: "K1", logokomunitas: URL(string:"https://upload.wikimedia.org/wikipedia/commons/thumb/9/9b/Bass_logo.svg/199px-Bass_logo.svg.png")!, namakomunitas: "PT Kerja Sama Yuk ID", phonekomunitas: "+62 81808082838", postphotourl: URL(string:"https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg")!, namaitem: "Yogurt", deskripsi: "Segera di ambil, karena ini cepat basi", jumlahbarang: "1", alamat: "Jl. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: -6.2747551, longitude: 106.8602302, waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: 1, alasanbatal: "Sudah Basi", idtransaction: "lol")
-			
-			
-			
-			//Post.init(id: "T01", author: connector().donatorDetail(donatorID: "D1")!, organisasi: connector().organizationDetail(organizationID: "T1")!, postphotourl: URL(String:"https://upload.wikimedia.org/wikipedia/commons/c/cf/Dadiah2.jpg", namaitem: "Yogurt", deskripsi: "Segera di santap karena cepat basi", jumlahbarang: "5", alamat: "l. Batu Sari RW.2, Batu Ampar, Kramatjati, Kota Jakarta Timur, Daerah Khusus Ibukota Jakarta 13520", keteranganlokasi: "Rumah warna Pink agak keputihan", latitude: "-6.2747551", longitude: "106.8602302", waktuambil: 1549299450, waktusampai: 1549359450, namakurir: "Socrates", deskripsikurir: "Pakai toga kemana mana", timestamp: 1549259450, status: "1", alasanbatal: "Sudah Basi")
-        
-        return item
-    }
-
 	
-	// MARK: - Program List
-	func programList() -> [programObject] {
-		var items:[programObject] = []
-		
-        items.append(programDetail(programID: "P0"))
-        items.append(programDetail(programID: "P1"))
-        items.append(programDetail(programID: "P5"))
-		
-		return items
-		
-	}
-    
-    func getOrganizationProgramList(organizationID:String, limit:Int) -> [programObject] {
-        
-        var items:[programObject] = []
-        
-        items.append(programDetail(programID: "P0"))
-        items.append(programDetail(programID: "P1"))
-        items.append(programDetail(programID: "P5"))
-        
-        return items
-        
-    }
-	
-	
-	// MARK: - Organization List
-	func organizationList() -> [OrganisasiProfile] {
-		var items:[OrganisasiProfile] = []
-		
-        items.append(organizationDetail(organizationID: "O1"))
-        items.append(organizationDetail(organizationID: "O2"))
-        items.append(organizationDetail(organizationID: "O3"))
-		
-		return items
-		
-	}
-	
-	// MARK: - Transaction List List
-	func transactionList() -> [Post] {
-		var items:[Post] = []
-		
-        items.append(transactionDetail(transactionID: "T1"))
-        items.append(transactionDetail(transactionID: "T2"))
-        items.append(transactionDetail(transactionID: "T700"))
-        items.append(transactionDetail(transactionID: "T5005"))
-        items.append(transactionDetail(transactionID: "T2"))
-        items.append(transactionDetail(transactionID: "T909"))
-        items.append(transactionDetail(transactionID: "T189"))
-		
-		items[0].status = 0
-		items[1].status = 1
-		items[2].status = 2
-		items[3].status = 3
-		items[4].status = 4
-		items[5].status = 5
-		items[6].status = 6
-		
-		return items
-		
-	}
-	
-	
-	
-}
-
-
-*/
-// MARK: - Sample Classes
-// TODO: Remove the sample classes into proper class
-/*
-class transactionObject{
-    
-    /*
-     Reminder untuk status di Transaction:
-     0 - Batal User
-     1 - Pending
-     2 - Menunggu Kurir di assign
-     3 - Pickup
-     4 - Di Kirim (dari Donatur ke Organisasi)
-     5 - Sampai Di tujuan
-     6 - Batal Organisasi
-     */
-    
-    var id:String
-    var donatorId:String
-    var organizationId:String?
-    var name:String
-    var image:String
-    var quantity:Int
-    var locationName:String
-    var locationCoor:CLLocationCoordinate2D
-    var locationNote:String
-    var pickUpTime:Date
-    var arrivalTime:Date?
-    var description:String
-    var courierName:String?
-    var courierDescription:String?
-    var status:Int
-    var reason:String?
-    
-    init(tranID:String,tranDonId:String,tranOrgId:String?,tranName:String,tranImage:String,tranLocName:String,tranLocCoor:CLLocationCoordinate2D,tranPickUpTime:Date,tranDesc:String, tranCourierName:String?, tranCourierDesc:String?, tranStatus:Int, tranReason:String?, tranQuantity:Int, tranLocNote:String, transArrivalTime:Date?) {
-        
-        id = tranID
-        donatorId = tranDonId
-        organizationId = tranOrgId
-        name = tranName
-        image = tranImage
-        locationName = tranLocName
-        locationCoor = tranLocCoor
-        locationNote = tranLocNote
-        pickUpTime = tranPickUpTime
-        arrivalTime = transArrivalTime
-        description = tranDesc
-        
-        courierName = tranCourierName
-        courierDescription = tranCourierDesc
-        
-        status = tranStatus
-        reason = tranReason
-        quantity = tranQuantity
-    }
-    
-    
-}
-
-class donatorObject{
-    var id:String
-    var phone:String
-    var email:String
-    var name:String
-    var profile:String
-    
-    init(donId:String,donPhone:String,donEmail:String,donName:String,donPro:String) {
-        
-        id = donId
-        phone = donPhone
-        email = donEmail
-        name = donName
-        profile = donPro
-        
-        
-    }
-}
-
-class organizationObject{
-    var id:String
-    var phone:String
-    var email:String
-    var name:String
-    var description:String
-    var logo:String
-    var locationName:String
-    var locationCoor:CLLocationCoordinate2D
-	var link:String
-    
-    init(orgId:String,orgPhone:String,orgEmail:String,orgName:String,orgDesc:String,orgLogo:String,orgLocName:String,orgLocCoor:CLLocationCoordinate2D,orgLink:String) {
-        
-        id = orgId
-        phone = orgPhone
-        email = orgEmail
-        name = orgName
-        description = orgDesc
-        logo = orgLogo
-        locationName = orgLocName
-        locationCoor = orgLocCoor
-        link = orgLink
-        
-    }
-}
-
-class programObject{
-    var id:String
-    var organizationID:String
-    var name:String
-    var locationName:String
-    var locationCoor:CLLocationCoordinate2D
-    var time:String
-    var description:String
-    var imagesLink: String
-    
-    init(proId:String,orgID:String,proName:String,proLocName:String,proLocCoor:CLLocationCoordinate2D,proTime:String,proDesc:String,proImageLink:String) {
-        id = proId
-        organizationID = proId
-        name = proName
-        locationName = proLocName
-        locationCoor = proLocCoor
-        time = proTime
-        description = proDesc
-        imagesLink = proImageLink
-    }
-    */
 }
 

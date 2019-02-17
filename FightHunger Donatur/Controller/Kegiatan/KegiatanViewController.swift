@@ -293,19 +293,28 @@ class KegiatanViewController: UITableViewController {
 		guard let idtransaksi = passingObject?.idtransaksi else {return}
 		
 		//        guard let alasanBatal = alasanBatalTextField.text else{return}
-		let databaseRef = Database.database().reference().child("Post/\(idtransaksi)/transaksi")
+		let databaseRef = Database.database().reference().child("PublicPost/\(idtransaksi)/transaksi")
+        let userRef = Database.database().reference().child("UsersPost/\(uid)/\(idtransaksi)")
 		
 		let userObject = ["status": 4] as [String:Any]
 		
 		databaseRef.updateChildValues(userObject) { error, ref in
 			if error == nil{
 				print("sukses")
-                connector().retrieveUserToken(id: kegiatanObject.idkomunitas, completion: { (token, result) in
-                    if result{
-                        print("masuk send notif")
-                        let sender = PushNotificationSender()
-                        sender.sendPushNotification(to: token, title: "Donasi diambil kurir", body: "Barang donasi sudah diambil oleh kurir")
-                        completion(true)
+                
+                userRef.updateChildValues(userObject, withCompletionBlock: { (error, ref) in
+                    if error == nil {
+                        print("sukses")
+                        connector().retrieveUserToken(id: kegiatanObject.idkomunitas, completion: { (token, result) in
+                            if result{
+                                print("masuk send notif")
+                                let sender = PushNotificationSender()
+                                sender.sendPushNotification(to: token, title: "Donasi diambil kurir", body: "Barang donasi sudah diambil oleh kurir")
+                                completion(true)
+                            }else{
+                                completion(false)
+                            }
+                        })
                     }else{
                         completion(false)
                     }
@@ -439,7 +448,7 @@ extension KegiatanViewController{
 	
 	func observePost(userID: String, transID:String) {
 		
-		let postsRef = Database.database().reference().child("Post/")
+		let postsRef = Database.database().reference().child("UsersPost/\(userID)/")
 		
 		print(userID)
 		print(transID)
@@ -564,7 +573,7 @@ extension KegiatanViewController{
         guard let userProfile = UserService.currentUserProfile else { return }
         
         let uid = userProfile.uid
-        let postsRef = Database.database().reference().child("DeadPost/\(uid)")
+        let postsRef = Database.database().reference().child("Riwayat/User/\(uid)")
         
         postsRef.observe(.value, with: { snapshot in
             
