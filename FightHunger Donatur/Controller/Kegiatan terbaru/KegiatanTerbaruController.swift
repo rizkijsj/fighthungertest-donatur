@@ -86,7 +86,7 @@ class KegiatanTerbaruController: UITableViewController {
     
     @objc func onTap()
     {
-       
+      // var tempOrganisasi = [OrganisasiProfile]()
         func prepare(for segue: UIStoryboardSegue, sender: Any?)
         {
                 let organizationVC = segue.destination as! Organisasi
