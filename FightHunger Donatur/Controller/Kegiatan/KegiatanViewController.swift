@@ -331,6 +331,29 @@ class KegiatanViewController: UITableViewController {
 				completion(false)
 			}
 		}
+		
+		
+		/// Attempted To update transaction's status, but replace all inside,please check Andre
+		/*
+		let userStatus = ["transaksi":["status": 4]] as [String:[String:Any]]
+		
+		
+		databaseRef.updateChildValues(userStatus) { error, ref in
+			if error == nil{
+				print("sukses")
+				
+				userRef.updateChildValues(userStatus, withCompletionBlock: { (error, ref) in
+					if error == nil {
+						print("sukses")
+					}else{
+						completion(false)
+					}
+				})
+			}else{
+				completion(false)
+			}
+		}
+*/
 	}
 	
 	func callOrganisasi(){
