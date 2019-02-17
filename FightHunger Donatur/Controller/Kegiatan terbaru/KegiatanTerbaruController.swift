@@ -75,9 +75,9 @@ class KegiatanTerbaruController: UITableViewController {
 			let navbar = segue.destination as! UINavigationController
 			let vc = navbar.topViewController as! DonatingController
             sendOrgDataToDonate()
-			//guard let orgObj = organisationObject else {return}
+			guard let orgObj = organisationObject else {return}
 			//print("there")
-			//vc.selectedOrganization = orgObj
+			vc.selectedOrganization = orgObj
 			//print("Done")
 		}
 	}

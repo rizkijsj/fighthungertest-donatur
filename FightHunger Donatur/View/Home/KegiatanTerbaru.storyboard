@@ -187,6 +187,7 @@
                         <outlet property="titleKegiatan" destination="3Xn-jp-Uf3" id="mqQ-oc-JTu"/>
                         <outlet property="waktuProgram" destination="Z9x-8u-rTB" id="h9S-9N-CEw"/>
                         <segue destination="hFM-B7-U8r" kind="showDetail" identifier="ToOrganization" id="hPv-9R-Try"/>
+                        <segue destination="iHg-lN-pJm" kind="presentation" identifier="toDonate" id="Dfx-uV-srD"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ya8-IM-vug" userLabel="First Responder" sceneMemberID="firstResponder"/>

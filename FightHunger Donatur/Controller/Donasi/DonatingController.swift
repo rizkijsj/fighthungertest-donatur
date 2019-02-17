@@ -443,13 +443,14 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
         let nama = namaBarang.text
         let deskripsi = deskripsiBarang.text
         //let keteranganLokasi = keteranganBarang.text
-        let textFieldLength = deskripsiBarang.text!.count
+        //let textFieldLength = deskripsiBarang.text!.count
         let alamatBarang = alamat.text
         let fotobarang = imgDonasi.image
         let waktuAmbil = waktuPengambilan.text
+		let waktuExpire = waktuExpired.text
 		let isImageAdded = imgDonasi.image?.isEqual(to: UIImage.init(named: "Gambar template donatur")!)
         
-        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && textFieldLength >= 1 && textFieldLength <= 120 && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil && isImageAdded == false
+        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil && isImageAdded == false && waktuExpire != "" && waktuExpire != nil
         
         print(formFilled)
         
@@ -552,20 +553,33 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
         guard let namaLokasi = alamat.text else {resetForm(); return }
         let pickUpTime = picker.date.timeIntervalSince1970
         guard let fotobarang = imgDonasi.image else {resetForm(); return }
-        guard let deskripsi = deskripsiBarang.text else {resetForm(); return }
+        guard var deskripsi = deskripsiBarang.text else {resetForm(); return }
 		
         //guard let keteranganTambahanLokasi = keteranganBarang.text else {return}
         guard let jumlahBarang = kuantitasBarang.text else {resetForm(); return}
         
         guard let latitudeBarang = latitude as? String else {resetForm(); return}
         guard let longitudeBarang = longitude as? String else {resetForm(); return}
+		guard let expiredDateText = waktuExpired.text else {resetForm(); return}
         let idOrgData = defaults.object(forKey: "idOrgKegiatan") as? String
+		
+		
+		var HalalNonHalal = ""
+		if halalSegmentedOutlet.selectedSegmentIndex == 0{
+			HalalNonHalal = "Halal"
+		}else{
+			HalalNonHalal = "Non Halal"
+		}
+		
+		deskripsi = "\(expiredDateText) | \(HalalNonHalal) |\n\n\(deskripsi)"
+		
 
         activityView.startAnimating()
 		setContinueButton(enabled: false)
 		self.tableView.isUserInteractionEnabled = false
+		
         if idOrgData != nil {
-            guard let orgObject = passingOrganisasi else {print("error")
+			guard let orgObject = passingOrganisasi else {print("error"); self.resetForm();
                 return}
             connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganBarang.text ?? "-" ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang,organ: orgObject) { (result) in
                 print("Rsults")

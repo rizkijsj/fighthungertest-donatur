@@ -28,19 +28,21 @@
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="hye-iY-w9t">
                                         <rect key="frame" x="0.0" y="0.0" width="303" height="103.5"/>
                                         <subviews>
-                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HrR-UO-WeD">
+                                            <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HrR-UO-WeD">
                                                 <rect key="frame" x="0.0" y="0.0" width="85" height="103.5"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gja-ZS-7kK">
                                                         <rect key="frame" x="0.0" y="9.5" width="85" height="85"/>
                                                         <constraints>
-                                                            <constraint firstAttribute="height" constant="85" id="TDX-Wq-0mt"/>
+                                                            <constraint firstAttribute="width" constant="85" id="b3i-Qw-URj"/>
                                                             <constraint firstAttribute="width" secondItem="gja-ZS-7kK" secondAttribute="height" multiplier="1:1" id="yT0-li-huK"/>
                                                         </constraints>
                                                     </imageView>
                                                 </subviews>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
+                                                    <constraint firstAttribute="trailing" secondItem="gja-ZS-7kK" secondAttribute="trailing" id="OGg-yn-7VB"/>
+                                                    <constraint firstItem="gja-ZS-7kK" firstAttribute="leading" secondItem="HrR-UO-WeD" secondAttribute="leading" id="VX8-bM-q3k"/>
                                                     <constraint firstItem="gja-ZS-7kK" firstAttribute="centerX" secondItem="HrR-UO-WeD" secondAttribute="centerX" id="dTd-Pp-GwQ"/>
                                                     <constraint firstItem="gja-ZS-7kK" firstAttribute="centerY" secondItem="HrR-UO-WeD" secondAttribute="centerY" id="oFR-CF-7EA"/>
                                                 </constraints>
