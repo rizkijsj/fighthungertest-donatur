@@ -29,7 +29,7 @@ class KegiatanViewController: UITableViewController {
 	@IBOutlet weak var deskripsiKurir: UILabel!
 	
 	@IBOutlet weak var namaDonasi: UILabel!
-	@IBOutlet weak var deskripsiDonasi: UILabel!
+	@IBOutlet weak var deskripsiDonasi: UITextView!
 	@IBOutlet weak var jumlahDonasi: UILabel!
 	@IBOutlet weak var alamatPengambilan: UILabel!
 	@IBOutlet weak var waktuPengambilan: UILabel!
@@ -56,6 +56,14 @@ class KegiatanViewController: UITableViewController {
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
+	}
+	
+	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
+	}
+	
+	override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		return UITableView.automaticDimension
 	}
 	
 	var passingObject:Post?
@@ -214,7 +222,7 @@ class KegiatanViewController: UITableViewController {
 			namaDonasi.text = statusObject.namaitem
 			print(statusObject.namaitem)
 			deskripsiDonasi.text = statusObject.deskripsi
-			jumlahDonasi.text = "\(statusObject.jumlahbarang) Item"
+			jumlahDonasi.text = statusObject.jumlahbarang
 			
 			let dateFormat = DateFormatter()
 			let timeFormat = DateFormatter()
