@@ -86,22 +86,22 @@ class KegiatanTerbaruController: UITableViewController {
     
     @objc func onTap()
     {
-      // var tempOrganisasi = [OrganisasiProfile]()
+      
         func prepare(for segue: UIStoryboardSegue, sender: Any?)
         {
-                let organizationVC = segue.destination as! Organisasi
-                organizationVC.organisasiObject = organisationObject
-                self.performSegue(withIdentifier: "ToOrganization", sender: self)
+           
+            self.performSegue(withIdentifier: "ToOrganization", sender: self)
+            print("tap")
         }
     }
+    
+   
 	
     @IBAction func backButton(_ sender: UIBarButtonItem) {
         
         self.navigationController?.popToRootViewController(animated: true)
     }
-    
-    
-    
+ 
     func loadProgramDetails(){
 		guard let progObject = passingObject else {return}
 		

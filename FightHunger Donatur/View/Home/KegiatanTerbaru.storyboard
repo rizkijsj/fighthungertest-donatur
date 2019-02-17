@@ -216,9 +216,11 @@
                                 <rect key="frame" x="5" y="44" width="365" height="734"/>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TCm-se-xIb">
-                                <rect key="frame" x="20" y="44" width="39" height="30"/>
+                                <rect key="frame" x="20" y="44" width="40" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <state key="normal" title="Close"/>
+                                <state key="normal" title="Tutup">
+                                    <color key="titleColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                </state>
                                 <connections>
                                     <action selector="closeBtn:" destination="0ex-Mb-J2q" eventType="touchUpInside" id="ELv-4t-oFZ"/>
                                 </connections>
