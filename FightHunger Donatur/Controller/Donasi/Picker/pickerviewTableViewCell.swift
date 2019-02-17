@@ -8,8 +8,8 @@
 
 import UIKit
 
-class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerViewDelegate,UITextFieldDelegate {
-    
+class pickerviewTableViewCell: UITableViewCell {
+   /*
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         
         return 1
@@ -92,4 +92,5 @@ class pickerviewTableViewCell: UITableViewCell, UIPickerViewDataSource,UIPickerV
 		textKuantitas.endEditing(true)
 		textFieldChange(target: textKuantitas)
     }
+	*/
 }

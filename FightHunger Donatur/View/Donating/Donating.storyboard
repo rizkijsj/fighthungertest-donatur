@@ -181,9 +181,6 @@
                                                 <constraint firstItem="sfL-x6-g0J" firstAttribute="top" secondItem="IZG-gJ-gRy" secondAttribute="top" constant="4" id="rG7-oh-EqM"/>
                                             </constraints>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <outlet property="textKuantitas" destination="sfL-x6-g0J" id="Obg-eo-yBG"/>
-                                        </connections>
                                     </tableViewCell>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="Lokasi Alamat" rowHeight="60" id="Uee-y4-eHV">
                                         <rect key="frame" x="0.0" y="612" width="414" height="60"/>
@@ -192,15 +189,15 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-10-le8">
+                                                <stackView opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" horizontalHuggingPriority="261" verticalHuggingPriority="258" translatesAutoresizingMaskIntoConstraints="NO" id="9Aw-10-le8">
                                                     <rect key="frame" x="20" y="4" width="374" height="56"/>
                                                     <subviews>
-                                                        <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Lokasi pengambilan" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pZQ-9r-hBP" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                        <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Alamat" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="Nzr-FZ-f6I">
                                                             <rect key="frame" x="0.0" y="0.0" width="318" height="56"/>
-                                                            <nil key="textColor"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <textInputTraits key="textInputTraits"/>
-                                                        </textField>
+                                                            <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
                                                         <view contentMode="scaleToFill" horizontalHuggingPriority="252" verticalHuggingPriority="251" horizontalCompressionResistancePriority="749" verticalCompressionResistancePriority="749" translatesAutoresizingMaskIntoConstraints="NO" id="CcD-ze-Hh5">
                                                             <rect key="frame" x="318" y="0.0" width="56" height="56"/>
                                                             <subviews>
@@ -218,7 +215,6 @@
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="56" id="4Pv-HW-5ER"/>
                                                                 <constraint firstAttribute="width" constant="56" id="NhG-bT-YHb"/>
                                                                 <constraint firstItem="sa6-Xy-Bj6" firstAttribute="centerY" secondItem="CcD-ze-Hh5" secondAttribute="centerY" id="hdb-Xv-aQ1"/>
                                                                 <constraint firstItem="sa6-Xy-Bj6" firstAttribute="centerX" secondItem="CcD-ze-Hh5" secondAttribute="centerX" id="hrS-oW-gYM"/>
@@ -226,7 +222,7 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="z7z-6T-gFb"/>
+                                                        <constraint firstAttribute="height" constant="56" id="z7z-6T-gFb"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
@@ -288,28 +284,42 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeskripsiBarang" rowHeight="60" id="uRu-ng-lB6">
-                                        <rect key="frame" x="0.0" y="792" width="414" height="60"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeskripsiBarang" rowHeight="92" id="uRu-ng-lB6">
+                                        <rect key="frame" x="0.0" y="792" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRu-ng-lB6" id="bMr-sA-gaJ">
-                                            <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="92"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Deskripsi detail barang donasi" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="piT-uo-BYB" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
-                                                    <rect key="frame" x="20" y="4" width="374" height="56"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="263" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b24-dm-mKr">
+                                                    <rect key="frame" x="20" y="16" width="374" height="76"/>
+                                                    <subviews>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="256" verticalHuggingPriority="258" verticalCompressionResistancePriority="763" text="Catatan Donasi:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M2-kQ-F3U">
+                                                            <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                                            <nil key="textColor"/>
+                                                            <nil key="highlightedColor"/>
+                                                        </label>
+                                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" tag="10" contentMode="scaleToFill" horizontalHuggingPriority="257" verticalHuggingPriority="257" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" scrollEnabled="NO" textAlignment="natural" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="5UN-HN-86b">
+                                                            <rect key="frame" x="0.0" y="19.5" width="374" height="56.5"/>
+                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            <constraints>
+                                                                <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="zRg-Jm-SUE"/>
+                                                            </constraints>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                        </textView>
+                                                    </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="RF5-ya-FSu"/>
+                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="76" id="axe-uu-rQQ"/>
                                                     </constraints>
-                                                    <nil key="textColor"/>
-                                                    <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                    <textInputTraits key="textInputTraits" enablesReturnKeyAutomatically="YES"/>
-                                                </textField>
+                                                </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstAttribute="bottom" secondItem="piT-uo-BYB" secondAttribute="bottom" id="4Xu-aQ-6EV"/>
-                                                <constraint firstItem="piT-uo-BYB" firstAttribute="leading" secondItem="bMr-sA-gaJ" secondAttribute="leading" constant="20" symbolic="YES" id="Ixz-Yg-iey"/>
-                                                <constraint firstItem="piT-uo-BYB" firstAttribute="top" secondItem="bMr-sA-gaJ" secondAttribute="top" constant="4" id="aXz-2R-M3M"/>
-                                                <constraint firstAttribute="trailing" secondItem="piT-uo-BYB" secondAttribute="trailing" constant="20" symbolic="YES" id="lWL-dw-QA6"/>
+                                                <constraint firstItem="b24-dm-mKr" firstAttribute="top" secondItem="bMr-sA-gaJ" secondAttribute="top" constant="16" id="6ag-mN-nu0"/>
+                                                <constraint firstItem="b24-dm-mKr" firstAttribute="leading" secondItem="bMr-sA-gaJ" secondAttribute="leading" constant="20" id="Loe-2h-k7p"/>
+                                                <constraint firstAttribute="trailing" secondItem="b24-dm-mKr" secondAttribute="trailing" constant="20" symbolic="YES" id="vko-ee-WdX"/>
+                                                <constraint firstAttribute="bottom" secondItem="b24-dm-mKr" secondAttribute="bottom" constant="8" id="ydp-RH-s5l"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -336,15 +346,17 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
-                        <outlet property="alamat" destination="pZQ-9r-hBP" id="4Af-Uf-DYe"/>
+                        <outlet property="alamat" destination="Nzr-FZ-f6I" id="Cwi-XJ-aTa"/>
                         <outlet property="alamatStack" destination="9Aw-10-le8" id="NC8-iD-Vrm"/>
                         <outlet property="continueButton" destination="xgW-Ih-GwM" id="fmV-sv-Wrq"/>
-                        <outlet property="deskripsiBarang" destination="piT-uo-BYB" id="RCA-sn-zsC"/>
+                        <outlet property="deskripsiBarang" destination="5UN-HN-86b" id="pXZ-g5-8MY"/>
+                        <outlet property="halalSegmentedOutlet" destination="v9q-oK-Hq8" id="UpO-HB-H1V"/>
                         <outlet property="imgDonasi" destination="wwU-na-Baq" id="Zht-Tz-Pj1"/>
                         <outlet property="keteranganBarang" destination="CX7-LV-Fii" id="umx-cm-Vin"/>
                         <outlet property="kuantitasBarang" destination="sfL-x6-g0J" id="X2J-u8-Xtu"/>
                         <outlet property="namaBarang" destination="tC5-9f-7PZ" id="5Yy-ey-yx8"/>
                         <outlet property="viewAlamat" destination="CcD-ze-Hh5" id="1He-8G-aPD"/>
+                        <outlet property="waktuExpired" destination="F4R-D7-1hh" id="SSA-EO-7Ns"/>
                         <outlet property="waktuPengambilan" destination="5YL-GD-4og" id="n4L-h5-g9g"/>
                         <segue destination="Qye-FF-Kdx" kind="presentation" identifier="DonasiToLogin" id="KEP-FJ-MxN"/>
                         <segue destination="zu9-Xr-40N" kind="presentation" identifier="DonasiToMap" id="9D9-Vz-n5s"/>

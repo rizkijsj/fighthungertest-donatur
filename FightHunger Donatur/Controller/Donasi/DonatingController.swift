@@ -9,15 +9,19 @@
 import UIKit
 import Firebase
 
-class DonatingController: UITableViewController , UITextFieldDelegate{
+class DonatingController: UITableViewController , UITextFieldDelegate, UITextViewDelegate{
     @IBOutlet weak var namaBarang: CustomTextField!
-    @IBOutlet weak var deskripsiBarang: CustomTextField!
+    @IBOutlet weak var deskripsiBarang: UITextView!
     
 	@IBOutlet weak var kuantitasBarang: CustomTextField!
 	@IBOutlet weak var keteranganBarang: CustomTextField!
     @IBOutlet weak var waktuPengambilan: CustomTextField!
 	
     @IBOutlet weak var alamatStack: UIStackView!
+	
+	@IBOutlet weak var halalSegmentedOutlet: UISegmentedControl!
+	@IBOutlet weak var waktuExpired: CustomTextField!
+	
     
     var passingOrganisasi:OrganisasiProfile?
 
@@ -25,6 +29,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     var latitude = ""
     var longitude = ""
 	let picker = UIDatePicker()
+	let picker2 = UIDatePicker()
 	
 	var selectedOrganization:OrganisasiProfile?
 	
@@ -98,16 +103,18 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		border2.borderWidth = width
 		//print(alamatStack.bounds.size.width)
 		border2.frame = CGRect(x: 0, y: viewAlamat.bounds.size.height - width, width: viewAlamat.bounds.size.width, height: viewAlamat.bounds.size.height)
-		viewAlamat.layer.addSublayer(border)
+		viewAlamat.layer.addSublayer(border2)
 		
 		viewAlamat.layer.masksToBounds = true
+		
+		
 		
     }
     
     
     
     //show keyboard
-    func textFieldDidBeginEditing(_ textField: UITextField) {
+    func textFieldDidBeginEditing(_ textField: Any) {
         moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: true)
     }
     @IBAction func toMap(_ sender: Any) {
@@ -115,16 +122,16 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     }
     
     //hide keyboard
-    func textFieldDidEndEditing(_ textField: UITextField) {
+    func textFieldDidEndEditing(_ textField: Any) {
         
         moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: false)
     }
     
     
-    func moveKeyboard(textField : CustomTextField , moveDistance: Float, up:Bool)
+    func moveKeyboard(textField : Any , moveDistance: Float, up:Bool)
     {
         let MoveDuration = 0.3
-        let movement = CGFloat(up ? moveDistance : -moveDistance)
+		_ = CGFloat(up ? moveDistance : -moveDistance)
         
         UIView.beginAnimations("moveTextfield", context: nil)
         UIView.setAnimationBeginsFromCurrentState(true)
@@ -140,19 +147,68 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		picker.minimumDate = Date().addingTimeInterval(7200)
 		picker.setDate(Date().addingTimeInterval(7200), animated: false)
 		
-		var toolbar = UIToolbar()
+		picker2.locale = Locale.init(identifier: "Id")
+		picker2.datePickerMode = .date
+		picker2.minimumDate = Date()//.addingTimeInterval(7200)
+		//picker2.setDate(Date().addingTimeInterval(7200), animated: false)
+		
+		let toolbar = UIToolbar()
 		toolbar.sizeToFit()
 		
-		//add done button
-		var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+		let toolbarExpired = UIToolbar()
+		toolbarExpired.sizeToFit()
 		
-		var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		let textViewToolbar = UIToolbar()
+		textViewToolbar.sizeToFit()
+		
+		//add done button
+		let doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+		
+		let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
 		
 		toolbar.setItems([flexibleSpace,doneBtn], animated: false)
 		
+		//add done button
+		let doneBtnExpired = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClickedExpired))
+		
+		let flexibleSpaceExpired = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		
+		toolbarExpired.setItems([flexibleSpaceExpired,doneBtnExpired], animated: false)
+		
+		//add done button
+		let done = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClickedDesc))
+		
+		let flexSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		
+	textViewToolbar.setItems([flexSpace,done], animated: false)
+		
+		deskripsiBarang.inputAccessoryView = textViewToolbar
+		
 		waktuPengambilan.inputAccessoryView = toolbar
+		waktuExpired.inputAccessoryView = toolbarExpired
 		
 		waktuPengambilan.inputView = picker
+		waktuExpired.inputView = picker2
+	}
+	
+	func textViewDidChange(_ textView: UITextView) {
+		UIView.setAnimationsEnabled(false)
+		self.tableView.beginUpdates()
+		self.tableView.endUpdates()
+		UIView.setAnimationsEnabled(true)
+		if textView.tag == 10 {
+			let indexPath = IndexPath(row: 7, section: 1)
+			self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
+		}
+		
+		
+		
+	}
+	
+	@objc func doneClickedDesc(){
+		
+		deskripsiBarang.endEditing(true)
+		//textFieldChanged(deskripsiBarang)
 	}
 	
 	@objc func doneClicked(){
@@ -171,6 +227,19 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		
 		waktuPengambilan.endEditing(true)
         textFieldChanged(waktuPengambilan)
+	}
+	
+	@objc func doneClickedExpired(){
+		let dateFormat = DateFormatter()
+		dateFormat.dateStyle = .short
+		dateFormat.timeStyle = .none
+		
+		
+		
+		waktuExpired.text = "Tanggal Expired: \(dateFormat.string(from: picker2.date))"
+		
+		waktuExpired.endEditing(true)
+		textFieldChanged(waktuExpired)
 	}
     
     
@@ -194,7 +263,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
     var takenPhoto:UIImage?
     var imagePicker:UIImagePickerController!
     
-    @IBOutlet weak var alamat: CustomTextField!
+    @IBOutlet weak var alamat: UILabel!
     @IBAction func unwindToPushDonasi(_ sender: UIStoryboardSegue){
 		print("Unwinded Here")
         let vc = sender.source as! LokasiPengambilan
@@ -202,6 +271,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
             
             if vc.alamatLengkap != "" {
                 alamat.text = vc.alamatLengkap
+				self.alamat.textColor = .black
             } else {
             
             let namaTempat = placemark.name ?? ""
@@ -217,6 +287,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
                 DispatchQueue.main.async {
                     self.alamat.text = "\(namaTempat)" + " " + "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
 					self.textFieldChanged(self.namaBarang)
+					self.alamat.textColor = .black
                 }
             }
         }
@@ -297,6 +368,16 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
 		
 		createPicker()
         alamatView()
+		
+		deskripsiBarang.clipsToBounds = false
+		deskripsiBarang.layer.applySketchShadow(
+			color: .black,
+			alpha: 1,
+			x: 0,
+			y: 0,
+			blur: 1,
+			spread: 0
+		)
         
         //guard let userProfile = UserService.currentUserProfile else { return }
         if let availableImage = takenPhoto {
@@ -316,16 +397,16 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         //delegate textfield
         namaBarang.delegate = self as? UITextFieldDelegate
         //alamat.delegate = self as? UILabel
-        deskripsiBarang.delegate = self as? UITextFieldDelegate
+        deskripsiBarang.delegate = self as? UITextViewDelegate
         kuantitasBarang.delegate = self as? UITextFieldDelegate
         keteranganBarang.delegate = self as? UITextFieldDelegate
-        alamat.delegate = self as? UITextFieldDelegate
+        //alamat.delegate = self as? UITextViewDelegate
         waktuPengambilan.delegate = self as? UITextFieldDelegate
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
         namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEndOnExit)
+        //deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
 //        alamat.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         waktuPengambilan.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEndOnExit)
@@ -361,8 +442,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate{
         print("kepanggil")
         let nama = namaBarang.text
         let deskripsi = deskripsiBarang.text
-        let keteranganLokasi = keteranganBarang.text
-        let textFieldLength = deskripsiBarang.text!.characters.count
+        //let keteranganLokasi = keteranganBarang.text
+        let textFieldLength = deskripsiBarang.text!.count
         let alamatBarang = alamat.text
         let fotobarang = imgDonasi.image
         let waktuAmbil = waktuPengambilan.text
