@@ -156,7 +156,7 @@
                                                                     <constraints>
                                                                         <constraint firstAttribute="width" secondItem="7kn-TD-Ign" secondAttribute="height" multiplier="1:1" id="gwH-eF-xqA"/>
                                                                     </constraints>
-                                                                    <state key="normal" title="Button" image="Website"/>
+                                                                    <state key="normal" title="Button" image="ig"/>
                                                                     <connections>
                                                                         <action selector="clickWeb:" destination="9w1-0l-aAf" eventType="touchUpInside" id="bWF-EI-MgG"/>
                                                                     </connections>
@@ -379,7 +379,7 @@
         <image name="Logo call" width="200" height="200"/>
         <image name="Lokasi" width="200" height="200"/>
         <image name="SMS" width="200" height="200"/>
-        <image name="Website" width="200" height="200"/>
         <image name="arrowback" width="120" height="200"/>
+        <image name="ig" width="200" height="200"/>
     </resources>
 </document>
