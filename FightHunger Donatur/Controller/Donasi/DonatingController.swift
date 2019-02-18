@@ -406,7 +406,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
         namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         //deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
+        kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEndOnExit)
         keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
 //        alamat.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         waktuPengambilan.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEndOnExit)
