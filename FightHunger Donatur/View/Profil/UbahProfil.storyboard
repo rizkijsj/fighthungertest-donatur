@@ -36,7 +36,7 @@
                                     <constraint firstAttribute="height" constant="20" id="hJC-xa-eyw"/>
                                 </constraints>
                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                <textInputTraits key="textInputTraits" returnKeyType="next"/>
+                                <textInputTraits key="textInputTraits" returnKeyType="next" enablesReturnKeyAutomatically="YES"/>
                             </textField>
                             <textField opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="gY3-BJ-EbD" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
                                 <rect key="frame" x="20" y="144" width="335" height="20"/>

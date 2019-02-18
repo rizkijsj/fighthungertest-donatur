@@ -66,15 +66,14 @@ class UbahprofilViewController: UIViewController, UITextFieldDelegate {
     }
     
     override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(true)
+          continueButton.setTitleTextAttributes([NSAttributedString.Key.font: UIFont.boldSystemFont(ofSize: 17)], for: .normal)
         loadUserProfileData()
     }
     
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
         
         if namaTxt.isFirstResponder
-        {
-            telfonTxt.becomeFirstResponder()
-        }else if telfonTxt.isFirstResponder
         {
             emailTxt.becomeFirstResponder()
         }else

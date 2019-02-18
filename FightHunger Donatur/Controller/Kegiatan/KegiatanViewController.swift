@@ -183,7 +183,23 @@ class KegiatanViewController: UITableViewController {
 			}
 		}
 		*/
+        
+        createAlert()
 	}
+    
+    func createAlert()
+    {
+        let alert = UIAlertController(title: "Konfirmasi batalkan", message: "Apakah anda yakin untuk membatalkan donasi anda?", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Ya", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        alert.addAction(UIAlertAction(title: "Tidak", style: UIAlertAction.Style.default, handler: { (action) in
+            alert.dismiss(animated: true, completion: nil)
+        }))
+        
+        self.present(alert, animated: true, completion: nil)
+    }
 	
 	@IBAction func callButton(_ sender: Any) {
 		guard let orgObject = passingObject else {return}
