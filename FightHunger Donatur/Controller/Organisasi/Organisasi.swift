@@ -50,8 +50,9 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     }
 
     @IBAction func backButton(_ sender: UIBarButtonItem) {
-        self.navigationController?.popToRootViewController(animated: true)
+        self.navigationController?.popViewController(animated: true)
     }
+    
     @IBOutlet weak var logoOrganisasi: UIImageView!
     @IBOutlet weak var namaOrganisasi: UILabel!
     @IBOutlet weak var alamatOrganisasi: UILabel!
@@ -127,12 +128,13 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
-	
-    override func viewDidDisappear(_ animated: Bool) {
-        super.viewWillDisappear(true)
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 0)]
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(true)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
+	
+   
     
     
 	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
