@@ -26,7 +26,7 @@ class KegiatanViewController: UITableViewController {
 	@IBOutlet weak var btnCallOrganisasi: UIButton!
 	
 	@IBOutlet weak var namaKurir: UILabel!
-	@IBOutlet weak var deskripsiKurir: UILabel!
+	@IBOutlet weak var deskripsiKurir: UITextView!
 	
 	@IBOutlet weak var namaDonasi: UILabel!
 	@IBOutlet weak var deskripsiDonasi: UITextView!
@@ -54,9 +54,12 @@ class KegiatanViewController: UITableViewController {
         
     }
 	
-	override func viewDidDisappear(_ animated: Bool) {
-		super.viewWillDisappear(true)
-	}
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
+    }
+    
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableView.automaticDimension

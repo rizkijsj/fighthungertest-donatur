@@ -98,15 +98,43 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
             
                 self.tableView.reloadData()
         }else {
-            self.navigationController?.popViewController(animated: false)
+            self.navigationController?.popViewController(animated: true)
         }
         
     }
     
+    //hide navbar when scrolling
+    override func scrollViewWillEndDragging(_ scrollView: UIScrollView, withVelocity velocity: CGPoint, targetContentOffset: UnsafeMutablePointer<CGPoint>) {
+        
+        if(velocity.y>0) {
+            //Code will work without the animation block.I am using animation block incase if you want to set any delay to it.
+            UIView.animate(withDuration: 0.2, delay: 0, options: UIView.AnimationOptions(), animations: {
+                self.navigationController?.setNavigationBarHidden(true, animated: true)
+                self.view.layoutIfNeeded()
+                //print("Hide")
+            }, completion: nil)
+        } else {
+            UIView.animate(withDuration: 0.2, delay: 0, options: UIView.AnimationOptions(), animations: {
+                self.navigationController?.setNavigationBarHidden(false, animated: true)
+                self.view.layoutIfNeeded()
+                //print("Unhide")
+            }, completion: nil)
+        }
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
-         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+       
+        super.viewWillAppear(true)
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 	
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewWillDisappear(true)
+        
+        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 0)]
+    }
+    
+    
 	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
 		let nextImage = newImage
 		

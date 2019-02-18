@@ -307,7 +307,7 @@
                                                                 <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="56" id="zRg-Jm-SUE"/>
                                                             </constraints>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
-                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                                            <textInputTraits key="textInputTraits" autocapitalizationType="sentences" returnKeyType="continue" enablesReturnKeyAutomatically="YES"/>
                                                         </textView>
                                                     </subviews>
                                                     <constraints>

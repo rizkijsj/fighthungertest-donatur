@@ -44,13 +44,7 @@ class KegiatanTerbaruController: UITableViewController {
 		btnDonasi.addGestureRecognizer(tapBtnDonate)
 
 		
-        self.imgOrganisasi.layer.cornerRadius = 8.0
-        self.imgOrganisasi.layer.shadowColor = UIColor.gray.cgColor
-        self.imgOrganisasi.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-        self.imgOrganisasi.layer.shadowRadius = 2.0
-        self.imgOrganisasi.layer.shadowOpacity = 0.4
-        self.imgOrganisasi.layer.masksToBounds = false
-        imgOrganisasi.layer.shadowPath = UIBezierPath(rect: imgOrganisasi.bounds).cgPath
+        makeRounded()
        
         //Tap Gesture
         let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.onTap))
@@ -62,7 +56,20 @@ class KegiatanTerbaruController: UITableViewController {
         imageProgram.isUserInteractionEnabled = true
         imageProgram.addGestureRecognizer(tapProgram)
     }
-	
+    
+    func makeRounded()
+    {
+        self.imgOrganisasi.layer.cornerRadius = 8.0
+        self.imgOrganisasi.clipsToBounds = true
+        self.imgOrganisasi.layer.shadowColor = UIColor.gray.cgColor
+        self.imgOrganisasi.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+        self.imgOrganisasi.layer.shadowRadius = 2.0
+        self.imgOrganisasi.layer.shadowOpacity = 0.4
+        self.imgOrganisasi.layer.masksToBounds = false
+        imgOrganisasi.layer.shadowPath = UIBezierPath(rect: imgOrganisasi.bounds).cgPath
+        
+    }
+	//to donating
 	@objc func toDonationPage(){
 		performSegue(withIdentifier: "toDonate", sender: self)
 	}
@@ -79,7 +86,12 @@ class KegiatanTerbaruController: UITableViewController {
 			//print("there")
 			vc.selectedOrganization = orgObj
 			//print("Done")
-		}
+        }else if segue.identifier == "ToOrganization" {
+            let vc = segue.destination as! Organisasi
+            vc.organisasiObject = organisationObject
+        }
+        
+        
 	}
 	
 	func reloadObject(){
@@ -116,12 +128,10 @@ class KegiatanTerbaruController: UITableViewController {
     @objc func onTap()
     {
       
-        func prepare(for segue: UIStoryboardSegue, sender: Any?)
-        {
-           
+      
             self.performSegue(withIdentifier: "ToOrganization", sender: self)
             print("tap")
-        }
+       
     }
     
    
@@ -208,6 +218,7 @@ class KegiatanTerbaruController: UITableViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(true)
+        
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 	
