@@ -444,13 +444,14 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 //        let deskripsi = deskripsiBarang.text
         //let keteranganLokasi = keteranganBarang.text
         //let textFieldLength = deskripsiBarang.text!.count
+        let kuantitas = kuantitasBarang.text
         let alamatBarang = alamat.text
         let fotobarang = imgDonasi.image
         let waktuAmbil = waktuPengambilan.text
 		let waktuExpire = waktuExpired.text
 		let isImageAdded = imgDonasi.image?.isEqual(to: UIImage.init(named: "Gambar template donatur")!)
         
-        let formFilled = nama != nil && nama != "" && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil && isImageAdded == false && waktuExpire != "" && waktuExpire != nil
+        let formFilled = nama != nil && nama != "" && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil && isImageAdded == false && waktuExpire != "" && waktuExpire != nil && kuantitas != nil && kuantitas != ""
         
         print(formFilled)
         
