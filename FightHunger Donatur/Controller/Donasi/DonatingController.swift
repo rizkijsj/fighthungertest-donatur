@@ -441,7 +441,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
     {
         print("kepanggil")
         let nama = namaBarang.text
-        let deskripsi = deskripsiBarang.text
+//        let deskripsi = deskripsiBarang.text
         //let keteranganLokasi = keteranganBarang.text
         //let textFieldLength = deskripsiBarang.text!.count
         let alamatBarang = alamat.text
@@ -450,7 +450,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 		let waktuExpire = waktuExpired.text
 		let isImageAdded = imgDonasi.image?.isEqual(to: UIImage.init(named: "Gambar template donatur")!)
         
-        let formFilled = nama != nil && nama != "" && deskripsi != nil && deskripsi != "" && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil && isImageAdded == false && waktuExpire != "" && waktuExpire != nil
+        let formFilled = nama != nil && nama != "" && alamatBarang != "" && alamatBarang != nil && waktuAmbil != "" && waktuAmbil != nil && fotobarang != nil && isImageAdded == false && waktuExpire != "" && waktuExpire != nil
         
         print(formFilled)
         
