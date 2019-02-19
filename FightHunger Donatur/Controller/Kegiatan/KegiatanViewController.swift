@@ -148,6 +148,16 @@ class KegiatanViewController: UITableViewController {
 		}
 	}
 	
+	@IBAction func confirmCancel(_ segue: UIStoryboardSegue){
+		
+		let vc = segue.source as! PembatalanController
+		print("\n\n\n\n")
+		print(vc.reasonCancelling)
+		print("\n\n\n\n")
+		//batalkanDonasi(reason: vc.reasonCancelling)
+		
+	}
+	
 	
 	
 	
@@ -307,14 +317,14 @@ class KegiatanViewController: UITableViewController {
 		}
 	}
 	
-	func batalkanDonasi(){
+	func batalkanDonasi(reason:String){
 		//        push donasi
 		guard let uid = Auth.auth().currentUser?.uid else { return }
 		
 		guard let idtransaksi = passingObject?.idtransaksi else{return}
 		guard let postData = passingObject else {return}
 		
-		connector().donationCancel(transactionID: idtransaksi, Reason: "Donatur membatalkan donasi", data: postData) { (successCancel) in
+		connector().donationCancel(transactionID: idtransaksi, Reason: reason, data: postData) { (successCancel) in
 			if successCancel{
 				self.navigationController?.popViewController(animated: true)
 			}else {
