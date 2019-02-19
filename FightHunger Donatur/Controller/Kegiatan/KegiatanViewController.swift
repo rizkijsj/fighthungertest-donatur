@@ -172,7 +172,7 @@ class KegiatanViewController: UITableViewController {
 	}
 	
 	@IBAction func clickBtnBatalkan(_ sender: UIButton) {
-		batalkanDonasi()
+		//batalkanDonasi()
 		/*
 		cancelPickup { (result) in
 			if result{
@@ -184,17 +184,26 @@ class KegiatanViewController: UITableViewController {
 		}
 		*/
         
-        createAlert()
+			createAlert()
+		
 	}
+	
+	
+	
     
     func createAlert()
     {
         let alert = UIAlertController(title: "Konfirmasi batalkan", message: "Apakah anda yakin untuk membatalkan donasi anda?", preferredStyle: .alert)
         alert.addAction(UIAlertAction(title: "Ya", style: UIAlertAction.Style.default, handler: { (action) in
-            alert.dismiss(animated: true, completion: nil)
+
+			self.performSegue(withIdentifier: "toPopUp", sender: self)
+			
+			
+			//batalkanDonasi()
+
         }))
         
-        alert.addAction(UIAlertAction(title: "Tidak", style: UIAlertAction.Style.default, handler: { (action) in
+        alert.addAction(UIAlertAction(title: "Tidak", style: UIAlertAction.Style.cancel, handler: { (action) in
             alert.dismiss(animated: true, completion: nil)
         }))
         
