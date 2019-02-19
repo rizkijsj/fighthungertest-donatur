@@ -75,10 +75,10 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         
         //cell.fotoDonasi.image = dataPost[indexPath.row].
         cell.contentName.text = dataPost[indexPath.row].namaitem
-		//cell.contentExpiredDate.text = dataPost[indexPath.row].deskripsi
+		cell.contentExpiredDate.text = dataPost[indexPath.row].deskripsi
 		
 		cell.contentOrganisationName.text = ""
-		cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
+		//cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 		if dataPost[indexPath.row].status == 5{
 			cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 			ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url, fromCache in
@@ -91,7 +91,9 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 			}
 
 			//cell.fotoOrgn.image = fotoOrganisasi[indexPath.row]
+			let descriptions = dataPost[indexPath.row].deskripsi.split(separator: "|")
 			
+			cell.contentExpiredDate.text = "\(descriptions[2].dropFirst(1))"
 			cell.contentOrganisationName.text = dataPost[indexPath.row].namakomunitas
 		}else {
 			cell.contentOrganisationName.text = ""

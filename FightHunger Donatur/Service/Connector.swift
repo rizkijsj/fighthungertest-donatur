@@ -431,6 +431,9 @@ class connector {
 		let databasePostRef = Database.database().reference().child("PublicPost/\(idtransaksi)")
 		let transaksiObject = ["status": 0] as [String:Any]
 		
+		var oldDescription = data.deskripsi.split(separator: "|")
+		let newDescription = "Cancelled | \(Reason) |\(oldDescription[2])"
+		
 		let postObject = [
 			"author": [
 				"uid": data.author.uid,
@@ -451,12 +454,12 @@ class connector {
 				"alasanbatal":Reason,
 				"deskripsikurir": "-",
 				"namakurir":"-",
-				"status": 6,
+				"status": 0,
 				"waktuambil": data.waktuambil,
 				"waktusampai": 0
 			],"barang": [
 				"namabarang": data.namaitem,
-				"deskripsibarang":data.deskripsi,
+				"deskripsibarang":newDescription,
 				"jumlahbarang":data.jumlahbarang,
 				"postphotourl": data.postphotourl.absoluteString,
 			],"idtransaction" : data.idtransaksi,"timestamp": data.timestamp

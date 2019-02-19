@@ -154,7 +154,7 @@ class KegiatanViewController: UITableViewController {
 		print("\n\n\n\n")
 		print(vc.reasonCancelling)
 		print("\n\n\n\n")
-		//batalkanDonasi(reason: vc.reasonCancelling)
+		batalkanDonasi(reason: vc.reasonCancelling)
 		
 	}
 	

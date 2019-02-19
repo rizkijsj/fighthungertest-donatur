@@ -314,12 +314,12 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="DeskripsiBarang" rowHeight="92" id="uRu-ng-lB6">
                                         <rect key="frame" x="0.0" y="836" width="414" height="92"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRu-ng-lB6" id="bMr-sA-gaJ">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="uRu-ng-lB6" id="bMr-sA-gaJ">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="91.5"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <stackView opaque="NO" contentMode="scaleToFill" verticalHuggingPriority="263" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="b24-dm-mKr">
-                                                    <rect key="frame" x="20" y="16" width="374" height="76"/>
+                                                    <rect key="frame" x="20" y="16.5" width="374" height="76"/>
                                                     <subviews>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="256" verticalHuggingPriority="258" verticalCompressionResistancePriority="763" text="Catatan Donasi:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6M2-kQ-F3U">
                                                             <rect key="frame" x="0.0" y="0.0" width="374" height="19.5"/>

@@ -37,10 +37,14 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 	var selectedOrganization:OrganisasiProfile?
 	
     func textFieldShouldReturn(_ textField: UITextField) -> Bool {
-        
+		
+		textFieldChanged(namaBarang)
+		
+		
         namaBarang.resignFirstResponder()
         deskripsiBarang.resignFirstResponder()
         keteranganBarang.resignFirstResponder()
+		kuantitasBarang.resignFirstResponder()
         
         if namaBarang.isFirstResponder
         {
@@ -201,8 +205,9 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 		UIView.setAnimationsEnabled(true)
 		if textView.tag == 10 {
 			let indexPath = IndexPath(row: 7, section: 1)
-			self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .bottom)
+			self.tableView.selectRow(at: indexPath, animated: false, scrollPosition: .none)
 		}
+		textFieldChanged(namaBarang)
 		
 		
 		
@@ -309,8 +314,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 	
     
     @IBAction func submitBtn(_ sender: Any) {
-        setContinueButton(enabled: false)
 		textFieldChanged(namaBarang)
+        setContinueButton(enabled: false)
         connector().verifyUserLoginState { (state) in
 			//self.resetForm()
             if state{
@@ -370,6 +375,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 		createPicker()
         alamatView()
 		
+		self.hideKeyboardWhenTappedAround()
+		
 		deskripsiBarang.clipsToBounds = false
 		deskripsiBarang.layer.applySketchShadow(
 			color: .black,
@@ -403,11 +410,12 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
         keteranganBarang.delegate = self as? UITextFieldDelegate
         //alamat.delegate = self as? UITextViewDelegate
         waktuPengambilan.delegate = self as? UITextFieldDelegate
+		
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
         namaBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         //deskripsiBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-        kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEndOnExit)
+        kuantitasBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         keteranganBarang.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
 //        alamat.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         waktuPengambilan.addTarget(self, action: #selector(textFieldChanged), for: .editingDidEndOnExit)
