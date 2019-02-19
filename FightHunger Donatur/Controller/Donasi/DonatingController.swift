@@ -22,7 +22,10 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 	@IBOutlet weak var halalSegmentedOutlet: UISegmentedControl!
 	@IBOutlet weak var waktuExpired: CustomTextField!
 	
-    
+	@IBOutlet weak var informationCell: UITableViewCell!
+	
+	@IBOutlet weak var infomationText: UILabel!
+	
     var passingOrganisasi:OrganisasiProfile?
 
     
@@ -363,6 +366,10 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 		if let selectedOrg = selectedOrganization{
 			print(selectedOrg.name)
 			print(selectedOrg.id)
+			infomationText.text = "Untuk \(selectedOrg.name)"
+		}else {
+			infomationText.isHidden = true
+			informationCell.isHidden = true
 		}
 		print("\nIs there something?\n\n\n")
 		

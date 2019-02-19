@@ -9,12 +9,15 @@ import UIKit
 
 class PembatalanController: UITableViewController {
 
+	@IBOutlet weak var textViewLabel: UITextView!
 	@IBOutlet weak var konfirmasiBtn: UIButton!
+	
+	//var selectedIndexpath:IndexPath?
 	override func viewDidLoad() {
         super.viewDidLoad()
 
        konfirmasiBtn.layer.cornerRadius = 6.0
-		
+	   textViewLabel.isHidden = true
     }
 
 	@IBAction func cancelBtn(_ sender: Any) {
@@ -22,24 +25,26 @@ class PembatalanController: UITableViewController {
 	}
 	// MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+	
+	override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
 		
-        return 3
-    }
-
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-		
-        if section == 0
+		if indexPath.section == 0
 		{
-			return 1
-		}else if section == 1
-		{
-			return 5
-		}else
-		{
-			return 1
+			if indexPath.row == 1 || indexPath.row == 2 || indexPath.row == 3 || indexPath.row == 4
+			{
+				tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+			}
+			
+			else
+			{
+				tableView.cellForRow(at: indexPath)?.accessoryType = .checkmark
+				textViewLabel.isHidden = false
+			}
 		}
-    }
+		
+	}
+	
+	
 
 	
 
