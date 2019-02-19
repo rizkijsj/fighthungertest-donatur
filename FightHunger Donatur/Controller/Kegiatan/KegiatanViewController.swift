@@ -333,7 +333,7 @@ class KegiatanViewController: UITableViewController {
 		
 		//        guard let alasanBatal = alasanBatalTextField.text else{return}
 		let databaseRef = Database.database().reference().child("PublicPost/\(idtransaksi)/transaksi")
-        let userRef = Database.database().reference().child("UsersPost/\(uid)/\(idtransaksi)")
+        let userRef = Database.database().reference().child("UsersPost/\(uid)/\(idtransaksi)/transaksi")
 		
 		let userObject = ["status": 4] as [String:Any]
 		
