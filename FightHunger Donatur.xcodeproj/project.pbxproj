@@ -47,6 +47,7 @@
 		638BCFFFCA995D8D729A24CB /* Pods_FightHunger_DonaturTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0CF35341B36E3E56B75B40 /* Pods_FightHunger_DonaturTests.framework */; };
 		911453E622041D3E0074C0FC /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911453E422041D3E0074C0FC /* ExtUIImage.swift */; };
 		911453E722041D3E0074C0FC /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911453E522041D3E0074C0FC /* RepeatingTimer.swift */; };
+		9157099B221AD221009F1268 /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB00913621FB7E8A00BC89AE /* Connector.swift */; };
 		9157099D221BC17B009F1268 /* LokasiList.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9157099C221BC17B009F1268 /* LokasiList.swift */; };
 		917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F79CD22006EA100A85296 /* KegiatanViewController.swift */; };
 		B3E5087942F4962F692278D2 /* Pods_FightHunger_Donatur.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = ADCBD1B2FAC76AE1947F3179 /* Pods_FightHunger_Donatur.framework */; };
@@ -788,7 +789,9 @@
 				FB7E75A1220084EB0072235D /* waktuPickerTableViewCell.swift in Sources */,
 				2F31EC0F2210301E0073F3A5 /* PushNotificationManager.swift in Sources */,
 				2F5D060021FED51E00CDD125 /* UserService.swift in Sources */,
-				FB1AC771221C13E100A68294 /* PembatalanController.swift in Sources */,
+				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
+				FB28994B221BD5BC0032D121 /* PembatalanController.swift in Sources */,
+				9157099B221AD221009F1268 /* Connector.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F1C8A822205F74200C57764 /* OTPViewController.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
