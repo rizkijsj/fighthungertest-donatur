@@ -295,13 +295,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
             }
         }
   
-        
-        
-        
-        //alamat.text = vc.alamatLengkap
-        //print(vc.alamatLengkap)
-        //print(vc.kordinatAsli)
-		latitude = "\(vc.kordinatAsli[0])"
+        latitude = "\(vc.kordinatAsli[0])"
 		longitude = "\(vc.kordinatAsli[1])"
 		textFieldChanged(namaBarang)
 		
