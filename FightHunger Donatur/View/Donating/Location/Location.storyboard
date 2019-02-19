@@ -227,6 +227,63 @@
             </objects>
             <point key="canvasLocation" x="4756" y="2217"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cFm-72-vGX">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="sDW-gH-ANs" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="XWI-BT-3wO">
+                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="BIP-k4-ynt" kind="relationship" relationship="rootViewController" id="YbG-IV-6mg"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XpW-y1-IcT" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3954.4000000000001" y="2216.7487684729067"/>
+        </scene>
+        <!--Lokasi List-->
+        <scene sceneID="bOR-T7-PeL">
+            <objects>
+                <tableViewController storyboardIdentifier="LokasiList" id="BIP-k4-ynt" customClass="LokasiList" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="pRa-Tu-PRp">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <searchBar key="tableHeaderView" contentMode="redraw" text="" id="iax-cF-dre">
+                            <rect key="frame" x="0.0" y="0.0" width="375" height="56"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                            <textInputTraits key="textInputTraits"/>
+                            <connections>
+                                <outlet property="delegate" destination="BIP-k4-ynt" id="a3j-D5-0m2"/>
+                            </connections>
+                        </searchBar>
+                        <connections>
+                            <outlet property="dataSource" destination="BIP-k4-ynt" id="4BA-N5-4fu"/>
+                            <outlet property="delegate" destination="BIP-k4-ynt" id="Eg3-Qy-pqV"/>
+                        </connections>
+                    </tableView>
+                    <navigationItem key="navigationItem" id="2tQ-GF-GaW">
+                        <barButtonItem key="leftBarButtonItem" systemItem="cancel" id="r8j-iD-l8v">
+                            <color key="tintColor" red="1" green="0.14913141730000001" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <connections>
+                                <action selector="onDismiss:" destination="BIP-k4-ynt" id="yjF-fN-IOx"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tblViewLokasiList" destination="pRa-Tu-PRp" id="QYx-85-W5j"/>
+                        <segue destination="AGO-QR-MlE" kind="unwind" identifier="toMap" unwindAction="unwindToLokasi:" id="3P9-ga-Xk4"/>
+                    </connections>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4iF-8t-idO" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="AGO-QR-MlE" userLabel="Exit" sceneMemberID="exit"/>
+            </objects>
+            <point key="canvasLocation" x="4806" y="2217"/>
+        </scene>
     </scenes>
     <resources>
         <image name="Current Location" width="128" height="128"/>
