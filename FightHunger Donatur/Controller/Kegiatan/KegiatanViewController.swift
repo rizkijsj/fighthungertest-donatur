@@ -150,11 +150,14 @@ class KegiatanViewController: UITableViewController {
 	
 	@IBAction func confirmCancel(_ segue: UIStoryboardSegue){
 		
-		let vc = segue.source as! PembatalanController
-		print("\n\n\n\n")
-		print(vc.reasonCancelling)
-		print("\n\n\n\n")
-		batalkanDonasi(reason: vc.reasonCancelling)
+        let vc = segue.source as! PembatalanController
+        print("\n\n\n\n")
+        print(vc.reasonCancelling)
+        print("\n\n\n\n")
+        batalkanDonasi(reason: vc.reasonCancelling)
+        
+      
+//        createAlert()
 		
 	}
 	

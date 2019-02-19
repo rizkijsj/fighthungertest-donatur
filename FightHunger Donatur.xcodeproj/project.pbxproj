@@ -45,6 +45,7 @@
 		2F5D060321FED5DD00CDD125 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 2F5D060221FED5DD00CDD125 /* GoogleService-Info.plist */; };
 		2FE8A3D62214ABBC00FA21E6 /* Kegiatan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE8A3D52214ABBB00FA21E6 /* Kegiatan.swift */; };
 		638BCFFFCA995D8D729A24CB /* Pods_FightHunger_DonaturTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BC0CF35341B36E3E56B75B40 /* Pods_FightHunger_DonaturTests.framework */; };
+		9107173B221C6D2D006B36DE /* PembatalanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 9107173A221C6D2D006B36DE /* PembatalanController.swift */; };
 		911453E622041D3E0074C0FC /* ExtUIImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911453E422041D3E0074C0FC /* ExtUIImage.swift */; };
 		911453E722041D3E0074C0FC /* RepeatingTimer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 911453E522041D3E0074C0FC /* RepeatingTimer.swift */; };
 		917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 917F79CD22006EA100A85296 /* KegiatanViewController.swift */; };
@@ -58,7 +59,6 @@
 		FB00913021FB7BAB00BC89AE /* Riwayat.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB00912F21FB7BAB00BC89AE /* Riwayat.storyboard */; };
 		FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB00913621FB7E8A00BC89AE /* Connector.swift */; };
 		FB0C42242203218A006BEC67 /* Organisasi.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB0C42222203218A006BEC67 /* Organisasi.swift */; };
-		FB28994B221BD5BC0032D121 /* PembatalanController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB28994A221BD5BC0032D121 /* PembatalanController.swift */; };
 		FB34B3F421FB32330070AA5E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FB34B3F321FB32330070AA5E /* AppDelegate.swift */; };
 		FB34B3F921FB32330070AA5E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FB34B3F721FB32330070AA5E /* Main.storyboard */; };
 		FB34B3FC21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = FB34B3FA21FB32330070AA5E /* FightHunger_Donatur.xcdatamodeld */; };
@@ -118,6 +118,7 @@
 		6231697A807EFB011DA90386 /* Pods-FightHunger Donatur.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.release.xcconfig"; path = "Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.release.xcconfig"; sourceTree = "<group>"; };
 		725D660C2F57496AD30DF185 /* Pods-FightHunger Donatur.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger Donatur.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur.debug.xcconfig"; sourceTree = "<group>"; };
 		7B45E3B8DBF765C33B65E959 /* Pods-FightHunger DonaturTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-FightHunger DonaturTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-FightHunger DonaturTests/Pods-FightHunger DonaturTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9107173A221C6D2D006B36DE /* PembatalanController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PembatalanController.swift; sourceTree = "<group>"; };
 		911453E422041D3E0074C0FC /* ExtUIImage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ExtUIImage.swift; sourceTree = "<group>"; };
 		911453E522041D3E0074C0FC /* RepeatingTimer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RepeatingTimer.swift; sourceTree = "<group>"; };
 		917F79CD22006EA100A85296 /* KegiatanViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KegiatanViewController.swift; sourceTree = "<group>"; };
@@ -144,7 +145,6 @@
 		FB00913221FB7E0E00BC89AE /* LoginRegister.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = LoginRegister.storyboard; sourceTree = "<group>"; };
 		FB00913621FB7E8A00BC89AE /* Connector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Connector.swift; sourceTree = "<group>"; };
 		FB0C42222203218A006BEC67 /* Organisasi.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Organisasi.swift; sourceTree = "<group>"; };
-		FB28994A221BD5BC0032D121 /* PembatalanController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PembatalanController.swift; path = "/Users/antoniusgs/Library/Mobile Documents/com~apple~CloudDocs/Documents/Apple Academy Files/Final/FightHunger-Donatur/FightHunger Donatur/FightHunger Donatur/Controller/Kegiatan/PembatalanController.swift"; sourceTree = "<absolute>"; };
 		FB34B3F021FB32330070AA5E /* FightHunger Donatur.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "FightHunger Donatur.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		FB34B3F321FB32330070AA5E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FB34B3F821FB32330070AA5E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -315,7 +315,7 @@
 		917F79A722005C4400A85296 /* Kegiatan */ = {
 			isa = PBXGroup;
 			children = (
-				FB28994A221BD5BC0032D121 /* PembatalanController.swift */,
+				9107173A221C6D2D006B36DE /* PembatalanController.swift */,
 				917F79CD22006EA100A85296 /* KegiatanViewController.swift */,
 			);
 			path = Kegiatan;
@@ -782,11 +782,11 @@
 				2F31EC0F2210301E0073F3A5 /* PushNotificationManager.swift in Sources */,
 				2F5D060021FED51E00CDD125 /* UserService.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
-				FB28994B221BD5BC0032D121 /* PembatalanController.swift in Sources */,
 				2BF68C4D21FEB17C008C85CE /* HomeCollectionViewCell.swift in Sources */,
 				2F1C8A822205F74200C57764 /* OTPViewController.swift in Sources */,
 				2F5D05FD21FED50900CDD125 /* UserProfile.swift in Sources */,
 				FB00913721FB7E8A00BC89AE /* Connector.swift in Sources */,
+				9107173B221C6D2D006B36DE /* PembatalanController.swift in Sources */,
 				2B4836642201B52B00B18E72 /* SectionOneHomeCell.swift in Sources */,
 				2B8CD1F2220301F300E5FFD2 /* ProfilController.swift in Sources */,
 				FB7E75A0220084EB0072235D /* pickerviewTableViewCell.swift in Sources */,
