@@ -9,7 +9,7 @@
 import UIKit
 import MapKit
 
-class LokasiList: UITableViewController, MKLocalSearchCompleterDelegate {
+class LokasiList: UIViewController, UITableViewDataSource, UITableViewDelegate, MKLocalSearchCompleterDelegate {
     
     var searchCompleter = MKLocalSearchCompleter()
     var searchResults = [MKLocalSearchCompletion]()
@@ -37,18 +37,18 @@ class LokasiList: UITableViewController, MKLocalSearchCompleterDelegate {
     
     // MARK: - Table view data source
 
-    override func numberOfSections(in tableView: UITableView) -> Int {
+    func numberOfSections(in tableView: UITableView) -> Int {
         // #warning Incomplete implementation, return the number of sections
         return 1
     }
 
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // #warning Incomplete implementation, return the number of rows
         return searchResults.count
     }
 
     
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let searchResult = searchResults[indexPath.row]
         let cell = UITableViewCell(style: .subtitle, reuseIdentifier: nil)
         cell.textLabel?.text = searchResult.title
@@ -57,7 +57,7 @@ class LokasiList: UITableViewController, MKLocalSearchCompleterDelegate {
     }
     
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         tableView.deselectRow(at: indexPath, animated: true)
         
         let completion = searchResults[indexPath.row]
@@ -87,6 +87,32 @@ class LokasiList: UITableViewController, MKLocalSearchCompleterDelegate {
 
     @IBAction func onDismiss(_ sender: UIBarButtonItem) {
         dismiss(animated: true, completion: nil)
+    }
+    
+    
+    
+    
+    //show keyboard
+    func textFieldDidBeginEditing(_ textField: Any) {
+        moveKeyboard(textField: tblViewLokasiList, moveDistance: -250, up: true)
+    }
+    
+//    hide keyboard
+    func textFieldDidEndEditing(_ textField: Any) {
+
+        moveKeyboard(textField: tblViewLokasiList, moveDistance: -250, up: false)
+    }
+
+
+    func moveKeyboard(textField : Any , moveDistance: Float, up:Bool)
+    {
+        let MoveDuration = 0.3
+        _ = CGFloat(up ? moveDistance : -moveDistance)
+
+        UIView.beginAnimations("moveTextfield", context: nil)
+        UIView.setAnimationBeginsFromCurrentState(true)
+        UIView.setAnimationDuration(MoveDuration)
+        UIView.commitAnimations()
     }
     
 }
