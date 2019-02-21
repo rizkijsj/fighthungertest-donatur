@@ -108,6 +108,10 @@ class NewHomeViewController: UIViewController {
 		super.viewWillAppear(animated)
 		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
 		self.navigationController?.hidesBarsOnSwipe = true
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(NewHomeViewController.networkStatusChanged(_:)), name: NSNotification.Name(ReachabilityStatusChangedNotification), object: nil )
+        NetworkHelper().monitorReachabilityChanges()
+        
 		//observePosts()
 		self.tableView.reloadData()
 	}
@@ -117,6 +121,22 @@ class NewHomeViewController: UIViewController {
 		self.navigationController?.isNavigationBarHidden = false
 		self.navigationController?.hidesBarsOnSwipe = false
 	}
+    
+    @objc func networkStatusChanged(_ notification: NSNotification ) {
+        let status = NetworkHelper().connectionStatus()
+        print(status)
+        switch status {
+        case .offline:
+            let offlineAlert = UIAlertController(title: "Warning", message: "No internet connection", preferredStyle: UIAlertController.Style.alert)
+            offlineAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+            self.present(offlineAlert,animated: true,completion: nil)
+        case .online(.wwan),.unknown:
+            //self.observePost()
+        case .online(.wiFi): break
+            
+            //self.observePosts()
+        }
+    }
 	
 	func setupView(){
 		// Register all required cell that have to display in UITableView
