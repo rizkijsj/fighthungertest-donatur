@@ -228,12 +228,19 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		
 	}
 	func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+		if section == 0 && activityList.count == 0 {
+			return 0
+		} else if section == 1 && programList.count == 0 {
+			return 0
+		} else if section == 2 && organizationList.count == 0 {
+			return 0
+		}
 		return 44
 	}
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UIView()
-		headerView.backgroundColor = UIColor.white
+		headerView.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
 		//headerView.isUserInteractionEnabled = true
 		let label = UILabel(frame: CGRect(x: 16, y: 0, width: 200, height: 44))
 		label.textColor = .black
@@ -252,18 +259,29 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 		switch section {
 		case 0:
 			label.text = "Aktivitas"
+			if activityList.count == 0{
+				headerView.isHidden = true
+			}
 		case 1:
 			label.text = "Kegiatan Terbaru"
-			
+			/*
 			let openMoreProgram = UITapGestureRecognizer.init(target: self, action: #selector(toMoreProgram))
 			seeMore.gestureRecognizers = [openMoreProgram]
 			headerView.addSubview(seeMore)
+			*/
+			if programList.count == 0{
+				headerView.isHidden = true
+			}
 		case 2:
 			label.text = "Mitra Kami"
-			
+			/*
 			let openMoreOrganization = UITapGestureRecognizer.init(target: self, action: #selector(toMoreOrganization))
 			seeMore.gestureRecognizers = [openMoreOrganization]
 			headerView.addSubview(seeMore)
+			*/
+			if organizationList.count == 0{
+				headerView.isHidden = true
+			}
 		default:
 			label.text = ""
 		}

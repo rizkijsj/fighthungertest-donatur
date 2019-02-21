@@ -143,11 +143,12 @@ extension HomeViewController: UICollectionViewDelegate , UICollectionViewDataSou
             cell.keteranganKota.text = ketKota[indexPath.row]
             cell.keteranganJarak.text = jarak[indexPath.row]
             
-            return cell
+			
             
             //add border
             cell.layer.borderWidth = 10.0
             cell.layer.borderColor = UIColor.gray.cgColor
+			return cell
         }
        
     }

@@ -232,7 +232,7 @@
                         <outlet property="noHpLbl" destination="7Ba-VN-Kdh" id="xCC-7j-bo5"/>
                         <segue destination="K4C-u4-4OA" kind="show" identifier="ProfileToLogin" id="n5E-eA-kSv"/>
                         <segue destination="gu4-Up-Jbj" kind="showDetail" identifier="GoToHome" id="Pnu-vC-QO2"/>
-                        <segue destination="Px6-PA-hSR" kind="push" identifier="toUbahProfile" id="xUj-uD-y3N"/>
+                        <segue destination="Px6-PA-hSR" kind="show" identifier="toUbahProfile" id="xUj-uD-y3N"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4if-sM-RbY" userLabel="First Responder" sceneMemberID="firstResponder"/>

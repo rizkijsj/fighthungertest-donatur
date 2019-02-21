@@ -581,7 +581,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 			HalalNonHalal = "Non Halal"
 		}
 		
-		deskripsi = " \(HalalNonHalal) | \(expiredDateText)  |\n\(deskripsi)"
+		deskripsi = "\(HalalNonHalal) | \(expiredDateText)  |\n\(deskripsi)"
 		
 
         activityView.startAnimating()

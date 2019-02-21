@@ -221,7 +221,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         if chatOrganisasi.isTouchInside{
             guard let tempPhonenumber = organisasiObject?.phone else {return}
             let whatsapp = "whatsapp://send?phone=\(tempPhonenumber)".addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed)
-            print(whatsapp)
+            print(whatsapp ?? "")
             if let whatsappURL = whatsapp, let url = URL(string: whatsappURL) {
                 UIApplication.shared.open(url, options: [:], completionHandler: nil)
             }
@@ -270,9 +270,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
             return 1
         } else if section == 2 {
             return 1
-        } else {
-                return 0
-            }
+        }
             
         
         return 0

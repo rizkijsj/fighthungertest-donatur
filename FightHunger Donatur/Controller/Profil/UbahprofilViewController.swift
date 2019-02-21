@@ -52,12 +52,12 @@ class UbahprofilViewController: UIViewController, UITextFieldDelegate {
         namaTxt.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
         
         //add done button
-        var toolbar = UIToolbar()
+		let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+		let doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
         
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
         toolbar.setItems([flexibleSpace,doneBtn], animated: false)
         
@@ -85,7 +85,7 @@ class UbahprofilViewController: UIViewController, UITextFieldDelegate {
     }
     
     @objc func textFieldChanged(_ target:UITextField) {
-        let phonenumber = telfonTxt.text
+		_ = telfonTxt.text
         //phonenumber = currentNumber
         let email = emailTxt.text
         let nama = namaTxt.text

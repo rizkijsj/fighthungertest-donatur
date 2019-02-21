@@ -107,7 +107,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		if dataPost[indexPath.row].status == 5 {
 			cell.contentExpiredDate.text = "Sampai pada tanggal dan waktu:\n\(dateFormat.string(from: Date(timeIntervalSince1970: dataPost[indexPath.row].waktusampai)))"
 		}else {
-			cell.contentExpiredDate.text == "Donasi di batalkan"
+			cell.contentExpiredDate.text = "Donasi di batalkan"
 		}
         return cell
     }

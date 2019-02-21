@@ -85,7 +85,7 @@ class connector {
                     } else {
                         let defaults = UserDefaults.standard
                         defaults.set(verificationID, forKey: "authVID")
-                        print(verificationID)
+                        print(verificationID ?? "Not exist")
                         let errorText = self.errorCode(code: 0)
                         
                         completion(true,errorText)
@@ -111,7 +111,8 @@ class connector {
     }
     
     func logIn(kodeotp:PhoneAuthCredential,completion: @escaping (Bool) -> Void){
-        
+        /*
+		//Deprecated Funtion By Firebase
         Auth.auth().signIn(with: kodeotp) { (user, error) in
             if error != nil && user != nil{
                 print("error: \(String(describing: error?.localizedDescription))")
@@ -122,6 +123,20 @@ class connector {
                 completion(true)
             }
         }
+		*/
+		
+		// Updated function @Andre Check Here
+		Auth.auth().signInAndRetrieveData(with: kodeotp) { (user, error) in
+			if error != nil && user != nil{
+				print("error: \(String(describing: error?.localizedDescription))")
+				//result = false
+				completion(false)
+			}else{
+				print("sukses sign in")
+				completion(true)
+			}
+		}
+		
         
     }
 	
@@ -182,7 +197,7 @@ class connector {
 //        let fotobarang = fotodonasi
         //guard let deskripsi = deskripsiBarang.text
 		guard let userProfile = UserService.currentUserProfile else { completion(false); return }
-        guard let foto = fotodonasi as? UIImage else {completion(false); return}
+		let foto = fotodonasi
 		guard let photo = foto.jpeg(.low) else {completion(false); return}
 		guard let gambardonasi = UIImage.init(data: photo) else {completion(false); return}
         let uid = userProfile.uid
@@ -196,7 +211,7 @@ class connector {
 		print("Berhasil dan siap")
         
         self.uploadPostImage(gambardonasi,id: uid) { url in
-            print(url)
+			print(url ?? "")
             if url != nil {
                 print("url ga kosong")
                 guard let userProfile = UserService.currentUserProfile else {completion(false); return }
@@ -322,7 +337,9 @@ class connector {
     
             ref = Database.database().reference()
             let uid = ref.child("PublicPost/\(id)").childByAutoId().key
-            let storageRef = Storage.storage().reference().child("PublicPost/\(id)/\(uid)")
+		
+		// Used describing here
+		let storageRef = Storage.storage().reference().child("PublicPost/\(id)/\(String(describing: uid))")
     
             guard let imageData = image.jpegData(compressionQuality: 0.75) else { return }
     
@@ -337,8 +354,8 @@ class connector {
                         completion(url)
                     }
                 } else {
-                    print(error)
-                    print(metaData)
+					print(error ?? "")
+					print(metaData ?? "")
                     // failed
                     print("failed")
                     completion(nil)
@@ -367,7 +384,7 @@ class connector {
         
         
         databaseTokenRef.observe(.value, with: { snapshot in
-            var userProfile:UserProfile?
+			var _:UserProfile?
             //print(snapshot.value)
             if let dict = snapshot.value as? [String:Any],
                 let tokenkey = dict["fcmToken"] as? String
