@@ -459,7 +459,7 @@ class KegiatanViewController: UITableViewController {
 			print("Di Batalkan donatur")
 			namaOrganisasi.text = ""
 			nomorTelponOrganisasi.text = ""
-//            keteranganBtnKonfirmasi.text = "Menunggu konfirmasi"
+        keteranganBtnKonfirmasi.text = "Donasi telah dibatalkan"
 			namaKurir.text = ""
 			deskripsiKurir.text = ""
 		}else if donationStage == 1 {
