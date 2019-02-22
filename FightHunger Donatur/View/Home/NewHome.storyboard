@@ -137,7 +137,7 @@
                         <viewLayoutGuide key="safeArea" id="xmm-si-6oy"/>
                     </view>
                     <connections>
-                        <segue destination="7A4-CK-AUn" kind="showDetail" animates="NO" id="ujv-FR-7pn"/>
+                        <segue destination="7A4-CK-AUn" kind="showDetail" identifier="toHome" animates="NO" id="ujv-FR-7pn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTK-B0-hPN" userLabel="First Responder" sceneMemberID="firstResponder"/>

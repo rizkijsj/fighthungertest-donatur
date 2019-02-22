@@ -66,22 +66,6 @@ class NewHomeViewController: UIViewController {
 				
 				let uid = userProfile.uid
 				self.observePost(id: uid)
-				DispatchQueue.main.async {
-					//self.tableView.layer.add(transition, forKey: "UITableViewReloadDataAnimationKey")
-					// Update your data source here
-					//self.tableView.reloadData()
-					
-//					self.profileButtonOutlet.image = UIImage.init(named: "profilBtn")!
-//					self.profileButtonOutlet.title = ""
-//					self.profileButtonOutlet.tintColor = .black
-					
-					UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
-						//self.tableView.reloadData()
-						self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
-						
-					}, completion: nil)
-					
-				}
 				self.repeatedLoginAttempt.suspend()
 			} else {print("Error")}
 		}
@@ -626,7 +610,7 @@ extension NewHomeViewController{
 		
 		print(id)
 		postsRef.observe(.value, with: { snapshot in
-			
+			if self.skipLoadActivity {self.skipLoadActivity = false; return }
 			var tempPosts = [Post]()
 			//var tempIdProfile = String
 			
@@ -744,7 +728,7 @@ extension NewHomeViewController{
 		
 		
 		orgRef.observe(.value, with: { snapshot in
-			
+			if self.skipLoadOrganization {self.skipLoadOrganization = false; return }
 			var tempOrganisasi = [OrganisasiProfile]()
 			//var tempIdProfile = String
 			//print("Check12")
@@ -808,7 +792,7 @@ extension NewHomeViewController{
         
         
         postsRef.observe(.value, with: { snapshot in
-            
+			if self.skipLoadProgramList {self.skipLoadProgramList = false; return }
             var tempKegiatan = [Kegiatan]()
             //var tempIdProfile = String
             
