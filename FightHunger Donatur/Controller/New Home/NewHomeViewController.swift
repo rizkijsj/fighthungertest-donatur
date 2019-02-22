@@ -35,6 +35,10 @@ class NewHomeViewController: UIViewController {
 	var organizationList:[OrganisasiProfile] = []
 	var programList:[Kegiatan] = []
 	
+	var skipLoadActivity = false
+	var skipLoadOrganization = false
+	var skipLoadProgramList = false
+	
 	var selectedIndexPath:IndexPath?
 	var toDetail:Bool = false
 	
@@ -100,6 +104,8 @@ class NewHomeViewController: UIViewController {
 			print("Observing Kegiatan")
 			self.observeKegiatan()
 		}
+		
+		self.tableView.reloadData()
 		
 	}
 	
@@ -261,7 +267,8 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 	
 	func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
 		let headerView = UIView()
-		headerView.backgroundColor = UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
+		headerView.backgroundColor = .white
+		//UIColor(red:0.95, green:0.95, blue:0.95, alpha:1.0)
 		//headerView.isUserInteractionEnabled = true
 		let label = UILabel(frame: CGRect(x: 16, y: 0, width: 200, height: 44))
 		label.textColor = .black

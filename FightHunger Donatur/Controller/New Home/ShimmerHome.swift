@@ -9,6 +9,14 @@
 import UIKit
 
 class ShimmerHome: UIViewController {
+	
+	var activityList:[Post] = []
+	var organizationList:[OrganisasiProfile] = []
+	var programList:[Kegiatan] = []
+	
+	var skipLoadActivity = false
+	var skipLoadOrganization = false
+	var skipLoadProgramList = false
 
     let shimmerTextLabel: UILabel = {
         let label = UILabel()
@@ -41,11 +49,11 @@ class ShimmerHome: UIViewController {
     }
     
     fileprivate func setupShimmeringImage() {
-        let bgImageView = UIImageView(image: #imageLiteral(resourceName: "Shimmer 2"))
+        let bgImageView = UIImageView.init(image: UIImage.init(named: "Shimmer 2"))
         bgImageView.contentMode = .scaleAspectFill
         bgImageView.frame = view.frame
         
-        let shimmerImageView = UIImageView(image: #imageLiteral(resourceName: "Shimmer 1"))
+        let shimmerImageView = UIImageView.init(image: UIImage.init(named: "Shimmer 3"))
         shimmerImageView.contentMode = .scaleAspectFill
         shimmerImageView.frame = view.frame
         
