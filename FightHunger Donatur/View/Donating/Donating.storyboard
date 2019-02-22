@@ -191,7 +191,7 @@
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="60"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kuantias barang donasi" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfL-x6-g0J" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
+                                                <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Kuantitas barang donasi" textAlignment="natural" adjustsFontForContentSizeCategory="YES" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="sfL-x6-g0J" customClass="CustomTextField" customModule="FightHunger_Donatur" customModuleProvider="target">
                                                     <rect key="frame" x="20" y="4" width="374" height="56"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="56" id="lrZ-Kk-48B"/>
