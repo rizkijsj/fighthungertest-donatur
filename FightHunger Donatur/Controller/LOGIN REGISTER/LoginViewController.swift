@@ -31,12 +31,12 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         accessibility()
         lnjtBtn.layer.cornerRadius = 6.0
         
-        var toolbar = UIToolbar()
+		let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+		let doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
         
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
         toolbar.setItems([flexibleSpace,doneBtn], animated: false)
         
@@ -69,7 +69,7 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         view.addSubview(activityView)
         
         //delegate textfield
-        telpTxtField.delegate = self as? UITextFieldDelegate
+        telpTxtField.delegate = self
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
         telpTxtField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
@@ -162,17 +162,16 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         guard let currentNumber = telpTxtField.text else {return}
         phonenumber = currentNumber
         //syaratnya
-        let formFilled = phonenumber != nil && phonenumber != ""
-        if formFilled
-        {
-            setContinueButton(enabled: true)
-        }
-        else if phonenumber == nil
-        {
-            errorMssg.isHidden = false
-            errorMssg.text = "Phone number cannot be empty!"
-            setContinueButton(enabled: false)
-        }
+		if phonenumber.count > 8{
+			let formFilled = phonenumber != ""
+			if formFilled{
+				setContinueButton(enabled: true)
+			}else{
+				errorMssg.isHidden = false
+				errorMssg.text = "Phone number cannot be empty!"
+				setContinueButton(enabled: false)
+			}
+		}
         
     }
     

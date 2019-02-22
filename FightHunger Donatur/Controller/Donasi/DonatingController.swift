@@ -121,7 +121,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
     
     
     //show keyboard
-    func textFieldDidBeginEditing(_ textField: Any) {
+	private func textFieldDidBeginEditing(_ textField: Any) {
         moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: true)
     }
     @IBAction func toMap(_ sender: Any) {
@@ -129,7 +129,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
     }
     
     //hide keyboard
-    func textFieldDidEndEditing(_ textField: Any) {
+	private func textFieldDidEndEditing(_ textField: Any) {
         
         moveKeyboard(textField: deskripsiBarang, moveDistance: -250, up: false)
     }
@@ -278,7 +278,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
         if let placemark =  vc.selectedLocation {
             
             if vc.alamatLengkap != "" {
-                alamat.text = vc.alamatLengkap
+                alamat.text = vc.alamat.text
 				self.alamat.textColor = .black
             } else {
             
@@ -403,13 +403,13 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 //        print(userProfile.phonenumber)
         
         //delegate textfield
-        namaBarang.delegate = self as? UITextFieldDelegate
+        namaBarang.delegate = self
         //alamat.delegate = self as? UILabel
-        deskripsiBarang.delegate = self as? UITextViewDelegate
-        kuantitasBarang.delegate = self as? UITextFieldDelegate
-        keteranganBarang.delegate = self as? UITextFieldDelegate
+        deskripsiBarang.delegate = self
+        kuantitasBarang.delegate = self
+        keteranganBarang.delegate = self
         //alamat.delegate = self as? UITextViewDelegate
-        waktuPengambilan.delegate = self as? UITextFieldDelegate
+        waktuPengambilan.delegate = self
 		
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
@@ -481,7 +481,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
         let idOrgData = defaults.object(forKey: "idOrgKegiatan") as? String
         
         if  tempPostData != nil{
-            print(tempPostData)
+            print(tempPostData ?? "")
             let imgTemp = loadImageFromDiskWith(fileName: "tempPostImage")
             if imgTemp != nil {
                 print("sonto")
@@ -494,7 +494,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
                 keteranganBarang.text = tempPostData?[3]
                 kuantitasBarang.text = tempPostData?[4]
 				
-				print(tempPostData?[5])
+				print(tempPostData?[5] ?? "")
 				if let dateText = tempPostData?[5]{
 					let dateFormat = DateFormatter()
 					dateFormat.dateStyle = .medium
@@ -568,8 +568,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
         //guard let keteranganTambahanLokasi = keteranganBarang.text else {return}
         guard let jumlahBarang = kuantitasBarang.text else {resetForm(); return}
         
-        guard let latitudeBarang = latitude as? String else {resetForm(); return}
-        guard let longitudeBarang = longitude as? String else {resetForm(); return}
+		let latitudeBarang = latitude
+		let longitudeBarang = longitude
 		guard let expiredDateText = waktuExpired.text else {resetForm(); return}
         let idOrgData = defaults.object(forKey: "idOrgKegiatan") as? String
 		
@@ -629,7 +629,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
     func sendDataToNextVC(){
         guard let namaBarang = namaBarang.text else { return }
         guard let namaLokasi = alamat.text else { return }
-        guard let pickUpTime = waktuPengambilan.text else { return }
+        guard let _ = waktuPengambilan.text else { return }
         
         guard let deskripsi = deskripsiBarang.text else { return }
         

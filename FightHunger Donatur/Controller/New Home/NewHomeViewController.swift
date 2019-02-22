@@ -799,7 +799,7 @@ extension NewHomeViewController{
                     let kegiatanid = dict["idkegiatan"] as? String,
                     let photourl = dict["kegiatanphotourl"] as? String,
                     let logourl = URL(string: photourl),
-                    let timestamp = dict["timestamp"] as? Double
+					let _ = dict["timestamp"] as? Double
                     
                 {
                     

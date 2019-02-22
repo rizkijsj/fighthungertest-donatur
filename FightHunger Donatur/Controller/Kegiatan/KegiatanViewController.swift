@@ -322,7 +322,7 @@ class KegiatanViewController: UITableViewController {
 	
 	func batalkanDonasi(reason:String){
 		//        push donasi
-		guard let uid = Auth.auth().currentUser?.uid else { return }
+		guard let _ = Auth.auth().currentUser?.uid else { return }
 		
 		guard let idtransaksi = passingObject?.idtransaksi else{return}
 		guard let postData = passingObject else {return}
