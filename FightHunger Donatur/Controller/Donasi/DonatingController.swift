@@ -346,10 +346,16 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
 	*/
 	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath == IndexPath.init(row: 0, section: 0) && selectedOrganization == nil {
+			return 0
+		}
 		return UITableView.automaticDimension
 	}
 	
 	override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
+		if indexPath == IndexPath.init(row: 0, section: 0) && selectedOrganization == nil {
+			return 0
+		}
 		return UITableView.automaticDimension
 	}
 	
