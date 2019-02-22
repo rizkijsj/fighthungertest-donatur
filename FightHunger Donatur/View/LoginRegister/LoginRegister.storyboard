@@ -18,8 +18,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <stackView opaque="NO" contentMode="scaleToFill" misplaced="YES" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mu2-lu-igR">
-                                <rect key="frame" x="16" y="300" width="343" height="88.333333333333314"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Mu2-lu-igR">
+                                <rect key="frame" x="16" y="250.00000000000003" width="343" height="88.333333333333343"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Mari kita berdonasi!" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mhz-TD-6OO">
                                         <rect key="frame" x="62.333333333333329" y="0.0" width="218.33333333333337" height="31.333333333333332"/>
@@ -69,7 +69,7 @@
                             <constraint firstItem="Mu2-lu-igR" firstAttribute="leading" secondItem="R3X-k8-CgA" secondAttribute="leading" constant="16" id="5Ud-bB-6zA"/>
                             <constraint firstItem="R3X-k8-CgA" firstAttribute="trailing" secondItem="mVh-dM-5l6" secondAttribute="trailingMargin" constant="32" id="iVL-IN-4CW"/>
                             <constraint firstAttribute="trailing" secondItem="Mu2-lu-igR" secondAttribute="trailing" constant="16" id="oAT-q7-ksm"/>
-                            <constraint firstItem="Mu2-lu-igR" firstAttribute="centerY" secondItem="R3X-k8-CgA" secondAttribute="centerY" id="oxc-9u-JqV"/>
+                            <constraint firstItem="Mu2-lu-igR" firstAttribute="centerY" secondItem="R3X-k8-CgA" secondAttribute="centerY" constant="-138.83333333333331" id="oxc-9u-JqV"/>
                             <constraint firstItem="mVh-dM-5l6" firstAttribute="leading" secondItem="R3X-k8-CgA" secondAttribute="leading" constant="32" id="rql-Mt-JuO"/>
                             <constraint firstItem="Mu2-lu-igR" firstAttribute="centerX" secondItem="R3X-k8-CgA" secondAttribute="centerX" id="vtx-Rr-Gcs"/>
                             <constraint firstItem="R3X-k8-CgA" firstAttribute="bottom" secondItem="mVh-dM-5l6" secondAttribute="bottom" constant="32" id="woE-fB-30O"/>

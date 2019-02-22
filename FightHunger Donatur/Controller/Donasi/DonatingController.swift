@@ -361,6 +361,8 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        deskripsiBarang.layer.cornerRadius = 6
 		print("\n\n\n\n\n\n")
 		if let selectedOrg = selectedOrganization{
 			print(selectedOrg.name)
