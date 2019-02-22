@@ -20,6 +20,8 @@
 		2B4836792202B89700B18E72 /* RiwayatViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B4836782202B89700B18E72 /* RiwayatViewController.swift */; };
 		2B48367C2202B93E00B18E72 /* RiwayatTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */; };
 		2B63962B2217B21300D859A3 /* PopUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B63962A2217B21300D859A3 /* PopUpVC.swift */; };
+		2B6CE000221F81400063F88E /* ShimmerHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B6CDFFF221F81400063F88E /* ShimmerHome.swift */; };
+		2B773CAE221F0E9700CA7234 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B773CAD221F0E7E00CA7234 /* NetworkHelper.swift */; };
 		2B8CD1EE2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2B8CD1ED2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard */; };
 		2B8CD1F2220301F300E5FFD2 /* ProfilController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CD1F1220301F300E5FFD2 /* ProfilController.swift */; };
 		2B8CD1FB22035BD500E5FFD2 /* KegiatanTerbaruController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2B8CD1FA22035BD500E5FFD2 /* KegiatanTerbaruController.swift */; };
@@ -89,6 +91,8 @@
 		2B4836782202B89700B18E72 /* RiwayatViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatViewController.swift; sourceTree = "<group>"; };
 		2B48367B2202B93E00B18E72 /* RiwayatTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RiwayatTableViewCell.swift; sourceTree = "<group>"; };
 		2B63962A2217B21300D859A3 /* PopUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PopUpVC.swift; sourceTree = "<group>"; };
+		2B6CDFFF221F81400063F88E /* ShimmerHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShimmerHome.swift; sourceTree = "<group>"; };
+		2B773CAD221F0E7E00CA7234 /* NetworkHelper.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		2B8CD1ED2202E2A200E5FFD2 /* KegiatanTerbaru.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = KegiatanTerbaru.storyboard; sourceTree = "<group>"; };
 		2B8CD1F1220301F300E5FFD2 /* ProfilController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilController.swift; sourceTree = "<group>"; };
 		2B8CD1FA22035BD500E5FFD2 /* KegiatanTerbaruController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = KegiatanTerbaruController.swift; sourceTree = "<group>"; };
@@ -335,6 +339,7 @@
 			isa = PBXGroup;
 			children = (
 				E68FA21D22014538006709B3 /* NewHomeViewController.swift */,
+				2B6CDFFF221F81400063F88E /* ShimmerHome.swift */,
 			);
 			path = "New Home";
 			sourceTree = "<group>";
@@ -447,6 +452,7 @@
 			isa = PBXGroup;
 			children = (
 				2F5D05FF21FED51E00CDD125 /* ImageService.swift */,
+				2B773CAD221F0E7E00CA7234 /* NetworkHelper.swift */,
 				2F31EC0E2210301E0073F3A5 /* PushNotificationManager.swift */,
 				2F5D05FE21FED51E00CDD125 /* UserService.swift */,
 				2F31EC0C22102B7F0073F3A5 /* PushNotificationSender.swift */,
@@ -592,10 +598,10 @@
 								enabled = 1;
 							};
 							com.apple.Push = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.Siri = {
-								enabled = 1;
+								enabled = 0;
 							};
 							com.apple.VPNLite = {
 								enabled = 0;
@@ -768,6 +774,7 @@
 				917F79CE22006EA100A85296 /* KegiatanViewController.swift in Sources */,
 				2B4836602201967000B18E72 /* LoginRegisterViewController.swift in Sources */,
 				2B8CD1FB22035BD500E5FFD2 /* KegiatanTerbaruController.swift in Sources */,
+				2B773CAE221F0E9700CA7234 /* NetworkHelper.swift in Sources */,
 				2BF68C4821FE00B5008C85CE /* DaftarViewController.swift in Sources */,
 				2FE8A3D62214ABBC00FA21E6 /* Kegiatan.swift in Sources */,
 				2F31EC0D22102B800073F3A5 /* PushNotificationSender.swift in Sources */,
@@ -775,6 +782,7 @@
 				FB81411B221C4DCE00CF15AD /* LokasiList.swift in Sources */,
 				FB0C42242203218A006BEC67 /* Organisasi.swift in Sources */,
 				2B4836662201B52B00B18E72 /* SectionTwoHomeCell.swift in Sources */,
+				2B6CE000221F81400063F88E /* ShimmerHome.swift in Sources */,
 				2B63962B2217B21300D859A3 /* PopUpVC.swift in Sources */,
 				2F34F53822087F2B007FDA8C /* OrganisasiProfile.swift in Sources */,
 				2BB1012C2200A343003967CE /* CaptureImageTableViewCell.swift in Sources */,
@@ -969,9 +977,8 @@
 			baseConfigurationReference = 5E053536B5F110E5A005C9A2 /* Pods-FightHunger Donatur.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -990,9 +997,8 @@
 			baseConfigurationReference = 6231697A807EFB011DA90386 /* Pods-FightHunger Donatur.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_ENTITLEMENTS = "FightHunger Donatur/FightHunger Donatur.entitlements";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 3VFXVFJF8Z;
+				DEVELOPMENT_TEAM = 9SRL9PGJUW;
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = "FightHunger Donatur/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = (
