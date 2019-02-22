@@ -130,7 +130,8 @@ class NewHomeViewController: UIViewController {
             let offlineAlert = UIAlertController(title: "Warning", message: "No internet connection", preferredStyle: UIAlertController.Style.alert)
             offlineAlert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
             self.present(offlineAlert,animated: true,completion: nil)
-        case .online(.wwan),.unknown:
+        case .online(.wwan),.unknown: break
+            
             //self.observePost()
         case .online(.wiFi): break
             
