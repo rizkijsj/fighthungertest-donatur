@@ -24,22 +24,19 @@
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" rowHeight="211" id="qNt-22-Umn">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                         <autoresizingMask key="autoresizingMask"/>
-                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" ambiguous="YES" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qNt-22-Umn" id="fNo-km-S3d">
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="qNt-22-Umn" id="fNo-km-S3d">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="UK6-wm-wMm">
+                                                <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="UK6-wm-wMm">
                                                     <rect key="frame" x="0.0" y="0.0" width="375" height="211"/>
-                                                    <constraints>
-                                                        <constraint firstAttribute="width" secondItem="UK6-wm-wMm" secondAttribute="height" multiplier="16:9" id="dUf-u1-JEn"/>
-                                                    </constraints>
                                                 </imageView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="UK6-wm-wMm" firstAttribute="leading" secondItem="fNo-km-S3d" secondAttribute="leading" id="8XY-tB-sGJ"/>
-                                                <constraint firstAttribute="trailing" secondItem="UK6-wm-wMm" secondAttribute="trailing" id="S5e-g9-3ig"/>
-                                                <constraint firstItem="UK6-wm-wMm" firstAttribute="top" secondItem="fNo-km-S3d" secondAttribute="top" id="Wi0-f4-x5s"/>
-                                                <constraint firstAttribute="bottom" secondItem="UK6-wm-wMm" secondAttribute="bottom" id="vle-I1-pzO"/>
+                                                <constraint firstAttribute="bottom" secondItem="UK6-wm-wMm" secondAttribute="bottom" id="GzI-S2-qNM"/>
+                                                <constraint firstItem="UK6-wm-wMm" firstAttribute="top" secondItem="fNo-km-S3d" secondAttribute="top" id="H9S-RR-mkE"/>
+                                                <constraint firstAttribute="trailing" secondItem="UK6-wm-wMm" secondAttribute="trailing" id="RaM-CD-YLT"/>
+                                                <constraint firstItem="UK6-wm-wMm" firstAttribute="leading" secondItem="fNo-km-S3d" secondAttribute="leading" id="ziC-xg-aE3"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -50,6 +47,11 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
+                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="vxr-fM-dyG">
+                                                    <rect key="frame" x="7" y="6" width="360" height="1"/>
+                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qlb-VI-wwj">
                                                     <rect key="frame" x="16" y="16" width="343" height="208"/>
                                                     <subviews>
