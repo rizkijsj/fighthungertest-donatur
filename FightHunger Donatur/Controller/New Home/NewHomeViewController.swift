@@ -136,7 +136,7 @@ class NewHomeViewController: UIViewController {
 		tableView.register(UINib(nibName: "SectionThreeHomeCell", bundle: nil), forCellReuseIdentifier: "partnerCellID")
 		
 		// Set the donate button corner radius to comply design requirement
-		donateButton.layer.cornerRadius = donateButton.frame.height / 8
+		donateButton.layer.cornerRadius = donateButton.frame.height / 6
 		donateButton.layer.masksToBounds = true
 	}
 	
@@ -370,8 +370,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 				spread: 0
 			)
 			
-			
-			
+			cell.contentImage.layer.cornerRadius = cell.contentImage.frame.height / 16
 			cell.contentName.text = activityList[indexPath.row].namaitem
 			cell.contentStatus.text = updateDonationStatus(donationStage: activityList[indexPath.row].status)
 			
@@ -410,9 +409,8 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			return cell
 		case 1:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "newActivityCellID", for: indexPath) as? SectionTwoHomeCell)!
-			
 			cell.programCellCard.backgroundColor = .white
-			cell.programCellCard.layer.cornerRadius = cell.programCellCard.frame.height / 16
+			cell.programCellCard.layer.cornerRadius = cell.programCellCard.frame.height / 24
 			//cell.sectionItemCard.clipsToBounds = true
 			cell.programCellCard.layer.applySketchShadow(
 				color: .lightGray,
@@ -465,7 +463,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "partnerCellID", for: indexPath) as? SectionThreeHomeCell)!
 	
 			cell.organizationCellCard.backgroundColor = .white
-			cell.organizationCellCard.layer.cornerRadius = cell.organizationCellCard.frame.height / 16
+			cell.organizationCellCard.layer.cornerRadius = cell.organizationCellCard.frame.height / 8
 			//cell.sectionItemCard.clipsToBounds = true
 			cell.organizationCellCard.layer.applySketchShadow(
 				color: .lightGray,
