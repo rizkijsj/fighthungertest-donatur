@@ -63,6 +63,9 @@ class NewHomeViewController: UIViewController {
 		repeatedLoginAttempt.eventHandler = {
 			if let userProfile = UserService.currentUserProfile {
 				
+				if self.activityList.isEmpty {
+					self.skipLoadActivity = false
+				}
 				
 				let uid = userProfile.uid
 				self.observePost(id: uid)
