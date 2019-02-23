@@ -75,9 +75,9 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
 //        }
         
         //delegate textfield
-        emailTxtField.delegate = self as? UITextFieldDelegate
-        telpTxtField.delegate = self as? UITextFieldDelegate
-        namaTxtField.delegate = self as? UITextFieldDelegate
+        emailTxtField.delegate = self
+        telpTxtField.delegate = self
+        namaTxtField.delegate = self
         
         //setiap ada perubahan di textfield , dia bakal manggil fungsi textfieldchanged
         telpTxtField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
@@ -87,12 +87,12 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         errorMssg.isHidden = true
         
         //add done button
-        var toolbar = UIToolbar()
+		let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
+		let doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action: #selector(doneClicked))
         
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
         toolbar.setItems([flexibleSpace,doneBtn], animated: false)
         
@@ -110,7 +110,7 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         
         
         //syaratnya
-        let formFilled = phonenumber != nil && phonenumber != "" && email != nil && email != "" && isValidEmail(emailID: email ?? "") == true && nama != nil && nama != ""
+        let formFilled = !phonenumber.isEmpty && phonenumber != "" && email != nil && email != "" && isValidEmail(emailID: email ?? "") == true && nama != nil && nama != ""
         
         //testing
         print(phonenumber.count)
@@ -120,7 +120,7 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
             setContinueButton(enabled: true)
             errorMssg.isHidden = true
         }
-        else if phonenumber == nil || phonenumber == ""
+        else if phonenumber.isEmpty || phonenumber == ""
         {
             errorMssg.isHidden = false
             errorMssg.text = "Phone number cannot be empty!"

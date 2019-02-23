@@ -51,7 +51,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             
             
             
-            let authListener = Auth.auth().addStateDidChangeListener { auth, user in
+			_ = Auth.auth().addStateDidChangeListener { auth, user in
                 //let storyboard = UIStoryboard(name: "NewHome", bundle: nil)
                 
                 if user != nil{
@@ -104,9 +104,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
             if result{
                 UserService.currentUserProfile = userProfile
                 
-                print(UserService.currentUserProfile?.uid)
-                print(UserService.currentUserProfile?.phonenumber)
-                print(UserService.currentUserProfile?.email)
+                print(UserService.currentUserProfile?.uid ?? "")
+				print(UserService.currentUserProfile?.phonenumber ?? "")
+                print(UserService.currentUserProfile?.email ?? "")
                 
                 completion(true)
             }else{

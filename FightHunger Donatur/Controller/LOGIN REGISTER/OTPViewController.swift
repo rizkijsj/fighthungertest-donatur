@@ -95,14 +95,14 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
 //        otpTxt6.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
 		
         //add done button above keyboard
-        var toolbar = UIToolbar()
+		let toolbar = UIToolbar()
         toolbar.sizeToFit()
         
-        var doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action:
+		let doneBtn = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.done, target: self, action:
             
             #selector(doneClicked))
         
-        var flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
+		let flexibleSpace = UIBarButtonItem(barButtonSystemItem: UIBarButtonItem.SystemItem.flexibleSpace, target: nil, action: nil)
         
         toolbar.setItems([flexibleSpace,doneBtn], animated: false)
         
@@ -214,7 +214,7 @@ class OTPViewController: UIViewController , UITextFieldDelegate{
             guard let email = tempTampungTerima[0] as? String else { return }
             guard let username = tempTampungTerima[1] as? String else { return }
             guard let phonenumber = tempTampungTerima[2] as? String else { return }
-            
+			
             connector().signUp(email: email, nama: username, phonenumber: phonenumber, kodeotp: credential) { (result) in
                 if result{
                     print("sukses untuk sign up / login")
