@@ -89,8 +89,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
             }
             self.selectedLocation = placemark
             
-            let noJalan = placemark.subThoroughfare ?? ""
-            let jalan = placemark.thoroughfare ?? ""
+            let namaTempat = placemark.name ?? ""
             let kelurahan = placemark.subLocality ?? ""
             let kecamatan = placemark.locality ?? ""
             let kota = placemark.subAdministrativeArea ?? ""
@@ -101,8 +100,9 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
             print("\(String(describing: placemarks))")
             
             DispatchQueue.main.async {
-                self.alamat.text = "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
                 
+                self.alamat.text = "\(namaTempat)" + "," + "\(kelurahan)" + "," + "\(kecamatan)" + "," + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+
                 self.alamatLengkap = self.alamat.text!
             }
             
@@ -216,8 +216,6 @@ extension LokasiPengambilan: MKMapViewDelegate{
             self.selectedLocation = placemark
             
             let namaTempat = placemark.name ?? ""
-            let noJalan = placemark.subThoroughfare ?? ""
-            let jalan = placemark.thoroughfare ?? ""
             let kelurahan = placemark.subLocality ?? ""
             let kecamatan = placemark.locality ?? ""
             let kota = placemark.subAdministrativeArea ?? ""
@@ -228,7 +226,8 @@ extension LokasiPengambilan: MKMapViewDelegate{
             print("ini alamat lengkap : \(String(describing: placemarks))")
             
             DispatchQueue.main.async {
-                self.alamat.text = "\(namaTempat)" + " " + "\(jalan)" + " " + "\(noJalan)" + " " + "\(kelurahan)" + " " + "\(kecamatan)" + " " + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
+                
+                self.alamat.text = "\(namaTempat)" + "," + "\(kelurahan)" + "," + "\(kecamatan)" + "," + "\(kota)" + " " + "\(kodePost)" + " " + "\(provinsi)" + " " + "\(negara)"
                 
                 self.alamatLengkap = self.alamat.text!
             }

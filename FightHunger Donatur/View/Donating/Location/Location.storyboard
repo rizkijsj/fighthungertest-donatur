@@ -232,7 +232,7 @@
     </scenes>
     <resources>
         <image name="Current Location" width="200" height="200"/>
-        <image name="lokasi anda" width="541" height="200"/>
+        <image name="lokasi anda" width="561" height="200"/>
         <image name="set lokasi pengambilan" width="1372" height="200"/>
     </resources>
 </document>
