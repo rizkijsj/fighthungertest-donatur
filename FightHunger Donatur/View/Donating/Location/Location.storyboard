@@ -33,7 +33,7 @@
                                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
-                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="Rule Nombre Uno: never let no one know" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HUc-FC-Czl">
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HUc-FC-Czl">
                                                 <rect key="frame" x="0.0" y="26" width="335" height="38"/>
                                                 <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
                                                 <nil key="textColor"/>
@@ -50,6 +50,9 @@
                                             <constraint firstAttribute="height" constant="48" id="zPK-a2-d4c"/>
                                         </constraints>
                                         <state key="normal" image="set lokasi pengambilan"/>
+                                        <connections>
+                                            <segue destination="asP-cf-mKD" kind="unwind" identifier="balikKeDonasi" unwindAction="unwindToPushDonasi:" id="x8W-7B-iAa"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,11 +123,13 @@
                         <outlet property="peta" destination="XQE-GQ-TmY" id="hHR-g5-59K"/>
                         <outlet property="pinPoint" destination="TQO-QW-uly" id="xeC-d9-spA"/>
                         <outlet property="searchOutlet" destination="jfE-GE-Dn7" id="sAa-CT-cC2"/>
+                        <outlet property="setLokasi" destination="Hxe-KN-JBk" id="yWV-IJ-fBY"/>
                         <outlet property="titikAwal" destination="jkT-1z-FYg" id="HnD-uz-ZFk"/>
                         <segue destination="sDW-gH-ANs" kind="presentation" identifier="kelist" id="bKv-cb-KhD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rpd-vv-9Js" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <exit id="asP-cf-mKD" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="3117.5999999999999" y="2216.7487684729067"/>
         </scene>

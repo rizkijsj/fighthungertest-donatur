@@ -62,7 +62,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
         peta.delegate = self
         peta.addSubview(pinPoint)
         peta.addSubview(titikAwal)
-        peta.addSubview(setLokasi)
+        //peta.addSubview(setLokasi)
         
         
         let center = getCenterLocation(for: peta)
