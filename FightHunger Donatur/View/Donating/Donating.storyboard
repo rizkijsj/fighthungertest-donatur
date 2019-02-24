@@ -148,7 +148,7 @@
                                                         <segment title="Halal"/>
                                                         <segment title="Non Halal"/>
                                                     </segments>
-                                                    <color key="tintColor" red="0.82472449541091919" green="0.0" blue="0.12392770498991013" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                    <color key="tintColor" red="0.75686274509803919" green="0.10588235294117647" blue="0.16470588235294117" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </segmentedControl>
                                             </subviews>
                                             <constraints>

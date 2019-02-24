@@ -459,13 +459,13 @@ class KegiatanViewController: UITableViewController {
 			print("Di Batalkan donatur")
 			namaOrganisasi.text = ""
 			nomorTelponOrganisasi.text = ""
-        keteranganBtnKonfirmasi.text = "Donasi telah dibatalkan"
+        	keteranganBtnKonfirmasi.text = "Donasi telah dibatalkan"
 			namaKurir.text = ""
 			deskripsiKurir.text = ""
 		}else if donationStage == 1 {
 			print("Menunggu untuk di claim")
 			btnBatal.setImage(UIImage(named: "Batalkan"), for: .normal)
-			keteranganBtnKonfirmasi.text = "Menunggu untuk di klaim Organiasi"
+			keteranganBtnKonfirmasi.text = "Menunggu untuk di klaim organisasi"
 			namaOrganisasi.text = "Belum Ada"
 			nomorTelponOrganisasi.text = "Belum Ada"
 			namaKurir.text = "Belum Ada"
@@ -488,27 +488,27 @@ class KegiatanViewController: UITableViewController {
 			status2.image = UIImage.init(named: "pin2a")
 			btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
 			btnKonfirmasi.setImage(UIImage(named: "konfirmasi aktif"), for: .normal)
-            keteranganBtnKonfirmasi.text = "Organisasi mengirim kurir ke tempat Donatur"
+            keteranganBtnKonfirmasi.text = "Organisasi mengirim kurir ke lokasi pengambilan"
 		} else if donationStage == 4 {
 			print("Sedang diantar")
 			stasus1.image = UIImage.init(named: "pin1a")
 			status2.image = UIImage.init(named: "pin2a")
 			status3.image = UIImage.init(named: "pin3a")
 			btnCallOrganisasi.setImage(UIImage(named: "Logo call"), for: .normal)
-            keteranganBtnKonfirmasi.text = "Kurir sedang mengantar donasi ke Organisasi"
+            keteranganBtnKonfirmasi.text = "Kurir sedang mengantar donasi ke organisasi"
 		} else if donationStage == 5 {
 			print("Sudah sampai organisasi")
 			stasus1.image = UIImage.init(named: "pin1a")
 			status2.image = UIImage.init(named: "pin2a")
 			status3.image = UIImage.init(named: "pin3a")
 			status4.image = UIImage.init(named: "pin4a")
-            keteranganBtnKonfirmasi.text = "Donasi sudah sampai di Organisasi"
+            keteranganBtnKonfirmasi.text = "Donasi sudah sampai di organisasi"
 			
 		}else if donationStage == 6 {
 			print("Di Batalkan Organisasi")
 			namaOrganisasi.text = ""
 			nomorTelponOrganisasi.text = ""
-			
+			keteranganBtnKonfirmasi.text = "Organisasi membatalkan donasi"
 			namaKurir.text = ""
 			deskripsiKurir.text = ""
 		}
