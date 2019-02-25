@@ -11,6 +11,10 @@ import Firebase
 
 class ShimmerHome: UIViewController {
 	
+	@IBOutlet weak var shimmerArea: UIView!
+	@IBOutlet weak var shimmerImage1: UIImageView!
+	@IBOutlet weak var shimmerImage2: UIImageView!
+	
 	var activityList:[Post] = []
 	var organizationList:[OrganisasiProfile] = []
 	var programList:[Kegiatan] = []
@@ -51,9 +55,6 @@ class ShimmerHome: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		DispatchQueue.main.async {
-			self.setupShimmeringImage()
-		}
 		
 		
 		repeatedLoginAttempt.eventHandler = {
@@ -97,6 +98,17 @@ class ShimmerHome: UIViewController {
 			self.observeKegiatan()
 		}
 		
+		DispatchQueue.main.asyncAfter(deadline: .now() + 0.2) {
+			self.toShimmer()
+		}
+		
+		
+	}
+	
+	func toShimmer(){
+		DispatchQueue.main.async {
+			self.setupShimmeringImage()
+		}
 	}
 	
 	func moveToNext(){
@@ -117,16 +129,18 @@ class ShimmerHome: UIViewController {
 	}
 	
 	fileprivate func setupShimmeringImage() {
-		let bgImageView = UIImageView.init(image: UIImage.init(named: "Shimmer 2"))
-		bgImageView.contentMode = .scaleAspectFill
-		bgImageView.frame = view.frame
+		shimmerImage1.image = UIImage.init(named: "without navbar 1")
+		shimmerImage1.contentMode = .scaleToFill
+		//bgImageView.clipsToBounds = true
+		//bgImageView.frame = shimmerArea.frame
 		
-		let shimmerImageView = UIImageView.init(image: UIImage.init(named: "Shimmer 3"))
-		shimmerImageView.contentMode = .scaleAspectFill
-		shimmerImageView.frame = view.frame
+		shimmerImage2.image = UIImage.init(named: "without navbar 3")
+		shimmerImage2.contentMode = .scaleToFill
+		//shimmerImageView.clipsToBounds = true
+		//shimmerImageView.frame = shimmerArea.frame
 		
-		view.addSubview(shimmerImageView)
-		view.addSubview(bgImageView)
+		//shimmerArea.addSubview(shimmerImageView)
+		//shimmerArea.addSubview(bgImageView)
 		
 		let gradientLayer = CAGradientLayer()
 		gradientLayer.colors = [
@@ -140,10 +154,10 @@ class ShimmerHome: UIViewController {
 		let angle = -60 * CGFloat.pi / 180
 		let rotationTransform = CATransform3DMakeRotation(angle, 0, 0, 1)
 		gradientLayer.transform = rotationTransform
-		view.layer.addSublayer(gradientLayer)
-		gradientLayer.frame = view.frame
+		shimmerImage2.layer.addSublayer(gradientLayer)
+		gradientLayer.frame = shimmerImage2.frame
 		
-		bgImageView.layer.mask = gradientLayer
+		shimmerImage1.layer.mask = gradientLayer
 		
 		gradientLayer.transform = CATransform3DConcat(gradientLayer.transform, CATransform3DMakeScale(3, 3, 0))
 		
@@ -151,20 +165,20 @@ class ShimmerHome: UIViewController {
 		animation.duration = 2
 		animation.repeatCount = Float.infinity
 		animation.autoreverses = false
-		animation.fromValue = -3.0 * view.frame.width
-		animation.toValue = 3.0 * view.frame.width
+		animation.fromValue = -3.0 * shimmerImage2.frame.width
+		animation.toValue = 3.0 * shimmerImage2.frame.width
 		animation.isRemovedOnCompletion = false
 		animation.fillMode = CAMediaTimingFillMode.forwards
 		gradientLayer.add(animation, forKey: "shimmerKey")
 	}
 	
 	fileprivate func setupShimmeringText() {
-		view.backgroundColor = UIColor(white: 1, alpha: 0.1)
+		shimmerArea.backgroundColor = UIColor(white: 1, alpha: 0.1)
 		
-		view.addSubview(textLabel)
-		view.addSubview(shimmerTextLabel)
-		textLabel.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 400)
-		shimmerTextLabel.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: 400)
+		shimmerArea.addSubview(textLabel)
+		shimmerArea.addSubview(shimmerTextLabel)
+		textLabel.frame = CGRect(x: 0, y: 0, width: shimmerArea.frame.width, height: shimmerArea.frame.height)
+		shimmerTextLabel.frame = CGRect(x: 0, y: 0, width: shimmerArea.frame.width, height: shimmerArea.frame.height)
 		
 		let gradient = CAGradientLayer()
 		
@@ -180,8 +194,8 @@ class ShimmerHome: UIViewController {
 		animation.duration = 2
 		animation.repeatCount = Float.infinity
 		animation.autoreverses = false
-		animation.fromValue = -view.frame.width
-		animation.toValue = view.frame.width
+		animation.fromValue = -shimmerArea.frame.width
+		animation.toValue = shimmerArea.frame.width
 		animation.isRemovedOnCompletion = false
 		animation.fillMode = CAMediaTimingFillMode.forwards
 		

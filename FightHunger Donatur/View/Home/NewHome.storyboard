@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="Un2-3H-5Qf">
-    <device id="retina5_9" orientation="portrait">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nCT-9i-AoP">
+    <device id="retina6_5" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
@@ -15,12 +15,13 @@
             <objects>
                 <viewController storyboardIdentifier="newHomeID" id="9Lr-h5-DQ5" customClass="NewHomeViewController" customModule="FightHunger_Donatur" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7TD-9a-GbC">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
-                                <rect key="frame" x="0.0" y="160" width="375" height="652"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" verticalCompressionResistancePriority="751" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="0xs-z0-Hux">
+                                <rect key="frame" x="0.0" y="160" width="414" height="736"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <viewLayoutGuide key="safeArea" id="VaX-hh-4oL"/>
                                 <color key="sectionIndexColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <connections>
                                     <outlet property="dataSource" destination="9Lr-h5-DQ5" id="NNb-aj-bC3"/>
@@ -28,7 +29,7 @@
                                 </connections>
                             </tableView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JdN-J8-v6G">
-                                <rect key="frame" x="16" y="104" width="343" height="48"/>
+                                <rect key="frame" x="16" y="104" width="382" height="48"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="48" id="Nj7-QK-L2C"/>
@@ -74,7 +75,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="b0Y-5z-x1E" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1028" y="100.49261083743843"/>
+            <point key="canvasLocation" x="1970.4000000000001" y="100.49261083743843"/>
         </scene>
         <!--AktivitasVC-->
         <scene sceneID="ugT-ad-XgJ">
@@ -82,7 +83,7 @@
                 <viewControllerPlaceholder storyboardName="Kegiatan" referencedIdentifier="AktivitasVC" id="vAa-Ur-EJs" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCf-rq-Ljw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1606" y="189"/>
+            <point key="canvasLocation" x="2548" y="188.42364532019704"/>
         </scene>
         <!--Organization-->
         <scene sceneID="lMF-iW-7L4">
@@ -90,7 +91,7 @@
                 <viewControllerPlaceholder storyboardName="Organization" id="F7V-sS-ckt" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTe-Wf-dFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1629" y="301"/>
+            <point key="canvasLocation" x="2571.1999999999998" y="300.73891625615767"/>
         </scene>
         <!--KegiatanTerbaru-->
         <scene sceneID="7Nv-4Z-PfS">
@@ -98,7 +99,7 @@
                 <viewControllerPlaceholder storyboardName="KegiatanTerbaru" id="a44-S9-9Sh" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReM-aK-KH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2014" y="132"/>
+            <point key="canvasLocation" x="2955.1999999999998" y="131.52709359605913"/>
         </scene>
         <!--PostDonasi-->
         <scene sceneID="wg1-S5-cM7">
@@ -108,7 +109,7 @@
                 </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="aVZ-nJ-RUK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2015" y="7"/>
+            <point key="canvasLocation" x="2956" y="6.6502463054187197"/>
         </scene>
         <!--ProfileDonatur-->
         <scene sceneID="niM-IS-dI8">
@@ -116,7 +117,7 @@
                 <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileDonatur" id="jp7-0b-DRF" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB7-TU-Vxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1620" y="-182"/>
+            <point key="canvasLocation" x="2562.4000000000001" y="-182.51231527093597"/>
         </scene>
         <!--LoginRegisterNav-->
         <scene sceneID="AK6-1m-uK4">
@@ -124,25 +125,66 @@
                 <viewControllerPlaceholder storyboardName="LoginRegister" referencedIdentifier="LoginRegisterNav" id="fL7-n3-YWV" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eTb-JN-KyU" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1650" y="-13"/>
+            <point key="canvasLocation" x="2591.1999999999998" y="-13.300492610837439"/>
         </scene>
-        <!--Shimmer Home-->
+        <!--FightHunger-->
         <scene sceneID="Ma4-nD-qMm">
             <objects>
                 <viewController id="Un2-3H-5Qf" customClass="ShimmerHome" customModule="FightHunger_Donatur" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="yeh-p6-aRg">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="fLK-tt-4b3">
+                                <rect key="frame" x="0.0" y="96" width="414" height="800"/>
+                                <subviews>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="vOp-6e-nnP">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                    </imageView>
+                                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="\" translatesAutoresizingMaskIntoConstraints="NO" id="eK0-p8-FQV">
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="800"/>
+                                    </imageView>
+                                </subviews>
+                                <constraints>
+                                    <constraint firstItem="vOp-6e-nnP" firstAttribute="leading" secondItem="fLK-tt-4b3" secondAttribute="leading" id="078-bH-0lv"/>
+                                    <constraint firstAttribute="trailing" secondItem="vOp-6e-nnP" secondAttribute="trailing" id="8DM-Ev-oUI"/>
+                                    <constraint firstAttribute="bottom" secondItem="eK0-p8-FQV" secondAttribute="bottom" id="96W-bV-lro"/>
+                                    <constraint firstAttribute="trailing" secondItem="eK0-p8-FQV" secondAttribute="trailing" id="CHc-Cz-oA3"/>
+                                    <constraint firstItem="eK0-p8-FQV" firstAttribute="leading" secondItem="fLK-tt-4b3" secondAttribute="leading" id="HLD-3i-eF8"/>
+                                    <constraint firstAttribute="bottom" secondItem="vOp-6e-nnP" secondAttribute="bottom" id="LXq-YU-p5w"/>
+                                    <constraint firstItem="vOp-6e-nnP" firstAttribute="top" secondItem="fLK-tt-4b3" secondAttribute="top" id="YLl-Eg-exD"/>
+                                    <constraint firstItem="eK0-p8-FQV" firstAttribute="top" secondItem="fLK-tt-4b3" secondAttribute="top" id="xJU-Od-kd3"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="fLK-tt-4b3" firstAttribute="top" secondItem="xmm-si-6oy" secondAttribute="top" constant="8" id="778-Mu-vbu"/>
+                            <constraint firstAttribute="bottom" secondItem="fLK-tt-4b3" secondAttribute="bottom" id="mhk-UY-qSk"/>
+                            <constraint firstItem="xmm-si-6oy" firstAttribute="trailing" secondItem="fLK-tt-4b3" secondAttribute="trailing" id="oGs-Xp-mY5"/>
+                            <constraint firstItem="fLK-tt-4b3" firstAttribute="leading" secondItem="xmm-si-6oy" secondAttribute="leading" id="q8a-Ks-1no"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="xmm-si-6oy"/>
                     </view>
+                    <navigationItem key="navigationItem" title="FightHunger" id="LPk-rH-anL">
+                        <barButtonItem key="rightBarButtonItem" image="profilBtn" id="FI6-wN-fJF">
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-7"/>
+                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <action selector="toProfile:" destination="9Lr-h5-DQ5" id="eGk-pR-cH8"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <connections>
+                        <outlet property="shimmerArea" destination="fLK-tt-4b3" id="VLN-ap-OmZ"/>
+                        <outlet property="shimmerImage1" destination="vOp-6e-nnP" id="vl1-xf-oST"/>
+                        <outlet property="shimmerImage2" destination="eK0-p8-FQV" id="4Jf-vJ-LK6"/>
                         <segue destination="7A4-CK-AUn" kind="showDetail" identifier="toHome" animates="NO" id="ujv-FR-7pn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTK-B0-hPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-871" y="105"/>
+            <point key="canvasLocation" x="71.200000000000003" y="104.92610837438424"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="R0c-Jo-l3A">
@@ -150,7 +192,7 @@
                 <navigationController storyboardIdentifier="HomeDonatur" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7A4-CK-AUn" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qhL-94-ucb">
-                        <rect key="frame" x="0.0" y="44" width="375" height="44"/>
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
                             <color key="textColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
@@ -163,10 +205,32 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="K9K-rr-3H2" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="85.599999999999994" y="100.49261083743843"/>
+            <point key="canvasLocation" x="1028" y="100.49261083743843"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="GeT-XF-zQp">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="nCT-9i-AoP" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" userInteractionEnabled="NO" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="mUw-Lq-Azl">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <color key="textColor" red="0.82472449541091919" green="0.0" blue="0.12392770498991013" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="Un2-3H-5Qf" kind="relationship" relationship="rootViewController" id="HMG-YV-weR"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="LJt-q9-Qn7" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-871.20000000000005" y="104.92610837438424"/>
         </scene>
     </scenes>
     <resources>
+        <image name="\" width="16" height="16"/>
         <image name="profilBtn" width="28" height="31"/>
     </resources>
 </document>
