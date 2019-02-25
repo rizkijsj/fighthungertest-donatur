@@ -12,6 +12,8 @@ import CoreLocation
 import MessageUI
 
 class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
+	
+	 let defaults = UserDefaults.standard
     
     //Initial organisasi object
     //let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+6287776007230", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
@@ -69,6 +71,9 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
     override func viewDidLoad() {
         super.viewDidLoad()
 		
+		self.tableView.backgroundView = nil
+		self.tableView.backgroundColor = .white
+		
         //make image organization rounded
         self.logoOrganisasi.layer.cornerRadius = 10.0
         self.logoOrganisasi.layer.shadowColor = UIColor.gray.cgColor
@@ -115,7 +120,33 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
     }
 	
-   
+	override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+		
+		//print("\n\n\n\nPreparing\n\n\n")
+		if segue.identifier == "toDonate" {
+			//print("I ma go here")
+			let navbar = segue.destination as! UINavigationController
+			let vc = navbar.topViewController as! DonatingController
+			sendOrgDataToDonate()
+			guard let orgObj = organisasiObject else {return}
+			//print("there")
+			vc.selectedOrganization = orgObj
+			//print("Done")
+		}
+		
+		
+	}
+	
+	func sendOrgDataToDonate(){
+		guard let orgObject = organisasiObject else {return}
+		let orgDataKegiatan = orgObject.id
+		defaults.set(orgDataKegiatan, forKey: "idOrgKegiatan")
+	}
+	
+	@IBAction func clickOnDonate(_ sender: UIButton) {
+		performSegue(withIdentifier: "toDonate", sender: self)
+	}
+	
     
     
 	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
@@ -237,7 +268,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         }
         
     }
-    
+    /*
     override func numberOfSections(in tableView: UITableView) -> Int {
         return 3
     }
@@ -256,9 +287,10 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         
         return 0
     }
+	
     
     override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
         
     }
-    
+    */
 }
