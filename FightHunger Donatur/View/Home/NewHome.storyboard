@@ -53,17 +53,20 @@
                         <viewLayoutGuide key="safeArea" id="1Dj-tO-iWW"/>
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="3wi-pR-LVa">
-                        <barButtonItem key="rightBarButtonItem" image="profilBtn" id="7Z1-u0-Rua">
-                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-7"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="toProfile:" destination="9Lr-h5-DQ5" id="cA6-KJ-kCI"/>
-                            </connections>
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="qsq-DO-Im0">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="eV9-Zh-qop">
+                                <rect key="frame" x="194" y="0.0" width="200" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="profilBtn"/>
+                                <connections>
+                                    <action selector="toProfile:" destination="9Lr-h5-DQ5" eventType="touchUpInside" id="9si-oZ-ay4"/>
+                                </connections>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
                         <outlet property="donateButton" destination="JdN-J8-v6G" id="HMH-pz-Tlv"/>
-                        <outlet property="profileButtonOutlet" destination="7Z1-u0-Rua" id="1fs-7K-Jok"/>
+                        <outlet property="profileButtonOutlet" destination="eV9-Zh-qop" id="Tv0-PN-oN5"/>
                         <outlet property="tableView" destination="0xs-z0-Hux" id="ZBF-Lf-lcS"/>
                         <segue destination="jp7-0b-DRF" kind="show" identifier="Profil" id="CSz-Fd-9Ml"/>
                         <segue destination="fL7-n3-YWV" kind="presentation" identifier="Login" id="9r3-Xy-oG4"/>
@@ -166,16 +169,17 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="xmm-si-6oy"/>
                     </view>
-                    <navigationItem key="navigationItem" title="FightHunger" id="LPk-rH-anL">
-                        <barButtonItem key="rightBarButtonItem" image="profilBtn" id="FI6-wN-fJF">
-                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-8"/>
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                            <connections>
-                                <action selector="toProfile:" destination="9Lr-h5-DQ5" id="eGk-pR-cH8"/>
-                            </connections>
+                    <navigationItem key="navigationItem" title="FightHunger" id="wWF-UY-gXB">
+                        <barButtonItem key="rightBarButtonItem" style="plain" id="Czh-PE-BdI">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="70C-km-C08">
+                                <rect key="frame" x="194" y="0.0" width="200" height="44"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" image="profilBtn"/>
+                            </button>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="profileButton" destination="70C-km-C08" id="NfQ-Z4-e0y"/>
                         <outlet property="shimmerArea" destination="fLK-tt-4b3" id="VLN-ap-OmZ"/>
                         <outlet property="shimmerImage1" destination="vOp-6e-nnP" id="vl1-xf-oST"/>
                         <outlet property="shimmerImage2" destination="eK0-p8-FQV" id="4Jf-vJ-LK6"/>

@@ -76,7 +76,8 @@ class KegiatanViewController: UITableViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
-		print("\n\n\n\n\n")
+		self.tableView.backgroundView = nil
+		self.tableView.backgroundColor = .white
 		
         keteranganBtnKonfirmasi.font = UIFont.boldSystemFont(ofSize: 14.0)
 		

@@ -13,7 +13,7 @@ class NewHomeViewController: UIViewController {
 	
 	@IBOutlet weak var donateButton: UIButton!
 	@IBOutlet weak var tableView: UITableView!
-	@IBOutlet weak var profileButtonOutlet: UIBarButtonItem!
+	@IBOutlet weak var profileButtonOutlet: UIButton!
 	
 	let repeatedLoginAttempt = RepeatingTimer(timeInterval: 5)
 	
@@ -49,14 +49,18 @@ class NewHomeViewController: UIViewController {
 		//self.tableView.contentInset = UIEdgeInsets(top: 80, left: 0, bottom: 0, right: 0)
 //		self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: 80, right: 0)
 		
+		profileButtonOutlet.widthAnchor.constraint(equalToConstant: 24.0).isActive = true
+		profileButtonOutlet.heightAnchor.constraint(equalToConstant: 24.0).isActive = true
+		profileButtonOutlet.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
+		
 		self.navigationController?.hidesBarsOnSwipe = true
 		
 		setupView()
 		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
 		UserDefaults.standard.synchronize()
 		
-		self.profileButtonOutlet.image = UIImage.init(named: "profilBtn")!
-		self.profileButtonOutlet.title = ""
+		self.profileButtonOutlet.imageView?.image = UIImage.init(named: "profilBtn")!
+		self.profileButtonOutlet.titleLabel?.text = ""
 		self.profileButtonOutlet.tintColor = .black
 		
 		
@@ -146,7 +150,7 @@ class NewHomeViewController: UIViewController {
 	
 	
 	
-	@IBAction func toProfile(_ sender: UIBarButtonItem) {
+	@IBAction func toProfile(_ sender: UIButton) {
 		selectedIndexPath = nil
 		toDetail = false
 		connector().verifyUserLoginState { (state) in

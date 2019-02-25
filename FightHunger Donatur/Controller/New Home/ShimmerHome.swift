@@ -14,6 +14,7 @@ class ShimmerHome: UIViewController {
 	@IBOutlet weak var shimmerArea: UIView!
 	@IBOutlet weak var shimmerImage1: UIImageView!
 	@IBOutlet weak var shimmerImage2: UIImageView!
+	@IBOutlet weak var profileButton: UIButton!
 	
 	var activityList:[Post] = []
 	var organizationList:[OrganisasiProfile] = []
@@ -55,6 +56,9 @@ class ShimmerHome: UIViewController {
 	override func viewDidLoad() {
 		super.viewDidLoad()
 		
+		profileButton.widthAnchor.constraint(equalToConstant: 24.0).isActive = true
+		profileButton.heightAnchor.constraint(equalToConstant: 24.0).isActive = true
+		profileButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)
 		
 		
 		repeatedLoginAttempt.eventHandler = {
