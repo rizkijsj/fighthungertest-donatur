@@ -14,7 +14,8 @@ import MessageUI
 class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDelegate {
 	
 	 let defaults = UserDefaults.standard
-    
+	@IBOutlet weak var donateButton: UIButton!
+	
     //Initial organisasi object
     //let orgObject = OrganisasiProfile.init(orgId: "FOI", orgPhone: "+6287776007230", orgEmail: "atn010g@gmail.com", orgName: "Antonius", orgDesc: "Dalam kesempatan yang baik ini kami akan melakukan presentasi tugas akhir atau skripsi kami yang berjudul Diskusia : Aplikasi diskusi kolaboratif menggunakan papan tulis virtual berbasis web. ", orgLogo: URL.init(string: "https://upload.wikimedia.org/wikipedia/commons/thumb/d/d8/Tunnel_of_ducks.jpg/440px-Tunnel_of_ducks.jpg")!, orgLocName: "Jalan SingPasa", latitude: 106, longitude: -5, orgLink: URL.init(string: "www.google.com")!)
     
@@ -73,6 +74,9 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
 		
 		self.tableView.backgroundView = nil
 		self.tableView.backgroundColor = .white
+		
+		donateButton.layer.cornerRadius = donateButton.frame.height / 6
+		donateButton.layer.masksToBounds = true
 		
         //make image organization rounded
         self.logoOrganisasi.layer.cornerRadius = 10.0
