@@ -218,7 +218,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Profil" id="rOv-Wp-QxK">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="5xA-Bh-gNh">
-                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="27" maxY="-12"/>
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="cancelBtn:" destination="qlw-we-uJF" id="IMb-uu-mcV"/>
@@ -249,6 +249,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowback" width="120" height="200"/>
+        <image name="arrowback" width="36" height="60"/>
     </resources>
 </document>

@@ -168,7 +168,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="xIm-BI-XvK">
                         <barButtonItem key="leftBarButtonItem" image="arrowback" id="9PX-sL-eOI">
-                            <inset key="imageInsets" minX="-20" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="back:" destination="XiE-iL-Epf" id="K9R-Ge-MpU"/>
@@ -328,7 +328,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Masuk" id="vJz-iT-g9r">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="M0P-VX-DAK">
-                            <inset key="imageInsets" minX="-20" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="return:" destination="vMY-4Z-iyk" id="bV3-aQ-NeC"/>
@@ -449,7 +449,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Daftar" id="QPM-OJ-iD2">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="ufI-g9-9UR">
-                            <inset key="imageInsets" minX="-20" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
                             <inset key="largeContentSizeImageInsets" minX="0.0" minY="-10" maxX="0.0" maxY="0.0"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
@@ -492,9 +492,9 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowback" width="120" height="200"/>
+        <image name="arrowback" width="36" height="60"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="kQs-fF-YaO"/>
+        <segue reference="zhn-Ou-xFt"/>
     </inferredMetricsTieBreakers>
 </document>

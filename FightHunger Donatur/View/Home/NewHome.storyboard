@@ -13,7 +13,7 @@
         <!--FightHunger-->
         <scene sceneID="1G4-p0-AUR">
             <objects>
-                <viewController storyboardIdentifier="newHomeID" id="9Lr-h5-DQ5" customClass="NewHomeViewController" customModule="FightHunger_Donatur" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="newHomeID" automaticallyAdjustsScrollViewInsets="NO" id="9Lr-h5-DQ5" customClass="NewHomeViewController" customModule="FightHunger_Donatur" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="7TD-9a-GbC">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -54,7 +54,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="3wi-pR-LVa">
                         <barButtonItem key="rightBarButtonItem" style="plain" id="qsq-DO-Im0">
-                            <button key="customView" opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="eV9-Zh-qop">
+                            <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="eV9-Zh-qop">
                                 <rect key="frame" x="194" y="0.0" width="200" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" image="profilBtn"/>

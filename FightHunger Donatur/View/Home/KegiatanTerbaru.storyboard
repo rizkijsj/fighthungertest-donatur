@@ -50,10 +50,12 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4zn-fD-7wl">
-                                                    <rect key="frame" x="40" y="6" width="300" height="1"/>
-                                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zn-fD-7wl">
+                                                    <rect key="frame" x="20" y="4" width="335" height="1"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                    <constraints>
+                                                        <constraint firstAttribute="height" constant="1" id="07T-cD-Qm9"/>
+                                                    </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qlb-VI-wwj">
                                                     <rect key="frame" x="16" y="16" width="343" height="208"/>
@@ -75,10 +77,13 @@
                                                 </stackView>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="4zn-fD-7wl" secondAttribute="trailing" constant="20" symbolic="YES" id="5jp-a7-iwQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="qlb-VI-wwj" secondAttribute="trailing" constant="16" id="Qii-73-mmB"/>
                                                 <constraint firstItem="qlb-VI-wwj" firstAttribute="leading" secondItem="j0a-u9-UT0" secondAttribute="leading" constant="16" id="YsW-9q-YEC"/>
                                                 <constraint firstAttribute="bottom" secondItem="qlb-VI-wwj" secondAttribute="bottom" constant="16" id="dZX-yV-wDm"/>
                                                 <constraint firstItem="qlb-VI-wwj" firstAttribute="top" secondItem="j0a-u9-UT0" secondAttribute="top" constant="16" id="grF-Te-xho"/>
+                                                <constraint firstItem="4zn-fD-7wl" firstAttribute="leading" secondItem="j0a-u9-UT0" secondAttribute="leading" constant="20" symbolic="YES" id="ipP-Kc-xkU"/>
+                                                <constraint firstItem="4zn-fD-7wl" firstAttribute="top" secondItem="j0a-u9-UT0" secondAttribute="top" constant="4" id="neq-OJ-I3p"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -175,7 +180,7 @@
                     </tableView>
                     <navigationItem key="navigationItem" title="Kegiatan" id="6Ek-KS-9Es">
                         <barButtonItem key="leftBarButtonItem" title="Item" image="arrowback" id="Dfz-Jz-FpE">
-                            <inset key="imageInsets" minX="-20" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backButton:" destination="8Tw-Um-Gtb" id="h7u-uG-wj0"/>
@@ -257,6 +262,6 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrowback" width="120" height="200"/>
+        <image name="arrowback" width="36" height="60"/>
     </resources>
 </document>
