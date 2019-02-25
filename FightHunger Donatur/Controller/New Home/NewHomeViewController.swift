@@ -113,6 +113,7 @@ class NewHomeViewController: UIViewController {
 		super.viewDidDisappear(animated)
 		self.navigationController?.isNavigationBarHidden = false
 		self.navigationController?.hidesBarsOnSwipe = false
+		self.navigationController?.navigationBar.isHidden = false
 	}
     
     @objc func networkStatusChanged(_ notification: NSNotification ) {
