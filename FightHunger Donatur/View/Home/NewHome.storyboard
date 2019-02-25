@@ -168,7 +168,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="LPk-rH-anL">
                         <barButtonItem key="rightBarButtonItem" image="profilBtn" id="FI6-wN-fJF">
-                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-7"/>
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-8"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="toProfile:" destination="9Lr-h5-DQ5" id="eGk-pR-cH8"/>
@@ -195,6 +195,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                             <color key="textColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                         </textAttributes>
                     </navigationBar>
@@ -216,6 +217,7 @@
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
                         <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Heavy" family="Avenir" pointSize="22"/>
                             <color key="textColor" red="0.82472449541091919" green="0.0" blue="0.12392770498991013" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         </textAttributes>
                     </navigationBar>
@@ -231,6 +233,6 @@
     </scenes>
     <resources>
         <image name="\" width="16" height="16"/>
-        <image name="profilBtn" width="28" height="31"/>
+        <image name="profilBtn" width="200" height="200"/>
     </resources>
 </document>

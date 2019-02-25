@@ -99,7 +99,7 @@ class NewHomeViewController: UIViewController {
 	
 	override func viewWillAppear(_ animated: Bool) {
 		super.viewWillAppear(animated)
-		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1)]
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor(red: 193/255, green: 27/255, blue: 42/255, alpha: 1), NSAttributedString.Key.font:UIFont.init(name: "Avenir-Heavy", size: 22)]
 		self.navigationController?.hidesBarsOnSwipe = true
         
         NotificationCenter.default.addObserver(self, selector: #selector(NewHomeViewController.networkStatusChanged(_:)), name: NSNotification.Name(ReachabilityStatusChangedNotification), object: nil )
