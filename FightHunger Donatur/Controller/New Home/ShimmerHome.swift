@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import Kingfisher
 
 class ShimmerHome: UIViewController {
 	
@@ -55,7 +56,8 @@ class ShimmerHome: UIViewController {
 	
 	override func viewDidLoad() {
 		super.viewDidLoad()
-		
+		ImageCache.default.cleanExpiredDiskCache()
+		ImageCache.default.cleanExpiredMemoryCache()
 		profileButton.widthAnchor.constraint(equalToConstant: 24.0).isActive = true
 		profileButton.heightAnchor.constraint(equalToConstant: 24.0).isActive = true
 		profileButton.frame = CGRect(x: 0, y: 0, width: 24, height: 24)

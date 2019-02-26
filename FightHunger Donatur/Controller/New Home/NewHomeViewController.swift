@@ -9,6 +9,8 @@
 import UIKit
 import CoreLocation
 import Firebase
+import Kingfisher
+
 class NewHomeViewController: UIViewController {
 	
 	@IBOutlet weak var donateButton: UIButton!
@@ -387,6 +389,8 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			cell.contentExpiredDate.text = "\(descriptions[2].dropFirst(1))"
 			cell.contentActivityTime.text = timeFormat.string(from: Date(timeIntervalSince1970: activityList[indexPath.row].waktuambil))
 			cell.contentImage.image = UIImage.init(color: .lightGray)
+			cell.contentImage.kf.setImage(with: activityList[indexPath.row].postphotourl)
+			/*
 			ImageService.getImage(withURL: activityList[indexPath.row].postphotourl) { image, url, fromCache in
 				if fromCache {
 					cell.contentImage.image = image
@@ -394,11 +398,13 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 					self.fadeInNewImage(previousImageView: cell.contentImage, newImage: image)
 				}
 			}
-			
+			*/
 			if activityList[indexPath.row].status == 2 || activityList[indexPath.row].status == 3 || activityList[indexPath.row].status == 4{
 				
 				cell.contentOrganisationName.text = activityList[indexPath.row].namakomunitas
 				cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
+				cell.contentOrganisationIcon.kf.setImage(with: activityList[indexPath.row].logokomunitas)
+				/*
 				ImageService.getImage(withURL: activityList[indexPath.row].logokomunitas) { image, url, fromCache in
 					if fromCache {
 						cell.contentOrganisationIcon.image = image
@@ -406,6 +412,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 						self.fadeInNewImage(previousImageView: cell.contentOrganisationIcon, newImage: image)
 					}
 				}
+				*/
 				
 			}else {
 				cell.contentOrganisationName.text = ""
@@ -431,6 +438,9 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 
 			
 			cell.contentImage.image = UIImage.init(color: .lightGray)
+			cell.contentImage.kf.setImage(with: programList[indexPath.row].programImage)
+			
+			/*
 			ImageService.getImage(withURL: programList[indexPath.row].programImage) { image, url, fromCache in
 				if fromCache {
 					cell.contentImage.image = image
@@ -438,7 +448,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 					self.fadeInNewImage(previousImageView: cell.contentImage, newImage: image)
 				}
 			}
-			
+			*/
 			cell.contentActivityDate.text = programList[indexPath.row].programDate
 			cell.contentTitle.text = programList[indexPath.row].programName
 			cell.contentDesc.text = programList[indexPath.row].programInformation
@@ -450,7 +460,8 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			DispatchQueue.main.async {
 				self.organizationList.forEach { (orgProfile) in
 					if orgProfile.id == self.programList[indexPath.row].orgId {
-						
+						cell.contentOrganisationIcon.kf.setImage(with: orgProfile.logo)
+						/*
 						ImageService.getImage(withURL: orgProfile.logo ) { image, url, fromCache in
 							if fromCache {
 								cell.contentOrganisationIcon.image = image
@@ -459,6 +470,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 							}
 							return
 						}
+						*/
 					}
 				}
 			}
@@ -484,7 +496,24 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			
 			cell.contentName.text = organizationList[indexPath.row].name
 			cell.contentAddress.text = organizationList[indexPath.row].locationName
-			cell.contentImage.image = UIImage.init(color: .lightGray)
+		
+			cell.contentImage.kf.indicatorType = .activity
+			cell.contentImage.kf.setImage(
+				with: organizationList[indexPath.row].logo,
+				placeholder: UIImage.init(color: .lightGray),
+				options: [
+					.transition(.fade(1))
+				])
+			{
+				result in
+				switch result {
+				case .success(let value):
+					print("Task done for: \(value.source.url?.absoluteString ?? "")")
+				case .failure(let error):
+					print("Job failed: \(error.localizedDescription)")
+				}
+			}
+			/*
 			ImageService.getImage(withURL: organizationList[indexPath.row].logo) { image, url, fromCache in
 				if fromCache {
 					cell.contentImage.image = image
@@ -492,6 +521,7 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 					self.fadeInNewImage(previousImageView: cell.contentImage, newImage: image)
 				}
 			}
+			*/
 			return cell
 		default:
 			let cell = (tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as? SectionOneHomeCell)!

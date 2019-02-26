@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class SectionThreeHomeCell: UITableViewCell {
 
@@ -24,6 +25,7 @@ class SectionThreeHomeCell: UITableViewCell {
 		super.prepareForReuse()
 		
 		//mainImageView.af_cancelImageRequest() // NOTE: - Using AlamofireImage
+		contentImage.kf.cancelDownloadTask()
 		contentImage.image = nil
 	}
 
