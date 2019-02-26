@@ -19,6 +19,13 @@ class SectionThreeHomeCell: UITableViewCell {
         super.awakeFromNib()
         // Initialization code
     }
+	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		
+		//mainImageView.af_cancelImageRequest() // NOTE: - Using AlamofireImage
+		contentImage.image = nil
+	}
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)

@@ -29,6 +29,14 @@ class SectionOneHomeCell: UITableViewCell {
 
         // Configure the view for the selected state
     }
+	
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		
+		//mainImageView.af_cancelImageRequest() // NOTE: - Using AlamofireImage
+		contentImage.image = nil
+		contentOrganisationIcon.image = nil
+	}
   /*
     func set(post:Post) {
         
