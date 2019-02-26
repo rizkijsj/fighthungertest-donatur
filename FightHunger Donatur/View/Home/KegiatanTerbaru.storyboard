@@ -51,14 +51,14 @@
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4zn-fD-7wl">
-                                                    <rect key="frame" x="20" y="4" width="335" height="1"/>
+                                                    <rect key="frame" x="20" y="8" width="335" height="1"/>
                                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="07T-cD-Qm9"/>
                                                     </constraints>
                                                 </view>
                                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="qlb-VI-wwj">
-                                                    <rect key="frame" x="16" y="16" width="343" height="208"/>
+                                                    <rect key="frame" x="16" y="24" width="343" height="216"/>
                                                     <subviews>
                                                         <imageView clipsSubviews="YES" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="bZl-GN-vhD">
                                                             <rect key="frame" x="121.66666666666666" y="0.0" width="100" height="100"/>
@@ -68,7 +68,7 @@
                                                             </constraints>
                                                         </imageView>
                                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Dana bantuan pangan untuk anak - anak korban Tsunami Pandeglang" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Xn-jp-Uf3">
-                                                            <rect key="frame" x="17" y="108" width="309" height="100"/>
+                                                            <rect key="frame" x="17" y="108" width="309" height="108"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
@@ -80,10 +80,10 @@
                                                 <constraint firstAttribute="trailing" secondItem="4zn-fD-7wl" secondAttribute="trailing" constant="20" symbolic="YES" id="5jp-a7-iwQ"/>
                                                 <constraint firstAttribute="trailing" secondItem="qlb-VI-wwj" secondAttribute="trailing" constant="16" id="Qii-73-mmB"/>
                                                 <constraint firstItem="qlb-VI-wwj" firstAttribute="leading" secondItem="j0a-u9-UT0" secondAttribute="leading" constant="16" id="YsW-9q-YEC"/>
-                                                <constraint firstAttribute="bottom" secondItem="qlb-VI-wwj" secondAttribute="bottom" constant="16" id="dZX-yV-wDm"/>
-                                                <constraint firstItem="qlb-VI-wwj" firstAttribute="top" secondItem="j0a-u9-UT0" secondAttribute="top" constant="16" id="grF-Te-xho"/>
+                                                <constraint firstAttribute="bottom" secondItem="qlb-VI-wwj" secondAttribute="bottom" id="dZX-yV-wDm"/>
+                                                <constraint firstItem="qlb-VI-wwj" firstAttribute="top" secondItem="4zn-fD-7wl" secondAttribute="top" constant="16" id="grF-Te-xho"/>
                                                 <constraint firstItem="4zn-fD-7wl" firstAttribute="leading" secondItem="j0a-u9-UT0" secondAttribute="leading" constant="20" symbolic="YES" id="ipP-Kc-xkU"/>
-                                                <constraint firstItem="4zn-fD-7wl" firstAttribute="top" secondItem="j0a-u9-UT0" secondAttribute="top" constant="4" id="neq-OJ-I3p"/>
+                                                <constraint firstItem="4zn-fD-7wl" firstAttribute="top" secondItem="j0a-u9-UT0" secondAttribute="top" constant="8" id="neq-OJ-I3p"/>
                                             </constraints>
                                         </tableViewCellContentView>
                                     </tableViewCell>
@@ -94,16 +94,16 @@
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="80"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" translatesAutoresizingMaskIntoConstraints="NO" id="sM8-p5-3Ta">
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="sM8-p5-3Ta">
                                                     <rect key="frame" x="20" y="20" width="335" height="40"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Y0-6c-EaL">
-                                                            <rect key="frame" x="149" y="0.0" width="37.333333333333343" height="22"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="4Y0-6c-EaL">
+                                                            <rect key="frame" x="149" y="0.0" width="37.333333333333343" height="6"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9x-8u-rTB">
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Z9x-8u-rTB">
                                                             <rect key="frame" x="149" y="22" width="37.333333333333343" height="18"/>
                                                             <fontDescription key="fontDescription" style="UICTFontTextStyleSubhead"/>
                                                             <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
