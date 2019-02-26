@@ -95,16 +95,24 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
                 keteranganOrganisasi.text = organisasi.description
                
                 //organisasiProgramObject = connector().getOrganizationProgramList(organizationID: organisasi.id, limit: 3)
-				
-				logoOrganisasi.image = UIImage.init(color: .lightGray)
-				
-				ImageService.getImage(withURL: organisasi.logo) { image, url, fromCache in
-					if fromCache {
-						self.logoOrganisasi.image = image
-					} else {
-						self.fadeInNewImage(previousImageView: self.logoOrganisasi, newImage: image)
-					}
+			
+			logoOrganisasi.kf.indicatorType = .activity
+			logoOrganisasi.kf.setImage(
+				with: organisasi.logo,
+				placeholder: UIImage.init(color: .white),
+				options: [
+					.transition(.fade(1))
+				])
+			{
+				result in
+				switch result {
+				case .success( _):
+					print("Yey")
+				case .failure( _):
+					print("Nay")
 				}
+			}
+			
             
                 self.tableView.reloadData()
         }else {

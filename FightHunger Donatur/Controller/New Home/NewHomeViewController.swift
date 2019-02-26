@@ -388,8 +388,24 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			
 			cell.contentExpiredDate.text = "\(descriptions[2].dropFirst(1))"
 			cell.contentActivityTime.text = timeFormat.string(from: Date(timeIntervalSince1970: activityList[indexPath.row].waktuambil))
-			cell.contentImage.image = UIImage.init(color: .lightGray)
-			cell.contentImage.kf.setImage(with: activityList[indexPath.row].postphotourl)
+			
+			cell.contentImage.kf.indicatorType = .activity
+			cell.contentImage.kf.setImage(
+				with: activityList[indexPath.row].postphotourl,
+				placeholder: UIImage.init(color: .white),
+				options: [
+					.transition(.fade(1))
+				])
+			{
+				result in
+				switch result {
+				case .success( _):
+					print("Yey")
+				case .failure( _):
+					print("Nay")
+				}
+			}
+			
 			/*
 			ImageService.getImage(withURL: activityList[indexPath.row].postphotourl) { image, url, fromCache in
 				if fromCache {
@@ -402,8 +418,24 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			if activityList[indexPath.row].status == 2 || activityList[indexPath.row].status == 3 || activityList[indexPath.row].status == 4{
 				
 				cell.contentOrganisationName.text = activityList[indexPath.row].namakomunitas
-				cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
-				cell.contentOrganisationIcon.kf.setImage(with: activityList[indexPath.row].logokomunitas)
+				//cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
+				//cell.contentOrganisationIcon.kf.setImage(with: activityList[indexPath.row].logokomunitas)
+				cell.contentOrganisationIcon.kf.indicatorType = .activity
+				cell.contentOrganisationIcon.kf.setImage(
+					with: activityList[indexPath.row].logokomunitas,
+					placeholder: UIImage.init(color: .white),
+					options: [
+						.transition(.fade(1))
+					])
+				{
+					result in
+					switch result {
+					case .success( _):
+						print("Yey")
+					case .failure( _):
+						print("Nay")
+					}
+				}
 				/*
 				ImageService.getImage(withURL: activityList[indexPath.row].logokomunitas) { image, url, fromCache in
 					if fromCache {
@@ -436,9 +468,22 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 				spread: 0
 			)
 
-			
-			cell.contentImage.image = UIImage.init(color: .lightGray)
-			cell.contentImage.kf.setImage(with: programList[indexPath.row].programImage)
+			cell.contentImage.kf.indicatorType = .activity
+			cell.contentImage.kf.setImage(
+				with: programList[indexPath.row].programImage,
+				placeholder: UIImage.init(color: .white),
+				options: [
+					.transition(.fade(1))
+				])
+			{
+				result in
+				switch result {
+				case .success( _):
+					print("Yey")
+				case .failure( _):
+					print("Nay")
+				}
+			}
 			
 			/*
 			ImageService.getImage(withURL: programList[indexPath.row].programImage) { image, url, fromCache in
@@ -460,7 +505,23 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			DispatchQueue.main.async {
 				self.organizationList.forEach { (orgProfile) in
 					if orgProfile.id == self.programList[indexPath.row].orgId {
-						cell.contentOrganisationIcon.kf.setImage(with: orgProfile.logo)
+						cell.contentOrganisationIcon.kf.indicatorType = .activity
+						cell.contentOrganisationIcon.kf.setImage(
+							with: orgProfile.logo,
+							placeholder: UIImage.init(color: .white),
+							options: [
+								.transition(.fade(1))
+							])
+						{
+							result in
+							switch result {
+							case .success( _):
+								print("Yey")
+							case .failure( _):
+								print("Nay")
+							}
+						}
+						
 						/*
 						ImageService.getImage(withURL: orgProfile.logo ) { image, url, fromCache in
 							if fromCache {
@@ -500,17 +561,17 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 			cell.contentImage.kf.indicatorType = .activity
 			cell.contentImage.kf.setImage(
 				with: organizationList[indexPath.row].logo,
-				placeholder: UIImage.init(color: .lightGray),
+				placeholder: UIImage.init(color: .white),
 				options: [
 					.transition(.fade(1))
 				])
 			{
 				result in
 				switch result {
-				case .success(let value):
-					print("Task done for: \(value.source.url?.absoluteString ?? "")")
-				case .failure(let error):
-					print("Job failed: \(error.localizedDescription)")
+				case .success( _):
+					print("Yey")
+				case .failure( _):
+					print("Nay")
 				}
 			}
 			/*
@@ -556,47 +617,6 @@ extension NewHomeViewController: UITableViewDelegate, UITableViewDataSource {
 				self.view.layoutIfNeeded()
 				//print("Unhide")
 			}, completion: nil)
-		}
-	}
-	
-	
-	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
-		let nextImage = newImage
-		
-		if previousImageView.image == nil{
-			//previousImageView.image = UIImage.init()
-			previousImageView.image = newImage
-		}else{
-			let tmpImageView = UIImageView(image: nextImage)
-			tmpImageView.contentMode = previousImageView.contentMode
-			tmpImageView.frame = previousImageView.bounds
-			tmpImageView.alpha = 0.0
-			previousImageView.addSubview(tmpImageView)
-			
-			UIView.animate(withDuration: 1, animations: {
-				tmpImageView.alpha = 1.0
-			}, completion: {
-				finished in
-				previousImageView.image = nextImage
-				tmpImageView.image = nil
-				tmpImageView.removeFromSuperview()
-				tmpImageView.removeFromSuperview()
-				
-			})
-		}
-	}
-	
-	func loadImage(link:URL, object: UIImageView){
-		DispatchQueue.global(qos: .userInitiated).async {
-			ImageService.getImage(withURL: link) { image, url, fromCache in
-				guard let imageFile = image else {return}
-				DispatchQueue.main.async {
-					self.fadeInNewImage(previousImageView: object, newImage: imageFile)
-					
-				}
-				
-				
-			}
 		}
 	}
 	func updateDonationStatus(donationStage:Int) -> String{

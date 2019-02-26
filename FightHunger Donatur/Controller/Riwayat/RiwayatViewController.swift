@@ -62,8 +62,25 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: "activityCellID", for: indexPath) as! SectionOneHomeCell
 		
 		cell.contentStatus.isHidden = true
-		cell.contentImage.image = UIImage.init(color: .lightGray)
 		
+		cell.contentImage.kf.indicatorType = .activity
+		cell.contentImage.kf.setImage(
+			with: dataPost[indexPath.row].postphotourl,
+			placeholder: UIImage.init(color: .white),
+			options: [
+				.transition(.fade(1))
+			])
+		{
+			result in
+			switch result {
+			case .success(let value):
+				print("Task done for: \(value.source.url?.absoluteString ?? "")")
+			case .failure(let error):
+				print("Job failed: \(error.localizedDescription)")
+			}
+		}
+		
+		/*
 		ImageService.getImage(withURL: dataPost[indexPath.row].postphotourl) { image, url, fromCache  in
 			cell.contentImage.image = UIImage.init(color: .lightGray)
 			if fromCache {
@@ -72,6 +89,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
             	self.fadeInNewImage(previousImageView: cell.contentImage, newImage: image)
 			}
         }
+		*/
         
         //cell.fotoDonasi.image = dataPost[indexPath.row].
         cell.contentName.text = dataPost[indexPath.row].namaitem
@@ -80,6 +98,7 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 		cell.contentOrganisationName.text = ""
 		//cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 		if dataPost[indexPath.row].status == 5{
+			/*
 			cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
 			ImageService.getImage(withURL: dataPost[indexPath.row].logokomunitas) { image, url, fromCache in
 				cell.contentOrganisationIcon.image = UIImage.init(color: .lightGray)
@@ -87,6 +106,24 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
 					cell.contentOrganisationIcon.image = image
 				}else {
 					self.fadeInNewImage(previousImageView: cell.contentOrganisationIcon, newImage: image)
+				}
+			}
+			*/
+			
+			cell.contentOrganisationIcon.kf.indicatorType = .activity
+			cell.contentOrganisationIcon.kf.setImage(
+				with: dataPost[indexPath.row].logokomunitas,
+				placeholder: UIImage.init(color: .white),
+				options: [
+					.transition(.fade(1))
+				])
+			{
+				result in
+				switch result {
+				case .success(let value):
+					print("Task done for: \(value.source.url?.absoluteString ?? "")")
+				case .failure(let error):
+					print("Job failed: \(error.localizedDescription)")
 				}
 			}
 

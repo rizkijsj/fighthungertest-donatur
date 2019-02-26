@@ -9,6 +9,7 @@
 import UIKit
 import CoreLocation
 import Firebase
+import Kingfisher
 
 class KegiatanViewController: UITableViewController {
 	@IBOutlet weak var fotoDonasi: UIImageView!
@@ -239,14 +240,21 @@ class KegiatanViewController: UITableViewController {
 			print(statusObject.status)
 			transactionID = statusObject.id
 			
-			//loadImage(link: statusObject.postphotourl)
-			ImageService.getImage(withURL: statusObject.postphotourl) { image, url, fromCache  in
-				if fromCache {
-				self.fotoDonasi.image = image
-				}else {
-					self.fadeInNewImage(previousImageView: self.fotoDonasi, newImage: image)
+			fotoDonasi.kf.indicatorType = .activity
+			fotoDonasi.kf.setImage(
+				with: statusObject.postphotourl,
+				placeholder: UIImage.init(color: .white),
+				options: [
+					.transition(.fade(1))
+				])
+			{
+				result in
+				switch result {
+				case .success( _):
+					print("Yey")
+				case .failure( _):
+					print("Nay")
 				}
-				
 			}
 			
 			
@@ -408,44 +416,6 @@ class KegiatanViewController: UITableViewController {
 			if let phoneURL = NSURL(string: "tel://\(nomorTelponOrganisasi.text!)"){
 				UIApplication.shared.open(phoneURL as URL)
 			}
-		}
-	}
-	
-	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
-		let nextImage = newImage
-		
-		if previousImageView.image == nil{
-			//previousImageView.image = UIImage.init()
-			previousImageView.image = newImage
-		}else{
-			let tmpImageView = UIImageView(image: nextImage)
-			tmpImageView.contentMode = previousImageView.contentMode
-			tmpImageView.frame = previousImageView.bounds
-			tmpImageView.alpha = 0.0
-			previousImageView.addSubview(tmpImageView)
-			
-			UIView.animate(withDuration: 1, animations: {
-				tmpImageView.alpha = 1.0
-			}, completion: {
-				finished in
-				previousImageView.image = nextImage
-				tmpImageView.image = nil
-				tmpImageView.removeFromSuperview()
-				tmpImageView.removeFromSuperview()
-				
-			})
-		}
-	}
-	
-	func loadImage(link:URL){
-		DispatchQueue.global(qos: .userInitiated).async {
-			let image = UIImage.init(url: link)
-			
-			guard let imageFile = image else {return}
-			DispatchQueue.main.async {
-				self.fotoDonasi.image = imageFile
-			}
-			
 		}
 	}
 	

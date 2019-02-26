@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Kingfisher
 
 class RiwayatTableViewCell: UITableViewCell {
 
@@ -25,5 +26,14 @@ class RiwayatTableViewCell: UITableViewCell {
         super.setSelected(selected, animated: animated)
 
     }
+	override func prepareForReuse() {
+		super.prepareForReuse()
+		
+		//mainImageView.af_cancelImageRequest() // NOTE: - Using AlamofireImage
+		fotoDonasi.kf.cancelDownloadTask()
+		fotoDonasi.image = nil
+		fotoOrgn.kf.cancelDownloadTask()
+		fotoOrgn.image = nil
+	}
 
 }

@@ -10,65 +10,65 @@ import UIKit
 import Firebase
 
 class KegiatanTerbaruController: UITableViewController {
-
-   
-    @IBOutlet weak var backBtn: UIBarButtonItem!
-    @IBOutlet weak var isiKegiatan: UILabel!
-    @IBOutlet weak var titleKegiatan: UILabel!
-    @IBOutlet weak var imgOrganisasi: UIImageView!
+	
+	
+	@IBOutlet weak var backBtn: UIBarButtonItem!
+	@IBOutlet weak var isiKegiatan: UILabel!
+	@IBOutlet weak var titleKegiatan: UILabel!
+	@IBOutlet weak var imgOrganisasi: UIImageView!
 	@IBOutlet weak var imageProgram: UIImageView!
 	@IBOutlet weak var namaLokasiProgram: UILabel!
 	@IBOutlet weak var waktuProgram: UILabel!
 	
-    @IBOutlet weak var btnDonasi: UIButton!
+	@IBOutlet weak var btnDonasi: UIButton!
 	
 	var passingObject: Kegiatan?
 	var organisationObject: OrganisasiProfile?
-    let defaults = UserDefaults.standard
-
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-      
-        UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
-        UserDefaults.standard.synchronize()
-        self.tableView.delegate = self
-        self.tableView.dataSource = self
-
-        btnDonasi.layer.cornerRadius = btnDonasi.frame.height / 8
+	let defaults = UserDefaults.standard
+	
+	
+	override func viewDidLoad() {
+		super.viewDidLoad()
+		
+		UserDefaults.standard.removePersistentDomain(forName: Bundle.main.bundleIdentifier!)
+		UserDefaults.standard.synchronize()
+		self.tableView.delegate = self
+		self.tableView.dataSource = self
+		
+		btnDonasi.layer.cornerRadius = btnDonasi.frame.height / 8
 		
 		reloadObject()
 		observeOrganisasi()
 		
 		let tapBtnDonate = UITapGestureRecognizer(target: self, action: #selector(toDonationPage))
 		btnDonasi.addGestureRecognizer(tapBtnDonate)
-
 		
-        makeRounded()
-       
-        //Tap Gesture
-        let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.onTap))
-        imgOrganisasi.isUserInteractionEnabled = true
-        imgOrganisasi.addGestureRecognizer(tapGesture)
-        
-        //Tap Gesture Program
-        let tapProgram = UITapGestureRecognizer(target: self, action: #selector(self.onTapProgram))
-        imageProgram.isUserInteractionEnabled = true
-        imageProgram.addGestureRecognizer(tapProgram)
-    }
-    
-    func makeRounded()
-    {
-        self.imgOrganisasi.layer.cornerRadius = 8.0
-        self.imgOrganisasi.clipsToBounds = true
-        self.imgOrganisasi.layer.shadowColor = UIColor.gray.cgColor
-        self.imgOrganisasi.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
-        self.imgOrganisasi.layer.shadowRadius = 2.0
-        self.imgOrganisasi.layer.shadowOpacity = 0.4
-        self.imgOrganisasi.layer.masksToBounds = false
-        imgOrganisasi.layer.shadowPath = UIBezierPath(rect: imgOrganisasi.bounds).cgPath
-        
-    }
+		
+		makeRounded()
+		
+		//Tap Gesture
+		let tapGesture = UITapGestureRecognizer(target: self, action: #selector(self.onTap))
+		imgOrganisasi.isUserInteractionEnabled = true
+		imgOrganisasi.addGestureRecognizer(tapGesture)
+		
+		//Tap Gesture Program
+		let tapProgram = UITapGestureRecognizer(target: self, action: #selector(self.onTapProgram))
+		imageProgram.isUserInteractionEnabled = true
+		imageProgram.addGestureRecognizer(tapProgram)
+	}
+	
+	func makeRounded()
+	{
+		self.imgOrganisasi.layer.cornerRadius = 8.0
+		self.imgOrganisasi.clipsToBounds = true
+		self.imgOrganisasi.layer.shadowColor = UIColor.gray.cgColor
+		self.imgOrganisasi.layer.shadowOffset = CGSize(width: 1.0, height: 1.0)
+		self.imgOrganisasi.layer.shadowRadius = 2.0
+		self.imgOrganisasi.layer.shadowOpacity = 0.4
+		self.imgOrganisasi.layer.masksToBounds = false
+		imgOrganisasi.layer.shadowPath = UIBezierPath(rect: imgOrganisasi.bounds).cgPath
+		
+	}
 	//to donating
 	@objc func toDonationPage(){
 		performSegue(withIdentifier: "toDonate", sender: self)
@@ -81,17 +81,17 @@ class KegiatanTerbaruController: UITableViewController {
 			//print("I ma go here")
 			let navbar = segue.destination as! UINavigationController
 			let vc = navbar.topViewController as! DonatingController
-            sendOrgDataToDonate()
+			sendOrgDataToDonate()
 			guard let orgObj = organisationObject else {return}
 			//print("there")
 			vc.selectedOrganization = orgObj
 			//print("Done")
-        }else if segue.identifier == "ToOrganization" {
-            let vc = segue.destination as! Organisasi
-            vc.organisasiObject = organisationObject
-        }
-        
-        
+		}else if segue.identifier == "ToOrganization" {
+			let vc = segue.destination as! Organisasi
+			vc.organisasiObject = organisationObject
+		}
+		
+		
 	}
 	
 	func reloadObject(){
@@ -100,80 +100,98 @@ class KegiatanTerbaruController: UITableViewController {
 		}else {
 			self.navigationController?.popViewController(animated: true)
 		}
-        
-       
+		
+		
 	}
-    
-    @objc func onTapProgram()
-    {
-       guard let progObject = passingObject else {return}
-        ImageService.getImage(withURL: progObject.programImage) { (image, url, fromCache) in
-            if fromCache {
-                self.imageProgram.image = image
-            }else {
-                self.fadeInNewImage(previousImageView: self.imageProgram, newImage: image)
-            }
-        }
-        
-        let passingimg = imageProgram.image
-        
-        
-        let nextVC = self.storyboard!.instantiateViewController(withIdentifier: "Next") as! PopUpVC
-        nextVC.imageimg = passingimg!
-      
-        self.present(nextVC, animated: true, completion: nil)
-        print("testk")
-    }
-    
-    @objc func onTap()
-    {
-      
-      
-            self.performSegue(withIdentifier: "ToOrganization", sender: self)
-            print("tap")
-       
-    }
-    
-   
 	
-    @IBAction func backButton(_ sender: UIBarButtonItem) {
-        
-        self.navigationController?.popToRootViewController(animated: true)
-    }
- 
-    func loadProgramDetails(){
+	@objc func onTapProgram()
+	{
 		guard let progObject = passingObject else {return}
-		
-        imageProgram.image = UIImage.init(color: .lightGray)
-        ImageService.getImage(withURL: progObject.programImage) { (image, url, fromCache) in
-            if fromCache {
-                self.imageProgram.image = image
-            }else {
-                self.fadeInNewImage(previousImageView: self.imageProgram, newImage: image)
-            }
-        }
-        
-			titleKegiatan.text = progObject.programName
-			isiKegiatan.text = progObject.programInformation
-			namaLokasiProgram.text = progObject.programLocation
-			waktuProgram.text = progObject.programDate
-		
-		if let orgObject = organisationObject {
-		
-			imgOrganisasi.image = UIImage.init(color: .lightGray)
-			ImageService.getImage(withURL: orgObject.logo ) { image, url, fromCache in
-				if fromCache {
-					self.imgOrganisasi.image = image
-				} else {
-					self.fadeInNewImage(previousImageView: self.imgOrganisasi, newImage: image)
-				}
+		ImageService.getImage(withURL: progObject.programImage) { (image, url, fromCache) in
+			if fromCache {
+				self.imageProgram.image = image
+			}else {
+				self.fadeInNewImage(previousImageView: self.imageProgram, newImage: image)
 			}
 		}
-	
+		
+		let passingimg = imageProgram.image
+		
+		
+		let nextVC = self.storyboard!.instantiateViewController(withIdentifier: "Next") as! PopUpVC
+		nextVC.imageimg = passingimg!
+		
+		self.present(nextVC, animated: true, completion: nil)
+		print("testk")
 	}
-
-   
-    
+	
+	@objc func onTap()
+	{
+		
+		
+		self.performSegue(withIdentifier: "ToOrganization", sender: self)
+		print("tap")
+		
+	}
+	
+	
+	
+	@IBAction func backButton(_ sender: UIBarButtonItem) {
+		
+		self.navigationController?.popToRootViewController(animated: true)
+	}
+	
+	func loadProgramDetails(){
+		guard let progObject = passingObject else {return}
+		
+		
+		imageProgram.kf.indicatorType = .activity
+		imageProgram.kf.setImage(
+			with: progObject.programImage,
+			placeholder: UIImage.init(color: .white),
+			options: [
+				.transition(.fade(1))
+			])
+		{
+			result in
+			switch result {
+			case .success( _):
+				print("Yey")
+			case .failure( _):
+				print("Nay")
+			}
+		}
+		
+		titleKegiatan.text = progObject.programName
+		isiKegiatan.text = progObject.programInformation
+		namaLokasiProgram.text = progObject.programLocation
+		waktuProgram.text = progObject.programDate
+		
+		if let orgObject = organisationObject {
+			
+			imgOrganisasi.kf.indicatorType = .activity
+			imgOrganisasi.kf.setImage(
+				with: orgObject.logo,
+				placeholder: UIImage.init(color: .white),
+				options: [
+					.transition(.fade(1))
+				])
+			{
+				result in
+				switch result {
+				case .success( _):
+					print("Yey")
+				case .failure( _):
+					print("Nay")
+				}
+			}
+			
+		}
+		
+	}
+	
+	
+	
 	func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
 		let nextImage = newImage
 		
@@ -199,15 +217,15 @@ class KegiatanTerbaruController: UITableViewController {
 			})
 		}
 	}
-    
-    func sendOrgDataToDonate(){
-        guard let orgObject = organisationObject else {return}
-        let orgDataKegiatan = orgObject.id
-        defaults.set(orgDataKegiatan, forKey: "idOrgKegiatan")
-    }
-    
-    
-
+	
+	func sendOrgDataToDonate(){
+		guard let orgObject = organisationObject else {return}
+		let orgDataKegiatan = orgObject.id
+		defaults.set(orgDataKegiatan, forKey: "idOrgKegiatan")
+	}
+	
+	
+	
 	override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableView.automaticDimension
 	}
@@ -215,12 +233,12 @@ class KegiatanTerbaruController: UITableViewController {
 	override func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {
 		return UITableView.automaticDimension
 	}
-    
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(true)
-        
-        self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
-    }
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(true)
+		
+		self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
 		super.viewWillDisappear(true)
@@ -297,5 +315,5 @@ class KegiatanTerbaruController: UITableViewController {
 		
 	}
 	
-
+	
 }
