@@ -53,7 +53,7 @@
                         <viewLayoutGuide key="safeArea" id="1Dj-tO-iWW"/>
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="3wi-pR-LVa">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="qsq-DO-Im0">
+                        <barButtonItem key="rightBarButtonItem" id="qsq-DO-Im0">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="eV9-Zh-qop">
                                 <rect key="frame" x="194" y="0.0" width="200" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -170,7 +170,7 @@
                         <viewLayoutGuide key="safeArea" id="xmm-si-6oy"/>
                     </view>
                     <navigationItem key="navigationItem" title="FightHunger" id="wWF-UY-gXB">
-                        <barButtonItem key="rightBarButtonItem" style="plain" id="Czh-PE-BdI">
+                        <barButtonItem key="rightBarButtonItem" id="Czh-PE-BdI">
                             <button key="customView" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" adjustsImageSizeForAccessibilityContentSizeCategory="YES" lineBreakMode="middleTruncation" id="70C-km-C08">
                                 <rect key="frame" x="194" y="0.0" width="200" height="44"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>

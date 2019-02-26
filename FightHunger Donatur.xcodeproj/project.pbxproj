@@ -550,7 +550,6 @@
 				FB34B3ED21FB32330070AA5E /* Frameworks */,
 				FB34B3EE21FB32330070AA5E /* Resources */,
 				AB91D94DDC7805B09CAA9407 /* [CP] Embed Pods Frameworks */,
-				1B845993F7DEB699470126F7 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -685,28 +684,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		1B845993F7DEB699470126F7 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-			);
-			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur-resources.sh",
-				"${PODS_ROOT}/GoogleMaps/Maps/Frameworks/GoogleMaps.framework/Resources/GoogleMaps.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/GoogleMaps.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-FightHunger Donatur/Pods-FightHunger Donatur-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		65DE673DD51EEDA1D82A5CD3 /* [CP] Check Pods Manifest.lock */ = {
