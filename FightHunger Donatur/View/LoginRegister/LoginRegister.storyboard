@@ -107,8 +107,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="812"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan nomor handphone Anda yang terdaftar untuk login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-VO-TRi">
-                                <rect key="frame" x="16" y="169" width="343" height="49"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Masukkan nomor handphone Anda yang terdaftar untuk login" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jr4-VO-TRi">
+                                <rect key="frame" x="16" y="104" width="343" height="49"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="49" id="a5j-6a-kKL"/>
                                 </constraints>
@@ -117,7 +117,7 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="14" translatesAutoresizingMaskIntoConstraints="NO" id="Usk-R2-fWn">
-                                <rect key="frame" x="16" y="223" width="343" height="178"/>
+                                <rect key="frame" x="16" y="185" width="343" height="178"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Nomor handphone" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9Ej-Fa-tWW">
                                         <rect key="frame" x="0.0" y="0.0" width="343" height="50"/>
@@ -139,11 +139,12 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rhE-xp-uqR">
-                                <rect key="frame" x="16" y="674" width="343" height="51"/>
+                                <rect key="frame" x="16" y="712" width="343" height="50"/>
                                 <color key="backgroundColor" red="0.75686274509999996" green="0.1058823529" blue="0.1647058824" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="51" id="yLJ-Ja-1F4"/>
+                                    <constraint firstAttribute="width" secondItem="rhE-xp-uqR" secondAttribute="height" multiplier="343:50" id="Ha7-aG-X70"/>
                                 </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
                                 <state key="normal" title="Lanjut">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
@@ -151,18 +152,31 @@
                                     <action selector="LanjutButton:" destination="XiE-iL-Epf" eventType="touchUpInside" id="8WA-mg-WT0"/>
                                 </connections>
                             </button>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" scrollEnabled="NO" editable="NO" text="Dengan lanjut, anda setuju dengan kebijakan privasi dan syarat dan ketentuan." textAlignment="center" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="uHA-89-0nS">
+                                <rect key="frame" x="16" y="646" width="343" height="58"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="58" id="tCO-Lt-2Dr"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" style="UICTFontTextStyleCallout"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                <dataDetectorType key="dataDetectorTypes" link="YES"/>
+                            </textView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="Jr4-VO-TRi" firstAttribute="leading" secondItem="Usk-R2-fWn" secondAttribute="leading" id="8rj-cB-LV2"/>
-                            <constraint firstItem="rhE-xp-uqR" firstAttribute="leading" secondItem="Usk-R2-fWn" secondAttribute="leading" id="94M-ie-wKm"/>
-                            <constraint firstItem="Jr4-VO-TRi" firstAttribute="centerX" secondItem="Usk-R2-fWn" secondAttribute="centerX" id="AWo-XG-c7k"/>
-                            <constraint firstItem="Usk-R2-fWn" firstAttribute="top" secondItem="Jr4-VO-TRi" secondAttribute="bottom" constant="5" id="BXu-Xq-rjT"/>
-                            <constraint firstItem="Jr4-VO-TRi" firstAttribute="top" secondItem="9WB-Fw-tXW" secondAttribute="top" constant="81" id="H17-7d-ter"/>
-                            <constraint firstItem="rhE-xp-uqR" firstAttribute="trailing" secondItem="Usk-R2-fWn" secondAttribute="trailing" id="M0f-9w-eaR"/>
-                            <constraint firstItem="9WB-Fw-tXW" firstAttribute="trailing" secondItem="Jr4-VO-TRi" secondAttribute="trailing" constant="16" id="Peb-ZP-fex"/>
-                            <constraint firstItem="Jr4-VO-TRi" firstAttribute="leading" secondItem="9WB-Fw-tXW" secondAttribute="leading" constant="16" id="YaP-V1-ZKi"/>
-                            <constraint firstItem="9WB-Fw-tXW" firstAttribute="bottom" secondItem="rhE-xp-uqR" secondAttribute="bottom" constant="53" id="hyK-5f-6kl"/>
+                            <constraint firstItem="9WB-Fw-tXW" firstAttribute="trailing" secondItem="uHA-89-0nS" secondAttribute="trailing" constant="16" id="4sn-Lw-xna"/>
+                            <constraint firstItem="rhE-xp-uqR" firstAttribute="top" secondItem="uHA-89-0nS" secondAttribute="bottom" constant="8" id="9D6-yT-gw3"/>
+                            <constraint firstItem="Usk-R2-fWn" firstAttribute="top" secondItem="Jr4-VO-TRi" secondAttribute="bottom" constant="32" id="A6o-2D-1LQ"/>
+                            <constraint firstItem="rhE-xp-uqR" firstAttribute="leading" secondItem="9WB-Fw-tXW" secondAttribute="leading" constant="16" id="DpL-Li-V0B"/>
+                            <constraint firstItem="9WB-Fw-tXW" firstAttribute="trailing" secondItem="Usk-R2-fWn" secondAttribute="trailing" constant="16" id="cIG-0j-4V9"/>
+                            <constraint firstItem="Jr4-VO-TRi" firstAttribute="leading" secondItem="9WB-Fw-tXW" secondAttribute="leading" constant="16" id="dMY-8F-sDy"/>
+                            <constraint firstItem="Usk-R2-fWn" firstAttribute="leading" secondItem="9WB-Fw-tXW" secondAttribute="leading" constant="16" id="eeo-9M-eKJ"/>
+                            <constraint firstItem="Jr4-VO-TRi" firstAttribute="top" secondItem="9WB-Fw-tXW" secondAttribute="top" constant="16" id="jzv-oX-Vk1"/>
+                            <constraint firstItem="9WB-Fw-tXW" firstAttribute="bottom" secondItem="rhE-xp-uqR" secondAttribute="bottom" constant="16" id="mmQ-t1-FSj"/>
+                            <constraint firstItem="9WB-Fw-tXW" firstAttribute="trailing" secondItem="Jr4-VO-TRi" secondAttribute="trailing" constant="16" id="mse-Id-Xib"/>
+                            <constraint firstItem="uHA-89-0nS" firstAttribute="leading" secondItem="9WB-Fw-tXW" secondAttribute="leading" constant="16" id="pba-A2-XsP"/>
+                            <constraint firstItem="9WB-Fw-tXW" firstAttribute="trailing" secondItem="rhE-xp-uqR" secondAttribute="trailing" constant="16" id="yFd-dr-BLN"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9WB-Fw-tXW"/>
                     </view>
@@ -182,6 +196,7 @@
                         <outlet property="labelTitle" destination="Jr4-VO-TRi" id="Zmj-E1-tmh"/>
                         <outlet property="lnjtBtn" destination="rhE-xp-uqR" id="X2B-Sn-Heh"/>
                         <outlet property="telpTxtField" destination="HuZ-Oo-B88" id="dSZ-gm-idv"/>
+                        <outlet property="textInfo" destination="uHA-89-0nS" id="Yjn-ww-sdY"/>
                         <segue destination="vMY-4Z-iyk" kind="show" identifier="LoginToVerify" id="zhn-Ou-xFt"/>
                     </connections>
                 </viewController>

@@ -20,7 +20,8 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
     @IBOutlet weak var lnjtBtn: UIButton!
     @IBOutlet weak var telpTxtField: CustomTextField!
     @IBOutlet weak var continueButton: UIButton!
-    var phonenumber = ""
+	@IBOutlet weak var textInfo: UITextView!
+	var phonenumber = ""
     
     var dataPostTampungLoginVC = [String:Any]()
     
@@ -43,8 +44,26 @@ class LoginViewController: UIViewController , UITextFieldDelegate,UIAlertViewDel
         telpTxtField.inputAccessoryView = toolbar
         
         errorMssg.isHidden = true
-        
-        self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
+		
+		
+		let textFont = UIFont.preferredFont(forTextStyle: .footnote)
+		/*
+		let textAttributes: [NSAttributedString.Key: Any] = [
+			.font: textFont
+			]
+		*/
+		
+		  let htmlData =  NSString(string: "Dengan lanjut, anda setuju dengan <a href=\"https://www.fighthunger.id/privacypolicy.html\">kebijakan privasi</a> dan <a href=\"http://www.google.com\">syarat dan ketentuan</a>.").data(using: String.Encoding.unicode.rawValue)
+		
+		let attributedString:NSMutableAttributedString = try! NSMutableAttributedString(data: htmlData!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+		
+		attributedString.addAttribute(.font, value: textFont, range: NSRange.init(location: 0, length: attributedString.length))
+		//attributedString.attribute(.font: textFont)
+		
+		textInfo.attributedText = attributedString
+		
+		
+		self.view.addGestureRecognizer(UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:))))
         
 //       back button
 //        let buttonSize = CGFloat(16.0)
