@@ -8,7 +8,7 @@
 import Foundation
 
 
-class Post: Equatable {
+class Post: Hashable {
 	
 	
     var id:String
@@ -111,8 +111,38 @@ class Post: Equatable {
 		lhs.status == rhs.status &&
 		lhs.alasanbatal == rhs.alasanbatal
 	}
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
+		hasher.combine(author)
+		hasher.combine(idkomunitas)
+		hasher.combine(logokomunitas)
+		hasher.combine(namakomunitas)
+		hasher.combine(phonekomunitas)
+		hasher.combine(postphotourl)
+		hasher.combine(namaitem)
+		hasher.combine(deskripsi)
+		hasher.combine(jumlahbarang)
+		hasher.combine(alamat)
+		hasher.combine(keteranganlokasi)
+		hasher.combine(longitude)
+		hasher.combine(latitude)
+		hasher.combine(waktuambil)
+		hasher.combine(waktusampai)
+		hasher.combine(namakurir)
+		hasher.combine(deskripsikurir)
+		hasher.combine(timestamp)
+		hasher.combine(idtransaksi)
+		hasher.combine(status)
+		hasher.combine(alasanbatal)
+	}
 	
 	
-	
+	/*
+	var hashValue:Int {
+	var hasher = Hasher()
+	self.hash(into: &hasher)
+	return hasher.finalize()
+	}
+	*/
 	
 }

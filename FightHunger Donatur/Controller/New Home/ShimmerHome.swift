@@ -132,6 +132,8 @@ class ShimmerHome: UIViewController {
 		vc.skipLoadActivity = true
 		vc.skipLoadProgramList = true
 		vc.skipLoadOrganization = true
+		repeatedDataRetrival.suspend()
+		repeatedLoginAttempt.suspend()
 	}
 	
 	fileprivate func setupShimmeringImage() {

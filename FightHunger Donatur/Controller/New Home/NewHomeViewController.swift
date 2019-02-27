@@ -10,6 +10,7 @@ import UIKit
 import CoreLocation
 import Firebase
 import Kingfisher
+import DeepDiff
 
 class NewHomeViewController: UIViewController {
 	
@@ -763,12 +764,20 @@ extension NewHomeViewController{
 			DispatchQueue.main.async {
 				
 				self.processOngoingDonation(rawData: tempPosts, completion: { (post) in
-					self.activityList = post
+//					self.activityList = post
+					
+					let changes = diff(old: self.activityList, new: post)
+					//self.programList = tempKegiatan
+					
+					self.tableView.reload(changes: changes, section: 0, insertionAnimation: .fade, deletionAnimation: .fade, replacementAnimation: .fade, updateData: {
+						self.activityList = post
+					}, completion: nil)
+					
 				})
 				
-				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
-					self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
-				}, completion: nil)
+//				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+//					self.tableView.reloadSections(IndexSet.init(integer: 0), with: .automatic)
+//				}, completion: nil)
 				
 			}
 			
@@ -826,11 +835,19 @@ extension NewHomeViewController{
 			DispatchQueue.main.async {
 				
 				print("berhasil ambil data organisasi")
-				self.organizationList = tempOrganisasi
-				//self.tableView.reloadData()
+//				self.organizationList = tempOrganisasi
+//				//self.tableView.reloadData()
+//
+//				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
+//					self.tableView.reloadSections(IndexSet.init(integer: 2), with: .automatic)
+//				}, completion: nil)
 				
-				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
-					self.tableView.reloadSections(IndexSet.init(integer: 2), with: .automatic)
+				let changes = diff(old: self.organizationList, new: tempOrganisasi)
+				//self.programList = tempKegiatan
+
+				
+				self.tableView.reload(changes: changes, section: 2, insertionAnimation: .fade, deletionAnimation: .fade, replacementAnimation: .fade, updateData: {
+					self.organizationList = tempOrganisasi
 				}, completion: nil)
 				
 			}
@@ -893,14 +910,25 @@ extension NewHomeViewController{
 				
 				print("berhasil ambil data organisasi")
 				print(tempKegiatan)
-				self.programList = tempKegiatan
-				//self.kegiatans = tempKegiatan
-				self.tableView.reloadData()
 				
+				let changes = diff(old: self.programList, new: tempKegiatan)
+				//self.programList = tempKegiatan
+				
+				self.tableView.reload(changes: changes, section: 1, insertionAnimation: .fade, deletionAnimation: .fade, replacementAnimation: .fade, updateData: {
+					self.programList = tempKegiatan
+				}, completion: nil)
+
+//				self.tableView.reload(changes: changes, updateData: {
+//					self.programList = tempKegiatan
+//				})
+				
+				//self.kegiatans = tempKegiatan
+				//self.tableView.reloadData()
+				/*
 				UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
 					self.tableView.reloadSections(IndexSet.init(integer: 1), with: .automatic)
 				}, completion: nil)
-				
+				*/
 			}
             
         })

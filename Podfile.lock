@@ -1,4 +1,5 @@
 PODS:
+  - DeepDiff (1.4.0)
   - Firebase/Auth (5.16.0):
     - Firebase/CoreOnly
     - FirebaseAuth (= 5.3.0)
@@ -88,6 +89,7 @@ PODS:
   - Protobuf (3.6.1)
 
 DEPENDENCIES:
+  - DeepDiff
   - Firebase/Auth
   - Firebase/Core
   - Firebase/Database
@@ -97,6 +99,7 @@ DEPENDENCIES:
 
 SPEC REPOS:
   https://github.com/cocoapods/specs.git:
+    - DeepDiff
     - Firebase
     - FirebaseAnalytics
     - FirebaseAnalyticsInterop
@@ -116,6 +119,7 @@ SPEC REPOS:
     - Protobuf
 
 SPEC CHECKSUMS:
+  DeepDiff: c4dea751ace912310e0668ec3b2e5ebf06831c0d
   Firebase: 749a8ff4962f9d8c79dda1966de20f6f77583d67
   FirebaseAnalytics: d35d47c03c50c73c14a7fd31463c5775843e78a9
   FirebaseAnalyticsInterop: e5f21be9af6548372e2f0815834ff909bff395a2
@@ -134,6 +138,6 @@ SPEC CHECKSUMS:
   nanopb: 2901f78ea1b7b4015c860c2fdd1ea2fee1a18d48
   Protobuf: 1eb9700044745f00181c136ef21b8ff3ad5a0fd5
 
-PODFILE CHECKSUM: 1539d1f8bab75a76499e9eb935a434d1407db375
+PODFILE CHECKSUM: d01338d01ae6082891e71acaff7e280fe53dc4c9
 
 COCOAPODS: 1.6.1

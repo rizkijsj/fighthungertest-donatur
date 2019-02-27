@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import DeepDiff
 
 class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDataSource {
     var dataPost = [Post]()
@@ -381,43 +382,23 @@ class RiwayatViewController: UIViewController, UITableViewDelegate,UITableViewDa
             
             
             DispatchQueue.main.async {
-                
-                self.dataPost = tempPosts
-				self.dataPost.reverse()
+				
+				let changes = diff(old: self.dataPost, new: tempPosts)
+				//self.programList = tempKegiatan
+				
+				self.tableView.reload(changes: changes, section: 0, insertionAnimation: .fade, deletionAnimation: .fade, replacementAnimation: .fade, updateData: {
+					self.dataPost = tempPosts
+				}, completion: nil)
+                //self.dataPost = tempPosts
+				//self.dataPost.reverse()
                 //self.tableView.reloadData()
-                
-                UIView.transition(with: self.tableView, duration: 1.0, options: .transitionCrossDissolve, animations: {
-                    self.tableView.reloadData()
-                }, completion: nil)
-                
+			
             }
             
         })
     }
     
-    func fadeInNewImage(previousImageView: UIImageView, newImage: UIImage?) {
-        let nextImage = newImage
-        
-        if previousImageView.image == nil{
-            //previousImageView.image = UIImage.init()
-            previousImageView.image = newImage
-        }else{
-            let tmpImageView = UIImageView(image: nextImage)
-            tmpImageView.contentMode = previousImageView.contentMode
-            tmpImageView.frame = previousImageView.bounds
-            tmpImageView.alpha = 0.0
-            previousImageView.addSubview(tmpImageView)
-            
-            UIView.animate(withDuration: 1, animations: {
-                tmpImageView.alpha = 1.0
-            }, completion: {
-                finished in
-                previousImageView.image = nextImage
-                tmpImageView.image = nil
-                tmpImageView.removeFromSuperview()
-                tmpImageView.removeFromSuperview()
-                
-            })
-        }
-    }
+
+	
+	
 }

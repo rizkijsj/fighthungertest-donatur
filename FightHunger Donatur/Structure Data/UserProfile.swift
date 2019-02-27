@@ -8,7 +8,7 @@
 
 import Foundation
 
-class UserProfile: Equatable {
+class UserProfile: Hashable {
 
 	
     var uid:String
@@ -31,4 +31,18 @@ class UserProfile: Equatable {
 		lhs.phonenumber == rhs.phonenumber &&
 		lhs.username == rhs.username
 	}
+	
+//	var hashValue:Int {
+//		var hasher = Hasher()
+//		self.hash(into: &hasher)
+//		return hasher.finalize()
+//	}
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(uid)
+		hasher.combine(email)
+		hasher.combine(phonenumber)
+		hasher.combine(username)
+	}
+	
 }

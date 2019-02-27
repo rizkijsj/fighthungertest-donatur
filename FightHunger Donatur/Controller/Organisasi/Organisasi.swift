@@ -89,7 +89,6 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
         
         if let organisasi = organisasiObject{
                 namaOrganisasi.text = organisasi.name
-				self.title = organisasi.name
                 alamatOrganisasi.text = organisasi.locationName
                 btnAction()
                 keteranganOrganisasi.text = organisasi.description

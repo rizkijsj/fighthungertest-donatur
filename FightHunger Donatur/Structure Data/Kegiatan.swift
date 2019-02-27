@@ -8,7 +8,7 @@
 
 import Foundation
 
-class Kegiatan: Equatable {
+class Kegiatan: Hashable {
 	
 	
     var id:String
@@ -50,6 +50,24 @@ class Kegiatan: Equatable {
 		lhs.programDate == rhs.programDate &&
 		lhs.programInformation == rhs.programInformation
 	}
-    
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
+		hasher.combine(orgId)
+		hasher.combine(orgName)
+		hasher.combine(programImage)
+		hasher.combine(programName)
+		hasher.combine(programLocation)
+		hasher.combine(programDate)
+		hasher.combine(programInformation)
+	}
+	
+//	var hashValue:Int {
+//		var hasher = Hasher()
+//		self.hash(into: &hasher)
+//		return hasher.finalize()
+//	}
+
+	
     
 }

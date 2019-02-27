@@ -8,7 +8,7 @@
 
 import Foundation
 
-class OrganisasiProfile: Equatable {
+class OrganisasiProfile: Hashable {
 
 	
     
@@ -51,4 +51,21 @@ class OrganisasiProfile: Equatable {
 		lhs.longitude == rhs.longitude &&
 		lhs.link == rhs.link
 	}
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
+		hasher.combine(phone)
+		hasher.combine(email)
+		hasher.combine(name)
+		hasher.combine(description)
+		hasher.combine(logo)
+		hasher.combine(locationName)
+		hasher.combine(latitude)
+		hasher.combine(longitude)
+		hasher.combine(link)
+	}
+//	var hashValue:Int {
+//		var hasher = Hasher()
+//		self.hash(into: &hasher)
+//		return hasher.finalize()
+//	}
 }
