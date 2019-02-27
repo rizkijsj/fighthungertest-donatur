@@ -10,7 +10,8 @@ import UIKit
 import Firebase
 
 class DaftarViewController: UIViewController , UITextFieldDelegate{
-
+	@IBOutlet weak var infoText: UITextView!
+	
     
     @IBAction func backButton(_ sender: UIBarButtonItem) {
       self.navigationController?.popViewController(animated: true)
@@ -99,6 +100,20 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
         telpTxtField.inputAccessoryView = toolbar
         namaTxtField.inputAccessoryView = toolbar
         emailTxtField.inputAccessoryView = toolbar
+		
+		
+				let textFont = UIFont.preferredFont(forTextStyle: .footnote)
+		
+		let htmlData =  NSString(string: "Dengan lanjut, anda setuju dengan <a href=\"https://www.fighthunger.id/privacypolicy.html\">kebijakan privasi</a> dan <a href=\"http://www.google.com\">syarat dan ketentuan</a>.").data(using: String.Encoding.unicode.rawValue)
+		
+		let attributedString:NSMutableAttributedString = try! NSMutableAttributedString(data: htmlData!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
+		
+		print("Error here?")
+		attributedString.addAttribute(.font, value: textFont, range: NSRange.init(location: 0, length: attributedString.length))
+		//attributedString.attribute(.font: textFont)
+		print("We have String?")
+		infoText.attributedText = attributedString
+		print("Did we crashed")
     }
     
     
