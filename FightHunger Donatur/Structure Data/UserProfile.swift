@@ -8,7 +8,9 @@
 
 import Foundation
 
-class UserProfile {
+class UserProfile: Equatable {
+
+	
     var uid:String
     var email:String
     var phonenumber:String
@@ -22,4 +24,11 @@ class UserProfile {
         self.username = username
         //self.role = role
     }
+	
+	static func == (lhs: UserProfile, rhs: UserProfile) -> Bool {
+		return lhs.uid == rhs.uid &&
+		lhs.email == rhs.email &&
+		lhs.phonenumber == rhs.phonenumber &&
+		lhs.username == rhs.username
+	}
 }

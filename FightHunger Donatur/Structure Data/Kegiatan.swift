@@ -8,7 +8,9 @@
 
 import Foundation
 
-class Kegiatan {
+class Kegiatan: Equatable {
+	
+	
     var id:String
     
     var orgId:String
@@ -36,6 +38,18 @@ class Kegiatan {
        
         
     }
+	
+	static func == (lhs: Kegiatan, rhs: Kegiatan) -> Bool {
+		return lhs.id == rhs.id &&
+		lhs.orgId == rhs.orgId &&
+		lhs.orgName == rhs.orgName &&
+		
+		lhs.programImage == rhs.programImage &&
+		lhs.programName == rhs.programName &&
+		lhs.programLocation == rhs.programLocation &&
+		lhs.programDate == rhs.programDate &&
+		lhs.programInformation == rhs.programInformation
+	}
     
     
 }

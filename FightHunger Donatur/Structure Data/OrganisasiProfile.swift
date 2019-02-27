@@ -8,7 +8,9 @@
 
 import Foundation
 
-class OrganisasiProfile {
+class OrganisasiProfile: Equatable {
+
+	
     
     var id:String
     var phone:String
@@ -36,4 +38,17 @@ class OrganisasiProfile {
         self.link = orgLink
         
     }
+	
+	static func == (lhs: OrganisasiProfile, rhs: OrganisasiProfile) -> Bool {
+		return lhs.id == rhs.id &&
+		lhs.phone == rhs.phone &&
+		lhs.email == rhs.email &&
+		lhs.name == rhs.name &&
+		lhs.description == rhs.description &&
+		lhs.logo == rhs.logo &&
+		lhs.locationName == rhs.locationName &&
+		lhs.latitude == rhs.latitude &&
+		lhs.longitude == rhs.longitude &&
+		lhs.link == rhs.link
+	}
 }

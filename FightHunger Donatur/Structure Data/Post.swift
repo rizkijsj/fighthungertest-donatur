@@ -8,7 +8,9 @@
 import Foundation
 
 
-class Post {
+class Post: Equatable {
+	
+	
     var id:String
     var author:UserProfile
 	
@@ -77,34 +79,38 @@ class Post {
 		
 	}
 	
-    /*
-    init(id:String, author:UserProfile,namaitem:String,alamat:String,keteranganlokasi:String,deskripsi:String,postphotourl:URL,waktuambil:String,jumlahbarang:String,timestamp:Double,status:String,latitude:String,longitude:String) {
-    var latitude:String
-    var longitude:String
-    var logokomunitas: URL
-    var namakomunitas: String
-    var idkomunitas: String
-    
-    
-    init(id:String, author:UserProfile,namaitem:String,alamat:String,keteranganlokasi:String,deskripsi:String,postphotourl:URL,waktuambil:String,jumlahbarang:String,timestamp:Double,status:String,latitude:String,longitude:String,logokomunitas : URL,namakomunitas: String,idkomunitas: String) {
-        self.id = id
-        self.author = author
-        self.namaitem = namaitem
-        self.alamat = alamat
-        self.keteranganlokasi = keteranganlokasi
-        self.jumlahbarang = jumlahbarang
-        self.deskripsi = deskripsi
-        self.postphotourl = postphotourl
-        self.waktuambil = waktuambil
-        self.timestamp = timestamp
-        self.status = status
-        self.longitude = longitude
-        self.latitude = latitude
-        self.logokomunitas = logokomunitas
-        self.namakomunitas = namakomunitas
-        self.idkomunitas = idkomunitas
-    }
-	*/
+	static func == (lhs: Post, rhs: Post) -> Bool {
+		return lhs.id == rhs.id &&
+		lhs.author == rhs.author &&
+		
+		lhs.idkomunitas == rhs.idkomunitas &&
+		lhs.logokomunitas == rhs.logokomunitas &&
+		lhs.namakomunitas == rhs.namakomunitas &&
+		lhs.phonekomunitas == rhs.phonekomunitas &&
+		
+		lhs.postphotourl == rhs.postphotourl &&
+		
+		lhs.namaitem == rhs.namaitem &&
+		lhs.deskripsi == rhs.deskripsi &&
+		lhs.jumlahbarang == rhs.jumlahbarang &&
+		
+		lhs.alamat == rhs.alamat &&
+		lhs.keteranganlokasi == rhs.keteranganlokasi &&
+		lhs.longitude == rhs.longitude &&
+		lhs.latitude == rhs.latitude &&
+		
+		
+		lhs.waktuambil == rhs.waktuambil &&
+		lhs.waktusampai == rhs.waktusampai &&
+		
+		lhs.namakurir == rhs.namakurir &&
+		lhs.deskripsikurir == rhs.deskripsikurir &&
+		
+		lhs.timestamp == rhs.timestamp &&
+		lhs.idtransaksi == rhs.idtransaksi &&
+		lhs.status == rhs.status &&
+		lhs.alasanbatal == rhs.alasanbatal
+	}
 	
 	
 	
