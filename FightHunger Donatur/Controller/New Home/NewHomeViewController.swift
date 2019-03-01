@@ -8,6 +8,8 @@
 
 import UIKit
 import CoreLocation
+import StoreKit
+
 import Firebase
 import Kingfisher
 import DeepDiff
@@ -101,6 +103,8 @@ class NewHomeViewController: UIViewController {
 		
 		self.tableView.reloadData()
 		
+		
+		
 	}
 	
 	
@@ -113,7 +117,25 @@ class NewHomeViewController: UIViewController {
         NetworkHelper().monitorReachabilityChanges()
         
 		//observePosts()
-		self.tableView.reloadData()
+		//self.tableView.reloadData()
+		
+		if UserDefaults.standard.bool(forKey: "willShowReview") && !UserDefaults.standard.bool(forKey: "willShowReviewHasbeenShown"){
+			UserDefaults.standard.set(true, forKey: "willShowReviewHasbeenShown")
+			
+			if #available(iOS 10.3, *) {
+				SKStoreReviewController.requestReview()
+			}
+			
+		}
+		
+		
+		if UserDefaults.standard.bool(forKey: "willShowSuccess") && !UserDefaults.standard.bool(forKey: "willAcceptedHasbeenShown"){
+			UserDefaults.standard.set(true, forKey: "willAcceptedHasbeenShown")
+			if #available(iOS 10.3, *) {
+				SKStoreReviewController.requestReview()
+			}
+			
+		}
 	}
 	
 	override func viewDidDisappear(_ animated: Bool) {
@@ -221,6 +243,8 @@ class NewHomeViewController: UIViewController {
 				filteredData.append(post)
 			}else if post.status == 4{
 				filteredData.append(post)
+			}else if post.status == 5{
+				UserDefaults.standard.set(true, forKey: "willShowSuccess")
 			}
 		}
         filteredData.sort(by: {$0.timestamp > $1.timestamp})

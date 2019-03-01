@@ -602,6 +602,7 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
             connector().postDonate(namaBarang: namaBarang, lokasiBarang: namaLokasi,keteranganLokasi: keteranganBarang.text ?? "-" ,fotodonasi: fotobarang, deskripsiBarang: deskripsi,kuantitasBarang: jumlahBarang,waktuAmbil : pickUpTime,latitude: latitudeBarang, longitude : longitudeBarang,organ: orgObject) { (result) in
                 print("Rsults")
                 if result{
+					UserDefaults.standard.set(true, forKey: "willShowReview")
                     print("Sukses nih DOnate")
                     //self.performSegue(withIdentifier: "DonasiToHome", sender: nil)
                     self.resetForm()

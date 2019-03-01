@@ -27,6 +27,18 @@ class AppDelegate: UIResponder, UIApplicationDelegate, UNUserNotificationCenterD
 
 	func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
 		// Override point for customization after application launch.
+		
+		if let _ = UserDefaults.standard.string(forKey: "isAppAlreadyLaunchedOnce"){
+			print("Has opened app before\n\n\n\n\n")
+		}else{
+			UserDefaults.standard.set(true, forKey: "isAppAlreadyLaunchedOnce")
+			UserDefaults.standard.set(false, forKey: "willShowReviewHasbeenShown")
+			UserDefaults.standard.set(false, forKey: "willAcceptedHasbeenShown")
+			
+			UserDefaults.standard.set(false, forKey: "neverOpenedApp")
+			
+			print("Never opened app before\n\n\n\n\n")
+		}
         
         DispatchQueue.main.async {
             FirebaseApp.configure()
