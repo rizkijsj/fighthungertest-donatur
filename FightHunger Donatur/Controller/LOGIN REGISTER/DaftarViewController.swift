@@ -104,7 +104,8 @@ class DaftarViewController: UIViewController , UITextFieldDelegate{
 		
 				let textFont = UIFont.preferredFont(forTextStyle: .footnote)
 		
-		let htmlData =  NSString(string: "Dengan lanjut, anda setuju dengan <a href=\"https://www.fighthunger.id/privacypolicy.html\">kebijakan privasi</a> dan <a href=\"http://www.google.com\">syarat dan ketentuan</a>.").data(using: String.Encoding.unicode.rawValue)
+		let htmlData =  NSString(string: "Dengan lanjut, anda setuju dengan <a href=\"https://www.fighthunger.id/privacypolicy.html\">kebijakan privasi</a> dan <a href=\"https://www.fighthunger.id/Termsandcondition.html\">syarat dan ketentuan</a>.").data(using: String.Encoding.unicode.rawValue)
+        
 		
 		let attributedString:NSMutableAttributedString = try! NSMutableAttributedString(data: htmlData!, options: [.documentType: NSAttributedString.DocumentType.html], documentAttributes: nil)
 		
