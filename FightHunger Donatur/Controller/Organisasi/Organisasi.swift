@@ -124,6 +124,7 @@ class Organisasi: UITableViewController, CLLocationManagerDelegate, MKMapViewDel
        
         super.viewWillAppear(true)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+         self.navigationController?.setNavigationBarHidden(false, animated: false)
     }
     
     override func viewDidAppear(_ animated: Bool) {

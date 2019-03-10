@@ -51,6 +51,7 @@ class KegiatanViewController: UITableViewController {
         
        super.viewWillAppear(true)
         self.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.black]
+        self.navigationController?.setNavigationBarHidden(false, animated: false)
 		
         
     }

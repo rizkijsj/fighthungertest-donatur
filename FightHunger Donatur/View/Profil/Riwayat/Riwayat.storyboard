@@ -128,7 +128,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Riwayat Donasi" id="57H-QA-byf">
                         <barButtonItem key="leftBarButtonItem" image="arrowback" id="hBo-mO-dql">
-                            <inset key="imageInsets" minX="-10" minY="0.0" maxX="0.0" maxY="-12"/>
+                            <inset key="imageInsets" minX="0.0" minY="0.0" maxX="0.0" maxY="-12"/>
                             <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
                                 <action selector="backBtn:" destination="wZf-WO-A02" id="WbX-z8-M8H"/>
@@ -143,7 +143,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="h8g-lX-DkI" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="6311.594202898551" y="1183.9285714285713"/>
+            <point key="canvasLocation" x="8131.884057971015" y="1183.9285714285713"/>
         </scene>
         <!--Kegiatan-->
         <scene sceneID="A57-zu-r8A">
@@ -151,7 +151,7 @@
                 <viewControllerPlaceholder storyboardName="Kegiatan" id="snk-uG-rv4" sceneMemberID="viewController"/>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="jwX-Ph-7jS" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="7006" y="1064"/>
+            <point key="canvasLocation" x="8826.0869565217399" y="1063.3928571428571"/>
         </scene>
     </scenes>
     <resources>
