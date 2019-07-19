@@ -522,6 +522,7 @@
 		FB7E7598220084EB0072235D /* Picker */ = {
 			isa = PBXGroup;
 			children = (
+				2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */,
 				FB7E7599220084EB0072235D /* pickerviewTableViewCell.swift */,
 				FB7E759A220084EB0072235D /* waktuPickerTableViewCell.swift */,
 			);
@@ -533,7 +534,6 @@
 			children = (
 				FB81411A221C4DCD00CF15AD /* LokasiList.swift */,
 				FB7E75A52200851D0072235D /* LokasiPengambilan.swift */,
-				2BB1012B2200A343003967CE /* CaptureImageTableViewCell.swift */,
 			);
 			path = "Lokasi test";
 			sourceTree = "<group>";
