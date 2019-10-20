@@ -161,7 +161,7 @@ class LokasiPengambilan: UIViewController, UISearchBarDelegate{
         let latitude = peta.centerCoordinate.latitude
         let longitude = peta.centerCoordinate.longitude
         
-        print("ini kordinat: \(latitude,longitude)")
+        print("ini kordinat: \((latitude,longitude))")
         kordinatAsli = [latitude,longitude]
         
         

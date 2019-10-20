@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import DeepDiff
 
-class OrganisasiProfile: Hashable {
+class OrganisasiProfile: Hashable, DiffAware {
 
 	
     

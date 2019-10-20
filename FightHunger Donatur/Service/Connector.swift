@@ -110,9 +110,7 @@ class connector {
         })
     }
     
-    func logIn(kodeotp:PhoneAuthCredential,completion: @escaping (Bool) -> Void){
-        /*
-		//Deprecated Funtion By Firebase
+    func logIn(kodeotp:PhoneAuthCredential,completion: @escaping (Bool) -> Void){		
         Auth.auth().signIn(with: kodeotp) { (user, error) in
             if error != nil && user != nil{
                 print("error: \(String(describing: error?.localizedDescription))")
@@ -123,27 +121,9 @@ class connector {
                 completion(true)
             }
         }
-		*/
-		
-		// Updated function @Andre Check Here
-		Auth.auth().signInAndRetrieveData(with: kodeotp) { (user, error) in
-			if error != nil && user != nil{
-				print("error: \(String(describing: error?.localizedDescription))")
-				//result = false
-				completion(false)
-			}else{
-				print("sukses sign in")
-				completion(true)
-			}
-		}
-		
-        
     }
 	
     func signUp(email:String, nama:String, phonenumber:String,kodeotp:PhoneAuthCredential, completion: @escaping (Bool) -> Void){
-		// TODO:
-
-        
         logIn(kodeotp: kodeotp) { (result) in
             if result{
 				guard let uid = Auth.auth().currentUser?.uid else { completion(false); return }
@@ -448,7 +428,7 @@ class connector {
 		let databasePostRef = Database.database().reference().child("PublicPost/\(idtransaksi)")
 		let transaksiObject = ["status": 0] as [String:Any]
 		
-		var oldDescription = data.deskripsi.split(separator: "|")
+        let oldDescription = data.deskripsi.split(separator: "|")
 		let newDescription = "Cancelled | \(Reason) |\(oldDescription[2])"
 		
 		let postObject = [

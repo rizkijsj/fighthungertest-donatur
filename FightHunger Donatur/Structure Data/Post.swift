@@ -6,11 +6,10 @@
 //
 
 import Foundation
+import DeepDiff
 
 
-class Post: Hashable {
-	
-	
+class Post: Hashable, DiffAware {
     var id:String
     var author:UserProfile
 	
@@ -146,3 +145,16 @@ class Post: Hashable {
 	*/
 	
 }
+
+extension DiffAware where Self: Hashable {
+    public var diffId: Int {
+        return hashValue
+    }
+
+    public static func compareContent(_ a: Self, _ b: Self) -> Bool {
+        return a == b
+    }
+}
+
+extension UUID: DiffAware {}
+extension CGFloat: DiffAware {}

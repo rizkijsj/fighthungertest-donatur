@@ -7,8 +7,9 @@
 //
 
 import Foundation
+import DeepDiff
 
-class Kegiatan: Hashable {
+class Kegiatan: Hashable, DiffAware {
 	
 	
     var id:String
