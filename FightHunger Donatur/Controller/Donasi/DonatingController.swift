@@ -367,7 +367,11 @@ class DonatingController: UITableViewController , UITextFieldDelegate, UITextVie
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        if #available(iOS 13.0, *) {
+            self.isModalInPresentation = true
+        } else {
+            // Fallback on earlier versions
+        }
         deskripsiBarang.layer.cornerRadius = 6
 		print("\n\n\n\n\n\n")
 		if let selectedOrg = selectedOrganization{

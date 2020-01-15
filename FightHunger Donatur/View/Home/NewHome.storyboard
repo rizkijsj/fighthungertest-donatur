@@ -1,11 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nCT-9i-AoP">
-    <device id="retina6_5" orientation="portrait">
-        <adaptation id="fullscreen"/>
-    </device>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="nCT-9i-AoP">
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -83,7 +81,9 @@
         <!--AktivitasVC-->
         <scene sceneID="ugT-ad-XgJ">
             <objects>
-                <viewControllerPlaceholder storyboardName="Kegiatan" referencedIdentifier="AktivitasVC" id="vAa-Ur-EJs" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Kegiatan" referencedIdentifier="AktivitasVC" id="vAa-Ur-EJs" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="0ud-x6-Wso"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mCf-rq-Ljw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2548" y="188.42364532019704"/>
@@ -91,7 +91,9 @@
         <!--OrganisasiID-->
         <scene sceneID="lMF-iW-7L4">
             <objects>
-                <viewControllerPlaceholder storyboardName="Organization" referencedIdentifier="OrganisasiID" id="F7V-sS-ckt" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Organization" referencedIdentifier="OrganisasiID" id="F7V-sS-ckt" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="4YS-AN-FSi"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="WTe-Wf-dFD" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2571.1999999999998" y="300.73891625615767"/>
@@ -99,7 +101,9 @@
         <!--KegiatanTerbaru-->
         <scene sceneID="7Nv-4Z-PfS">
             <objects>
-                <viewControllerPlaceholder storyboardName="KegiatanTerbaru" id="a44-S9-9Sh" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="KegiatanTerbaru" id="a44-S9-9Sh" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="FMt-uv-2ne"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ReM-aK-KH8" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2955.1999999999998" y="131.52709359605913"/>
@@ -117,7 +121,9 @@
         <!--ProfileDonatur-->
         <scene sceneID="niM-IS-dI8">
             <objects>
-                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileDonatur" id="jp7-0b-DRF" sceneMemberID="viewController"/>
+                <viewControllerPlaceholder storyboardName="Profile" referencedIdentifier="ProfileDonatur" id="jp7-0b-DRF" sceneMemberID="viewController">
+                    <navigationItem key="navigationItem" id="A3C-fQ-HM7"/>
+                </viewControllerPlaceholder>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="mB7-TU-Vxj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2562.4000000000001" y="-182.51231527093597"/>
@@ -183,7 +189,7 @@
                         <outlet property="shimmerArea" destination="fLK-tt-4b3" id="VLN-ap-OmZ"/>
                         <outlet property="shimmerImage1" destination="vOp-6e-nnP" id="vl1-xf-oST"/>
                         <outlet property="shimmerImage2" destination="eK0-p8-FQV" id="4Jf-vJ-LK6"/>
-                        <segue destination="7A4-CK-AUn" kind="showDetail" identifier="toHome" animates="NO" id="ujv-FR-7pn"/>
+                        <segue destination="7A4-CK-AUn" kind="show" identifier="toHome" id="ujv-FR-7pn"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bTK-B0-hPN" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -193,8 +199,9 @@
         <!--Navigation Controller-->
         <scene sceneID="R0c-Jo-l3A">
             <objects>
-                <navigationController storyboardIdentifier="HomeDonatur" automaticallyAdjustsScrollViewInsets="NO" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7A4-CK-AUn" sceneMemberID="viewController">
+                <navigationController storyboardIdentifier="HomeDonatur" automaticallyAdjustsScrollViewInsets="NO" modalTransitionStyle="crossDissolve" modalPresentationStyle="fullScreen" useStoryboardIdentifierAsRestorationIdentifier="YES" id="7A4-CK-AUn" sceneMemberID="viewController">
                     <toolbarItems/>
+                    <navigationItem key="navigationItem" id="KPb-Cr-T9s"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="qhL-94-ucb">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
