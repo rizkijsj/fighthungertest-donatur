@@ -1,0 +1,3 @@
+# Firebase configuration is environment-specific.
+# Download google-services.json from Firebase Console and place it at:
+# android-kotlin/app/google-services.json

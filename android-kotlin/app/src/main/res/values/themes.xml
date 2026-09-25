@@ -1,0 +1,1 @@
+<resources><style name="Theme.FightHunger" parent="Theme.Material3.DayNight.NoActionBar"><item name="android:fontFamily">sans</item><item name="android:colorAccent">#C11B2A</item></style></resources>
