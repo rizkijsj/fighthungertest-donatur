@@ -1,4 +1,4 @@
-package com.fighthunger.donatur.ui.organization
+package id.fighthunger.donatur.ui.organization
 
 import android.content.Intent
 import android.net.Uri
@@ -10,8 +10,8 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import coil.load
-import com.fighthunger.donatur.data.repository.OrganizationRepository
-import com.fighthunger.donatur.databinding.FragmentOrganizationDetailBinding
+import id.fighthunger.donatur.data.repository.OrganizationRepository
+import id.fighthunger.donatur.databinding.FragmentOrganizationDetailBinding
 import kotlinx.coroutines.launch
 
 class OrganizationDetailFragment : Fragment() {
@@ -19,11 +19,7 @@ class OrganizationDetailFragment : Fragment() {
     private val binding get() = _binding!!
     private val repo = OrganizationRepository()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentOrganizationDetailBinding.inflate(inflater, container, false)
         return binding.root
     }

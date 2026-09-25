@@ -1,16 +1,13 @@
-package com.fighthunger.donatur.ui.home
+package id.fighthunger.donatur.ui.home
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fighthunger.donatur.data.repository.UserRepository
+import id.fighthunger.donatur.data.repository.UserRepository
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
 
-data class HomeUiState(
-    val name: String = "",
-    val error: String? = null
-)
+data class HomeUiState(val name: String = "", val error: String? = null)
 
 class HomeViewModel(
     private val repo: UserRepository = UserRepository()

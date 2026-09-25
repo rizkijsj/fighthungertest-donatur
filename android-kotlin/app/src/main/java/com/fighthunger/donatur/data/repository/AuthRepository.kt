@@ -1,5 +1,6 @@
-package com.fighthunger.donatur.data.repository
+package id.fighthunger.donatur.data.repository
 
+import android.app.Activity
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.PhoneAuthCredential
 import com.google.firebase.auth.PhoneAuthOptions
@@ -18,15 +19,14 @@ class AuthRepository(
     }
 
     fun requestOtp(
-        activity: android.app.Activity,
+        activity: Activity,
         phone: String,
         onCode: (String) -> Unit,
         onError: (Exception) -> Unit
     ) {
         val callback = object : PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             override fun onVerificationCompleted(credential: PhoneAuthCredential) {
-                auth.signInWithCredential(credential)
-                    .addOnFailureListener(onError)
+                auth.signInWithCredential(credential).addOnFailureListener(onError)
             }
 
             override fun onVerificationFailed(e: com.google.firebase.FirebaseException) {

@@ -1,4 +1,4 @@
-package com.fighthunger.donatur.ui.attributes
+package id.fighthunger.donatur.ui.attributes
 
 import android.app.Activity
 import android.content.Intent
@@ -10,9 +10,7 @@ object ExternalActions {
     }
 
     fun openWhatsApp(activity: Activity, phone: String) {
-        val normalized = phone.replace("+", "")
-        val url = "https://wa.me/$normalized"
-        activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse(url)))
+        activity.startActivity(Intent(Intent.ACTION_VIEW, Uri.parse("https://wa.me/${phone.replace("+", "")}")))
     }
 
     fun openWebsite(activity: Activity, url: String) {

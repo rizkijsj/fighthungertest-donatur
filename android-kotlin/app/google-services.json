@@ -1,0 +1,91 @@
+{
+  "project_info": {
+    "project_number": "193751328516",
+    "firebase_url": "https://fight-hunger.firebaseio.com",
+    "project_id": "fight-hunger",
+    "storage_bucket": "fight-hunger.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193751328516:android:25b9d12d479a8178",
+        "android_client_info": {
+          "package_name": "id.fighthunger.donatorapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193751328516-5vv2h9goektdld9sse077ntcme9g38f9.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "id.fighthunger.donatorapp",
+            "certificate_hash": "8d8a445330988c4333af2dc1852ad39292d203de"
+          }
+        },
+        {
+          "client_id": "193751328516-f2c3je4s08u4ahic033laad6mhjonck7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGiGZcdwyjdZsVKCRlygt0fTFCHbe1-60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193751328516-e8lcdinrvs5203ja08umn913nsjbs29p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "193751328516-7j39d3c89afncad9ru11oifh0rhepbq4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "Fantastic7.FightHunger-Organisasi"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:193751328516:android:a0f295f6766a78e6f69251",
+        "android_client_info": {
+          "package_name": "id.fighthunger.donatur"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "193751328516-f2c3je4s08u4ahic033laad6mhjonck7.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDGiGZcdwyjdZsVKCRlygt0fTFCHbe1-60"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "193751328516-e8lcdinrvs5203ja08umn913nsjbs29p.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "193751328516-7j39d3c89afncad9ru11oifh0rhepbq4.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "Fantastic7.FightHunger-Organisasi"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

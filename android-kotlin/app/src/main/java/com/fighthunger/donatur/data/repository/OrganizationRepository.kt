@@ -1,4 +1,4 @@
-package com.fighthunger.donatur.data.repository
+package id.fighthunger.donatur.data.repository
 
 import com.fighthunger.donatur.data.model.OrganizationProfile
 import com.google.firebase.database.FirebaseDatabase

@@ -1,18 +1,58 @@
-package com.fighthunger.donatur.ui.auth
+package id.fighthunger.donatur.ui.auth
 
 import android.os.Bundle
-import android.view.*
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.navigation.fragment.findNavController
-import com.fighthunger.donatur.R
-import com.fighthunger.donatur.data.repository.AuthRepository
-import com.fighthunger.donatur.databinding.FragmentRegisterBinding
-import com.fighthunger.donatur.util.PhoneNumberFormatter
+import id.fighthunger.donatur.R
+import id.fighthunger.donatur.data.repository.AuthRepository
+import id.fighthunger.donatur.databinding.FragmentRegisterBinding
+import id.fighthunger.donatur.util.PhoneNumberFormatter
 
 class RegisterFragment : Fragment() {
- private var _b: FragmentRegisterBinding?=null; private val b get()=_b!!; private val repo=AuthRepository()
- override fun onCreateView(i:LayoutInflater,c:ViewGroup?,s:Bundle?):View{_b=FragmentRegisterBinding.inflate(i,c,false);return b.root}
- override fun onViewCreated(v:View,s:Bundle?){b.registerButton.setOnClickListener{val name=b.nameInput.text.toString().trim();val email=b.emailInput.text.toString().trim();val phone=PhoneNumberFormatter.format(b.phoneInput.text.toString());if(name.isBlank()||email.isBlank()||phone.isBlank()){Toast.makeText(requireContext(),"Fill all fields",Toast.LENGTH_SHORT).show();return@setOnClickListener}; if(!android.util.Patterns.EMAIL_ADDRESS.matcher(email).matches()){b.emailInput.error="Invalid email";return@setOnClickListener}; repo.requestOtp(requireActivity(),phone,{id->findNavController().navigate(R.id.otpFragment,Bundle().apply{putString("verificationId",id);putBoolean("existing",false);putString("name",name);putString("email",email);putString("phone",phone)})},{e->Toast.makeText(requireContext(),e.message,Toast.LENGTH_LONG).show()})}}
- override fun onDestroyView(){_b=null;super.onDestroyView()}
+    private var _binding: FragmentRegisterBinding? = null
+    private val binding get() = _binding!!
+    private val repo = AuthRepository()
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
+        _binding = FragmentRegisterBinding.inflate(inflater, container, false)
+        return binding.root
+    }
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        binding.registerButton.setOnClickListener {
+            val name = binding.nameInput.text.toString().trim()
+            val email = binding.emailInput.text.toString().trim()
+            val phone = PhoneNumberFormatter.format(binding.phoneInput.text.toString())
+
+            if (name.isBlank() || email.isBlank() || phone.isBlank()) {
+                Toast.makeText(requireContext(), "Fill all fields", Toast.LENGTH_SHORT).show()
+                return@setOnClickListener
+            }
+
+            repo.requestOtp(
+                requireActivity(),
+                phone,
+                onCode = { verificationId ->
+                    val bundle = Bundle().apply {
+                        putString("verificationId", verificationId)
+                        putBoolean("existing", false)
+                        putString("name", name)
+                        putString("email", email)
+                        putString("phone", phone)
+                    }
+                    findNavController().navigate(R.id.otpFragment, bundle)
+                },
+                onError = { e -> Toast.makeText(requireContext(), e.message ?: "OTP failed", Toast.LENGTH_LONG).show() }
+            )
+        }
+    }
+
+    override fun onDestroyView() {
+        super.onDestroyView()
+        _binding = null
+    }
 }

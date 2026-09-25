@@ -1,10 +1,9 @@
-package com.fighthunger.donatur.ui.auth
+package id.fighthunger.donatur.ui.auth
 
-import android.app.Activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.fighthunger.donatur.data.repository.AuthRepository
-import com.fighthunger.donatur.util.PhoneNumberFormatter
+import id.fighthunger.donatur.data.repository.AuthRepository
+import id.fighthunger.donatur.util.PhoneNumberFormatter
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -23,7 +22,7 @@ class AuthViewModel(
     private val _state = MutableStateFlow(AuthUiState())
     val state: StateFlow<AuthUiState> = _state
 
-    fun requestLoginOtp(activity: Activity, rawPhone: String) {
+    fun requestLoginOtp(activity: android.app.Activity, rawPhone: String) {
         val phone = PhoneNumberFormatter.format(rawPhone)
         viewModelScope.launch {
             _state.value = AuthUiState(loading = true)
@@ -44,7 +43,7 @@ class AuthViewModel(
         }
     }
 
-    fun requestRegisterOtp(activity: Activity, email: String, name: String, rawPhone: String) {
+    fun requestRegisterOtp(activity: android.app.Activity, email: String, name: String, rawPhone: String) {
         val phone = PhoneNumberFormatter.format(rawPhone)
         viewModelScope.launch {
             _state.value = AuthUiState(loading = true)

@@ -1,4 +1,4 @@
-package com.fighthunger.donatur.data.model
+package id.fighthunger.donatur.data.model
 
 data class UserProfile(val uid: String = "", val email: String = "", val phoneNumber: String = "", val username: String = "")
 

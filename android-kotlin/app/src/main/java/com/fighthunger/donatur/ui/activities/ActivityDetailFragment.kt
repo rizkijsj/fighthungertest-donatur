@@ -1,4 +1,4 @@
-package com.fighthunger.donatur.ui.activities
+package id.fighthunger.donatur.ui.activities
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -8,32 +8,26 @@ import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.lifecycleScope
 import coil.load
-import com.fighthunger.donatur.data.model.DonationPost
-import com.fighthunger.donatur.data.repository.DonationRepository
-import com.fighthunger.donatur.data.repository.OrganizationRepository
-import com.fighthunger.donatur.databinding.FragmentActivityDetailBinding
+import id.fighthunger.donatur.data.model.DonationPost
+import id.fighthunger.donatur.data.repository.DonationRepository
+import id.fighthunger.donatur.data.repository.OrganizationRepository
+import id.fighthunger.donatur.databinding.FragmentActivityDetailBinding
 import com.google.firebase.auth.FirebaseAuth
 import kotlinx.coroutines.launch
 
 class ActivityDetailFragment : Fragment() {
-
     private var _binding: FragmentActivityDetailBinding? = null
     private val binding get() = _binding!!
     private val donationRepo = DonationRepository()
     private val orgRepo = OrganizationRepository()
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View {
         _binding = FragmentActivityDetailBinding.inflate(inflater, container, false)
         return binding.root
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         val transactionId = arguments?.getString("transaction_id") ?: ""
-
         lifecycleScope.launch {
             try {
                 val uid = FirebaseAuth.getInstance().currentUser?.uid ?: return@launch
@@ -62,7 +56,6 @@ class ActivityDetailFragment : Fragment() {
             6 -> "Dibatalkan organisasi"
             else -> "Status tidak diketahui"
         }
-
         val org = orgRepo.byId(item.communityId)
         binding.organizationName.text = org?.name ?: item.communityName
         binding.orgPhone.text = org?.phone ?: item.communityPhone
