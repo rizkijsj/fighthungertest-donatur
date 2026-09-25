@@ -1,5 +1,6 @@
 package com.fighthunger.donatur.ui.auth
 
+import android.app.Activity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.fighthunger.donatur.data.repository.AuthRepository
@@ -18,49 +19,60 @@ data class AuthUiState(
 class AuthViewModel(
     private val repo: AuthRepository = AuthRepository()
 ) : ViewModel() {
-    private val _ui = MutableStateFlow(AuthUiState())
-    val ui: StateFlow<AuthUiState> = _ui
 
-    fun requestLoginOtp(activity: android.app.Activity, rawPhone: String) {
+    private val _state = MutableStateFlow(AuthUiState())
+    val state: StateFlow<AuthUiState> = _state
+
+    fun requestLoginOtp(activity: Activity, rawPhone: String) {
         val phone = PhoneNumberFormatter.format(rawPhone)
         viewModelScope.launch {
-            _ui.value = AuthUiState(loading = true)
+            _state.value = AuthUiState(loading = true)
             try {
                 if (!repo.phoneExists(phone)) {
-                    _ui.value = AuthUiState(error = "Phone number is not registered")
+                    _state.value = AuthUiState(error = "Phone number is not registered")
                     return@launch
                 }
-                repo.requestOtp(activity, phone, onCode = { id -> _ui.value = AuthUiState(verificationId = id) }, onError = { e -> _ui.value = AuthUiState(error = e.message ?: "OTP failed") })
+                repo.requestOtp(
+                    activity = activity,
+                    phone = phone,
+                    onCode = { id -> _state.value = AuthUiState(verificationId = id) },
+                    onError = { e -> _state.value = AuthUiState(error = e.message ?: "OTP failed") }
+                )
             } catch (e: Exception) {
-                _ui.value = AuthUiState(error = e.message ?: "Unexpected error")
+                _state.value = AuthUiState(error = e.message ?: "Unexpected error")
             }
         }
     }
 
-    fun requestRegisterOtp(activity: android.app.Activity, email: String, name: String, rawPhone: String) {
+    fun requestRegisterOtp(activity: Activity, email: String, name: String, rawPhone: String) {
         val phone = PhoneNumberFormatter.format(rawPhone)
         viewModelScope.launch {
-            _ui.value = AuthUiState(loading = true)
+            _state.value = AuthUiState(loading = true)
             try {
                 if (repo.phoneExists(phone)) {
-                    _ui.value = AuthUiState(error = "Phone number already registered")
+                    _state.value = AuthUiState(error = "Phone number already registered")
                     return@launch
                 }
-                repo.requestOtp(activity, phone, onCode = { id -> _ui.value = AuthUiState(verificationId = id) }, onError = { e -> _ui.value = AuthUiState(error = e.message ?: "OTP failed") })
+                repo.requestOtp(
+                    activity = activity,
+                    phone = phone,
+                    onCode = { id -> _state.value = AuthUiState(verificationId = id) },
+                    onError = { e -> _state.value = AuthUiState(error = e.message ?: "OTP failed") }
+                )
             } catch (e: Exception) {
-                _ui.value = AuthUiState(error = e.message ?: "Unexpected error")
+                _state.value = AuthUiState(error = e.message ?: "Unexpected error")
             }
         }
     }
 
-    fun verifyCode(id: String, code: String) {
+    fun verifyCode(verificationId: String, code: String) {
         viewModelScope.launch {
-            _ui.value = AuthUiState(loading = true)
+            _state.value = AuthUiState(loading = true)
             try {
-                repo.verifyOtp(id, code)
-                _ui.value = AuthUiState(success = true)
+                repo.verifyOtp(verificationId, code)
+                _state.value = AuthUiState(success = true)
             } catch (e: Exception) {
-                _ui.value = AuthUiState(error = e.message ?: "Verification error")
+                _state.value = AuthUiState(error = e.message ?: "Verification error")
             }
         }
     }
