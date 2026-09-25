@@ -9,9 +9,18 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        val host = supportFragmentManager.findFragmentById(R.id.nav_host) as NavHostFragment
-        val graph = host.navController.navInflater.inflate(R.navigation.nav_graph)
-        graph.setStartDestination(if (FirebaseAuth.getInstance().currentUser == null) R.id.loginFragment else R.id.homeFragment)
-        host.navController.setGraph(graph, intent.extras)
+
+        val navHost = supportFragmentManager.findFragmentById(R.id.nav_host) as? NavHostFragment
+            ?: throw IllegalStateException("NavHostFragment not found")
+
+        val navGraph = navHost.navController.navInflater.inflate(R.navigation.nav_graph)
+        val startDestination = if (FirebaseAuth.getInstance().currentUser != null) {
+            R.id.homeFragment
+        } else {
+            R.id.loginFragment
+        }
+
+        navGraph.setStartDestination(startDestination)
+        navHost.navController.setGraph(navGraph, intent.extras)
     }
 }
